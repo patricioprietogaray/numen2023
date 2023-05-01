@@ -4,53 +4,90 @@
         <title>pestaña title</title>
     </head>
     <body>
-        <h1 id="titulo-principal">Primera Clase: HTML!!!</h1>
-        <h2 class="subtitulo">Página Web de prueba</h2>
-        <h4>Lenguaje de Marcado!</h4>
-        <p>HTML no es un Lenguaje de Programación, sino que es un Lenguaje de Marcado!!!</p>
-        <hr>
-        <h2 class="subtitulo">Atajos de teclado (Lista Desordenada)</h2>
-        <ul>
-            <li>Ctrl + s: guardar cambios en el archivo</li>
-            <li>Ctrl + c: copiar</li>
-            <li>Ctrl + v: pegar</li>
-            <li>Ctrl + x: cortar</li>
-            <li><strong>Ctrl + z: deshacer</strong></li>
-            <li><strong>Ctrl + y: rehacer</strong></li>
-        </ul>
-        <hr>
-        <h2 class="subtitulo">Atajos de Emmet (Lista ordenada)</h2>
-        <!-- ol>li*3 -->
-        <ol type="a">
-            <li>Ctrl + k + u: comentar</li>
-            <li>Ctrl + k + c: descomentar</li>
-            <li>Ctrl + / (shift + 7): comentar y descomentar</li>
-            <li>Alt + Shift + f: identar el código (no lo hace en manjaro linux)</li>
-            <li>
-                <ol type="i">
-                    <li>Tema 1</li>
-                    <li>Tema 2</li>
-                    <li>Tema 3</li>
-                </ol>
-            </li>
-            <li>lalalala</li>
-        </ol>
-        <hr>
-        <h2>Ejemplo de una diapo</h2>
-
+        <nav>
+            <ul>
+                <li>Inicio</li>
+                <li>Blog</li>
+                <li>Contacto</li>
+            </ul>
+        </nav>
+        <hr><hr>
+        <header>
+            <h1 id="titulo-principal">Primera Clase: HTML!!!</h1>
+            <h2 class="subtitulo">Página Web de prueba</h2>
+            <h4>Lenguaje de Marcado!</h4>
+        </header>
+        <hr><hr>
+        <main>
+            <p>HTML no es un Lenguaje de Programación, sino que es un Lenguaje de Marcado!!!</p>
+            <hr>
+            <h2 class="subtitulo">Atajos de teclado (Lista Desordenada)</h2>
+            <p>Las listas ordenadas permiten crear listas donde 
+                los items <strong>no están</strong> enumerados.
+            </p>
+            <ul>
+                <li>Ctrl + s: guardar cambios en el archivo</li>
+                <li>Ctrl + c: copiar</li>
+                <li>Ctrl + v: pegar</li>
+                <li>Ctrl + x: cortar</li>
+                <li><strong>Ctrl + z: deshacer</strong></li>
+                <li><strong>Ctrl + y: rehacer</strong></li>
+            </ul>
+            <hr>
         
-        <p>
-            En una etiqueta de párrafo escribiremos la gran mayoría del texto
-            que llevará una página web. El texto que escribamos aquí podemos ponerlo
-            en <b>negrita</b>, en <i>cursiva o itálica</i>, <u>subrayado</u>, 
-            <mark>resaltado</mark>, e incluso podemos imitar las <small>letras pequeñas</small>
-            de un contrato.<br>
-            Hasta podemos escribir fórmulas matemáticas como la de la relatividad 
-            de Einstein que es e=mc<sup>2</sup>.
+            <h2 class="subtitulo">Atajos de Emmet (Lista ordenada)</h2>
+            <!-- ol>li*3 -->
+            <p>Las listas ordenadas permiten crear listas donde 
+                los items <strong>están</strong> enumerados.
+            </p>
+            <ol type="a">
+                <li>Ctrl + k + u: comentar</li>
+                <li>Ctrl + k + c: descomentar</li>
+                <li>Ctrl + / (shift + 7): comentar y descomentar</li>
+                <li>Alt + Shift + f: identar el código (no lo hace en manjaro linux)</li>
+                <li>
+                    <ol type="i">
+                        <li>Tema 1</li>
+                        <li>Tema 2</li>
+                        <li>Tema 3</li>
+                    </ol>
+                </li>
+                <li>lalalala</li>
+            </ol>
+            <hr>
+            <h2>Ejemplo de una diapo</h2>
+            <p>
+                En una etiqueta de párrafo escribiremos la gran mayoría del texto
+                que llevará una página web. El texto que escribamos aquí podemos ponerlo
+                en <b>negrita</b>, en <i>cursiva o itálica</i>, <u>subrayado</u>, 
+                <mark>resaltado</mark>, e incluso podemos imitar las <small>letras pequeñas</small>
+                de un contrato.<br>
+                Hasta podemos escribir fórmulas matemáticas como la de la relatividad 
+                de Einstein que es e=mc<sup>2</sup>.
+            </p>
             <hr>
             <h2>Algún titulo</h2>
             <p><strong>ipsum dolor sit amet consectetur</strong> adipisicing elit. Consequuntur deserunt cum nulla nesciunt sed? Rem, adipisci laboriosam ducimus incidunt, aliquid delectus, id quaerat reiciendis nisi minima commodi asperiores soluta sed?</p>
-        </p>
+            <h2>Wiki</h2>
+            <p>El término wikinota 1​ (palabra que proviene del hawaiano wiki, 'rápido')2​ alude al nombre que recibe una comunidad virtual, cuyas páginas son editadas directamente desde el navegador, donde los mismos usuarios crean, modifican, corrigen o eliminan contenidos que, habitualmente, comparten. No tiene por qué ser necesariamente un sitio en la web, puesto que hay wikis instalables para uso en el escritorio de un computador u ordenador personal o que pueden portarse en un llavero USB que lleven un entorno LAMP como, por ejemplo, XAMPP.[cita requerida]</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/HNL_Wiki_Wiki_Bus.jpg/220px-HNL_Wiki_Wiki_Bus.jpg" alt="Wiki">
+            <p>Más informacion en <a href="https://es.wikipedia.org/wiki/Wiki">Wiki</a> </p>
+            <hr>
+            <h2>lista de definicion</h2>
+            <dl>
+                <dt>HTML: Lenguaje de Marcado</dt>
+                <dd>Permite diseñar la estructura del sitio web.</dd>
+                <dt>CSS: Lenguaje de estilos</dt>
+                <dd>Se establecen los estilos gráficos que permitirá ver al sitio mas vistoso</dd>
+                <dt>JavaScript: Lenguaje de programación</dt>
+                <dd>Se establece la funcionalidad que tendrá el sitio</dd>
+            </dl>
+        </main>
+        <hr><hr>
+        <footer>
+            <p><small>Todos los derechos reservados - La Costa</small></p>
+        </footer>
+        
 
     </body>
 </html>
