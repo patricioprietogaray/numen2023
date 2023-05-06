@@ -4,9 +4,9 @@
     <title>pestaña title</title>
   </head>
   <body>
-    <header>
+    <header id="inicio">
       <h1>IMT La Costa</h1>
-      <nav id="inicio" style="background-color: coral">
+      <nav style="background-color: coral">
         <ul>
           <li><a href="./index.html#incio">Inicio</a></li>
           <li><a href="./index.html#atajos">Atajos del teclado</a></li>
@@ -111,8 +111,21 @@
       <p><a href="./index.html#inicio">Volver al inicio</a></p>
       <hr>
       <p>
-        Más informacion en <a href="https://es.wikipedia.org/wiki/Wiki">Wiki</a>
+        Más informacion en <a target="_blank" href="https://es.wikipedia.org/wiki/Wiki">Wiki</a>. La información se mostrará en una nueva pestaña: _blank. Solo se utiliza si al salir de la pagina actual hay perdida de datos.
       </p>
+      <p>
+        Más informacion en <a target="_parent" href="https://es.wikipedia.org/wiki/Wiki">Wiki</a>. La información se mostrará en la pestaña padre: _parent.
+      </p>
+      <p>
+        Más informacion en <a target="_self" href="https://es.wikipedia.org/wiki/Wiki">Wiki</a>. La información se mostrará en la misma pestaña: _self.
+      </p>
+      <p>_top, _self, _parent se ve mejor su utilidad si se usan iframes, fueron los separadores que antes se utilizaban...</p>
+      <img src="/assets/img/frames.gif" alt="Frames tradicionales">
+      <img src="/assets/img/fig8-20.png" alt="Ejemplo de Frames en la era de Netscape" width="500">
+
+      <p>Para atributos rel visitar <a target="_blank" href="https://developer.mozilla.org/es/docs/Web/HTML/Attributes/rel">este enlace</a>.</p>
+
+
       <hr />
       <h2 id="definicion">lista de definicion</h2>
       <dl>
