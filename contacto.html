@@ -31,9 +31,86 @@
     <main>
         <img src="/assets/img/marambio_750_1080.jpg" 
             alt="Base Marambio en la Antártida Argentina" 
-            width="500">
+            width="300">
             <!-- se puede utilizar porcentaje en html -->
+        <h3>Formulario de contacto</h3>
         <form action="">
+            <!-- etiqueta - entrada -->
+            <!-- input id -> label for 
+            cuando se hace clic en el label se selecciona
+            el input-->
+            <!-- br no se utiliza en la estructura
+            se utiliza css (como no tiene css se usa)-->
+            <!-- <label for="apellido">Apellido: </label>
+            <input type="text" id="apellido"><br><br> -->
+            <!-- placeholder muestra en gris un texto predeterminado -->
+            <p>
+                <label for="apellido">Apellido: </label>
+                <input placeholder="Montiel" type="text" id="apellido">
+            </p>
+            <p>
+                <label for="nombre">Nombre: </label>
+                <input placeholder="Gonzalo" type="text" id="nombre">
+            </p>
+            <p>
+                <label for="edad">Edad: </label>
+                <input placeholder="28" type="number" id="edad">
+            </p>
+            <p>
+                <label for="selectGenero">Género: </label>
+                <select name="genero" id="selectGenero">
+                    <option value="">Seleccione...</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                    <option value="nsNC">NS/NC</option>
+                    <!-- value es lo que se envia al servidor 2.00 -->
+                </select>
+            </p>
+            <p>
+                <!-- mismo name para pertenecer al mismo grupo -->
+                <label for="estado-civil">Estado Civil: </label>
+                <input type="radio" name="estado-civil" id="">Soltero
+                <input type="radio" name="estado-civil" id="">Casado
+                <input type="radio" name="estado-civil" id="">Divorciado
+            </p>
+            <p>
+                <details>
+                    <summary>Ayuda sobre el estado civil: </summary>
+                    <article>
+                        <h4>Soltero: </h4>
+                        <p>Es una persona que no se ha casado ni declaró una unión convivencial</p>
+                    </article>
+                    <article>
+                        <h4>Casado: </h4>
+                        <p>Es una persona que se ha casado ante el registro civil.</p>
+                    </article>
+                    <article>
+                        <h4>Divorciado: </h4>
+                        <p>Es una persona que se ha casado y luego se ha separado en forma legal ante un juzgado.</p>
+                    </article>
+                </details>
+            </p>
+            <p>
+                <textarea name="" id="" cols="60" rows="5"></textarea>
+            </p>
+            <p>
+                <input type="checkbox" name="" id="terminos">
+                <label for="terminos">Acepto los terminos y condiciones</label>
+            </p>
+            <!-- la pagina tiene un DOM y este lee y se queda alerta
+             a la escucha de los eventos click, mouseover, etc...
+             JS tiene eventos y en este caso  
+                se activa el alert cuando se hace click en el boton
+                 
+            Detectar los movimientos que hace el usuario y luego 
+        hacer las acciones pertinentes, ej: falta rellenar un campo-->
+            <p><button onclick="alert('Gracias por contactarnos!')">Enviar</button></p>
+            <p>
+
+            </p>
+            
+
 
         </form>
     </main>
