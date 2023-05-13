@@ -2,22 +2,27 @@
 <html>
   <head>
     <title>pestaña title</title>
-    <!-- Clase 3 CSS -->
-    <!-- los estilos se leen de arriba hacia abajo y si un estilo se repite
-    es reemplazado por la última modificación.... 
-    hay tres formas de cargalo, entre las etiquetas o tags 
-    <style></style> en forma interna desde el propio html, 
-    desde un archivo externo con <link rel="stylesheet" href="style.css">,
-    o inline desde el propio codigo html como por ejemplo <nav style="background-color: coral">
-  -->
+    <style>
+      /* en este caso se debe aplicar los estilos en cada pagina de manera individual */
+      /* etiqueta o tag {
+        clave: valor;
+      } */
+      body {
+        /* todo lo que contenga a la etiqueta body, como header, h1, h2, nav, etc. tendrá un 
+        color de fondo */
+        background-color: cornsilk;
+      }
 
-  <link rel="stylesheet" href="style.css">
-
+      h2 {
+        /* el color de las letras será.... rojo oscuro */
+        color: darkred;
+      }
+    </style>
   </head>
   <body>
     <header id="inicio">
       <h1>IMT La Costa</h1>
-      <nav style="background-color: coral">
+      <nav>
         <ul>
           <li><a href="./index.html#incio">Inicio</a></li>
           <li><a href="./index.html#atajos">Atajos del teclado</a></li>
@@ -32,13 +37,15 @@
       </nav>
       <hr />
       <hr />
-      <h2 style="color: rgb(207, 13, 120)" id="titulo-principal">Primera Clase: HTML!!!</h2>
+      <!-- el h2 esta de color rojo oscuro, pero se va a cambiar en forma particular a un azul oscuro usando el modo inline de los estilos -->
+      <h2 style="color: darkblue">Clase 3: CSS</h2>
+      <h2 id="titulo-principal">Primera Clase: HTML!!!</h2>
       <h3 class="subtitulo">Página Web de prueba</h3>
       <h4>Lenguaje de Marcado!</h4>
     </header>
     <hr />
     <hr />
-    <main style="color: rgb(25, 185, 11)">
+    <main>
       <p>
         HTML no es un Lenguaje de Programación, sino que es un Lenguaje de
         Marcado!!!
@@ -158,7 +165,7 @@
     </main>
     <hr />
     <hr />
-    <footer style="color: blue; background-color: cyan">
+    <footer>
       <p><small>Todos los derechos reservados - La Costa</small></p>
     </footer>
   </body>
