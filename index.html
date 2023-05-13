@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pestaña title</title>
+    <!-- Clase 3 CSS -->
+    <!-- los estilos se leen de arriba hacia abajo y si un estilo se repite
+    es reemplazado por la última modificación.... 
+    hay tres formas de cargalo, entre las etiquetas o tags 
+    <style></style> en forma interna desde el propio html, 
+    desde un archivo externo con <link rel="stylesheet" href="style.css">,
+    o inline desde el propio codigo html como por ejemplo <nav style="background-color: coral">
+  -->
+
+  <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+    <header id="inicio">
+      <h1>IMT La Costa</h1>
+      <nav style="background-color: coral">
+        <ul>
+          <li><a href="./index.html#incio">Inicio</a></li>
+          <li><a href="./index.html#atajos">Atajos del teclado</a></li>
+          <li><a href="./index.html#emmet">Atajos de Emmet</a></li>
+          <li><a href="./index.html#diapo">Ejemplo de una diapo</a></li>
+          <li><a href="./index.html#algun">Algún titulo</a></li>
+          <li><a href="./index.html#wiki">Wiki</a></li>
+          <li><a href="./index.html#definicion">Lista de definición</a></li>
+          <li><a href="./info.html">Información</a></li>
+            <li><a href="/contacto.html#inicio">Contacto</a></li>
+        </ul>
+      </nav>
+      <hr />
+      <hr />
+      <h2 style="color: rgb(207, 13, 120)" id="titulo-principal">Primera Clase: HTML!!!</h2>
+      <h3 class="subtitulo">Página Web de prueba</h3>
+      <h4>Lenguaje de Marcado!</h4>
+    </header>
+    <hr />
+    <hr />
+    <main style="color: rgb(25, 185, 11)">
+      <p>
+        HTML no es un Lenguaje de Programación, sino que es un Lenguaje de
+        Marcado!!!
+      </p>
+      <hr />
+      <h2 id="atajos" class="subtitulo">Atajos de teclado (Lista Desordenada)</h2>
+      <p>
+        Las listas ordenadas permiten crear listas donde los items
+        <strong>no están</strong> enumerados.
+      </p>
+      <ul>
+        <li>Ctrl + s: guardar cambios en el archivo</li>
+        <li>Ctrl + c: copiar</li>
+        <li>Ctrl + v: pegar</li>
+        <li>Ctrl + x: cortar</li>
+        <li><strong>Ctrl + z: deshacer</strong></li>
+        <li><strong>Ctrl + y: rehacer</strong></li>
+      </ul>
+      <p><a href="./index.html#inicio">Volver al inicio</a></p>
+      <hr />
+
+      <h2 id="emmet" class="subtitulo">Atajos de Emmet (Lista ordenada)</h2>
+      <!-- ol>li*3 -->
+      <p>
+        Las listas ordenadas permiten crear listas donde los items
+        <strong>están</strong> enumerados.
+      </p>
+      <ol type="a">
+        <li>Ctrl + k + u: comentar</li>
+        <li>Ctrl + k + c: descomentar</li>
+        <li>Ctrl + / (shift + 7): comentar y descomentar</li>
+        <li>
+          Alt + Shift + f: identar el código (no lo hace en manjaro linux)
+        </li>
+        <li>
+          <ol type="i">
+            <li>Tema 1</li>
+            <li>Tema 2</li>
+            <li>Tema 3</li>
+          </ol>
+        </li>
+        <li>lalalala</li>
+      </ol>
+      <p><a href="./index.html#inicio">Volver al inicio</a></p>
+      <hr />
+      <h2 id="diapo">Ejemplo de una diapo</h2>
+      <p>
+        En una etiqueta de párrafo escribiremos la gran mayoría del texto que
+        llevará una página web. El texto que escribamos aquí podemos ponerlo en
+        <b>negrita</b>, en <i>cursiva o itálica</i>, <u>subrayado</u>,
+        <mark>resaltado</mark>, e incluso podemos imitar las
+        <small>letras pequeñas</small> de un contrato.<br />
+        Hasta podemos escribir fórmulas matemáticas como la de la relatividad de
+        Einstein que es e=mc<sup>2</sup>.
+      </p>
+      <p><a href="./index.html#inicio">Volver al inicio</a></p>
+      <hr />
+      <h2 id="algun">Algún titulo</h2>
+      <p>
+        <strong>ipsum dolor sit amet consectetur</strong> adipisicing elit.
+        Consequuntur deserunt cum nulla nesciunt sed? Rem, adipisci laboriosam
+        ducimus incidunt, aliquid delectus, id quaerat reiciendis nisi minima
+        commodi asperiores soluta sed?
+      </p>
+      <p><a href="./index.html#inicio">Volver al inicio</a></p>
+      <hr>
+      <h2 id="wiki">Wiki</h2>
+      <p>
+        El término wikinota 1​ (palabra que proviene del hawaiano wiki,
+        'rápido')2​ alude al nombre que recibe una comunidad virtual, cuyas
+        páginas son editadas directamente desde el navegador, donde los mismos
+        usuarios crean, modifican, corrigen o eliminan contenidos que,
+        habitualmente, comparten. No tiene por qué ser necesariamente un sitio
+        en la web, puesto que hay wikis instalables para uso en el escritorio de
+        un computador u ordenador personal o que pueden portarse en un llavero
+        USB que lleven un entorno LAMP como, por ejemplo, XAMPP.[cita requerida]
+      </p>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/HNL_Wiki_Wiki_Bus.jpg/220px-HNL_Wiki_Wiki_Bus.jpg"
+        alt="Wiki"
+      />
+      <p><a href="./index.html#inicio">Volver al inicio</a></p>
+      <hr>
+      <p>
+        Más informacion en <a target="_blank" href="https://es.wikipedia.org/wiki/Wiki">Wiki</a>. La información se mostrará en una nueva pestaña: _blank. Solo se utiliza si al salir de la pagina actual hay perdida de datos.
+      </p>
+      <p>
+        Más informacion en <a target="_parent" href="https://es.wikipedia.org/wiki/Wiki">Wiki</a>. La información se mostrará en la pestaña padre: _parent.
+      </p>
+      <p>
+        Más informacion en <a target="_self" href="https://es.wikipedia.org/wiki/Wiki">Wiki</a>. La información se mostrará en la misma pestaña: _self.
+      </p>
+      <p>_top, _self, _parent se ve mejor su utilidad si se usan iframes, fueron los separadores que antes se utilizaban...</p>
+      <img src="/assets/img/frames.gif" alt="Frames tradicionales">
+      <img src="/assets/img/fig8-20.png" alt="Ejemplo de Frames en la era de Netscape" width="500">
+
+      <p>Para atributos rel visitar <a target="_blank" href="https://developer.mozilla.org/es/docs/Web/HTML/Attributes/rel">este enlace</a>.</p>
+
+
+      <hr />
+      <h2 id="definicion">lista de definicion</h2>
+      <dl>
+        <dt>HTML: Lenguaje de Marcado</dt>
+        <dd>Permite diseñar la estructura del sitio web.</dd>
+        <dt>CSS: Lenguaje de estilos</dt>
+        <dd>
+          Se establecen los estilos gráficos que permitirá ver al sitio mas
+          vistoso
+        </dd>
+        <dt>JavaScript: Lenguaje de programación</dt>
+        <dd>Se establece la funcionalidad que tendrá el sitio</dd>
+      </dl>
+      <hr>
+      <p><a href="./index.html#inicio">Volver al inicio</a></p>
+      <hr>
+      <p><a href="./esquema-basico.html">prueba de estilos</a></p>
+    </main>
+    <hr />
+    <hr />
+    <footer style="color: blue; background-color: cyan">
+      <p><small>Todos los derechos reservados - La Costa</small></p>
+    </footer>
+  </body>
+</html>
