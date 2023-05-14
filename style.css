@@ -40,8 +40,12 @@ img {
 /* cuanto mas especifico sea mas prioridad tendrá
 el navegador en acatar las órdenes 
 end por ser llamado por id es mas poderoso que la clase*/
+
+/* el id es prioritario sobre las etiquetas (h2) y de
+las clases (.subtitulo) vease que la cascada no se respeta */
 #definicion {
     text-align: end;
+    color: beige;
 }
 
 .subtitulo {
