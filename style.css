@@ -29,3 +29,8 @@ img {
     /* ancho de imagen */
     width: 300px;
 }
+
+.parrafo-imagen {
+    /* centra todo dentro del parrafo */
+    text-align: center;
+}
