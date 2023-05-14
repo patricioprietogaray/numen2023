@@ -27,10 +27,17 @@ h2 {
 
 img {
     /* ancho de imagen */
+    /* tener en cuenta que al trabajar con px se debe
+    saber anticipadamente el teamaño de la pantalla. */
     width: 300px;
 }
 
 .parrafo-imagen {
     /* centra todo dentro del parrafo */
+    text-align: center;
+}
+
+.texto-nota {
+    /* texto centrado en un párrafo */
     text-align: center;
 }
