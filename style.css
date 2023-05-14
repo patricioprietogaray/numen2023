@@ -1,7 +1,15 @@
 body {
-    /* todo lo que contenga a la etiqueta body, como header, h1, h2, nav, etc. tendrá un 
+
+    /* todo lo que contenga a la etiqueta body, 
+    como header, h1, h2, nav, etc. tendrá un 
         color de fondo */
-    background-color: teal;
+    background-color: teal; 
+    /* a cada linea se la denomina declaración css*/
+
+    /* le asigno a todo el documento un tipo de  familia de fuente */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* le asigno a todo el documento un tamaño grande de fuente */
+    font-size: large;
 }
 
 h2 {
