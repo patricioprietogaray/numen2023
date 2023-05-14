@@ -37,7 +37,15 @@ img {
     text-align: center;
 }
 
+/* cuanto mas especifico sea mas prioridad tendrá
+el navegador en acatar las órdenes 
+end por ser llamado por id es mas poderoso que la clase*/
+#definicion {
+    text-align: end;
+}
+
 .subtitulo {
     /* texto centrado en un párrafo */
     text-align: center;
 }
+
