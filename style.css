@@ -1,0 +1,10 @@
+body {
+    /* todo lo que contenga a la etiqueta body, como header, h1, h2, nav, etc. tendrá un 
+        color de fondo */
+    background-color: teal;
+}
+
+h2 {
+    /* el color de las letras será.... rojo oscuro */
+    color: coral;
+}

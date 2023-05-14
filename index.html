@@ -18,6 +18,8 @@
         color: darkred;
       }
     </style>
+    <!-- este link o enlace se relaciona con una hoja de estilo (rel="stylesheet") y hace referencia al archivo .css (href="./style.css")-->
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <header id="inicio">
@@ -32,16 +34,17 @@
           <li><a href="./index.html#wiki">Wiki</a></li>
           <li><a href="./index.html#definicion">Lista de definición</a></li>
           <li><a href="./info.html">Información</a></li>
-            <li><a href="/contacto.html#inicio">Contacto</a></li>
+          <li><a href="/contacto.html#inicio">Contacto</a></li>
         </ul>
       </nav>
       <hr />
       <hr />
       <!-- el h2 esta de color rojo oscuro, pero se va a cambiar en forma particular a un azul oscuro usando el modo inline de los estilos -->
-      
+
       <!-- no es recomendado aplicar estilos en linea,
       es el último recurso.... aunque predomina en los demas estilos declarados anteriormente  -->
       <!-- <h2 style="color: darkblue">Clase 3: CSS</h2> -->
+
       <h2 id="titulo-principal">Primera Clase: HTML!!!</h2>
       <h3 class="subtitulo">Página Web de prueba</h3>
       <h4>Lenguaje de Marcado!</h4>
@@ -54,7 +57,9 @@
         Marcado!!!
       </p>
       <hr />
-      <h2 id="atajos" class="subtitulo">Atajos de teclado (Lista Desordenada)</h2>
+      <h2 id="atajos" class="subtitulo">
+        Atajos de teclado (Lista Desordenada)
+      </h2>
       <p>
         Las listas ordenadas permiten crear listas donde los items
         <strong>no están</strong> enumerados.
@@ -114,7 +119,7 @@
         commodi asperiores soluta sed?
       </p>
       <p><a href="./index.html#inicio">Volver al inicio</a></p>
-      <hr>
+      <hr />
       <h2 id="wiki">Wiki</h2>
       <p>
         El término wikinota 1​ (palabra que proviene del hawaiano wiki,
@@ -131,22 +136,42 @@
         alt="Wiki"
       />
       <p><a href="./index.html#inicio">Volver al inicio</a></p>
-      <hr>
+      <hr />
       <p>
-        Más informacion en <a target="_blank" href="https://es.wikipedia.org/wiki/Wiki">Wiki</a>. La información se mostrará en una nueva pestaña: _blank. Solo se utiliza si al salir de la pagina actual hay perdida de datos.
+        Más informacion en
+        <a target="_blank" href="https://es.wikipedia.org/wiki/Wiki">Wiki</a>.
+        La información se mostrará en una nueva pestaña: _blank. Solo se utiliza
+        si al salir de la pagina actual hay perdida de datos.
       </p>
       <p>
-        Más informacion en <a target="_parent" href="https://es.wikipedia.org/wiki/Wiki">Wiki</a>. La información se mostrará en la pestaña padre: _parent.
+        Más informacion en
+        <a target="_parent" href="https://es.wikipedia.org/wiki/Wiki">Wiki</a>.
+        La información se mostrará en la pestaña padre: _parent.
       </p>
       <p>
-        Más informacion en <a target="_self" href="https://es.wikipedia.org/wiki/Wiki">Wiki</a>. La información se mostrará en la misma pestaña: _self.
+        Más informacion en
+        <a target="_self" href="https://es.wikipedia.org/wiki/Wiki">Wiki</a>. La
+        información se mostrará en la misma pestaña: _self.
       </p>
-      <p>_top, _self, _parent se ve mejor su utilidad si se usan iframes, fueron los separadores que antes se utilizaban...</p>
-      <img src="/assets/img/frames.gif" alt="Frames tradicionales">
-      <img src="/assets/img/fig8-20.png" alt="Ejemplo de Frames en la era de Netscape" width="500">
+      <p>
+        _top, _self, _parent se ve mejor su utilidad si se usan iframes, fueron
+        los separadores que antes se utilizaban...
+      </p>
+      <img src="/assets/img/frames.gif" alt="Frames tradicionales" />
+      <img
+        src="/assets/img/fig8-20.png"
+        alt="Ejemplo de Frames en la era de Netscape"
+        width="500"
+      />
 
-      <p>Para atributos rel visitar <a target="_blank" href="https://developer.mozilla.org/es/docs/Web/HTML/Attributes/rel">este enlace</a>.</p>
-
+      <p>
+        Para atributos rel visitar
+        <a
+          target="_blank"
+          href="https://developer.mozilla.org/es/docs/Web/HTML/Attributes/rel"
+          >este enlace</a
+        >.
+      </p>
 
       <hr />
       <h2 id="definicion">lista de definicion</h2>
@@ -161,9 +186,9 @@
         <dt>JavaScript: Lenguaje de programación</dt>
         <dd>Se establece la funcionalidad que tendrá el sitio</dd>
       </dl>
-      <hr>
+      <hr />
       <p><a href="./index.html#inicio">Volver al inicio</a></p>
-      <hr>
+      <hr />
       <p><a href="./esquema-basico.html">prueba de estilos</a></p>
     </main>
     <hr />
