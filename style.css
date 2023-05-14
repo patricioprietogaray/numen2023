@@ -1,3 +1,11 @@
+  /* selector (etiqueta o tag) {
+        Clave: Valor;
+        o para decirlo de otra forma es
+        Propiedad: Valor; 
+      } */
+
+  /* body es un selector de tipo etiqueta */
+
 body {
 
     /* todo lo que contenga a la etiqueta body, 
@@ -13,6 +21,11 @@ body {
 }
 
 h2 {
-    /* el color de las letras será.... rojo oscuro */
+    /* el color de las letras será.... coral */
     color: coral;
+}
+
+img {
+    /* ancho de imagen */
+    width: 300px;
 }
