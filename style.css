@@ -49,7 +49,11 @@ prioridades:
 1 id 
 2 class 
 3 etiquetas o tags
+
+cuando el cursor esta sobre un selector de css
+muestra la especificidad (id, class, tags)
 ******************************* */
+
 
 #definicion {
     text-align: end;
