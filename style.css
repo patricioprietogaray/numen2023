@@ -43,7 +43,9 @@ body {
 
 h2 {
     /* el color de las letras será.... coral */
-    color: coral;
+    color: coral !important;
+    /* aquí !important le da prioridad al color del h2
+    no importa si luego se intenta modificar no lo hará */
 }
 
 img {
@@ -101,4 +103,10 @@ h2~p{
     los estilos... */
     text-align: center;
     color: rebeccapurple;
+}
+
+h2 {
+    color:yellow;
+    /* intento modificar el color colal y no me deja
+    porque es !important */
 }
