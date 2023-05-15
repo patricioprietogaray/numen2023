@@ -85,3 +85,20 @@ muestra la especificidad (id, class, tags)
     text-align: center;
 }
 
+h2+p {
+    /* un parrafo p que sigue a un titulo h2, y solo
+    ese párrafo p se le aplicarán los estilos.
+    <h2></h2>
+    <p></p>
+    */
+    color: lightgreen;
+    background-color: black;
+    text-align: end;
+}
+
+h2~p{
+    /* todos los h2 que tengan como hermano a un p aplicar
+    los estilos... */
+    text-align: center;
+    color: rebeccapurple;
+}
