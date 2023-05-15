@@ -1,4 +1,29 @@
-  /* selector (etiqueta o tag) {
+ /* selector universal aplica a cada
+ elemento por separado el mismo estilo */
+
+* {
+
+    /* todos los navegadores tienen su 
+    estilo propio.... * el selector universal
+    modifica dichos estilos para que el 
+    sitio se vea de la forma que yo quiero... */
+    margin: 0;
+
+    /* no se para que sirve */
+    box-sizing: border-box;
+
+/* todo lo que contenga a la etiqueta body, 
+    como header, h1, h2, nav, etc. tendrá un 
+        color de fondo */
+    background-color: cornsilk;
+
+    /* le asigno a todo el documento un tipo de  familia de fuente */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+            /* le asigno a todo el documento un tamaño grande de fuente */
+    font-size: large;
+}
+ /* selector (etiqueta o tag) {
         Clave: Valor;
         o para decirlo de otra forma es
         Propiedad: Valor; 
@@ -8,16 +33,11 @@
 
 body {
 
-    /* todo lo que contenga a la etiqueta body, 
-    como header, h1, h2, nav, etc. tendrá un 
-        color de fondo */
-    background-color: teal; 
+     
     /* a cada linea se la denomina declaración css*/
 
-    /* le asigno a todo el documento un tipo de  familia de fuente */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* le asigno a todo el documento un tamaño grande de fuente */
-    font-size: large;
+    
+
 }
 
 h2 {
