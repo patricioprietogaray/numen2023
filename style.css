@@ -9,7 +9,8 @@
     sitio se vea de la forma que yo quiero... */
     margin: 0;
 
-    /* no se para que sirve */
+    /* El siguiente código garantiza que todos los elementos tengan el tamaño de esta forma más intuitiva. Muchos navegadores ya usan box-sizing: border-box;
+        muchos elementos de formulario (pero no todos, por lo que las entradas y las áreas de texto se ven diferentes en el ancho: 100%; ). */
     box-sizing: border-box;
 
 /* todo lo que contenga a la etiqueta body, 
