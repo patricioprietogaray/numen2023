@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header id="inicio">
+      <h1 id="tituloPrincipal">ITM La Costa</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.html#DalaiLama">Dalai Lama</a></li>
+          <li>Sobre Nosotros</li>
+          <li>Contacto</li>
+        </ul>
+      </nav>
+    </header>
+    <h2>Contactanos</h2>
+    <h3>Formulario de Contacto</h3>
+    <form>
+      <p><label for="apellido">Apellido: </label> <input type="text"  placeholder="López" /></p>
+      <p><label for="nombre">Nombre: </label> <input type="text"  placeholder="Juancito" /></p>
+      <p><label for="edad">Edad: </label> <input type="number" placeholder="19" /></p>
+      <p>
+        <label for="genero">Género: </label>
+        <select name="genero" id="selectGenero">
+          <option selected>Seleccione...</option>
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+          <option value="otro">Otro</option>
+          <option value="nsNc">NS/NC</option>
+        </select>
+      </p>
+      <p>
+        <label for="estado-civil">Estado Civil: </label>
+        <input name="estado-civil" type="radio" />Soltero
+        <input name="estado-civil" type="radio" />Casado
+        <input name="estado-civil" type="radio" />En pareja
+      </p>
+      <p><label for="comentarios">Comentarios: </label></p>
+      <p><textarea name="" id="" cols="30" rows="5"></textarea></p>
+      <p><input type="checkbox"><label for="terminos">Acepto los términos y condiciones</label></p>
+      <p><button onclick="alert('Gracias por contactarnos!')">Enviar</button></p>
+    </form>
+    <img
+      width="400"
+      src="./assets/img/images.jpeg"
+      alt="tibet-base-everest"
+    />
+    <br />
+    <footer>
+      <hr />
+      <small>Todos los derechos reservados - La Costa</small>
+      <hr />
+      <a href="">Volver arriba</a>
+    </footer>
+  </body>
+</html>
