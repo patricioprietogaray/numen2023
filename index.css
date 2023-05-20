@@ -4,12 +4,24 @@
 }
 .caja-grande {
     background-color: rgb(23, 101, 219);
-    height: 400px;
-    width: 400px;
+    
+    /* 50% de que? no tiene referencia o sea 50% de 0 es cero */
+    /* height: 50%;  */
+
+    /* para eso se usa el vh o vw son 
+    medidas relativas con respecto al 
+    viewport */
+    
+    height: 80vh;
+    width: 80vw;
 }
 
 .caja-chica {
     background-color: white;
     height: 30%;
     width: 30%;
+    /* si uso la medida en px el
+    cuadrado interior permanecerá
+    fijo */
 }
+
