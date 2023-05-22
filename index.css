@@ -10,7 +10,10 @@
 
 .header {
     background-color: white;
-    height: 12%;
+    height: 1;
+    /* cualquier numero que sea >= 0 el header ocupará
+    lo que ocupan los elementos dentro del header, se 
+    debe especificar unidades de medida absoluta o relativas */
 }
 
 .caja {
@@ -23,4 +26,29 @@
 
 p {
     line-height: 50px;
+}
+
+.caja-grande {
+    /* color no esta en caja-chica, 
+    color se hereda a caja-chica por ser hijo
+    de caja-grande (ver html) */
+    color: aliceblue;
+    /* font-size: 24px; */
+    font-size: 1rem;
+    /* el rem viene de las variables impuestas por
+    el navegador: 1 rem = 16px  Root EleMent -> REM
+    el navegador viene predeterminado 
+    con difierentes estilos
+    */
+    background-color: black;
+    width: 300px;
+    height: 300px;
+}
+
+.caja-chica {
+    background-color: red;
+    width: 150px;
+    height: 150px;
+    font-size: 0.8em;
+    /* 1em son 24px; y 0.8em heredado es 19.2px*/
 }
