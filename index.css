@@ -40,15 +40,58 @@ p {
     el navegador viene predeterminado 
     con difierentes estilos
     */
-    background-color: black;
+    
+
+    /* colores con nombres son 150 ejemplo: 
+    color:white */
+
+    /* colores con hexadecimal con tres digitos
+    (0123456789ABCDEF) son 4.096 colores  ejemplo: 
+    color:#000  ... #f00 #ff0 #0ff #00f #fff */
+
+    /* colores con hexadecimal con seis digitos
+    (0123456789ABCDEF) son 16.777.216 colores  ejemplo: 
+    color:#f000000 #ffff00 #00ffff #0000ff #ffffff */
+
+    /* colores con decimales desde el 0 al 255 
+    con el formato rgb(255,255,255) son iguales al 
+    formato hexagesimal con 6 dígitos ejempĺo:
+    color:rgb(0,0,0)  (255,255,0) (0,255,255) (0,0,255)
+    (255,255,255)*/
+
+    /* color con transparencia rgba (alfa) 
+    el 0 es totalmente transparente y el 1 es
+    totalmente opaco valores van desde 0.0 al 1.0 */
+
+
+/* se puede seleccionar el color directamente con 
+color picker (buscarlo en google) */
+
+    /* background-color: black; */
+
+
+
     width: 300px;
-    height: 300px;
+    height: 400px;
 }
 
 .caja-chica {
-    background-color: red;
+    background-color: rgba(218, 126, 126, 0.8);
     width: 150px;
     height: 150px;
     font-size: 0.8em;
     /* 1em son 24px; y 0.8em heredado es 19.2px*/
+
+    border-radius: 15px;
+    /* en un comando:
+    /* border: 2px solid black; */
+
+    /* en varios comandos, se hace lo mismo */
+    border-width: 5px;
+    border-color: black;
+    border-style: dashed;
+
+    /* atencion el borde nunca se sale del area de la figura */
 }
+
+/* 1:18 */
