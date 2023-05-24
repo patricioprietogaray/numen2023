@@ -4,13 +4,51 @@
     box-sizing: border-box;
 }
 .inicio {
-    background-color: rgb(219, 85, 23);
-    height: 100vh;
+    /* background-color: rgb(219, 85, 23); */
+
+    /* degrade de colores, atenti background-image
+    para mostrar el degradé. bacground-color no funciona */
+    /* desde arriba hacia abajo */
+    background-image: linear-gradient(red, orange);
+
+    /* de abajo hacia arriba *-> to Top */
+    /* de derecha hacia la izquierda *-> to Left */
+    /* otros to Right, to Bottom */
+
+
+    /* angulo Xdeg, x grados 0 es horizontal y luego en 
+    el sentido de las agujas del reloj */
+    background-image: linear-gradient(0deg, red, yellow, green);
+
+    /* insertar una imagen de fondo, con url('./camino.extension') */
+    /* background-image: url('./assets/img/astronautaEnLaLunaMiraLaTierra.avif'); */
+    /* height: 100vh; */
+    
+    /* imagen de fondo con degrade de colores por encima */
+
+    background-image: 
+    radial-gradient(
+        rgba(0,0,0,0) 35%, 
+        grey 50%, 
+        white), 
+        url('./assets/img/astronautaEnLaLunaMiraLaTierra.avif');
+    
+    background-size: 800px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+
+    /* tipografias */
+
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-stretch: condensed;
 }
 
 .header {
     background-color: white;
-    height: 1;
+    height: 200px;
     /* cualquier numero que sea >= 0 el header ocupará
     lo que ocupan los elementos dentro del header, se 
     debe especificar unidades de medida absoluta o relativas */
@@ -94,4 +132,4 @@ color picker (buscarlo en google) */
     /* atencion el borde nunca se sale del area de la figura */
 }
 
-/* 1:18 */
+/* 1:50 */
