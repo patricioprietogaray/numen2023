@@ -1,181 +1,64 @@
 /* importar normas css predefinidas */
 @import url('./assets/css/normalize.css');
 
-
-/* en cuanto a las fuentes hoy como
-se programa para spa (single page application
-) se utiliza el enlace link suministrado
-por google fonts */
-
-/* fuente menu */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-
-/* fuente1 */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
-
-/* fuente2 */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&family=Roboto+Slab&display=swap');
-
-/* fuente3 */
-@import url('https://fonts.googleapis.com/css2?family=Foldit:wght@600&display=swap');
-
-/* asigno un nombre a la fuente */
-@font-face {
-    font-family: 'Titulo';
-    src: url('./assets/fonts/PoltawskiNowy-Italic-VariableFont_wght.ttf');
-}
-
-nav {
+body {
     font-family: 'Roboto Mono', monospace;
 }
 
+h1 {
+    text-align: center;
+    text-decoration: underline wavy rgb(139, 0, 0);
+    /* horizontal (-izq +der)
+    vertical (-arriba +abajo) 
+    desenfoque o blur */
+    text-shadow: 20px -15px 4px rgb(1, 41, 128);
+}   
+
 nav ul {
-    /* viene seteado en el nomalize */
     margin-top: 0;
 }
 
 nav ul li {
+    /* desaparecen los list-style de la ul
+    y alinea todos los li en una sola linea */
     
-}
-
-h1, h2 {
+    /* un elemento inline que ocupa toda
+    la linea se transforma a block un 
+    elemento que solo ocupa el espacio
+    asignado por el content */
+    display: inline-block;
     text-align: center;
-    font-family: 'Titulo';
+    width: 140px;
+    /* height: 30px; */
+    background-color: darkgrey;
+    padding: 3px;
+    border-radius: 10px;
+    margin-right: 10px;
+} 
+
+/* en dispositivos moviles no 
+tiene razon del ser el hover en pc si */
+nav ul li:hover {
+    cursor: pointer;
+    background-color: rgb(106, 180, 180);
+    font-weight: bold;
 }
 
-#textCenter {
-    text-align: center;
+nav ul li:active {
+    background-color: rgb(118, 184, 74);
 }
 
-#textLeft {
-    text-align: left;
+a {
+    color: aqua;
+    background-color: brown;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
 }
 
-#textRight {
-    text-align: right;
-}
-
-#textJustify {
-    text-align: justify;
-}
-
-#underline {
-    text-decoration: underline;
-}
-
-#overline {
-    text-decoration: overline;
-}
-
-#through {
-    text-decoration: line-through;
-}
-
-#underline-dashed {
-    text-decoration: underline dashed;
-}
-
-#underline-overline-dashed {
-    text-decoration: underline overline dashed;
-}
-
-#underline-dotted--overline-solid {
-    text-decoration: underline overline solid;
-}
-
-#underline-overline-wavy {
-    text-decoration: underline overline wavy;
-}
-
-#underline-double {
-    text-decoration: underline double;
-}
-
-#underline-none {
-    text-decoration: underline none;
-}
-
-#lowercase {
-    text-transform: lowercase;
-}
-
-#uppercase {
-    text-transform: uppercase;
-}
-
-#capitalize {
-    text-transform: capitalize;
-}
-
-#ttNone {
-    text-transform: none;
-}
-
-section {
-    display: flex;
-}
-
-section > p {
-    background-color: aquamarine;
-    margin-right: 2%;
-    height: 20px;
-
-    /* no tenga salto de linea */
-    white-space: nowrap;
-
-    /* ocultar el texto que no esta en 
-    la caja */
-    overflow: hidden;
-    justify-content: space-around;
-
-}
-
-#clip {
-    /* ancho del contenedor */
-    width: 200px;
-    
-    /* todo texto en una linea */
-    white-space: nowrap;
-        
-    /* ocultar el contenido que exede 
-    el contenedor */
-    overflow: hidden;
-
-    /* corta el texto cuando sale del 
-    contenedor */
-    text-overflow: clip;
-}
-
-#ellipsis {
-    /* ancho del contenedor */
-        width: 200px;
-    
-        /* todo texto en una linea */
-        white-space: nowrap;
-    
-        /* ocultar el contenido que exede 
-        el contenedor */
-        overflow: hidden;
-
-        /* agrega ... al final del mensaje
-        antes de ser ocultado por llegar al
-        final de la caja (...) */
-        text-overflow: ellipsis;
-}
-
-#sombra {
-    text-shadow: 5px 5px 2px blue;
-}
-
-#fuente1 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-}
-
-#fuente2 {
-    font-family: 'Roboto Slab', serif;
-}
-
-#fuente3 {
-    font-family: 'Foldit', cursive;
+/* si un link ha sido visitado
+mostrar estos estilos */
+a:visited {
+    color: brown;
+    background-color: aqua;
 }
