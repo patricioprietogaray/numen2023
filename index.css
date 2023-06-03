@@ -1,0 +1,181 @@
+/* importar normas css predefinidas */
+@import url('./assets/css/normalize.css');
+
+
+/* en cuanto a las fuentes hoy como
+se programa para spa (single page application
+) se utiliza el enlace link suministrado
+por google fonts */
+
+/* fuente menu */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+/* fuente1 */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+
+/* fuente2 */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&family=Roboto+Slab&display=swap');
+
+/* fuente3 */
+@import url('https://fonts.googleapis.com/css2?family=Foldit:wght@600&display=swap');
+
+/* asigno un nombre a la fuente */
+@font-face {
+    font-family: 'Titulo';
+    src: url('./assets/fonts/PoltawskiNowy-Italic-VariableFont_wght.ttf');
+}
+
+nav {
+    font-family: 'Roboto Mono', monospace;
+}
+
+nav ul {
+    /* viene seteado en el nomalize */
+    margin-top: 0;
+}
+
+nav ul li {
+    
+}
+
+h1, h2 {
+    text-align: center;
+    font-family: 'Titulo';
+}
+
+#textCenter {
+    text-align: center;
+}
+
+#textLeft {
+    text-align: left;
+}
+
+#textRight {
+    text-align: right;
+}
+
+#textJustify {
+    text-align: justify;
+}
+
+#underline {
+    text-decoration: underline;
+}
+
+#overline {
+    text-decoration: overline;
+}
+
+#through {
+    text-decoration: line-through;
+}
+
+#underline-dashed {
+    text-decoration: underline dashed;
+}
+
+#underline-overline-dashed {
+    text-decoration: underline overline dashed;
+}
+
+#underline-dotted--overline-solid {
+    text-decoration: underline overline solid;
+}
+
+#underline-overline-wavy {
+    text-decoration: underline overline wavy;
+}
+
+#underline-double {
+    text-decoration: underline double;
+}
+
+#underline-none {
+    text-decoration: underline none;
+}
+
+#lowercase {
+    text-transform: lowercase;
+}
+
+#uppercase {
+    text-transform: uppercase;
+}
+
+#capitalize {
+    text-transform: capitalize;
+}
+
+#ttNone {
+    text-transform: none;
+}
+
+section {
+    display: flex;
+}
+
+section > p {
+    background-color: aquamarine;
+    margin-right: 2%;
+    height: 20px;
+
+    /* no tenga salto de linea */
+    white-space: nowrap;
+
+    /* ocultar el texto que no esta en 
+    la caja */
+    overflow: hidden;
+    justify-content: space-around;
+
+}
+
+#clip {
+    /* ancho del contenedor */
+    width: 200px;
+    
+    /* todo texto en una linea */
+    white-space: nowrap;
+        
+    /* ocultar el contenido que exede 
+    el contenedor */
+    overflow: hidden;
+
+    /* corta el texto cuando sale del 
+    contenedor */
+    text-overflow: clip;
+}
+
+#ellipsis {
+    /* ancho del contenedor */
+        width: 200px;
+    
+        /* todo texto en una linea */
+        white-space: nowrap;
+    
+        /* ocultar el contenido que exede 
+        el contenedor */
+        overflow: hidden;
+
+        /* agrega ... al final del mensaje
+        antes de ser ocultado por llegar al
+        final de la caja (...) */
+        text-overflow: ellipsis;
+}
+
+#sombra {
+    text-shadow: 5px 5px 2px blue;
+}
+
+#fuente1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+}
+
+#fuente2 {
+    font-family: 'Roboto Slab', serif;
+}
+
+#fuente3 {
+    font-family: 'Foldit', cursive;
+}
