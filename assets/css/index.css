@@ -91,3 +91,34 @@ ol>li {
     /* Los anteriores en uno solo */
     list-style: square inside url('../ico/energy_charge_power_battery_plant_electricity_green_light_bulb_icon_252569.png');
 }
+
+.caja {
+    border: 5px black dotted;
+    text-align: center;
+}
+
+.grande {
+    margin: 0px;
+}
+
+.chica {
+    padding: 30px;
+    margin: 20px;
+}
+
+.azul {
+    background-color: darkblue;
+}
+
+.verde {
+    background-color: darkgreen;
+    
+}
+
+.amarilla {
+    background-color: yellow;
+    margin-top: 80px;
+    margin-left: 50px;
+    margin-right: 30px;
+
+}
