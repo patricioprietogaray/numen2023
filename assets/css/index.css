@@ -62,3 +62,32 @@ a:visited {
     color: brown;
     background-color: aqua;
 }
+
+p {
+    text-align: justify;
+    padding: 5px;
+    /* espacio entre palabras */
+    word-spacing: 10px;
+    /* espacio entre letras */
+    letter-spacing: 5px;
+    /* espacio entre lineas */
+    line-height: 30px;
+
+    /* combinar lowercase y uppercase:
+    Lorem, ipsum. Eveniet, autem. Amet.
+    mayúsculas despues del punto */
+    text-transform: lowercase uppercase;
+}
+
+ol>li {
+    /* list-style-type: upper-roman; */
+    /* el normalize saca todos los márgenes
+    incluidos el de las listas */
+    /* margin-left: 35px; 
+    usando position inside / ouside por defecto*/
+    /* list-style-position: inside; */
+    /* list-style-image: url('../ico/energy_charge_power_battery_plant_electricity_green_light_bulb_icon_252569.png'); */
+
+    /* Los anteriores en uno solo */
+    list-style: square inside url('../ico/energy_charge_power_battery_plant_electricity_green_light_bulb_icon_252569.png');
+}
