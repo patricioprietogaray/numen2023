@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: aqua;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 5px 5px 5px black;
+    text-align: center;
+}
+
+main {
+    background-color: burlywood;
+    display: flex;
+}
+
+div {
+    background-color: cadetblue;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
