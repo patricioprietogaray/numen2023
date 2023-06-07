@@ -12,12 +12,19 @@ header {
     text-align: center;
 }
 
-main {
+.contenedor {
     background-color: burlywood;
+    /* flex los hijos los adapta al ancho y todo en 
+    una misma linea */
     display: flex;
 }
 
-div {
+.item-contenedor {
+    /* inline es la minima expresion del div */
+    /* inline-block agrupa los div en filas y columnas 
+    como si fuera una tabla mantiene la misma proporciones*/
+    /* block encolumnado */
+    /* display: inline-block; */
     background-color: cadetblue;
     width: 200px;
     height: 200px;
