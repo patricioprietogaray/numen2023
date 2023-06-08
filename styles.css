@@ -12,11 +12,34 @@ header {
     text-align: center;
 }
 
+/* si el contenedor es flex los hijos tambien */
+
 .contenedor {
     background-color: burlywood;
     /* flex los hijos los adapta al ancho y todo en 
-    una misma linea */
+    una misma linea. Flex de flexible, siempre en el 
+    contenedor padre. */
     display: flex;
+
+    /* flex-direction: row; */
+    /* por defecto es flex-wrap: nowrap; no permite el
+    desbordamiento*/
+    /* para mantener las dimensiones y que haya un corte
+    de linea es  wrap , el cual permite 
+    el desbordamiento*/
+    
+    /* flex-wrap: wrap; */
+    /* para mostrar los contenedores en orden inverso */
+    /* flex-wrap: wrap-reverse; */
+    
+    /* flex-flow es una propiedad de atajo para 
+    flex-direction y flex-wrap */
+    
+    /* en este caso ubica en tres columnas de dos filas
+    c/u y comienza desde arriba a la derecha */
+
+    flex-flow: column wrap-reverse;
+    height: 100vh;
 }
 
 .item-contenedor {
@@ -29,4 +52,9 @@ header {
     width: 200px;
     height: 200px;
     margin: 10px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
 }
