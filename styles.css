@@ -38,8 +38,26 @@ header {
     /* en este caso ubica en tres columnas de dos filas
     c/u y comienza desde arriba a la derecha */
 
-    flex-flow: column wrap-reverse;
-    height: 100vh;
+    flex-flow: row wrap;
+    height: 50vh;
+
+    /* posicionamiento sobre el eje principal, 
+    ver flex-direction o flex-flow (por defecto es row)
+    */
+    justify-content: flex-start;
+
+    /* posicionamiento sobre el eje secundario
+    si el eje principal es row dicho posicionamiento
+    sera sobre column */
+    
+    /* no funciona si el hijo asigna un height o si 
+    flex-direction es column + nowrap */
+    align-items: stretch;
+    
+    gap: 50px;
+
+    /* transition: width 2s, height 2s, background-color 2s, rotate 2s; */
+
 }
 
 .item-contenedor {
@@ -49,12 +67,28 @@ header {
     /* block encolumnado */
     /* display: inline-block; */
     background-color: cadetblue;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    /* si usa stretch en el contenedor no se usa height */
+    /* height: 150px; */
     margin: 10px;
+
+    /* darle estilos a las letras en el centro de la caja */
+    font-weight: bolder;
+    font-size: 3rem;
+    color: wheat;
+    /* centro de la caja en row */
+    text-align: center;
+
+    /* centrar la letra a la caja (columna) */
+    line-height: 150px;
 }
 
 img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
+
+/* .item-contenedor:hover {
+    background-color: rgb(8, 8, 58);
+    
+} */
