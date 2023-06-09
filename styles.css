@@ -92,3 +92,26 @@ img {
     background-color: rgb(8, 8, 58);
     
 } */
+
+#item-c:hover{
+    /* cuando paso el mouse sobre el item c
+    aplico align-self (align-items para el hijo)
+    al hijo del contenedor (.item-contenedor) */
+    align-self: flex-start;
+}
+
+/* con order se cambia el orden que son expuestos
+las cajas en vez de ABCD es BDAC tener en cuenta
+el flex-flow / flex-direction */
+#item-a{
+    order: 3;
+}
+#item-b{
+    order: 1;
+}
+#item-c{
+    order: 4;
+}
+#item-d{
+    order: 2;
+}
