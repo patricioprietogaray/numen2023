@@ -41,6 +41,9 @@ header {
     flex-flow: row wrap;
     height: 50vh;
 
+    /* para juntar los items se debe achicar el contenedor height: 30vh; 
+    y para encimarlos se juega con un margen negativo*/
+
     /* posicionamiento sobre el eje principal, 
     ver flex-direction o flex-flow (por defecto es row)
     */
@@ -52,12 +55,25 @@ header {
     
     /* no funciona si el hijo asigna un height o si 
     flex-direction es column + nowrap */
-    align-items: stretch;
+    /* align-items: flex-start; */
     
-    gap: 50px;
+    /* gap da un espacio extra, suma el espacio a la configuracion
+    previa (ej: justify-content: space-around;) 
+    No se extiende más allá de su contenedor*/
+    /* el valor de gap se setea en el contenedor! */
+
+    /* gap: 50px 80px;  */
+    /* gap: espacio entre lineas (row-gap) espacio entre columnas (column-gap) */
+
+    /* gap: 50px; */
+    /* gap: espacio entre lineas y entre columnas */
+
+
 
     /* transition: width 2s, height 2s, background-color 2s, rotate 2s; */
 
+
+    
 }
 
 .item-contenedor {
@@ -70,7 +86,10 @@ header {
     width: 150px;
     /* si usa stretch en el contenedor no se usa height */
     /* height: 150px; */
-    margin: 10px;
+    /* margin: 10px; */
+    border: 1px solid black;
+    /* margin: -10px;  margen negativo para encimar los elementos*/
+    
 
     /* darle estilos a las letras en el centro de la caja */
     font-weight: bolder;
@@ -81,6 +100,10 @@ header {
 
     /* centrar la letra a la caja (columna) */
     line-height: 150px;
+
+    /* flex basis */
+    flex-basis: 25%;
+
 }
 
 img {
@@ -103,15 +126,24 @@ img {
 /* con order se cambia el orden que son expuestos
 las cajas en vez de ABCD es BDAC tener en cuenta
 el flex-flow / flex-direction */
+
+/* order: muestra el orden asignado, a los que no se
+asigna el order se muestran primero y en el orden del html*/
+
 #item-a{
-    order: 3;
+    order: 0;
+    height: 50%;
+    align-self: stretch;
 }
 #item-b{
     order: 1;
+    /* height: 40%; */
+    /* align-self: baseline; */
+    /* baseline (default) */
 }
 #item-c{
-    order: 4;
+    /* order: 10; si es mayor a la cantidad de item lo pone al final */
 }
 #item-d{
-    order: 2;
+    /* order: -1; si es menor a cero se ubica primero */
 }
