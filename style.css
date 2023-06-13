@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.contenedor {
+    border: 1px solid black;
+    height: 75vh;
+    width: 100vw;
+    /* se recomienda usar % con width, si no esta el reseteo
+    del css las dimensiones serán alterados */
+
+    /* se dispone el display para utilizar grid */
+    display: grid;
+
+    /* creo dos columnas con un width de 200px c/u */
+    grid-template-columns: 200px 200px;
+
+    grid-template-columns: 20% 25% 150px;
+    
+    /* creo cuatro filas con un height de 
+    100, 100, 300 y 150px respectivamente*/
+    grid-template-rows: 100px 100px 300px 150px;
+}
+
+.item{
+    background-color: orangered;
+    border: 1px solid darkblue;
+}
+
+/* clase 7: 40:40 */
