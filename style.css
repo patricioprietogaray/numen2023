@@ -5,22 +5,36 @@
 }
 
 .contenedor {
-    border: 1px solid black;
-    height: 75vh;
-    width: 100vw;
-    /* se recomienda usar % con width, si no esta el reseteo
-    del css las dimensiones serán alterados */
+    border: 5px solid black;
+    height: 78vh;
+    width: 100%;
+    /* width: 100vw; */
+    /* se recomienda usar % con width, si no esta el 
+    reseteo del css las dimensiones serán alterados, o sea que 
+    aparecerá el scroll, por otro lado el 
+    % es de los elementos que se muestran en pantalla
+    y no la altura o ancho del viewport */
 
-    /* se dispone el display para utilizar grid */
+
+
+    /* se dispone el display para utilizar grid muestra
+    los rows de este segun los (en este caso) divs que 
+    tenga en el html*/
     display: grid;
 
-    /* creo dos columnas con un width de 200px c/u */
-    /* grid-template-columns: 200px 200px; */
+    /* creo dos columnas con un width de 200px c/u 
+    se distribuyen los espacios DENTRO DEL CONTENEDOR
+    para que no sobre ni falte
+    no se establece las filas y por eso se acomodan 
+    solas*/
+    grid-template-columns: 200px 200px;
 
-    /* grid-template-columns: 25% 25% 20% 30%; */
+    grid-template-columns: 25% 25% 20% 30%;
     
     /* fragmentos */
-    /* grid-template-columns: 1fr 5fr; */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 2fr 2fr;
+    grid-template-columns: 1fr 5fr;
     /* los fragmentos se suman y luego se reparten ej:
     1fr 1fr  -->  1+1=2   1/2   1/2  o sea que ocupan la 
     mitad cada fragmento
@@ -40,8 +54,14 @@
     /* funciones en css --> repeat 
     repite n vecer el fragmento
     */
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-rows: repeat(2, 1fr); */
+
+    grid-template-rows: 1fr 1fr 1fr 540px; 
+    /* con px que es una medida fija si se sale del 
+    contenedor los fr quedan a la minima expresión
+    de lo contrario primero ocupa el alto fijo y 
+    y la diferencia se divide en los fr */
 
 }
 
@@ -50,9 +70,9 @@
     border: 1px solid rgb(63, 63, 221);
 
 /* el item queda flotando... */
-    margin: auto;
-    width: 50px;
-    height: 250px;
+    /* margin: auto; */
+    /* width: 50px; */
+    /* height: 250px; */
 }
 
 /* clase 7: 43:00 
