@@ -1,0 +1,79 @@
+*{
+    text-align: center;
+    color: aliceblue;
+    font-weight: bolder;
+    font-size: 28px;
+    font-family: monospace;
+}
+
+html {
+    height: 100vh;
+}
+
+header {
+    grid-area: header;
+    background-color: aqua;
+    color: black;
+}
+
+nav {
+    grid-area: navegacion;
+    background-color: chocolate;
+}
+
+aside {
+    grid-area: publicidad;
+    background-color: crimson;
+}
+
+footer {
+    background-color: darkslategray;
+}
+
+.borde {
+    border: 5px solid black;
+}
+
+.productos {
+    grid-area: productos;
+    background-color: blueviolet;
+}
+
+.servicios {
+    grid-area: servicios;
+    background-color: chartreuse;
+    color: black;
+}
+
+.grilla {
+    display: grid;
+    /* grid-gap: 0px; */
+    grid-template-areas: 
+    "navegacion navegacion publicidad"
+    "header header publicidad"
+    "productos servicios servicios"
+    "footer servicios servicios";
+    grid-template-rows: 200px 150px 25% 250px;
+    grid-template-columns: 1fr 1fr 1fr;
+/* REGLAS A TENER EN CUENTA:
+SOLO FORMA DE CUADRADO O RECTANGULAR
+
+CONFIGURACION DE LAS AREAS:
+NO DEBE FALTAR NINGUNA 
+CASO CONTRARIO NO SE MUESTRAN
+
+EN CADA ELEMENTO SE DEBE CONFIGURAR:
+    grid-area: area1;
+
+    EN EL ELEMENTO CONTENEDOR SE DEBE
+    CONFIGURAR: 
+    grid-template-areas: 
+    "area1 area2 area2"
+    "area3 area3 area4";
+
+    no deben faltar ninguna no se permite
+    diseños en L
+
+*/
+}
+
