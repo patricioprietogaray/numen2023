@@ -1,0 +1,26 @@
+#seccion {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 2fr 2fr;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+#seccion>#acerca {
+    background-color: rgba(255, 255, 255, 0.150);
+}
+
+#seccion>#acerca h2,
+#seccion>#habilidades h2,
+#seccion>#proyectos h2 {
+    padding: .5rem;
+    color: rgb(0, 0, 0);
+}
+
+#seccion>#habilidades {
+    background-color: rgba(255, 255, 255, 0.450);
+}
+
+#seccion>#proyectos {
+    background-color: rgba(255, 255, 255, 0.850);
+}

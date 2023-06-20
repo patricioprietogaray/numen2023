@@ -1,0 +1,220 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* encabezado de la página */
+
+header {
+    background-color: rgb(37, 16, 230);
+}
+
+.contenido {
+    display: flex;
+    padding: 10px;
+    height: 15vh;
+    width: 100vw;
+}
+
+.contenido > img {
+    margin-top: 1rem;
+    width: 7rem;
+    height: 7rem;
+}
+
+.contenido h1 {
+    margin-left: 3rem;
+    font-size: 5rem;
+    margin-top: -.5rem;
+    color: rgb(153, 245, 135);
+    font-weight: 800;
+}
+
+.contenido h2 {
+    margin-top: 2rem;
+    font-size: 3rem;
+    margin-left: -.6rem;
+    color: beige;
+    font-weight: 800;
+}
+
+.nav-bar > ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+}
+
+.nav-bar>ul>li {
+    margin: 1rem;
+    background-color: rgb(55, 236, 39);
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+
+.nav-bar > ul > li > a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.nav-bar>ul>li:hover {
+    background-color: rgb(7, 205, 255);
+    transition: all .4s ease-in-out;
+}
+
+/* dimensiones del cuerpo */
+main {
+    margin-top: -1rem;
+    height: 60vh;
+    background-color: cornflowerblue;
+}
+
+/* pie de pagina */
+footer {
+    display: flex;
+    padding: 2rem;
+    height: 15vh;
+    background-color: aqua;
+    /* margin-bottom: 1rem; */
+    margin-top: -1.1rem;
+    justify-content: center;
+}
+
+footer > address {
+    margin: 1rem;
+}
+
+.tituloPagina {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    color: beige;
+    background-color: rgba(1, 58, 58, 0.514);
+    padding: .5rem;
+}
+
+a {
+    color: rgb(14, 206, 231);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+
+
+.grilla {
+    display: grid;
+    text-align: center;
+}
+
+.tituloGrilla,
+.par,
+.impar {
+    display: grid;
+    grid-template-columns: 2.5fr 2.5fr .5fr 1fr;
+    grid-template-rows: 1fr;
+    cursor: pointer;
+}
+
+.tituloGrilla {
+    background-color: rgb(37, 16, 230);
+    color: beige;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: .3rem;
+}
+.par {
+    background-color: rgb(219, 145, 91);
+    padding: .3rem;
+    color: black;
+}
+
+.impar {
+    background-color: rgb(235, 216, 45);
+    padding: .3rem;
+    color: black;
+}
+
+#cursos {
+    background-color: cadetblue;
+    padding: .8rem;
+    font-weight: bolder;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.par:hover,
+.impar:hover {
+    background-color: white;
+    color: blue;
+    cursor: pointer;
+}
+
+#seccion {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 2fr 2fr;
+    color: beige;
+    text-align: center;
+}
+
+#seccion > #acerca {
+    background-color: rgb(143, 5, 5);
+}
+
+#seccion>#acerca h2,
+#seccion>#habilidades h2,
+#seccion>#proyectos h2
+{
+    padding: .5rem;
+    color: rgb(206, 194, 30);
+}
+
+#seccion>#habilidades {
+    background-color: rgb(17, 143, 5);
+}
+
+#seccion>#proyectos {
+    background-color: rgb(99, 75, 8);
+}
+
+/* habilidades */
+
+.contenedorGrilla {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: aquamarine;
+    gap: 20px;
+    justify-items: center; /*centra los items en el eje principal*/
+    align-items: center;
+}
+
+.item {
+    position: relative;
+    display: inline-block;
+    filter: grayscale(100%);
+}
+.epigrafe {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: beige;
+    text-align: center;
+    padding: 10px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity .5s linear;
+}
+
+.item:hover {
+    filter: grayscale(0%);
+}
+
+.item:hover .epigrafe{
+    visibility:visible;
+    opacity: 1;
+} 

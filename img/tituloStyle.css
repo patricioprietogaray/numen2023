@@ -1,0 +1,48 @@
+.grilla {
+    display: grid;
+    text-align: center;
+}
+
+.tituloGrilla,
+.par,
+.impar {
+    display: grid;
+    grid-template-columns: 2.5fr 2.5fr .5fr 1fr;
+    grid-template-rows: 1fr;
+    cursor: pointer;
+}
+
+.tituloGrilla {
+    background-color: rgb(37, 16, 230);
+    color: beige;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: .3rem;
+}
+
+.par {
+    background-color: rgba(255, 255, 255, 0.150);
+    padding: .3rem;
+    color: black;
+}
+
+.impar {
+    background-color: rgba(255, 255, 255, 0.450);
+    padding: .3rem;
+    color: black;
+}
+
+#cursos {
+    /* background-color: cadetblue; */
+    padding: .8rem;
+    font-weight: bolder;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.par:hover,
+.impar:hover {
+    background-color: white;
+    color: #052AE6;
+    cursor: pointer;
+}

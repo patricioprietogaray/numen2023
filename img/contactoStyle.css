@@ -1,0 +1,42 @@
+form {
+    display: grid;
+    flex-direction: row;
+}
+
+.campo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+input#nombre {
+    width: 350px;
+}
+
+input#correo {
+    width: 500px;
+}
+
+
+
+.enviar {
+    display: flex;
+    justify-content:space-evenly;
+}
+
+.enviar>input {
+    margin: 1rem;
+    background-color: rgb(55, 236, 39);
+    padding: .5rem 2rem;
+    border-radius: .5rem;
+}
+
+.enviar>input:hover {
+    background-color: rgb(7, 205, 255);
+    transition: all .4s ease-in-out;
+}

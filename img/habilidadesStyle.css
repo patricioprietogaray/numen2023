@@ -1,0 +1,42 @@
+/* habilidades */
+
+.contenedorGrilla {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* background-color: aquamarine; */
+    gap: 20px;
+    justify-items: center;
+    /*centra los items en el eje principal*/
+    align-items: center;
+    margin-top: 20px;
+}
+
+.item {
+    position: relative;
+    display: inline-block;
+    filter: grayscale(100%);
+}
+
+.epigrafe {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #0570FE;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity .5s linear;
+}
+
+.item:hover {
+    filter: grayscale(0%);
+}
+
+.item:hover .epigrafe {
+    visibility: visible;
+    opacity: 1;
+}
