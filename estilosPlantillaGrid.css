@@ -1,5 +1,6 @@
 *{
     text-align: center;
+    text-shadow: 5px 5px 3px blueviolet;
     color: aliceblue;
     font-weight: bolder;
     font-size: 28px;
@@ -13,8 +14,10 @@ html {
 header {
     grid-area: header;
     background-color: aqua;
-    color: black;
+    color: black;    
 }
+
+
 
 nav {
     grid-area: navegacion;
@@ -43,11 +46,16 @@ footer {
     grid-area: servicios;
     background-color: chartreuse;
     color: black;
+    border-radius: 20px;
 }
 
 .grilla {
+    /* primero: diseñar la pagina filas y columnas (en papel o en el calc libre office)
+    segundo: ubicar los elementos dentro de la grilla
+    tercero: implementarlo en la html y css */
+
     display: grid;
-    /* grid-gap: 0px; */
+    grid-gap: 20px;
     grid-template-areas: 
     "navegacion navegacion publicidad"
     "header header publicidad"
@@ -77,3 +85,8 @@ EN CADA ELEMENTO SE DEBE CONFIGURAR:
 */
 }
 
+.centrado {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
