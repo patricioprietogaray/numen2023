@@ -14,7 +14,8 @@ html {
 header {
     grid-area: header;
     background-color: aqua;
-    color: black;    
+    color: black;
+    border-radius: 0px 20px;    
 }
 
 
@@ -22,15 +23,18 @@ header {
 nav {
     grid-area: navegacion;
     background-color: chocolate;
+    border-radius: 20px 10px;
 }
 
 aside {
     grid-area: publicidad;
     background-color: crimson;
+    border-radius: 20px 20px 50px;
 }
 
 footer {
     background-color: darkslategray;
+    border-radius: 50px 50px 0px 0px;
 }
 
 .borde {
