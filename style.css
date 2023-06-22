@@ -1,7 +1,13 @@
+/* media queries desde 993 a infinito px */
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+body {
+    background-color: tan;
 }
 
 h2 {
@@ -13,208 +19,54 @@ h2 {
     font-weight: bolder;
 }
 
-.contenedor {
-    /* border: 5px solid black; */
-    height: 90vh;
-    width: 100%;
-    /* width: 100vw; */
-    /* se recomienda usar % con width, si no esta el 
-    reseteo del css las dimensiones serán alterados, o sea que 
-    aparecerá el scroll, por otro lado el 
-    % es de los elementos que se muestran en pantalla
-    y no la altura o ancho del viewport */
+/* fila es el contenedor de los flexboxes */
+.fila {
+    display: flex;
+    flex-wrap: wrap;
+}
 
-
-
-    /* se dispone el display para utilizar grid muestra
-    los rows de este segun los (en este caso) divs que 
-    tenga en el html*/
-    display: grid;
-
-    background-color: black;
-
-    /* creo dos columnas con un width de 200px c/u 
-    se distribuyen los espacios DENTRO DEL CONTENEDOR
-    para que no sobre ni falte
-    no se establece las filas y por eso se acomodan 
-    solas*/
-    /* grid-template-columns: 200px 200px; */
-
-    /* grid-template-columns: 25% 25% 20% 30%; */
+.columna {
     
-    /* fragmentos */
-    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
-    /* grid-template-columns: 1fr 1fr 2fr 2fr; */
-    /* grid-template-columns: 1fr 5fr; */
-    /* los fragmentos se suman y luego se reparten ej:
-    1fr 1fr  -->  1+1=2   1/2   1/2  o sea que ocupan la 
-    mitad cada fragmento
+    /* sin flex respeta 
+    el ancho (no adapta...)
+    y baja las columnas enteras */
+    /* flex: 25%; */
+
+    flex-basis: 25%;
+    padding: 20px;
+}
+
+/* En las pantallas 
+que sean iguales o menores a 992px, 
+setea el background */
+/* laptop - desde 601 a 992px*/
+@media screen and (max-width: 992px) {
     
-    1+5= 6   1/6   5/6  ---->  16,6%    83,3%
-     
-    
-    ; */
+    /* modifico los estilos de etiquetas,
+    clases e ids en dispositivos que tengan
+    su pantalla menor o iguales a 992px */
+    body {
+        background-color: blue;
+        color: white;
+    }
 
-    /* creo cuatro filas con un height de 
-    100, 100, 300 y 150px respectivamente*/
-    /* grid-template-rows: 100px 100px 300px 150px; */
-    
-    /* fragmentos */
-    /* grid-template-rows: 1fr; */
-
-    /* funciones en css --> repeat 
-    repite n vecer el fragmento
-    */
-    /* grid-template-columns: repeat(2, 1fr); */
-    /* grid-template-rows: repeat(2, 1fr); */
-
-    /* grid-template-rows: 1fr 1fr 1fr 540px;  */
-    /* con px que es una medida fija si se sale del 
-    contenedor los fr quedan a la minima expresión
-    de lo contrario primero ocupa el alto fijo y 
-    y la diferencia se divide en los fr */
-
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr) ;
-
-    /* alinear el contenido de todos los
-    elementos de la grilla de forma HORIZONTAL */
-    /* justify-content: center; */
-
-    /* alinear el contenido de todos los
-        elementos de la grilla de forma VERTICAL */
-    /* align-content: center; */
-
-    /* grid-gap: 10px; */
-
-    /* gap entre columnas o separecion */
-    /* column-gap: 10px; */
-    /* row-gap: 10px; */
-
-    /* se puede reemplazar lo anterior */
-    /* gap: row column */
-    /* gap: 10px 20px; */
-
-    /* acomodar las imagenes por nombre de area */
-    grid-template-areas:
-    "item1 item1 item2 item2"
-    "item3 item4 item5 item6"
-    "item3 item7 item10 item10"
-    "item9 item8 item10 item10";
-
-    gap: 10px;
+    .columna {
+        /* pasa de una linea de 4 columnas a
+        2 lineas de dos columnas c/u */
+        flex: 50%;
+    }
 }
 
-.item{
-    /* background-color: rgb(243, 147, 113);
-    border: 1px solid rgb(63, 63, 221); */
+/* celulares 
+toda pantalla como ancho maximo de 600px
+desde 0 a 600 px*/
+@media screen and (max-width: 600px) {
+    body {
+        background-color: olive;
+        color: mediumslateblue;
+    }
 
-    /* no limitar cuando aplico areas */
-    /* height: 200px; */
-    /* width: 200px; */
-
-    /* para ver la parte de la imagen en el centro */
-        background-position: center;
-        /* para adaptar la imagen al item */
-        background-size: cover;
-        background-repeat: no-repeat;
-
-/* el item queda flotando... */
-    /* margin: auto; */
-    /* width: 50px; */
-    /* height: 250px; */
-
-
-    /* en escala de grises  TAMBIEN LA SOMBRA*/
-    /* filter: grayscale(.8); */
-
-    /* borde redondeado */
-    border-radius: 10px;
-    /* sombra verde */
-    box-shadow: 2px 2px 5px green;
-    /* escala al 95% del tamaño original */
-    transform: scale(0.95);
-
-    /* fuera de foco con blur en px + escala grises*/
-    filter: blur(1.5px) grayscale(.8);
+    .fila {
+        flex-direction: column;
+    }
 }
-
-/* CUANDO PASO EL MOUSE SOBRE EL ITEM (IMAGEN) */
-.item:hover {
-    /* achico la imagen al 90% */
-    /* transform: scale(0.9); */
-
-    /* aumento la imagen al 110% */
-    transform: scale(1.05);
-
-
-    /* cambia la sombra */
-    box-shadow: 2px 2px 5px red;
-    /* mouse como una mano que apunta */
-    cursor: pointer;
-    filter: blur(0) grayscale(0);
-
-    /* transicion de 1 seg */
-    transition: 1s;
-}
-
-.item1 {
-    /* nombrar las areas para poder adaptar
-    las imagenes en la grilla 
-    se mostrarán en cualquir lado hasta que el 
-    contemedpr no la acomode*/
-    grid-area: item1;
-    background-image: url('./img/espacio01.jpeg');
-}
-
-.item2 {
-    grid-area: item2;
-    background-image: url('./img/espacio02.jpg');
-}
-
-.item3 {
-    grid-area: item3;
-    background-image: url('./img/espacio03.webp');
-}
-
-.item4 {
-    grid-area: item4;
-    background-image: url('./img/espacio04.webp');
-}
-
-.item5 {
-    grid-area: item5;
-    background-image: url('./img/espacio05.jpg');
-}
-
-.item6 {
-    grid-area: item6;
-    background-image: url('./img/espacio06.jpg');
-}
-
-.item7 {
-    grid-area: item7;
-    background-image: url('./img/espacio07.jpg');
-}
-
-.item8 {
-    grid-area: item8;
-    background-image: url('./img/espacio08.avif');
-}
-
-.item9 {
-    grid-area: item9;
-    background-image: url('./img/espacio09.jpg');
-}
-
-.item10 {
-    grid-area: item10;
-    background-image: url('./img/espacio10.webp');
-}
-
-
-/* clase 7: 1:42:00
-
-https: //vimeo.com/834871375/0a97dc06c0
-*/
-
