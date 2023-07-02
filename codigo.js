@@ -34,7 +34,11 @@ console.log("un numero como string (convertido):", numeroComoString.toString());
 var unNumero = 10.34; 
 console.log("un numero como string (sin convertir):", unNumero);
 console.log("un numero como string (convertido):", unNumero.toString());
+console.log("undefined numero.length: " + unNumero.length);
+console.log("numero.toString().length: " + unNumero.toString().length);
 
+var otroNumero = new Number("Pepe");
+console.log("otro nombre un texto en formato numero: " + otroNumero); //NaN
 
 console.log("aritmética");
 console.log('1 + 1:',1 + 1);
@@ -52,3 +56,50 @@ console.log('true && true:', true && true);
 console.log('true && false:', true && false);
 console.log('false && true:', false && true);
 console.log('false && false:',false && false);
+
+// datos booleanos
+var verdadero = true;
+var falso = false;
+
+var v = new Boolean(true);
+var f = new Boolean(false);
+
+console.log("verdadero:",verdadero);
+console.log("falso:",falso);
+console.log("v: (boolean) ", v);
+console.log("f: (toString)", f.toString());
+
+console.log("Not a Number (NaN)");
+var noEsNumero = "Hola" * 3.7;
+console.log(noEsNumero);
+
+console.log("Sin definir (undefined)");
+var sinDefinir;
+console.log(sinDefinir);
+
+console.log("Asigno de manera intencional un Valor Nulo (Null)");
+var valorNulo = null;
+console.log(valorNulo);
+
+console.log("Aritmética: operadores matemáticos");
+console.log("Suma           de 2 y 2:", 2 + 2);
+console.log("Resta          de 2 y 2:", 2 - 2);
+console.log("Multiplicación de 2 y 2:", 2 * 2);
+console.log("División       de 2 y 2:", 2 / 2);
+console.log("Módulo         de 2 y 2:", 2 % 2);
+
+
+console.log("incremento: ++variable");
+var original = 4;
+var incremento = ++original;
+console.log("Valor original 4 luego del ++incremento:", incremento);
+
+original = incremento;
+
+console.log("incremento: variable++");
+var incremento = original++
+console.log("Valor original 5 luego del incremento++:", incremento);
+incremento++;
+console.log("Valor original 5 luego del incremento++:", incremento);
+
+//2.20
