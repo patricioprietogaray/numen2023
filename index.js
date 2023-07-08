@@ -104,32 +104,31 @@ var canillaAgua = false;
 var yerba = "frutosRojos"
 
 // tipo de yerba
-if (yerba === 'frutosRojos') {
-    console.log("Yerba Mate sabor Frutos Rojos");
-} else if (yerba === 'naranja') {
-    console.log("Yerba Mate sabor a Naranja");
-} else if (yerba === 'pomelo') {
-    console.log("Yerba Mate sabor a Pomelo");
-} else {
-    console.log("Yerba Mate sabor tradicional");
-}
+// if (yerba === 'frutosRojos') {
+//     console.log("Yerba Mate sabor Frutos Rojos");
+// } else if (yerba === 'naranja') {
+//     console.log("Yerba Mate sabor a Naranja");
+// } else if (yerba === 'pomelo') {
+//     console.log("Yerba Mate sabor a Pomelo");
+// } else {
+//     console.log("Yerba Mate sabor tradicional");
+// }
 
 // select case - tipo de yerba
-// switch (yerba) {
-//     case 'frutosRojos':
-//         console.log("Yerba Mate sabor Frutos Rojos");
-//         break;
-//     case 'naranja':
-//         console.log("Yerba Mate sabor a Naranja");
-//         break;
-//     case 'pomelo':
-//         console.log("Yerba Mate sabor a Pomelo");
-//         break;
-//     default:    
-//         console.log("Yerba Mate sabor tradicional");
-//         break;
-    
-// }
+switch (yerba) {
+    case 'frutosRojos':
+        console.log("Yerba Mate sabor Frutos Rojos");
+        break;
+    case 'naranja':
+        console.log("Yerba Mate sabor a Naranja");
+        break;
+    case 'pomelo':
+        console.log("Yerba Mate sabor a Pomelo");
+        break;
+    default:    
+        console.log("Yerba Mate sabor tradicional");
+        break;
+}
 
 
 //llenar con yerba el mate
