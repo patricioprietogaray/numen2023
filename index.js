@@ -99,11 +99,98 @@ function muestraHolaMundo() {
 }
 
 muestraHolaMundo(); //llamo a una funcion, se puede llamar muchas veces
-                    //y siempre se ejecutará el mismo código...
+//y siempre se ejecutará el mismo código...
+                    
+
+
+
+//funcion con parámetros de forma directa
+function saludar(nombre) { //el valor que se pasa se llama argumento
+    console.log('Hola ' + nombre);
+}
+
+saludar('pepe'); //llamo a la funcion y le paso un argumento
+
+
+
+//funcion con parámetros desde una variable
+var nombres='Patricio Sebastián'
+function saludar(nombre) { //el valor que se pasa se llama argumento
+    console.log('Hola ' + nombre);
+}
+
+saludar(nombres); //llamo a la funcion y le paso un argumento
+
+var ingresa = "2";
+
+function resuelve(ingreso) {
+    return Number(ingreso) + 1;
+}
+
+// var respuesta = resuelve(ingresa);
+// console.log("la respuesta es: " + respuesta);
+console.log(resuelve(ingresa));
+
+console.log("sumar dos numeros 10 y 15");
+
+function sumar(num1, num2) {
+    return num1 + num2;
+}
+
+var numero1 = 10;
+var numero2 = 15;
+
+var resultado = sumar(numero1, numero2);
+
+console.log("el resultado es: " + resultado);
+console.log("resultado directo de la función es: " + sumar(numero1, numero2));
+console.log("*****************************************");
+console.log("Calculadora");
+function calculadoraSuma(n1, n2) {
+    return n1 + n2;
+}
+
+function calculadoraResta(n1, n2) {
+    return n1 - n2;
+}
+
+function calculadoraMultiplicar(n1, n2) {
+    return n1 * n2;
+}
+
+console.log("suma entre 2 y 3: " + calculadoraSuma(2, 3));
+console.log("resta entre 8 y 4: " + calculadoraResta(8, 4));
+
+var resultadoOperacionAritmetica = calculadoraMultiplicar(calculadoraSuma(2, 3), calculadoraResta(8, 4));
+console.log("multiplicacion entre los resultados anteriores: " + resultadoOperacionAritmetica);
+console.log("*****************************************");
+console.log("Son iguales con dos funciones distintas");
+console.log("primera: solo retorna si 5 === 5");
+function sonIgualesRetorno(n1, n2) {
+    return n1 === n2;
+}
+console.log("5 === 5?: " + sonIgualesRetorno(5, 5));
+console.log("5 === 4?: " + sonIgualesRetorno(5, 4));
+
+console.log("segunda: solo retorna si 5 === 5 condicion if");
+function sonIgualesRetornoIF(n1, n2) {
+    if (n1 === n2) {
+        // return true;
+        return 'Los argumentos son extrictamente iguales';
+    } else {
+        // return false;
+        return 'Los argumentos no son extrictamente iguales'
+    }
+}
+console.log("5 === 5?: " + sonIgualesRetornoIF(5, 5));
+console.log("5 === 4?: " + sonIgualesRetornoIF(5, 4));
 
 
 
 
+
+
+console.log("*****************************************");
 // cebar mate
 console.log("Cebar Mate");
 // encender la hornalla
@@ -156,5 +243,5 @@ if (paqueteConYerba === true) {
     console.log("Hay que comprar yerba en el almacén.");
 }
 
-//1:36:00
+//1:56:00
 
