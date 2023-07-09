@@ -114,14 +114,18 @@ var yerba = "frutosRojos"
 //     console.log("Yerba Mate sabor tradicional");
 // }
 
-// select case - tipo de yerba
-switch (yerba) {
+// switch case - tipo de yerba
+switch (yerba) { //evalua la expresion con switch
     case 'frutosRojos':
         console.log("Yerba Mate sabor Frutos Rojos");
+        // sin el brake sige y muestra naranja y luego pomelo, etc
+        // por decirlo de alguna manera el case es la entrada y se
+        // queda hasta que se termina el ámbito del switch, el 
+        // brake le da salida del switch.
         break;
     case 'naranja':
         console.log("Yerba Mate sabor a Naranja");
-        break;
+        break; //romper
     case 'pomelo':
         console.log("Yerba Mate sabor a Pomelo");
         break;
