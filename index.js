@@ -44,17 +44,36 @@
 /////
 // LA FUNCION SE PUEDE LLAMAR ANTES QUE SU 
 // PROPIA DECLARACION: A ESTO SE LE LLAMA IZAMIENTO
+// (hoisting), en otras palabras todas las funciones que 
+// se encuentran en el archivo js las sube al principio
+// para que se puedan cargar antes de utilizarlas.
 
-var a = prompt("Bienvenido a la calculadora. Ingrese el primer número...", 0);
-var b = prompt("Ingrese el segundo número", 0);
+// var a = prompt("Bienvenido a la calculadora. Ingrese el primer número...", 0);
+// var b = prompt("Ingrese el segundo número", 0);
 
-alert("El resultado de la suma es: " + suma(a, b));
+// alert("El resultado de la suma es: " + suma(a, b));
 
 
-function suma(a, b) {
-    // convierto a numero por defecto prompt es string
-    a = Number(a);
-    b = Number(b);
-    return a + b;
+// function suma(a, b) {
+//     // convierto a numero por defecto prompt es string
+//     a = Number(a);
+//     b = Number(b);
+//     return a + b;
+// }
+
+// Ambito (scope) de una funcion
+// .todo lo que se define dentro de una funcion
+// es válido dentro del scope (entre {}) pero es
+// inválido fuera de este
+function resta(a, b) {
+    var res = a - b;
+    console.log(res);
+    return 'La resta es: ' + res;
 }
 
+console.log(resta(8, 3));
+console.log(res);  //error porque se encuentra fuera 
+// del ambito y el sistema no lo reconoce como variable
+// ya que al salir del scope vscode elimina dichas
+// variables
+// index.js:75 Uncaught ReferenceError: res is not defined
