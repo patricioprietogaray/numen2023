@@ -32,10 +32,29 @@
 //de manera interactiva
 
 // carga de los datos
-var nombre = prompt("¿Cual es tu nombre (First Name)?", '');
-var apellido = prompt("¿Cuál es tu apellido (Last Name)?", '');
+// var nombre = prompt("¿Cual es tu nombre (First Name)?", '');
+// var apellido = prompt("¿Cuál es tu apellido (Last Name)?", '');
 
 // mostrar los datos cargados
-alert(`Hola ${nombre} ${apellido}.`);
+// alert(`Hola ${nombre} ${apellido}.`);
 //el prompt como el alert pausan 
 //la ejecución del código
+
+
+/////
+// LA FUNCION SE PUEDE LLAMAR ANTES QUE SU 
+// PROPIA DECLARACION: A ESTO SE LE LLAMA IZAMIENTO
+
+var a = prompt("Bienvenido a la calculadora. Ingrese el primer número...", 0);
+var b = prompt("Ingrese el segundo número", 0);
+
+alert("El resultado de la suma es: " + suma(a, b));
+
+
+function suma(a, b) {
+    // convierto a numero por defecto prompt es string
+    a = Number(a);
+    b = Number(b);
+    return a + b;
+}
+
