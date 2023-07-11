@@ -65,15 +65,43 @@
 // .todo lo que se define dentro de una funcion
 // es válido dentro del scope (entre {}) pero es
 // inválido fuera de este
-function resta(a, b) {
-    var res = a - b;
-    console.log(res);
-    return 'La resta es: ' + res;
-}
+// function resta(a, b) {
+//     var res = a - b;
+//     console.log(res);
+//     return 'La resta es: ' + res;
+// }
 
-console.log(resta(8, 3));
-console.log(res);  //error porque se encuentra fuera 
+// console.log(resta(8, 3));
+// console.log(res);  //error porque se encuentra fuera 
 // del ambito y el sistema no lo reconoce como variable
 // ya que al salir del scope vscode elimina dichas
 // variables
 // index.js:75 Uncaught ReferenceError: res is not defined
+
+
+// variable global es la que se define fuera de cualquier
+// scope, fuera de todo, esta variable tiene alcance
+// global
+
+var saludo = "hola"; //si se usa o no el color no 
+// cambia por tratarse de una variable global?
+
+function sumar(a, b) {
+    // mientras la variable no se usa tenda un color más
+    // oscuro
+    var interna = "interna";
+    saludo = "adios"; //modifica saludo dentro y 
+    // fuera del scope
+    console.log(interna);
+    console.log("dentro del scope -> saludo: " + saludo);
+}
+
+function restablecer() {
+    saludo = "Hello!"
+    // cambio el valor de la variable global
+}
+console.log("fuera del scope -> saludo: " + saludo);
+sumar(2, 3);
+console.log("fuera del scope -> saludo: " + saludo);
+restablecer();
+console.log("fuera del scope -> saludo restablecer: " + saludo);
