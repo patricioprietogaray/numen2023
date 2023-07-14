@@ -147,3 +147,44 @@ function saludar(nombre, apellido) {
 // alert(`Hola ${nombre} ${apellido}.`);
 //el prompt como el alert pausan 
 //la ejecución del código
+
+
+// var no respeta los scopes es como si no existieran...
+// console.log("VAR");
+// console.log("llamo a musica antes de ser definida.");
+// console.log("Nota como se define despues de este llamado aparece");
+// console.log("como undefined cuando debería mostrar error!: " + musica);
+// es undefined si la variable se declara más adelante....
+// si no se declara tira error.
+
+// var musica = "Pop";
+// console.log(musica); //"Pop"
+// {
+    // var musica = "rock";
+    // console.log(musica); //"rock"
+// }
+// console.log(musica); // "rock"
+
+// console.log("****************************");
+// console.log("LET");
+// console.log("llamo a musica antes de ser definida."); 
+//console.log("Nota let tira error si no está definida con anterioridad!: "+musica1) //error
+// let musica1 = "general";
+// console.log(musica1); //"general"
+// {
+//     let musica1 = "dentro del scope";
+//     console.log(musica1); //"dentro del scope"
+// }
+// console.log(musica1); // "general"
+
+// console.log("****************************");
+// console.log("CONST");
+// console.log("llamo a musica antes de ser definida."); 
+//console.log("Nota let tira error si no está definida con anterioridad!: "+musica1) //error
+// const musica2 = "constanteGeneral";
+// console.log(musica2); //"general"
+// {
+//     const musica2 = "dentro del scope con una constante";
+//     console.log(musica2); //"dentro del scope"
+// }
+// console.log(musica2); // "general"
