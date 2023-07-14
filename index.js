@@ -105,3 +105,5 @@ sumar(2, 3);
 console.log("fuera del scope -> saludo: " + saludo);
 restablecer();
 console.log("fuera del scope -> saludo restablecer: " + saludo);
+
+//1:00:00
