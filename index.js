@@ -134,3 +134,16 @@ function saludar(nombre, apellido) {
 //ARGUMENTOS a la función saludar.
 //los argumentos son los datos que se envian
 // console.log(saludar("Laura", "García"));
+
+
+//otra forma de cargar los datos
+//de manera interactiva
+
+// carga de los datos
+// var nombre = prompt("¿Cual es tu nombre (First Name)?", '');
+// var apellido = prompt("¿Cuál es tu apellido (Last Name)?", '');
+
+// mostrar los datos cargados
+// alert(`Hola ${nombre} ${apellido}.`);
+//el prompt como el alert pausan 
+//la ejecución del código
