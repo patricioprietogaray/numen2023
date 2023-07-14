@@ -83,28 +83,28 @@
 // scope, fuera de todo, esta variable tiene alcance
 // global
 
-var saludo = "hola"; //si se usa o no el color no 
+// var saludo = "hola"; //si se usa o no el color no 
 // cambia por tratarse de una variable global?
 
-function sumar(a, b) {
+// function sumar(a, b) {
     // mientras la variable no se usa tenda un color más
     // oscuro
-    var interna = "interna";
-    saludo = "adios"; //modifica saludo dentro y 
+    // var interna = "interna";
+    // saludo = "adios"; //modifica saludo dentro y 
     // fuera del scope
-    console.log(interna);
-    console.log("dentro del scope -> saludo: " + saludo);
-}
+//     console.log(interna);
+//     console.log("dentro del scope -> saludo: " + saludo);
+// }
 
-function restablecer() {
-    saludo = "Hello!"
+// function restablecer() {
+//     saludo = "Hello!"
     // cambio el valor de la variable global
-}
-console.log("fuera del scope -> saludo: " + saludo);
-sumar(2, 3);
-console.log("fuera del scope -> saludo: " + saludo);
-restablecer();
-console.log("fuera del scope -> saludo restablecer: " + saludo);
+// }
+// console.log("fuera del scope -> saludo: " + saludo);
+// sumar(2, 3);
+// console.log("fuera del scope -> saludo: " + saludo);
+// restablecer();
+// console.log("fuera del scope -> saludo restablecer: " + saludo);
 
 // FUNCIONES
 
@@ -114,7 +114,7 @@ console.log("fuera del scope -> saludo restablecer: " + saludo);
 // nombre y apellido. 
 //los parámetros son los datos de los argumentos
 //que se reciben.
-function saludar(nombre, apellido) {
+// function saludar(nombre, apellido) {
     //datos locales nombre y apellido
     
     // instrucción (return)
@@ -126,8 +126,8 @@ function saludar(nombre, apellido) {
     
     //con las comillas alrevés o ``
     // se denomina cadena templada o string template
-    return `Hola ${ nombre } ${ apellido }.`;
-}
+//     return `Hola ${ nombre } ${ apellido }.`;
+// }
 //cuando se llama o se invoca a una funcion
 //luego del nombre se pone los paréntesis
 //en caso que sea necesario se pasan los 
@@ -188,3 +188,8 @@ function saludar(nombre, apellido) {
 //     console.log(musica2); //"dentro del scope"
 // }
 // console.log(musica2); // "general"
+
+//Declaración de Funcion
+const saludo = function (nombre) {
+    console.log("Hola", nombre);
+}
