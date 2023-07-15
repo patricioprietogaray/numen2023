@@ -195,8 +195,22 @@
 //en este caso la constante funcion no se
 //altera, pero si lo hace nombre que es una
 //variable....
-const saludo = function (nombre) {
+let saludo = function (nombre) {
+    //funcion anónima que toma el nombre de
+    //la variable que lo asigna
     console.log("Hola", nombre);
 }
-
+//llamar a la funcion anónima por el 
+//nombre de la variable/constante
 saludo("Rocio");
+console.log(saludo);
+saludo = "hola";    //constante no se modifica... si fuera variable
+                    // se hubiera perdido la funcion anónima
+saludo("Rocio"); //tira error si se hubiera tratado de una variable
+                    // que se hubiera modificado
+
+//las funciones anónimas no tienen el mismo
+//efecto del izamiento, primero se declaran y 
+//luego se llaman
+
+//1:38:00
