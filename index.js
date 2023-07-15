@@ -90,7 +90,7 @@
     // mientras la variable no se usa tenda un color más
     // oscuro
     // var interna = "interna";
-    // saludo = "adios"; //modifica saludo dentro y 
+    // saludo = "adios"; //modifica saludo dentro y
     // fuera del scope
 //     console.log(interna);
 //     console.log("dentro del scope -> saludo: " + saludo);
@@ -190,6 +190,13 @@
 // console.log(musica2); // "general"
 
 //Declaración de Funcion
+
+//las constantes no se modifican
+//en este caso la constante funcion no se
+//altera, pero si lo hace nombre que es una
+//variable....
 const saludo = function (nombre) {
     console.log("Hola", nombre);
 }
+
+saludo("Rocio");
