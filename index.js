@@ -195,22 +195,114 @@
 //en este caso la constante funcion no se
 //altera, pero si lo hace nombre que es una
 //variable....
-let saludo = function (nombre) {
+// let saludo = function (nombre) {
     //funcion anónima que toma el nombre de
     //la variable que lo asigna
-    console.log("Hola", nombre);
-}
+//     console.log("Hola", nombre);
+// }
 //llamar a la funcion anónima por el 
 //nombre de la variable/constante
-saludo("Rocio");
-console.log(saludo);
-saludo = "hola";    //constante no se modifica... si fuera variable
+// saludo("Rocio");
+// console.log(saludo);
+// saludo = "hola";    //constante no se modifica... si fuera variable
                     // se hubiera perdido la funcion anónima
-saludo("Rocio"); //tira error si se hubiera tratado de una variable
+// saludo("Rocio"); //tira error si se hubiera tratado de una variable
                     // que se hubiera modificado
 
 //las funciones anónimas no tienen el mismo
 //efecto del izamiento, primero se declaran y 
 //luego se llaman
+
+//FUNCIONES DECLARADAS
+//SE INVOCA EN CUALQUIER PARTE DEL CODIGO PORQUE TIENEN IZAMIENTO
+funcionDeclarada();
+
+function funcionDeclarada() {
+    console.log("Hola mundo desde una funcion declarada!");
+}
+
+funcionDeclarada();
+//FUNCIONES EXPRESADAS
+//SE INVOCA SOLO DESPUES DE DECLARADA NO TIENE IZAMIENTO
+//ES UNA VARIABLE CON CONSTANTE QUE SE LE ASIGNA UNA FUNCION ANÓNIMA
+//SE LA LLAMA POR EL NOMBRE DE LA VARIABLE/CONSTANTE
+
+//funcionExpresada(); //no llama a la funcion porque no se ha declarado
+                    //sin izamiento o hoisting
+
+const funcionExpresada = function () {
+    console.log("Hola mundo desde una funcion expresada!");
+}
+
+funcionExpresada();
+
+
+//FUNCIONES ARROW O FLECHA
+//SE APLICA SOLO EN TIPO DE FUNCION EXPRESADA 
+// NO SE APLICA COMO UNA FUNCION DECLARADA
+
+// const funcionFlecha = function() {
+     //console.log("....");
+// }
+// SU EQUIVALENTE PARA UNA FUNCION DE FLECHA
+const funcionFlecha = () => {
+    console.log("Hola mundo desde una función de flecha / arrow(funcion expresada)")
+}
+
+funcionFlecha();
+
+//OTRO EJEMPLO
+const numeroAlCuadrado = numero => {
+    return numero * numero;
+}
+
+console.log("2 al cuadrado es: " + numeroAlCuadrado(2));
+
+//OTRO EJEMPLO CON DOS VALORES
+const sumaDeNumeros = (numero1, numero2) => {
+    return numero1 + numero2;
+}
+
+console.log("2 + 3 es: " + sumaDeNumeros(2,3));
+
+
+//superficie de un circulo pi*radio**2
+// pi por radio al cuadrado
+
+const PI = 3.14159;
+const superficieCirculo = (radio) => {
+    console.log("Superficie de un circulo de radio "+radio+" es: "+(PI * radio ** 2));
+}
+
+superficieCirculo(5);
+
+//sin Return si los datos estan en la misma linea y sin llaves
+//Math.PI es más exacto que 3.14159....
+const superficieCirculo2 = (radio) => Math.PI * radio ** 2;
+
+console.log(superficieCirculo2(4));
+
+
+
+//FUNCION DE VARIAS LINEAS....
+
+//function resta(a, b) {
+//     var res = a - b;
+//     console.log(res);
+//     return 'La resta es: ' + res;
+// }
+
+const resta = (a, b) => {
+    var res = a - b;
+    console.log(res);
+    return 'La resta es: ' + res;
+};
+console.log(resta(8, 4));
+
+
+//funcion en una sola linea!!!!
+const resta2 = (a, b) => 'La resta es: ' + (a-b);
+
+console.log("RETORNO EL RESULTADO EN UNA LINEA: "+resta2(8, 4));
 
 //1:38:00
