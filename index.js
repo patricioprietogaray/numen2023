@@ -305,4 +305,10 @@ const resta2 = (a, b) => 'La resta es: ' + (a-b);
 
 console.log("RETORNO EL RESULTADO EN UNA LINEA: "+resta2(8, 4));
 
-//1:38:00
+
+// // ????
+//const superficieCirculoRedondeado = (radio) => console.log("sup circulo redondeo: "+Math.round((Math.PI*radio**2)*100/100));
+//superficieCirculoRedondeado(5);
+
+
+//1:56:00
