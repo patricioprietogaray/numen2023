@@ -316,5 +316,76 @@ numb = numb.toFixed(2);
 console.log("Redondeo en 2 decimales: "+numb);
 
 const supCirculoRedondeo = radio => console.log("Superficie de un circulo con radio "+radio+ ", es: "+(Math.PI * radio ** 2).toFixed(2));
-supCirculoRedondeo(5);
+supCirculoRedondeo(5); //78.54
+
+//if-else
+
+const ladoDeLaFuerza = (elegir) => {
+    if (elegir === "oscuro") {
+        return "Eres un Sith";
+    } else if (elegir === "luminoso") {
+        return "Eres un Jedi";
+    } else {
+        return "Eres un personaje irrelevante";
+    }
+}
+
+console.log(ladoDeLaFuerza("luminoso"));
+console.log(ladoDeLaFuerza("ocurito"));
+console.log(ladoDeLaFuerza("oscuro"));
+
+// numero aleatorio
+
+
+// primero se calcula el numero aleatorio (1 a 5)
+const numeroAleatorio = Math.ceil(Math.random() * 5);
+console.log("numero aleatorio: " + numeroAleatorio);
+
+// segundo creo una constante que corresponda a cada 
+// casa según su personalidad
+const valienteYAtrevido = 1,
+    justicieroYAmable = 2,
+    argumentativoYAnalitico = 3,
+    astutoEinescrupuloso = 4;
+
+// segun el nro aleatorio retorunara la 
+    // escuela de la seleccion.
+
+const sombreroSeleccionador = (test) => {
+    switch (test) {
+        case valienteYAtrevido:
+            return "Griffindor";
+        case justicieroYAmable:
+            return "Hufflepuff";
+        case argumentativoYAnalitico:
+            return "Ravenclaw";
+        case astutoEinescrupuloso:
+            return "Slytherin";
+        default:
+            return "Azkaban";
+    }
+}
+
+//llamo a la funcion sombreroSeleccionador y se le pasa
+//como argumento el numero aleatorio o random
+console.log(sombreroSeleccionador(numeroAleatorio));
+
+//juego de las sillas
+const juegoDeLasSillas = (alumnos, sillas) => {
+    console.log("COMIENZA EL JUEGO!!!");
+    for (let i = sillas; i > 1; i--) {
+        console.log("Comienza la ronda!");
+        console.log("Se enciende la música");
+        console.log("Se apaga la música");
+        console.log("Todos se sientan menos uno que sale del juego");
+        console.log(`Quedan ${i} sillas`);
+        alumnos = alumnos - 1;
+        if (alumnos === 2) {
+            alumnos = alumnos - 1;
+        }
+    }
+    return alumnos;
+}
+
+console.log(juegoDeLasSillas(5, 4));
 
