@@ -389,3 +389,35 @@ const juegoDeLasSillas = (alumnos, sillas) => {
 
 console.log(juegoDeLasSillas(5, 4));
 
+const llamadaTelefonica = (numero) => {
+    //console.log("Ingrese un numero por favor...");
+    switch (numero) {
+        case 1: alert("Seleccionó el Sector Ventas"); break;
+        case 2: alert("Seleccionó el Sector Administrativo"); break;
+        case 3: alert("Seleccionó el Sector Compras"); break;
+        default: alert("Opción Incorrecta"); break;
+    }
+};
+let num = prompt("Ingrese un número por favor (switch)....");
+// let num = 2;
+llamadaTelefonica(Number(num));
+
+const llamadaTelefonicaIfElse = (numero) => {
+    //console.log("Ingrese un numero por favor...");
+    if (numero === 1) {
+        alert("Seleccionó el Sector Ventas");
+    } else if (numero === 2) {
+        alert("Seleccionó el Sector Administrativo");
+    } else if (numero === 3) {
+        alert("Seleccionó el Sector Compras");
+    } else {
+        alert("Opción Incorrecta");
+    }
+};
+  
+let numIfElse = prompt("Ingrese un número por favor (ifElse)....");
+// let num = 2;
+llamadaTelefonicaIfElse(Number(numIfElse));
+
+
+//2:02
