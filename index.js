@@ -310,5 +310,11 @@ console.log("RETORNO EL RESULTADO EN UNA LINEA: "+resta2(8, 4));
 //const superficieCirculoRedondeado = (radio) => console.log("sup circulo redondeo: "+Math.round((Math.PI*radio**2)*100/100));
 //superficieCirculoRedondeado(5);
 
+let numb = 123.23554;
+console.log("numero original: "+numb)
+numb = numb.toFixed(2);
+console.log("Redondeo en 2 decimales: "+numb);
 
-//1:56:00
+const supCirculoRedondeo = radio => console.log("Superficie de un circulo con radio "+radio+ ", es: "+(Math.PI * radio ** 2).toFixed(2));
+supCirculoRedondeo(5);
+
