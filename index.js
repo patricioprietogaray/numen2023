@@ -29,10 +29,10 @@
 // cuantas veces se requiera 
 
 // FUNCION SALUDAR USUARIO se pasa como parámetro el nombre del usuario
-function saludarUsuario(usuario) {
-    console.log('Funcion saludarUsuario que se le pasa el parametro usuario con valor: ' + usuario);
-    return `Hola ${usuario}`;
-}
+// function saludarUsuario(usuario) {
+//     console.log('Funcion saludarUsuario que se le pasa el parametro usuario con valor: ' + usuario);
+//     return `Hola ${usuario}`;
+// }
 
 //pruebo que la funcion funcione correctamente....
 // console.log(saludarUsuario("genaro"));
@@ -81,7 +81,7 @@ function saludarUsuario(usuario) {
 // y una vez obtenidos muestre los datos....
 
 // async
-function conexion(url) {
+// function conexion(url) {
   //pruebo (try) y si no funciona capturo el error (catch)
   // try {
   //   const jsonn = await fetch(url)
@@ -93,29 +93,24 @@ function conexion(url) {
 
 
   // codigo incompleto
-  try {
-    fetch(url)
-    // el fetch devuelve la promesa..
-      .then(response => response.json())
-      .then(json => console.log(json))
-  }
-  catch (error) {
-    console.log("Error: " + error.message);
-  }
+//   try {
+//     fetch(url)
+//     // el fetch devuelve la promesa..
+//       .then(response => response.json())
+//       .then(json => console.log(json))
+//   }
+//   catch (error) {
+//     console.log("Error: " + error.message);
+//   }
   
-}
+// }
 
 
 // recurso en linea que quiero consultar
-let urlRecurso = 'https://jsonplaceholder.typicode.com/todos/100';
+// let urlRecurso = 'https://jsonplaceholder.typicode.com/todos/100';
 
 // // llamo a la funcion conexion y le paso la urlRecurso
-  console.log("Conexion: "+conexion(urlRecurso));
-
-
-
-
-
+  // console.log("Conexion: "+conexion(urlRecurso));
 
 
 
@@ -140,4 +135,40 @@ let urlRecurso = 'https://jsonplaceholder.typicode.com/todos/100';
 
 // navigator.geolocation.getCurrentPosition(success, error, options);
 
+// Callback anidados de manera que se pueda ejecutar y terminar tareas en orden
+// se llama callback hell o el infierno de los callback, tambien se lo denomina
+// la pirámide de la perdición. Esto se debe evitar....
+// primeraTarea(datos, function (error, resultadoExitoso) { //comienza y termina la tarea, con error o exito
+//   segundaTarea(datos, function (error, resultadoExitoso) { //comienza y termina la tarea, con error o exito
+//     tercerTarea(datos, function (error, resultadoExitoso) { //comienza y termina la tarea, con error o exito
+//       cuartaTarea(datos, function (error, resultadoExitoso) { //comienza y termina la tarea, con error o exito
+//         quintaTarea(datos, function (error, resultadoExitoso) { //comienza y termina la tarea, con error o exito
+//           //código
+//         });
+//       });
+//     });
+//   });  
+// });
 
+// METODOS QUE UTILIZAN CALLBACKS
+// METODOS DE ARRAYS
+
+//foreach (para cada uno), iterar arreglos
+
+
+//sin callback (sin forEach): Sólo con un for
+const profesores = ['Cinthia', 'Marcos', 'Matias', 'Andres', 'Santi'];
+
+for (let i = 0; i < profesores.length; i++) {
+  console.log("Profesor (for): " + profesores[i]); //muestra cada elemento del arreglo
+}
+
+//con callback (con forEach): utilizando el método del arreglo forEach
+profesores.forEach(function (profesores) { //funcion anónima tradicional
+  console.log("profesores (forEach - funcion anónima tradicional): "+profesores) //muestra cada elemento del arreglo
+})
+
+//con callback (con forEach): utilizando el método del arreglo forEach
+profesores.forEach(profes => { //funcion anónima de flecha
+  console.log("profes (forEach - arrow function): "+profes) //muestra cada elemento del arreglo
+})
