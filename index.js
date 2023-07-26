@@ -38,10 +38,10 @@ function saludarUsuario(usuario) {
 // console.log(saludarUsuario("genaro"));
 
 // FUNCION DESPEDIR USUARIO se pasa como parámetro el nombre del usuario
-function despedirUsuario(usuario) {
-    console.log('Funcion despedirUsuario que se le pasa el parametro usuario con valor: ' + usuario);
-    return `Adios ${usuario}`;
-}
+// function despedirUsuario(usuario) {
+//     console.log('Funcion despedirUsuario que se le pasa el parametro usuario con valor: ' + usuario);
+//     return `Adios ${usuario}`;
+// }
 
 // pruebo la funcion despedir
 // console.log(despedirUsuario("pepe"));
@@ -54,15 +54,64 @@ function despedirUsuario(usuario) {
 // generalmente cuando se pasa como argumento un funcion es porque la queremos utilizar del callback
 
 
-function crearSaludo(usuario, callback) {  //la funcion callback sin perentesis
-    console.log('Funcion crearSaludo que se le pasa el parametro usuario con valor: ' + usuario + ", y el callback: "+callback);
-    return callback(usuario);
+// function crearSaludo(usuario, callback) {  //la funcion callback sin perentesis
+//     console.log('Funcion crearSaludo que se le pasa el parametro usuario con valor: ' + usuario + ", y el callback: "+callback);
+//     return callback(usuario);
+// }
+
+
+// console.log(crearSaludo("Marimer", saludarUsuario));  //la funcion callback sin paerentesis
+// console.log(crearSaludo("Marimer", despedirUsuario));
+// la funcion callback no se le pone () para que se ejecute recien en el return.
+
+
+// fetch
+// Fetch recupera recursos de la red, esto es que se puede pedir info desde una api
+// de otro servidor, esta info tarda tiempo en llegar y por lo tanto se trata de una
+// comunicacion asincrona.
+
+// function conexion(url) {
+  // const jsonn = fetch(url); //como en esta linea no da el tiempo para que llegue la respuesta
+  // entonces queda como una promesa pendiente.
+  // return jsonn.data; //promise pending o promesa pendiente
+  // .data me devolverá los datos
+// }
+
+//correccion de la funcion conexcion para que espere 
+// y una vez obtenidos muestre los datos....
+
+async function conexion(url) {
+  //pruebo (try) y si no funciona capturo el error (catch)
+  // try {
+  //   const jsonn = await fetch(url)
+  //   console.log(jsonn.data);
+  // } catch (error) {
+  //   console.log("Error: " + error);
+  // }
+  /// DE ESTA FORMA NO FUNCIONA SE DEBE HACER DE LA SIGUIENTE MANERA....
+
+
+  // codigo incompleto
+  try {
+    fetch('https://jsonplaceholder.typicode.com/todos/201')
+    // el fetch devuelve la promesa..
+      .then(response => response.json())
+      .then(json => console.log(json))
+  }
+  catch (error) {
+    console.log("Error: " + error.message);
+  }
+  
 }
 
 
-console.log(crearSaludo("Marimer", saludarUsuario));  //la funcion callback sin paerentesis
-console.log(crearSaludo("Marimer", despedirUsuario));
-// la funcion callback no se le pone () para que se ejecute recien en el return.
+// recurso en linea que quiero consultar
+let urlRecurso = 'https://jsonplaceholder.typicode.com/todos/1';
+
+// llamo a la funcion conexion y le paso la urlRecurso
+  console.log("Conexion: "+conexion(urlRecurso));
+
+
 
 
 
@@ -89,3 +138,5 @@ console.log(crearSaludo("Marimer", despedirUsuario));
 // }
 
 // navigator.geolocation.getCurrentPosition(success, error, options);
+
+
