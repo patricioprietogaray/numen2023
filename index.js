@@ -80,7 +80,8 @@ function saludarUsuario(usuario) {
 //correccion de la funcion conexcion para que espere 
 // y una vez obtenidos muestre los datos....
 
-async function conexion(url) {
+// async
+function conexion(url) {
   //pruebo (try) y si no funciona capturo el error (catch)
   // try {
   //   const jsonn = await fetch(url)
@@ -93,7 +94,7 @@ async function conexion(url) {
 
   // codigo incompleto
   try {
-    fetch('https://jsonplaceholder.typicode.com/todos/201')
+    fetch(url)
     // el fetch devuelve la promesa..
       .then(response => response.json())
       .then(json => console.log(json))
@@ -106,9 +107,9 @@ async function conexion(url) {
 
 
 // recurso en linea que quiero consultar
-let urlRecurso = 'https://jsonplaceholder.typicode.com/todos/1';
+let urlRecurso = 'https://jsonplaceholder.typicode.com/todos/100';
 
-// llamo a la funcion conexion y le paso la urlRecurso
+// // llamo a la funcion conexion y le paso la urlRecurso
   console.log("Conexion: "+conexion(urlRecurso));
 
 
