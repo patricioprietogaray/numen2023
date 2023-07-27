@@ -19,3 +19,11 @@ h1 {
     color: rgb(233, 132, 132);
     background-color: rgb(9, 92, 92);
 }
+
+#tituloAmigos {
+    color: rgb(50, 211, 133);
+}
+#amigos {
+    background-color: rgb(163, 210, 117);
+    color: black;
+}

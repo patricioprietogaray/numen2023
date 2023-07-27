@@ -205,12 +205,47 @@ const amigos = [
 
 //amigos.forEach(elem=>{....})   return no funciona (debo poner una variable para luego retornarla)
 //const resul = amigos.map(elem=>{})      return funciona
+// const resultadoMap = amigos.map(elem => {
+//   return (`<h2>Mis amigos!</h2>
+//   <p>Les presento a mi amigo ${elem.nombre}, es ${elem.profesion} y tiene ${elem.edad} años de edad.</p>
+//   `)
+// });
+// console.log(resultadoMap);
+
+//document: es el body la parte que muestra al usuario? NO. Está más arriba que el body.
+//el document es todo el documento html (<html>....</html>).
+//(llamado al DOM)
+
+//Se escribe despues del <script src="./index.js"></script> y no en el div con id "amigos"
+// document.write(resultadoMap[0]);
+
+// Para escribirlo en la página en un lugar específico debo simbolizar esa parte de la página
+// con $parteDeLaPágina; luego le digo que dentro del id "amigos" escriba los datos
+
+// const $amigos = document.getElementById('amigos'); que debe estar en el map
+
+
+//agrega el texto dentro del id amigos pero de forma literal
+const $amigos = document.getElementById('amigos');
+const $tituloAmigos = document.getElementById('tituloAmigos');
+
+//contenido a agregar en el html
 const resultadoMap = amigos.map(elem => {
-  return (`<h2>Mis amigos!</h2>
-  <p>Les presento a mi amigo ${elem.nombre}, es ${elem.profesion} y tiene ${elem.edad} años de edad.</p>
-  `)
+  return (`<p>Les presento a mi amigo ${elem.nombre}, es ${elem.profesion} y tiene ${elem.edad} años de edad.</p>`)
 });
-console.log(resultadoMap);
+
+// lo agrego al html con innerHtml y luego le digo que todos los separadores (en este caso una coma ',') 
+// del arreglo resultadoMap sean suprimidos...
+
+// console.log(resultadoMap);
+// $tituloAmigos.innerHTML significa: codigo html interno al div titulo amigos
+$tituloAmigos.innerHTML = '<h2>Mis amigos!</h2>';
+$amigos.innerHTML = resultadoMap.join('');
+
+
+
+
+
 
 
 // filter: filtra todos los elementos (no lo muestra) y solo devuelve el elemento que 
