@@ -164,11 +164,69 @@ for (let i = 0; i < profesores.length; i++) {
 }
 
 //con callback (con forEach): utilizando el método del arreglo forEach
-profesores.forEach(function (profesores) { //funcion anónima tradicional
-  console.log("profesores (forEach - funcion anónima tradicional): "+profesores) //muestra cada elemento del arreglo
+profesores.forEach(function (profes) { //funcion anónima tradicional
+  console.log("profes1 (forEach - funcion anónima tradicional): "+profes) //muestra cada elemento del arreglo
 })
 
 //con callback (con forEach): utilizando el método del arreglo forEach
 profesores.forEach(profes => { //funcion anónima de flecha
-  console.log("profes (forEach - arrow function): "+profes) //muestra cada elemento del arreglo
+  console.log("profes2 (forEach - arrow function): "+profes) //muestra cada elemento del arreglo
 })
+
+//forEach tarda más que el for, porque el forEach está compuesto
+// de metodos simples como el for
+
+//FUNCIONES CALLBACK   MAP, FILTER Y REDUCE
+console.log("Funciones callback map, reduce y filter");
+//map toma un arreglo y lo transforma en otra cosa
+//a cada elemento lo transforma, puede devolver un 2x o un (1/2)x
+// devuelve un arreglo de la misma longitud y sus elementos transformados
+// MAP ES IMPORTANTE EN REACT
+
+// Aquí tengo un arreglo de objetos [{},{}]
+
+const amigos = [
+  {
+    nombre: 'Freddy',
+    edad: 20,
+    profesion: 'Profesor',
+  },
+  {
+    nombre: 'Nicolas',
+    edad: 25,
+    profesion: 'Profesor',
+  },
+  {
+    nombre: 'Marcos',
+    edad: 40,
+    profesion: 'Estudiante',
+  }
+];
+
+//amigos.forEach(elem=>{....})   return no funciona (debo poner una variable para luego retornarla)
+//const resul = amigos.map(elem=>{})      return funciona
+const resultadoMap = amigos.map(elem => {
+  return (`<h2>Mis amigos!</h2>
+  <p>Les presento a mi amigo ${elem.nombre}, es ${elem.profesion} y tiene ${elem.edad} años de edad.</p>
+  `)
+});
+console.log(resultadoMap);
+
+
+// filter: filtra todos los elementos (no lo muestra) y solo devuelve el elemento que 
+// coincida con la condicion
+
+
+//reduce: mezcla los elementos de cada array y los muestra como un solo elemento simple
+// podría decirse que los "mezcla".
+
+
+
+
+
+// muestra a mis amigos de la forma tradicional
+// console.log("Amigos: " + amigos[0].nombre);
+
+//Ahora voy a hacer una presentacion de cada uno de los objetos con el método map.
+// al arreglo amigos lo voy a recorrer con map, en cada iteración cargo cada elemento del arreglo
+// a elem y devuelvo (return () ) otro arreglo nuevo => [....] que contendrá datos de mis amigos en el dom.
