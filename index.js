@@ -254,9 +254,13 @@ const productos = [
   { id: 4, nombre: 'Coca', precio: 78.56},
 ];
 
+// const $tituloEstilo = document.getElementById('tituloElemento');
+// $tituloEstilo.style.color = 'red';
+
+const letraVerde = "color: rgb(200,125,0);";
 
 const mapeoProductos = productos.map(producto => {
-  return (`<h2>${producto.nombre}</h2>
+  return (`<h2 id="$tituloElemento" style="${letraVerde}">${producto.nombre}</h2>
   <p>${producto.precio}</p>
   <button>Agregar</button>`)
 })
