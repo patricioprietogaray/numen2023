@@ -157,27 +157,27 @@
 
 
 //sin callback (sin forEach): Sólo con un for
-const profesores = ['Cinthia', 'Marcos', 'Matias', 'Andres', 'Santi'];
+// const profesores = ['Cinthia', 'Marcos', 'Matias', 'Andres', 'Santi'];
 
-for (let i = 0; i < profesores.length; i++) {
-  console.log("Profesor (for): " + profesores[i]); //muestra cada elemento del arreglo
-}
-
-//con callback (con forEach): utilizando el método del arreglo forEach
-profesores.forEach(function (profes) { //funcion anónima tradicional
-  console.log("profes1 (forEach - funcion anónima tradicional): "+profes) //muestra cada elemento del arreglo
-})
+// for (let i = 0; i < profesores.length; i++) {
+//   console.log("Profesor (for): " + profesores[i]); //muestra cada elemento del arreglo
+// }
 
 //con callback (con forEach): utilizando el método del arreglo forEach
-profesores.forEach(profes => { //funcion anónima de flecha
-  console.log("profes2 (forEach - arrow function): "+profes) //muestra cada elemento del arreglo
-})
+// profesores.forEach(function (profes) { //funcion anónima tradicional
+//   console.log("profes1 (forEach - funcion anónima tradicional): "+profes) //muestra cada elemento del arreglo
+// })
+
+//con callback (con forEach): utilizando el método del arreglo forEach
+// profesores.forEach(profes => { //funcion anónima de flecha
+//   console.log("profes2 (forEach - arrow function): "+profes) //muestra cada elemento del arreglo
+// })
 
 //forEach tarda más que el for, porque el forEach está compuesto
 // de metodos simples como el for
 
 //FUNCIONES CALLBACK   MAP, FILTER Y REDUCE
-console.log("Funciones callback map, reduce y filter");
+// console.log("Funciones callback map, reduce y filter");
 //map toma un arreglo y lo transforma en otra cosa
 //a cada elemento lo transforma, puede devolver un 2x o un (1/2)x
 // devuelve un arreglo de la misma longitud y sus elementos transformados
@@ -185,23 +185,23 @@ console.log("Funciones callback map, reduce y filter");
 
 // Aquí tengo un arreglo de objetos [{},{}]
 
-const amigos = [
-  {
-    nombre: 'Freddy',
-    edad: 20,
-    profesion: 'Profesor',
-  },
-  {
-    nombre: 'Nicolas',
-    edad: 25,
-    profesion: 'Profesor',
-  },
-  {
-    nombre: 'Marcos',
-    edad: 40,
-    profesion: 'Estudiante',
-  }
-];
+// const amigos = [
+//   {
+//     nombre: 'Freddy',
+//     edad: 20,
+//     profesion: 'Profesor',
+//   },
+//   {
+//     nombre: 'Nicolas',
+//     edad: 25,
+//     profesion: 'Profesor',
+//   },
+//   {
+//     nombre: 'Marcos',
+//     edad: 40,
+//     profesion: 'Estudiante',
+//   }
+// ];
 
 //amigos.forEach(elem=>{....})   return no funciona (debo poner una variable para luego retornarla)
 //const resul = amigos.map(elem=>{})      return funciona
@@ -226,24 +226,42 @@ const amigos = [
 
 
 //agrega el texto dentro del id amigos pero de forma literal
-const $amigos = document.getElementById('amigos');
-const $tituloAmigos = document.getElementById('tituloAmigos');
+// const $amigos = document.getElementById('amigos');
+// const $tituloAmigos = document.getElementById('tituloAmigos');
 
 //contenido a agregar en el html
-const resultadoMap = amigos.map(elem => {
-  return (`<p>Les presento a mi amigo ${elem.nombre}, es ${elem.profesion} y tiene ${elem.edad} años de edad.</p>`)
-});
+// const resultadoMap = amigos.map(elem => {
+//   return (`<p>Les presento a mi amigo ${elem.nombre}, es ${elem.profesion} y tiene ${elem.edad} años de edad.</p>`)
+// });
 
 // lo agrego al html con innerHtml y luego le digo que todos los separadores (en este caso una coma ',') 
 // del arreglo resultadoMap sean suprimidos...
 
 // console.log(resultadoMap);
 // $tituloAmigos.innerHTML significa: codigo html interno al div titulo amigos
-$tituloAmigos.innerHTML = '<h2>Mis amigos!</h2>';
-$amigos.innerHTML = resultadoMap.join('');
+// $tituloAmigos.innerHTML = '<h2>Mis amigos!</h2>';
+// $amigos.innerHTML = resultadoMap.join('');
 
 
+//PRODUCTOS: HACER TARJETAS CON MAP
 
+const $productosContenedor = document.getElementById('productosContenedor');
+
+const productos = [
+  { id: 1, nombre: 'Leche' , precio: 178.56},
+  { id: 2, nombre: 'Harina', precio: 28.56},
+  { id: 3, nombre: 'Sal', precio: 38.56},
+  { id: 4, nombre: 'Coca', precio: 78.56},
+];
+
+
+const mapeoProductos = productos.map(producto => {
+  return (`<h2>${producto.nombre}</h2>
+  <p>${producto.precio}</p>
+  <button>Agregar</button>`)
+})
+
+$productosContenedor.innerHTML = mapeoProductos.join('');
 
 
 

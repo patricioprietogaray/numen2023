@@ -27,3 +27,8 @@ h1 {
     background-color: rgb(163, 210, 117);
     color: black;
 }
+
+#productosContenedor {
+    background-color: blue;
+    color: white;
+}
