@@ -245,28 +245,47 @@
 
 //PRODUCTOS: HACER TARJETAS CON MAP
 
-const $productosContenedor = document.getElementById('productosContenedor');
+// const $productosContenedor = document.getElementById('productosContenedor');
 
-const productos = [
-  { id: 1, nombre: 'Leche' , precio: 178.56},
-  { id: 2, nombre: 'Harina', precio: 28.56},
-  { id: 3, nombre: 'Sal', precio: 38.56},
-  { id: 4, nombre: 'Coca', precio: 78.56},
-];
+// const productos = [
+//   { id: 1, nombre: 'Leche' , precio: 178.56},
+//   { id: 2, nombre: 'Harina', precio: 28.56},
+//   { id: 3, nombre: 'Sal', precio: 38.56},
+//   { id: 4, nombre: 'Coca', precio: 78.56},
+// ];
 
 // const $tituloEstilo = document.getElementById('tituloElemento');
 // $tituloEstilo.style.color = 'red';
 
-const letraVerde = "color: rgb(200,125,0);";
+// const letraVerde = "color: rgb(200,125,0);";
 
-const mapeoProductos = productos.map(producto => {
-  return (`<h2 id="$tituloElemento" style="${letraVerde}">${producto.nombre}</h2>
-  <p>${producto.precio}</p>
-  <button>Agregar</button>`)
-})
+// const mapeoProductos = productos.map(producto => {
+//   return (`<h2 id="$tituloElemento" style="${letraVerde}">${producto.nombre}</h2>
+//   <p>${producto.precio}</p>
+//   <button>Agregar</button>`)
+// })
 
-$productosContenedor.innerHTML = mapeoProductos.join('');
+// $productosContenedor.innerHTML = mapeoProductos.join('');
 
+/// Animales con MAP
+
+const animales = ["León", "Tucán", "Yaguareté", "Paloma", "Ganso", "Almeja"];
+console.log("forEach: no devuelve el arreglo");
+//forEach no devuelve arreglo
+console.log(animales.forEach(element => {
+  `Devuelve: ${element}`; //undefined
+}))
+console.log(animales); //muestra el arreglo
+
+// console.log(animales.map((elem) => {
+//   console.log(`Devuelve: ${elem}`); //undefine
+// }));
+
+console.log('Map: devuelve el arreglo');
+const retornoMap = animales.map(elem => {
+  console.log(`Devuelve: ${elem}`); //undefined
+});
+console.log(retornoMap.length);
 
 
 
