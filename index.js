@@ -292,48 +292,63 @@
 // filter: filtra todos los elementos (no lo muestra) y solo devuelve el elemento que 
 // coincida con la condicion
 
+let palabras = ['chancleta', 'pato', 'ornitorrinco', 'argentina', 'termo', 'ajedrez', 'argentina'];
+
+//nuevoArreglo =                       elemento => (condicion)
+let resultadoFilterPalabraJusta = palabras.filter(palabra => (palabra==="pato"));
+console.log("resultadoFilterPalabraJusta: "+resultadoFilterPalabraJusta);
+
+// devuelve una variable
+let resultadoFindPrimeraPalabraJusta = palabras.find(palabra => palabra === "termo");
+console.log("resultadoFindPrimeraPalabraJusta: "+resultadoFindPrimeraPalabraJusta);
+
+// devuelve un arreglo
+let resultadoFilterPalabraAproximada = palabras.filter(palabra => (palabra.includes('rge')));
+console.log("resultadoFilterPalabraAproximada: "+resultadoFilterPalabraAproximada);
+
+
 
 //reduce: mezcla los elementos de cada array y los muestra como un solo elemento simple
 // podría decirse que los "mezcla".
 // ingresan muchos elemntos y salu uno solo:
 //ej: una suma.
-const numeros = [1, 2, 3, 4, 5, 6];
+// const numeros = [1, 2, 3, 4, 5, 6];
 // sin callback
-let suma = 0;
-for (let i = 0; i < numeros.length; i++) {
-  suma = suma + numeros[i];
-}
+// let suma = 0;
+// for (let i = 0; i < numeros.length; i++) {
+//   suma = suma + numeros[i];
+// }
 
-console.log("La suma con un for: " + suma);
+// console.log("La suma con un for: " + suma);
 
-const sumaReduce = numeros.reduce(function (acumulador, elemento) {
-  return acumulador + elemento;
-})
+// const sumaReduce = numeros.reduce(function (acumulador, elemento) {
+//   return acumulador + elemento;
+// })
 
-console.log("La suma con un reduce: " + sumaReduce);
+// console.log("La suma con un reduce: " + sumaReduce);
 
 //=>acu+num,0 (en cero acu)
-const sumaReduceArrow = numeros.reduce((numeroActual, acumulador) => numeroActual+acumulador,0);
+// const sumaReduceArrow = numeros.reduce((numeroActual, acumulador) => numeroActual+acumulador,0);
 
-console.log("La suma con un reduce (function arrow): " + sumaReduceArrow);
+// console.log("La suma con un reduce (function arrow): " + sumaReduceArrow);
 
 
 
-const cadenasSaludo = ['Hola', 'alumnos', 'de', 'la', 'costa'];
+// const cadenasSaludo = ['Hola', 'alumnos', 'de', 'la', 'costa'];
 //cadena es el dato del arreglo y saludo es el acumulador
 
 // con operador ternario
-const saludoReduce = cadenasSaludo.reduce((frase, palabra, i) => (i === 0) ? `${palabra}` : `${frase} ${palabra}`, "");
+// const saludoReduce = cadenasSaludo.reduce((frase, palabra, i) => (i === 0) ? `${palabra}` : `${frase} ${palabra}`, "");
 
 // if tradicional
-const saludoReduce = cadenasSaludo.reduce((frase, palabra, i) => { 
-  if (i === 0) {
-    `${palabra}`
-  } else {
-    `${frase} ${palabra}`
-  }
-}, "");
-console.log(saludoReduce);
+// const saludoReduce = cadenasSaludo.reduce((frase, palabra, i) => { 
+//   if (i === 0) {
+//     `${palabra}`
+//   } else {
+//     `${frase} ${palabra}`
+//   }
+// }, "");
+// console.log(saludoReduce);
 
 
 
