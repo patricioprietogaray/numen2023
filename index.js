@@ -149,8 +149,15 @@ chanchitoFeliz.hablar("tristeza")
 // con la funcion se declaran adentro
 // pasar parametros al constructor
 function protoFuncionJedi(arma, poder) {
+    //atributos
     this.arma = arma,
     this.poder = poder
+
+    //métodos
+    this.hablar = function() {
+        console.log("Que la fuerza te acompañe");
+    }
+
 }
 
 let obiwan = new protoFuncionJedi("Sable de luz", "La fuerza");
@@ -160,5 +167,13 @@ console.log(obiwan);
 
 console.log(obiwan.arma);
 console.log(obiwan.poder);
+obiwan.hablar();
 
+//Declarar un método nuevo desde afuera de la funcion constructora
+// solo para la instancia obiwan
+// obiwan.viajar();
+obiwan.viajar = function() {
+    console.log("Estoy viajando por la Republica");
+}
+obiwan.viajar();
 
