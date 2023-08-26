@@ -86,6 +86,7 @@ const objetoSecundario={
     nombre: "Nombre del objeto secundario",
     //llamo a la funcion imprimir dentro del objeto primario
     //paso datos (nombre) desde el objeto secundario!
+    //al utilizar this hago referencia al objeto actual (secundario)
     imprimir: objetoPrimario.imprimir,
 
 }
@@ -94,6 +95,54 @@ const objetoSecundario={
 // llamo a la propiedad del objeto de manera directa
 objetoPrimario.imprimir();
 objetoSecundario.imprimir();
+
+// 36:54
+//Funcion constructora
+// define propiedades y metodos 
+// se aplica en funciones y clases (antes solo en funciones 
+// no exitían las clases)
+// luego se instancia con new
+
+// antes se creaban objetos instanciados con un protoObjeto ej:
+
+// crear el proto objeto
+let protoObjetoConejo = {
+    hablar(linea) {
+        console.log(`El conejo dice ${linea}`);
+    }
+}
+
+// crear un objeto desde el proto objeto
+let conejitoFeliz = Object.create(protoObjetoConejo);
+// console.log(conejitoFeliz);
+conejitoFeliz.hablar("Hola, estoy un conejo que está muy feliz!");
+
+// utilizar this
+// ojo que tengo que declaralo aparte linea es distinto a this.linea
+let protoObjetoChanchito = {
+    hablar(linea) {
+        // this nombre y this.linea se deben declara antes de llamar
+        // a esta funcion
+        console.log(`${linea}: Hola, soy un ${this.nombre} y te digo: ${this.linea}`);
+    }
+}
+
+let chanchitoFeliz = Object.create(protoObjetoChanchito);
+let chanchitoTriste = Object.create(protoObjetoChanchito);
+chanchitoFeliz.linea="Estoy muy feliz";
+chanchitoFeliz.nombre="Chanchito Feliz";
+chanchitoTriste.linea="Estoy muy triste";
+chanchitoTriste.nombre="Chanchito Triste";
+
+// paso info como parametro a linea y 
+// devuelve undefined con console.log
+console.log(chanchitoFeliz.hablar("felicidad"));
+console.log(chanchitoTriste.hablar("tristeza"));
+
+chanchitoFeliz.hablar("felicidad")
+chanchitoFeliz.hablar("tristeza")
+
+
 
 
 
