@@ -247,3 +247,11 @@ console.log(leon.presentacion());
 
 let delfin = new Animal('Delfín', 'Mar');
 console.log(delfin.presentacion());
+
+/* 
+Antes                       Ahora
+Funcion constructora        Clases
+Se declara con parametros   Se declara con constructor(parametros)
+Metodos declarados con      Metodos declarados como funciones()
+    prototype por fuera     adentro de la clase
+*/
