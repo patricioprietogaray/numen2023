@@ -160,6 +160,10 @@ function protoFuncionJedi(arma, poder) {
 
 }
 
+// new -> genero una nueva instancia de la funcion constructora
+//instancia de la funcion constructora
+// una instancia es una copia de la funcion constructora
+// que se declara y se utiliza por medio de una variable (por ej)
 let obiwan = new protoFuncionJedi("Sable de luz", "La fuerza");
 
 console.log(obiwan);
