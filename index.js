@@ -51,14 +51,21 @@ let perro = {
     // saludo: () => console.log("Hola, soy "+this.nombre),
     // en vez de eso se debe utilizar de la siguiente manera:
     saludo: function() {
-        console.log("Hola, soy "+this.nombre);
+        console.log("Hola, soy "+perro.nombre);
+        //this.nombre se accede a nombre dentro del mismo objeto
+        //perro.nombre se accede de la misma manera, el problema
+        // es que un programador le cambie el nombre al objeto
+        // y por consiguiente perro.nombre no será funcional.
     }
     
 }
 
 perro.saludo();
-console.log(perro.nombre);
-perro.saludo();
+// console.log(perro.nombre);
+// perro.saludo();
 
 // clase 14 tiempo: 27min
 // https://vimeo.com/849513781/4a5a98852f
+
+// agregar propiedades al objeto window
+// 32:21
