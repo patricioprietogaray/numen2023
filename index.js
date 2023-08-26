@@ -69,3 +69,10 @@ perro.saludo();
 
 // agregar propiedades al objeto window
 // 32:21
+
+// Agregar una propiedad (nombre) al objeto window
+// this como global
+this.nombre = "Agrego una propiedad o atributo a window";
+
+
+
