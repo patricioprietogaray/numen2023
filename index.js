@@ -144,6 +144,18 @@ chanchitoFeliz.hablar("tristeza")
 
 
 
+//Funcion constructora
+// lo que con los objetos se declaraba por fuera (atributos)
+// con la funcion se declaran adentro
+function protoFuncionJedi() {
+    this.arma = "Sable de luz",
+    this.poder = "La fuerza"
+}
 
+let obiwan = new protoFuncionJedi();
+
+console.log(obiwan);
+console.log(obiwan.arma);
+console.log(obiwan.poder);
 
 
