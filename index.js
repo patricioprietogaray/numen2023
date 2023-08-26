@@ -177,3 +177,19 @@ obiwan.viajar = function() {
 }
 obiwan.viajar();
 
+// crear una instancia para todos los Jedis una vez creada la 
+// funcion constructora
+// desde el prototipo
+
+// obiwan.susurrar(); se debe declara primero
+
+//funcion tradicional
+protoFuncionJedi.prototype.susurrar = function() {
+    console.log("Usa la fuerza Luke");
+}
+
+// function arrow
+// protoFuncionJedi.prototype.susurrar = () => console.log("Usa la fuerza Luke");
+
+
+obiwan.susurrar();
