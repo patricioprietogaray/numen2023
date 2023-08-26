@@ -84,10 +84,12 @@ const objetoPrimario={
 }
 const objetoSecundario={
     nombre: "Nombre del objeto secundario",
-    imprimir: function() {
-        console.log("Imprimo desde el objeto secundario: "+this.nombre);
-    }
+    //llamo a la funcion imprimir dentro del objeto primario
+    //paso datos (nombre) desde el objeto secundario!
+    imprimir: objetoPrimario.imprimir,
+
 }
+
 
 // llamo a la propiedad del objeto de manera directa
 objetoPrimario.imprimir();
