@@ -197,3 +197,53 @@ protoFuncionJedi.prototype.susurrar = function() {
 
 
 obiwan.susurrar();
+
+// Clases
+// las clases son una mejora de sintaxis de las funciones constructoras
+// mas o menos hacen lo mismo
+
+//LAS CLASES SIEMPRE SE DECLARAN CON LA PRIMERA LETRA DE LA PRIMER
+//PALABRA EN MAYUSCULAS PascalCase
+
+class ProtoClaseJedi {
+    constructor(arma, poder) {
+    //atributos
+    this.arma = arma,
+    this.poder = poder
+    }
+
+    //métodos
+    // sin this
+    hablar = function() {
+        console.log("Que la fuerza te acompañe");
+    }
+
+}
+
+let yoda = new ProtoClaseJedi("Sable luz verde", "La fuerza");
+console.log("Yoda: "+yoda.arma);
+console.log("Yoda: "+yoda.poder);
+yoda.hablar();
+// yoda.susurrar();    //no existe
+
+//otro ejemplo
+class Animal {   //PascalCase
+    // funcion constructora que se puede o no pasar parámetros
+    constructor(nombre, habitat) {
+        // Atributos
+        // this.atributo = valor pasado por el constructor
+        this.nombre = nombre;
+        this.habitat = habitat;
+    }
+    
+    //metodos
+    presentacion(){
+        return `Soy el animal ${this.nombre} y vivo en ${this.habitat}.`;
+    }
+}
+
+let leon = new Animal('Leon', 'Sabana');
+console.log(leon.presentacion());
+
+let delfin = new Animal('Delfín', 'Mar');
+console.log(delfin.presentacion());
