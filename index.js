@@ -75,4 +75,24 @@ perro.saludo();
 this.nombre = "Agrego una propiedad o atributo a window";
 
 
+//llamo una propiedad de un objeto dentro de otro objeto
+const objetoPrimario={
+    nombre: "Nombre del objeto primario",
+    imprimir: function() {
+        console.log("Imprimo desde el objeto primario: "+this.nombre);
+    }
+}
+const objetoSecundario={
+    nombre: "Nombre del objeto secundario",
+    imprimir: function() {
+        console.log("Imprimo desde el objeto secundario: "+this.nombre);
+    }
+}
+
+// llamo a la propiedad del objeto de manera directa
+objetoPrimario.imprimir();
+objetoSecundario.imprimir();
+
+
+
 
