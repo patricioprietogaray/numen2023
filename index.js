@@ -255,3 +255,99 @@ Se declara con parametros   Se declara con constructor(parametros)
 Metodos declarados con      Metodos declarados como funciones()
     prototype por fuera     adentro de la clase
 */
+
+
+// HERENCIA DE UNA CLASE
+// LA CLASE Mamifero es una herencia de Animal
+// Los atributos y metodos estan heredados
+
+//class hijo extends padre
+class Mamifero extends Animal {
+    //agrego atributos heredados + atributo particular
+    // de la clase hijo
+    constructor(nombre, habitat, tienePelo){
+        // traigo los parametros de la clase padre
+        super(nombre, habitat);
+
+        //atributos particulares de esta nueva clase
+        this.tienePelo = tienePelo;
+    }
+    // puedo pisar presentacion y mostrará lo pisado
+    // presentacion(){
+    //     return `Soy el animal ${this.nombre}, vivo en ${this.habitat} y ¿tengo pelo? ${this.tienePelo}.`;
+    // }
+
+    //creo un nuevo método con un ternario
+    describirMamifero() {
+        // llamo a presentacion con this y agrego la info
+        // del pelo con un if ternario
+
+        //llamo al metodo presentacion no olvidar los ()
+        // adiciono un ternario
+        //return `${this.presentacion()} ${this.tienePelo?'Tengo pelo.':'No tengo pelo.'}`;
+        return this.presentacion() + this.tienePelo?'Tengo pelo.':'No tengo pelo.';
+    }
+}
+
+let mono = new Mamifero('Chimpancé', 'Selva', true);
+console.log(mono);
+
+let elefante = new Mamifero('Elefante', 'Sabana', false);
+console.log(elefante.describirMamifero());
+
+/*Atención:
+no puede haber mas de un constructor por clase
+no pueden haber mas de un metodo que se denomine de igual forma
+puedo reescribir un metodo solo desde una clase hija/nieta
+con el metodo super llamo al constructor de la clase padre
+hay clases que son abstractas, es decir que 
+no se instanciarán, ej Math.pi.
+Las clases que construya el programador tiene la finalidad de 
+instanciarlas, si no para que se hace?
+*/
+
+class Planeta {
+    constructor(nombrePlaneta, ubicacionSistemaSolar, superficiePlaneta) {
+        this.nombrePlaneta = nombrePlaneta;
+        this.ubicacionSistemaSolar = ubicacionSistemaSolar;
+        this.superficiePlaneta = superficiePlaneta;
+    }
+    presentacionPlaneta(){
+        return `El planeta ${this.nombrePlaneta} tiene una superficie de ${this.superficiePlaneta} kilómetros cuadrados y es el ${this.ubicacionSistemaSolar} planeta desde el sol en el sistema solar!`;
+    }
+}
+
+class Continente extends Planeta {
+    // en el constructor se definen todas los atributos
+    // sean de la clase heredada y propia
+    constructor(nombrePlaneta, nombreContinente, superficieContinente) {
+        
+        //SUPER NO SE DECLARA COMO UN CONSTRUCTOR
+        // super(nombrePlaneta){
+        //     this.nombrePlaneta = nombrePlaneta;   
+        // }
+        //SUPER SE DECLARA 
+        //COMO LLAMANDO AL CONSTRUCTOR PADRE
+        super(nombrePlaneta);
+        
+        //se declara los atributos propios
+        this.nombreContinente = nombreContinente;
+        this.superficieContinente =  superficieContinente;
+    }
+    presentacionContinente(){
+        return `En el planeta ${this.nombrePlaneta} se encuentra el continente ${this.nombreContinente} con una superficie de ${this.superficieContinente} km cuadrados`; 
+    }
+}
+
+let mercurio = new Planeta('Mercurio', 'primer', 2345);
+console.log(mercurio.presentacionPlaneta());
+let tierra = new Planeta("Tierra", "tercer", 48000);
+console.log(tierra.presentacionPlaneta());
+let america = new Continente("Tierra","Americano", 15000);
+console.log(america.presentacionContinente());
+let europa = new Continente("Tierra", "Europeo", 10000);
+console.log(europa.presentacionContinente());
+
+//1:36
+//https://vimeo.com/849513781/4a5a98852f
+
