@@ -1,0 +1,14 @@
+.negro {
+    background-color: black;
+    color: white;
+}
+
+.blanco {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    
+}
+
+.toyStoryCrimson {
+    color: crimson;
+}

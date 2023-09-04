@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <title>DOM</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <h1>DOM - Document Object Model</h1>
+    <p>JavaScript Vanilla es el JS puro</p>
+    <h2>Ejemplo entre un framework Jquery y JS Vanilla</h2>
+    <p>Voy a mostrar una función que es muy usado en la librería de Jquery la cual es recorrer una lista de elementos, entonces con Jquery normalmente se hace de la siguiente manera.</p>
+    <h3>Jquery</h3>
+    <pre><code>
+        $('#lista li').each(function(indice, valor){
+            console.log('Hola soy el índice -> '+ indice + " hay este valor: " + valor);
+        });
+        </code>
+    </pre>
+    <h3>Vanilla JS</h3>
+    <pre><code>
+        constlist = document.querySelectorAll('#lista li');
+        list.forEach(function(currentValue, indice, array){
+            console.log("En el índice " + indice + " hay este valor: " + currentValue);
+        });
+    </code></pre>
+    <p>Como puedes ver es el mismo resultado solo un poco más extenso a la hora de escribir el código, podemos obtener el valor, índice que son los dos valores que más usamos a la hora de iterar un array en este caso un array de elementos.</p>
+    <p>En JS se trabajo con el DOM de manera directa, mientras que en React se trabaja de manera indirecta</p>
+    <h2>¿Que es una API?</h2>
+    <p>Una API o interfaz de programación de aplicaciones es un conjunto de definiciones y protocolos que se usa para diseñar e integrar el software de las aplicaciones.</p>
+
+    <h2>¿Que se puede hacer?</h2>
+    <p>Desde JS se puede agregar y eliminar etiquetas ponerle estilos y que se comporten de cierta manera con JS</p>
+    <h3 id="textoModifica">Texto que se modifica</h3><button onclick="modificarTexto()">Modificar el Texto</button>
+    <button onclick="modificarPrimerP()">Modificar el primer parrafo</button><br>
+    <button onclick="modificarTodosP()">Modificar todos los parrafos</button>
+    <h3>Lista de las compras</h3>
+    <ul name="lista-compras">
+        <li>Pan</li>
+        <li>Queso</li>
+        <li>Leche</li>
+    </ul>
+    <button onclick="modificarEstilos()">Modificar estilos</button>
+    <h3>Texto y HTML</h3>
+    <article id="articulo"></article>
+    <h3>Creando elementos en el DOM</h3>
+    <section class="cards"></section>
+    <h3 id="toy">Toy Story</h3>
+    <button onmouseover="cambiarToyStory()">Cambiar de color</button>
+    <section class="toyStory"></section>
+
+
+
+    <a class="enlaceAgoogle"  href="http://www.google.com.ar">GOOGLE ARGENTINA</a>
+    <button id="mi-primer-evento">Mi Primer Evento Forma 1</button>
+    <button id="mi-segundo-evento">Mi Segundo Evento Forma 2</button>
+    <button id="escuchar">Escuchar  addEventListener</button>
+    <script src="./index.js"></script>
+</body>
+</html>
