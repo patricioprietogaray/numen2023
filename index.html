@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <title>DOM</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <h2>Proceso, Memoria e Hilos</h2>
+    <p>
+        Un proceso es la instancia de un programa en ejecución. Es cuando las intrucciones (líneas de código) de un
+        programa son ejecutadas por el procesador.
+    </p>
+    <p>
+        Cada proceso por lo general tiene recursos asignados por él mismo y separados de otros procesos. 
+        El proceso se almacena en memoria (stack o pila donde van las instrucciones, 
+        heap o monticulo donde van el resto de los datos, variables, constantes y código).
+    </p>
+    <p>
+        Un proceso puede crear múltiples hilos, un hilo (compuesto en memoria por un stack, codigo y registros; los registros se ejecutan en el cpu) es la secuencia de intrucciones más elemental 
+        que puede ser manejada por el planificador del Sistema Operativo para ser ejecutadas. Cada hilo compartirá los recursos asignados al proceso, como las variables globales, el monticulo....
+    </p>
+    <p>
+        Un hilo es la unidad más fundamental del proceso, es quien esta en contacto directo con el 
+        cpu a la hora de ejecutar las instrucciones.
+    </p>
+    <p>
+        Un proceso puede vrear otros procesos, relacion padre e hijo, los procesos hijos son independientes entre si, pero puden compartir recursos del padre.
+    </p>
+    <p>
+        Un proceso puede vrear varios hilos, estos compartirán cierto contexto y recursos con el proceso que los creó y por lo tanto entre ellos. En JAVA se crea una clase que herede Thread.
+    </p>
+    <p>Fuente: <a href="https://www.youtube.com/watch?v=n6IxKTS2zYs" target="_blank">Ir a Youtube</a></p>
+
+    <h2>Sincrónico</h2>
+    <p>
+        Las tareas se comienzan cuando la tarea previa finaliza.
+    </p>
+    
+    <script src="./index.js"></script>
+</body>
+</html>
