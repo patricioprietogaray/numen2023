@@ -39,7 +39,64 @@
     <p>
         Las tareas se comienzan cuando la tarea previa finaliza.
     </p>
+    <h2>JavaScript es Single Threaded y Sincrónico</h2>
+    <p>
+        Js solo puede hacer un comando o instrucción a la vez, en cada momento y en orden. 
+        Cuando finaliza una orden comienza por la próxima. JavaScript se usa en conjunto a otros
+        procesos y da la sensación de que todo ocurre al mismo tiempo....
+    </p>
+    <p>
+        JS funciona en todas las computadoras porque es un sistema de un solo hilo y es un lenguaje
+        liviano. Js tiene herramientas asíncronas. Que hay que declararlas como tal, una solicitud 
+        a una base de datos remota para obtener información hay que hacerlo de manera asincrona. 
+        El flujo de datos sería asi: asincrono (pedido), sincrono, sincrono, sincrono, asincrono (respuesta)
+        No puedo trabajar con la respuesta hasta que llegue, de lo contrario la página mostrará un error.
+    </p>
+    <br>
+    <section id="cuento"></section>
+    <br>
+    <p>
+        Cada funcion que se ejecuta (inicio, introcuccion, desenlace y final) sigue un orden de forma sincrónica.
+         Con esta "fila de funciones" se crea un <strong>stack o pila</strong>. Cuando el navegador llama distintos procesos 
+         se acumulan en una <strong>pila de llamadas o CALL STACK</strong>. Es un apilamiento de funciones, 
+         determinadas por la LIFO (última que ingresa, primero que sale). Como en este caso del cuento, como 
+         las funciones son simples, entran y salen y por lo tanto no hay apilamiento. Hay apilamiento cuando
+         las funciones son llamadas desde otra funcion (dependen una de otra) y ahí se produce el apilamiento.
+         Ejecuta una funcion y retorna su callback. En la pila de funciones primero ingresa la callback, luego
+         La funcion que la llamó, como sale primero la que ingresó ultima, lo hará la función en primer 
+         lugar y luego la callback que fue llamada por la primera.
+    </p>
+    <a href="https://medium.com/noders/estructuras-de-datos-con-javascript-parte-1-pilas-stacks-5a2092cff16a">Fuente para consultar</a>
+    
+    <h4>A modo de resumen: La respuesta en modo sincróno ocurre en el presente. Se espera el resultado. </h4>
+
+    <h2>Asíncrono</h2>
+    <p>
+        Hay ciertas instrucciones especiales que se "desvian" hacia un costado y esperan la respuesta de un sistema 
+        remoto, y una vez que esa instrucción tiene la respuesta vuelve a la pila de ejacución.
+        La gran mayoría son instrucciones síncronas. Muy pocas son asíncronas. Si debo esperar los resultados de 
+        las operaciones asíncronas el código estará trabado hasta que llegue el resultado y poder continuar.
+        Si se muestran los datos antes devuelve UNDEFINED.
+    </p>
+
+    <section id="orden"></section>
+    <h4>A modo de resumen: La respuesta en modo asincróno sucede en el futuro. No se espera el resultado. </h4>
+    <p>
+        El comando setTimeout primero espera (tiempo en ms) y luego ejecuta la funcion (callback). 
+         Si el tiempo es cero, sigue siendo de tipo asíncrona, o sea aunque sea cero el tiempo, sale igual
+         y luego vuelve. 
+    </p>
+
+    <section id="forzarOrden1"></section>
+    <section id="forzarOrden2"></section>
+    <section id="forzarOrden3"></section>
+    <section id="forzarOrden4"></section>
+    <section id="tituloLaHora"></section>
+    <section id="laHora">Son asl</section>
     
     <script src="./index.js"></script>
+    <script src="./cuento.js"></script>
+    <script src="./asincrono01.js"></script>
+    <script src="./asincrono02.js"></script>
 </body>
 </html>
