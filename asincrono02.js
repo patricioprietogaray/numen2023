@@ -48,11 +48,11 @@ function asincronoTres() {
 
 function asincronoOrdenado() {
     const $forzarOrden4 = document.querySelector("#forzarOrden4");
-    const tituloForzarOrden4 = `<h2>Forzar el orden 4° version (1°, 2°, 3°, 4°)</h2>`;
-    const forzarOrdenPrim4 = `<p>Forzar Orden: Primer elemento asíncrono.</p>`;
-    const forzarOrdenSegu4 = `<p>Forzar Orden: Segundo elemento asíncrono.</p>`;
-    const forzarOrdenTerc4 = `<p>Forzar Orden: Tercer elemento asíncrono.</p>`;
-    const forzarOrdenCuar4 = `<p>Forzar Orden: Cuarto elemento asíncrono.</p>`;
+    const tituloForzarOrden4 = `<h2>Forzar el orden 4° version (1°, 2°, 3°, 4°) enlazados uno con otro en orden</h2>`;
+    const forzarOrdenPrim4 = `<p>Forzar Orden: Primer elemento asíncrono con 500ms de retraso.</p>`;
+    const forzarOrdenSegu4 = `<p>Forzar Orden: Segundo elemento asíncrono con 500ms de retraso.</p>`;
+    const forzarOrdenTerc4 = `<p>Forzar Orden: Tercer elemento asíncrono con 50ms de retraso.</p>`;
+    const forzarOrdenCuar4 = `<p>Forzar Orden: Cuarto elemento asíncrono con 50ms de retraso.</p>`;
 
     $forzarOrden4.innerHTML=tituloForzarOrden4;
     setTimeout(() => {

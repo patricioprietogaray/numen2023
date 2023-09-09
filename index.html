@@ -93,7 +93,39 @@
     <section id="forzarOrden4"></section>
     <section id="tituloLaHora"></section>
     <section id="laHora">Son asl</section>
-    
+    <section>
+        <h2>Ciclo de eventos - Event Loop</h2>
+        <h3>¿Cómo funciona de manera interna el ENTORNO DE EJECUCION?</h3>
+        <p>
+            El entorno de ejecucion es el navegador (ejecuta JS), tambien esta el node
+            (que ejecuta la tarea en JS) que es otro entorno de ejecución. Node es un motor 
+            que no necesita un navegador para ejecutarse el código. 
+        </p>
+        <p>
+            Tanto JS como Node tiene una misma forma de ejecutar las instrucciones: EVENT LOOP (Single Thread). 
+            Es un loop de eventos de un solo hilo. Dentro del loop estan las partes sincronas, las partes
+            asíncronas salen del loop a travez de un register callback hacia intensive operation u operaciones 
+            intensivas que pueden ser operaciones con archivos, operaciones con base de datos u operaciones de cómputo (grandes). 
+        </p>
+        <p>
+            Mientras tanto la página sigue funcionando hasta que lleguen las respuestas, "sigue funcionando" 
+            esperando la respuesta o esperandola para que continue funcionando el sitio. Todo
+            depende de como esté hecho la codificación. Si no está bien hecha el sitio puede provocar un fallo, 
+            sea que se congele hasta que lleguen los datos o que los datos lancen un Undefined por no 
+            contar con la fuente de datos. 
+        </p>
+        <p>
+            Cuando la operacion se completo u Operation Complete, ingresa nuevamente al Event loop.
+            Por medio de la Trigger Callback que se encarga de mostrar los datos (pueden ser productos) en la página,
+             usando un request.
+        </p>
+        <a href="http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D">Puedes ver como funciona aquí</a>
+    </section>
+
+
+
+
+
     <script src="./index.js"></script>
     <script src="./cuento.js"></script>
     <script src="./asincrono01.js"></script>
