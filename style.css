@@ -22,3 +22,17 @@ p {
     font-size: 1rem;
     padding: .5rem;
 }
+
+#contenedorUsuarios {
+    display: flex;
+    flex-wrap: wrap;    
+}
+
+.card {
+    border: 1px solid black;
+    width: 15%;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+    padding-top: 10px;
+}

@@ -48,7 +48,8 @@ function mostrarTarjetaUsuarios(usuarios) {
 
     fetch('https://jsonplaceholder.typicode.com/users') //pido info
         .then((response) => response.json())  //si sale bien ya tengo la info en crudo
+                                                // tambien se convierte el json para que js lo pueda leer
         //.then((data) => console.log(data));
-        .then((datos) => mostrarTarjetaUsuarios(datos)) //paso cada uno de los registros a la funcion
+        .then((datos) => mostrarTarjetaUsuarios(datos)) //paso cada uno de los registros a la funcion mostrar
 
 // clase 16 2:09
