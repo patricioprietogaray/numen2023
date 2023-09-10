@@ -210,11 +210,169 @@
     <section>
         <h2>Peticiones y objetos de respuesta</h2>
         <p>
-            
+            Sería imposible que en nuestro proyecto se almacene toda la información que se 
+            muestra, el sitio sería muy pesado. Para ello es conveniente conectarse a una 
+            base de datos en un servidor remoto que mantiene la información actualizada y 
+            de acceso constante para consultar ciertos datos de forma puntual 
+            para luego poder mostrar tablas, tarjetas, imágenes en el sitio del proyecto. 
+            La base de datos se mantiene sincronizada aun cuando distintos dispositivos acceden
+            al sitio y solicitan un registro en especial. Toda esa información se mostrará de 
+            la misma manera. Por medio de una API esto es posible.
+        </p>
+        <p>
+            El modelo cliente-servidor: El cliente es el dispositivo particular desde donde 
+            se peticiona y se accede a la informacion. El servidor será donde estan guardados
+            los datos que por medio de una consulta serán entregados al cliente.
+        </p>
+        <p>
+            Este tipo de páginas se denominan paginas dinámicas, porque estan en 
+            constante cambio. En un portal de noticias es necesario porque la informacion 
+            presentada cambia en forma constante. Si fuera estática siempre se mostraría 
+            la misma noticia.
         </p>
     </section>
+    <section>
+        <h2>¿Que es una API?</h2>
+        <p>
+            Una API (Interfaz de Programación de Aplicaciones) es una conjunto de 
+            definiciones y protocoles que se utilizan para desarrollar e integrar
+            el software de las aplicaciones.
+        </p>
+        <p>
+            La API es la forma de simplificar algo que es complejo. Una API que accede 
+            a una base de datos con solo invocarla y un par de métodos puedo conectar o 
+            desconectar a una BD. Internamente es un programa complejo que me permite
+            acceder en forma remota a una BD. Ej: solicitar la lista de usuarios, para ello 
+            se debe conectar al servidor, verificar ciertos valores, verificar los tiempos de 
+            respuesta, enviar la consulta a la BD, utilizar ciertos protocolos de comunicación, 
+            recibir la respuesta a esa consulta, legibilidad de los datos y mensajes de error. 
+            En este ejemplo se puede apreciar de cierta manera el grado de complejidad.
+        </p>
+        <a href="https://jsonplaceholder.typicode.com/">Acceso a una API Rest</a>
+    </section>
+    <section>
+        <h2>¿Qué es un END POINT?</h2>
+        <p>
+            Cualquier dispositivo conectado a la red puede ser un End Point. El único requisito
+            para ser un end point es que la comunicacion debe terninar en ese dispositivo. Ej:
+            pido un dato, el dispositivo end point es el servidor donde se hace la peticion y 
+            el dispositivo que se pide la informacion es otro end point.
+        </p>
+        <p>
+            Los End Points se programan en el backend. El backend es todo lo relativo al servidor.
+            Todo lo que esta por detras de la página. La Siguiente página es un backend.
+        </p>
+        <p>
+            Esta direccion https://jsonplaceholder.typicode.com/users es un end point. Devuelve recursos.
+        </p>
+        <p>
+            Una diferencia con los objetos de JS y JSon es que los atributos van entre comillas: JSON
+            <code>
+                <pre>
+                    {
+                        "id": 1,
+                        "name": "Leanne Graham",
+                        "username": "Bret",
+                        "email": "Sincere@april.biz",
+                        "address": {
+                          "street": "Kulas Light",
+                          "suite": "Apt. 556",
+                          "city": "Gwenborough",
+                          "zipcode": "92998-3874",
+                          "geo": {
+                            "lat": "-37.3159",
+                            "lng": "81.1496"
+                          }
+                        },
+                        "phone": "1-770-736-8031 x56442",
+                        "website": "hildegard.org",
+                        "company": {
+                          "name": "Romaguera-Crona",
+                          "catchPhrase": "Multi-layered client-server neural-net",
+                          "bs": "harness real-time e-markets"
+                        }
+                      }
+                </pre>
+            </code>
+        </p>
+        <p>
+            Una extension para ver el formato JSON <a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa/related">Ver JSON en Firefox / Brave</a>
+        </p>
+    </section>
+    <section>
+        <h2>El objeto XMLHTTPRequest</h2>
+        <p>Antiguamente las peticiones en JS se realizaban por medio de una instancia
+            del objeto XMLHTTPRequest, el mismo nos permitía acceder a propiedades con 
+            informacion relativa al endpoint con el que deseamos conectarnos. Esta forma
+            demandaba muchas líneas de código incluso para realizar las peticiones más 
+            simples.
+        </p>
+        <code>
+            <pre>
+                var url = "https://address.com/user";
+                var token = "miTokenEnMD5"
 
+                var xhrConnection = new XMLHttpRequest();
 
+                xhrConnection.open('GET', url);
+
+                xhrConnection.setRequestHeader('Authorization', 'token ' + token);
+
+                xhrConnection.send(null);
+            </pre>
+        </code>
+    </section>
+    <section>
+        <h2>El objeto fetch</h2>
+        <p>
+            Desde el año 2015 apareció el método fetch(), que reemplazaba al objeto 
+            XMLHTTPRequest, simplificando la tarea. Fetch significa "alcanzar" (información).
+        </p>
+        <p>
+            Este método nos permite conectarnos a un endpoint y obtener un objeto de 
+            respuesta. 
+        </p>
+        <p>
+            Fetch utiliza las promesas. ¿Que hace fetch? Fetch pide la información, y luego 
+            (¿que hago con esos datos?) muestro la respuesta por la consola en caso de éxito, 
+            de lo contrario capturo y muestro el error.
+            De esta forma estructuro lo que es una promesa.
+            <code>
+                <pre>
+        fetch('https://jsonplaceholder.typicode.com/users')  //pido info
+            .then(respuesta=>console.log(respuesta))   //exito: muestro la respuesta por consola
+            .catch(error=>console.log(error))  //capturo y muestro el error
+                </pre>
+            </code>
+        </p>
+        <p>Muestro el resultado exitoso:</p>
+        <p id="resultadoPromesa"></p>
+        <p>Muestro el resultado erroneo:</p>
+        <p id="resultadoFracaso"></p>
+        <p>Muestro el resultado por consola:</p>
+        <p id="resultadoConsola">Ver la consola</p>
+
+    
+    </section>
+    <section>
+        <h2>Muestro los usuarios desde 'https://jsonplaceholder.typicode.com/users'</h2>
+        <div id="contenedorUsuarios">console.log(data[0].name));</div>
+        <p>De nuevo: Existe un método en JS llamado fetch(). Este método nos permite
+            conectarnos con un endpoint (usuarios del sitio jsonplaceholder), y como 
+            respuesta obtener un objeto. En este caso, el endpoint corresponde a una API 
+            gratuita disponible en internet que brinda usuarios aleatorios.
+        </p>
+        <h3>Códigos de estado de respuesta HTTP</h3>
+        <p>
+            <ul>
+                <li>100 a 199 - Respuesta informativas</li>
+                <li>200 a 299 - Respuesta satisfactorias</li>
+                <li>300 a 399 - Redirecciones</li>
+                <li>400 a 499 - Errores de los clientes</li>
+                <li>500 a 599 - Errores de los servidores</li>
+            </ul>
+        </p>
+    </section>
 
 
 
@@ -222,5 +380,6 @@
     <script src="./cuento.js"></script>
     <script src="./asincrono01.js"></script>
     <script src="./asincrono02.js"></script>
+    <script src="./fetch.js"></script>
 </body>
 </html>
