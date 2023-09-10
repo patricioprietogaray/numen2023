@@ -120,6 +120,98 @@
              usando un request.
         </p>
         <a href="http://latentflip.com/loupe/?code=Y29uc29sZS5sb2coInBhc2VvMSIpCnNldFRpbWVvdXQoY29uc29sZS5sb2coInBhc2VvIHNldCB0aW1lIiksMTAwMCk7CmNvbnNvbGUubG9nKCJwYXNlbzIiKQo%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D">Puedes ver como funciona aquí</a>
+        <p>Código de ejemplo: 
+            <code>
+                <pre>
+                    $.on('button', 'click', function onClick() {
+                        setTimeout(function timer() {
+                            console.log("cliqueaste el boton");
+                        }, 2000);
+                    });
+
+                    console.log("Hola");
+
+                    setTimeout(function timeout() {
+                        console.log("cliquee el boton");
+                    }, 5000);
+
+                    console.log("Bienvenido a loupe!");
+                </pre>
+            </code>
+        </p>
+        <h3>Código sincrono</h3>
+        <p>
+            Ni bien termina de ejecutar la instrucción sigue con la siguiente!
+            El modelo síncrono utiliza el metodo LIFO: Last In First Out
+            <code>
+                <pre>
+            console.log("Inicio");
+            function dos() {
+                console.log("dos");
+            }
+
+            function uno() {
+                console.log("uno");
+                dos();
+                console.log("tres");
+            }
+
+            uno();
+            console.log("Fin");
+                </pre>
+            </code>
+        </p>
+
+        <h3>Código asincrono</h3>
+        <p>
+            Las instrucciones se ejecutan en paralelo!
+            El modelo asíncrono utiliza el metodo FIFO: First In First Out
+            <code>
+                <pre>
+            console.log("Inicio");
+            function dos() {
+                setTimeout(function() {
+                    console.log("dos");
+                }, 1000)
+                
+            }
+
+            function uno() {
+                setTimeout(function() {
+                    console.log("uno");
+                },0);
+                dos();
+                console.log("tres");
+            }
+
+            uno();
+            console.log("Fin");
+                </pre>
+            </code>
+            El resultado es: Inicio, Tres, Fin, Uno, Dos.
+        </p>
+    </section>
+    <section id="stack-colas">
+        <h2>Pilas (stacks) vs. Colas (Queues)</h2>
+        <p>En las pilas los datos se almacenan en la modalidad LIFO. 
+            En las stacks se agrega un elemento con el método PUSH el cual se almacena
+            y por decirlo de alguna manera queda en el "fondo del vaso", luego viene el 
+            siguiente que se ubica por encima del anterior. Con el método POP se van 
+            quitando solo el elemento que se encuentra arriba, no puedo sacar el que 
+            se encuentra en el fondo, para ello primero tengo que quitar los demas.
+            Ej: Una pila de platos para lavar.
+        </p>
+        <p>En las colas los datos se almacenan en la modalidad FIFO. 
+            En las colas los datos se agregan con el método ENQUEUE desde atras hacia adelante, 
+            y con el método DEQUEUE los elementos se van quitando, el elemento es el primero
+            que ingresó. Ej: Una cola en un supermercado.
+        </p>
+    </section>
+    <section>
+        <h2>Peticiones y objetos de respuesta</h2>
+        <p>
+            
+        </p>
     </section>
 
 
