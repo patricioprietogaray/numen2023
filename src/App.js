@@ -2,6 +2,17 @@ import './App.css';
 
 function App() {
   let a = 10;
+
+  //objeto
+  const objetos = {
+    obj1: 'Este es el objeto 1',
+    obj2: 'Este es el objeto 2'
+  }
+
+  const estilo = {
+    color: "red",
+    backgroundColor: "beige"
+  }
   // la funcion App será la funcion que devolverá toda la página
   return (
     // la utilizacion del fragmento <> </> funciona de la misma manera que <div></div>
@@ -58,6 +69,14 @@ function App() {
           los datos en lineas de texto.
         </p>
       </>
+      <h2>Ver el objeto: obj1: {objetos.obj1} y obj2: {objetos.obj2}</h2>
+      <h1 style={estilo}>Un h1 con estilo como un objeto</h1>
+      <h2 style={{
+        color: "blue",
+        backgroundColor: "red",
+        margin: "1rem",
+      }}>
+        Otro estilo </h2>
     </>
     
     // <div>No puede tener otro padre, solo un padre en el return!!!!</div>
