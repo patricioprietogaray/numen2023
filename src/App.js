@@ -85,7 +85,23 @@ function App() {
       
       <h2>Funcion manejadora (handler)</h2>
       <button onClick={reaccionHandler}>Reaccionando a un evento (onClick) declarado en una constante</button>
-      <button onClick={()=>alert('Reaccion inline!')}>Reaccionando a un evento (onClick) declarado inline</button>
+      <button onClick={() => alert('Reaccion inline!')}>Reaccionando a un evento (onClick) declarado inline</button>
+      
+
+      <h2>COMPONENTES</h2>
+      <h3>¿Qué problemas resuelven los componentes?</h3>
+      <ul>
+        <li>Cuando navegamos por una página tradicional, 
+          en realidad navegamos sobre varias páginas que son 
+          recargadas <span style={{color: colores[1].color}}>totalmente</span> cada vez que hacemos click sobre las mismas.
+        </li>
+        <li>Esto implica redundar código.
+        </li>
+        <li>Quitar rendimiento y velocidad a la aplicación (sitio)</li>
+        <li>Cuanto más grande es el sitio más complejo se vuelve el código. 
+          Se dificulta la lectura del mismo y su escalabilidad!
+        </li>
+      </ul>
     </>
   );
 }
