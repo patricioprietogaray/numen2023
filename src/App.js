@@ -142,7 +142,9 @@ function App() {
         inverso: desde lo específico a lo general. Consiste en abstraer la lógica
         en pequeñas funciones que se enfocan en cumplir una tarea particular. Luego 
         estas componen funciones más grandes, que a su vez componen otras, y asi luego
-        obtienes una aplicación compuesta de múltiples funciones.
+        obtienes una aplicación compuesta de múltiples funciones. La función está "viva" 
+        solo cuando es llamada por otro proceso, se ejecuta y devuelve los datos; luego 
+        "muere".
       </p>
       <pre>
         <code>
