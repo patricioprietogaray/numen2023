@@ -36,6 +36,11 @@ function App() {
   const nombresPersonas = nombres.map((persona, indice) =>
     <li key={indice}>name: {persona.llama} - indice: {indice}</li>);
   
+  // funcion manejadora (handler) de eventos
+  const reaccionHandler = () => {
+    alert('Reaccionando a un evento desde una función!!!!');
+  }
+  
   return (
     <>
       <h1>Renderizar listas en JSX</h1>
@@ -62,6 +67,25 @@ function App() {
     
       <h2>Nombres de Personas</h2>
       <ul>{nombresPersonas}</ul>
+
+      <h2>Manejar eventos</h2>
+      <p>un evento que puede tener un boton por ejemplo es alert, es similar a Manejar
+        eventos con html y js.</p>
+      <p>
+        Los eventos en React utilizan el formato camelCase, en vez de minusculas como en HTML.
+      </p>
+      <p>
+        En JSX se pasa una funcion en vez de un string {'{alert}'} en vez de {'"alert()"'}.
+      </p>
+      <p>{'<button onClick={alert("hola")}>alerta</button>'} esto hara que al cargar la página muestre
+        un alert al comienzo sin haber presionado el boton, luego cuando se presiona el boton
+        no reacciona.</p>
+      {/* evento cuando hace clic y llama a una funcion que cuando se cliquea muestra 'Hola' en un alert */}
+      <button onClick={() => alert('Hola')}>alerta</button>
+      
+      <h2>Funcion manejadora (handler)</h2>
+      <button onClick={reaccionHandler}>Reaccionando a un evento (onClick) declarado en una constante</button>
+      <button onClick={()=>alert('Reaccion inline!')}>Reaccionando a un evento (onClick) declarado inline</button>
     </>
   );
 }
