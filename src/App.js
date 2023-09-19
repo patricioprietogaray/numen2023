@@ -1,3 +1,4 @@
+import { Component } from 'react';
 import './App.css';
 
 function App() {
@@ -102,6 +103,62 @@ function App() {
           Se dificulta la lectura del mismo y su escalabilidad!
         </li>
       </ul>
+      <h3>¿Qué solucion ofrece React?</h3>
+      <p>Trabajar por medio de componentes. Son piezas reutilizables de 
+        <span style={{ color: colores[0].color }}> código</span> que tienen
+        una funcionalidad propia y luego son ensamblados para conformar una
+        sola aplicacion con varias funcionalidades.
+      </p>
+      <p>React dá la posibilidad de hacer un componente de clase ....</p>
+      <p>La PPO (
+        <span style={{color: colores[0].color}}>Programacion </span>
+        <span style={{color: colores[1].color}}>Orientada </span>
+        <span style={{ color: colores[2].color }}>a Objetos</span>)
+        frecuentemente la herencia para pasar métodos y propiedades del los padres
+        a los hijos. Esto implica crear clases de objetos que funcionan como prototipos
+        para crear otras instancias diferentes de dichos objetos, que heredan sus 
+        métodos y propiedades del objeto padre. La clase esta "viva" durante toda
+        la vida de la aplicación. Las clases van de lo general a lo particular.
+      
+      
+      </p>
+      <pre>
+        <code>
+          <span>import {Component} from 'react';</span><br />
+          <br /><span>export default class componente extend Component {'{'}</span><br />
+          <span>  render {'() {'}</span><br />
+          <span>    return {'('}</span><br />
+          <span>      {'<>'}</span><br />
+          <span>        {'<p>Componente de clase</p>'}</span><br />
+          <span>      {'</>'}</span><br />
+          <span>    {');'}</span><br />
+          <span>  {'}'}</span><br />
+          <span>{'}'}</span><br />
+          
+        </code>
+      </pre>
+      <p>.... o componentes funcionales</p>
+      <p>La programación funcional se vale de la composición, que implica el camino
+        inverso: desde lo específico a lo general. Consiste en abstraer la lógica
+        en pequeñas funciones que se enfocan en cumplir una tarea particular. Luego 
+        estas componen funciones más grandes, que a su vez componen otras, y asi luego
+        obtienes una aplicación compuesta de múltiples funciones.
+      </p>
+      <pre>
+        <code>
+          <span>const componente = () {'=> {'}</span><br />
+          <span>  return {'('}</span><br />
+          <span>    {'<p>Componente de funcional</p>'}</span><br />
+          <span>  {');'}</span><br />
+          <span>{'}'}</span><br />
+          <span></span><br />
+          <span>{'export default componente;'}</span><br />
+          
+          
+        </code>
+      </pre>
+
+      {/* 45:08 */}
     </>
   );
 }
