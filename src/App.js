@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import './App.css';
+import Lista from './components/lista';
+import Codigo from './components/codigo';
 
 function App() {
   // crear un arreglo con numeros del 0 al 9
@@ -160,6 +162,24 @@ function App() {
         </code>
       </pre>
 
+      <h2>Exportar e importar compententes</h2>
+      <p>En primer lugar se crea el componente hijo y luego se exporta para que esté disponible
+        para todos!
+      </p>
+      <pre><code>{'export default nombreDelComponente;'}</code></pre>
+      <p>En segundo lugar en el componente padre, se debe importar el componente hijo
+        para poder acceder desde el componente padre. El nombre del archivo es
+        nombreDelComponente.js, pero al importar no se pone la extensión.
+        Va con extensión los archivos que no sean js por ejemplo css. Antes de la funcion agregar:
+      </p>
+      <pre><code>{"import nombreDelComponente from '"}{'./rutaDondeSeEncuentraElComponente'}{"'"}</code></pre>
+      <p>Y en tercer lugar y por último debo llamar al componente desde el componente padre:</p>
+      <pre><code>{'<nombreDelComponente />'}</code></pre>
+
+      <h3>Ejemplo de componente mostrando una lista!(import Lista from './components/lista';) y llamo a {'<ul><Lista></Lista></ul>'}</h3>
+      <ul><Lista /></ul>
+      <Codigo />
+      
       {/* 45:08 */}
     </>
   );
