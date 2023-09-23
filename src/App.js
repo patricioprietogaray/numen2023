@@ -2,6 +2,8 @@ import { Component } from 'react';
 import './App.css';
 import Lista from './components/lista';
 import Codigo from './components/codigo';
+import Tarjeta from './components/tarjeta';
+import ContenedorLista from './components/contenedorLista';
 
 function App() {
   // crear un arreglo con numeros del 0 al 9
@@ -146,7 +148,7 @@ function App() {
         estas componen funciones más grandes, que a su vez componen otras, y asi luego
         obtienes una aplicación compuesta de múltiples funciones. La función está "viva" 
         solo cuando es llamada por otro proceso, se ejecuta y devuelve los datos; luego 
-        "muere".
+        "muere". Los componentes funcionales son mucho más rápido. 
       </p>
       <pre>
         <code>
@@ -180,8 +182,32 @@ function App() {
       <ul><Lista /></ul>
       <Codigo />
       
-      {/* 45:08 */}
+
+      <h3>Otro ejemplo</h3>
+
+      <button onClick={()=>alert("hola pato!")}>listado</button>
+
+      <h2>Reutilización de componentes!</h2>
+      <p>Dividir los componentes lo más pequeño que se pueda!</p>
+      <p>Al principio esta tarea puede ser ardua, pero como en la gran 
+        mayoría de los casos se reutilizan al final ese trabajo será beneficioso. 
+        Si una parte del codigo se usa con frecuencia (un boton, panel, avatar, etc) o 
+        también puede ser una App, feedStory, Comment, etc...
+      </p>
+
+      <h2>Un componente dentro de otro</h2>
+      <p>Una tarjeta (componente) que contiene un boton (componente). Ahora estos 
+        componentes no se llama primero a uno y luego a otro sino que llamaré a un  
+        componente y esete componente llamará a otro compornente.
+      </p>
+      <p>Muestro la tarjeta que contiene un boton (primero se debe crear el componente boton -hijo- y
+        luego la tarjeta -padre-)</p>
+      <Tarjeta />
+      
+      <h4>Otro ejemplo</h4>
+      <ContenedorLista />
     </>
+    // 1:09
   );
 }
 
