@@ -57,6 +57,8 @@ const ContenedorLista = () => {
                 {/* paso info como saludo y que le paso ?? al itemLista (elemento) que estoy recorriendo */}
                 {listaSaludos.map((itemLista) => <ItemLista key={itemLista.id} saludo={itemLista} />)}
             </ol>
+
+            
         </>
         
     );

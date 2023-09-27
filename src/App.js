@@ -4,6 +4,7 @@ import Lista from './components/lista';
 import Codigo from './components/codigo';
 import Tarjeta from './components/tarjeta';
 import ContenedorLista from './components/contenedorLista';
+import AA1EjercicioProductosContenedor from './components/A-A-1-ejercicioProductosContenedor';
 
 function App() {
   // crear un arreglo con numeros del 0 al 9
@@ -48,7 +49,7 @@ function App() {
   
   return (
     <>
-      <h1>Renderizar listas en JSX</h1>
+      {/* <h1>Renderizar listas en JSX</h1>
       <h2>Sin metodo automático</h2>
       <ul>
         <li>{lista[0]}</li>
@@ -62,18 +63,18 @@ function App() {
       {/* muestro la constante que es una lista mapeada, recorre uno a uno 
       los elemenetos y devuelve el elemento, en cambio el forEach lo recorre y no devuelve
       elementos a menos que se especifique */}
-      <ul>{listaMapeada}</ul>
+      {/* <ul>{listaMapeada}</ul> */}
 
-      <h2>Iteracion con un objeto colores</h2>
+      {/* <h2>Iteracion con un objeto colores</h2> */}
       {/* del objeto colores esta tiene dos propiedades el id (nombre del color en castellano) que 
       se muestra en la lista y que se pone como  llave o key; por otro lado la propiedad color
       (nombre del color como lo acepta css para mostrar el estilo) */}
-      <ol>{colores.map((color) => <li style={{ color: color.color }} key={color.id}>El color es: {color.id}</li>)}</ol>
+      {/* <ol>{colores.map((color) => <li style={{ color: color.color }} key={color.id}>El color es: {color.id}</li>)}</ol> */}
     
-      <h2>Nombres de Personas</h2>
-      <ul>{nombresPersonas}</ul>
+      {/* <h2>Nombres de Personas</h2>
+      <ul>{nombresPersonas}</ul> */}
 
-      <h2>Manejar eventos</h2>
+      {/* <h2>Manejar eventos</h2>
       <p>un evento que puede tener un boton por ejemplo es alert, es similar a Manejar
         eventos con html y js.</p>
       <p>
@@ -84,16 +85,16 @@ function App() {
       </p>
       <p>{'<button onClick={alert("hola")}>alerta</button>'} esto hara que al cargar la página muestre
         un alert al comienzo sin haber presionado el boton, luego cuando se presiona el boton
-        no reacciona.</p>
+        no reacciona.</p> */}
       {/* evento cuando hace clic y llama a una funcion que cuando se cliquea muestra 'Hola' en un alert */}
-      <button onClick={() => alert('Hola')}>alerta</button>
+      {/* <button onClick={() => alert('Hola')}>alerta</button> */}
       
-      <h2>Funcion manejadora (handler)</h2>
+      {/* <h2>Funcion manejadora (handler)</h2>
       <button onClick={reaccionHandler}>Reaccionando a un evento (onClick) declarado en una constante</button>
-      <button onClick={() => alert('Reaccion inline!')}>Reaccionando a un evento (onClick) declarado inline</button>
+      <button onClick={() => alert('Reaccion inline!')}>Reaccionando a un evento (onClick) declarado inline</button> */}
       
 
-      <h2>COMPONENTES</h2>
+      {/* <h2>COMPONENTES</h2>
       <h3>¿Qué problemas resuelven los componentes?</h3>
       <ul>
         <li>Cuando navegamos por una página tradicional, 
@@ -122,11 +123,11 @@ function App() {
         a los hijos. Esto implica crear clases de objetos que funcionan como prototipos
         para crear otras instancias diferentes de dichos objetos, que heredan sus 
         métodos y propiedades del objeto padre. La clase esta "viva" durante toda
-        la vida de la aplicación. Las clases van de lo general a lo particular.
+        la vida de la aplicación. Las clases van de lo general a lo particular. */}
       
       
-      </p>
-      <pre>
+      {/* </p> */}
+      {/* <pre>
         <code>
           <span>import {Component} from 'react';</span><br />
           <br /><span>export default class componente extend Component {'{'}</span><br />
@@ -140,8 +141,8 @@ function App() {
           <span>{'}'}</span><br />
           
         </code>
-      </pre>
-      <p>.... o componentes funcionales</p>
+      </pre> */}
+      {/* <p>.... o componentes funcionales</p>
       <p>La programación funcional se vale de la composición, que implica el camino
         inverso: desde lo específico a lo general. Consiste en abstraer la lógica
         en pequeñas funciones que se enfocan en cumplir una tarea particular. Luego 
@@ -149,8 +150,8 @@ function App() {
         obtienes una aplicación compuesta de múltiples funciones. La función está "viva" 
         solo cuando es llamada por otro proceso, se ejecuta y devuelve los datos; luego 
         "muere". Los componentes funcionales son mucho más rápido. 
-      </p>
-      <pre>
+      </p> */}
+      {/* <pre>
         <code>
           <span>const componente = () {'=> {'}</span><br />
           <span>  return {'('}</span><br />
@@ -158,13 +159,13 @@ function App() {
           <span>  {');'}</span><br />
           <span>{'}'}</span><br />
           <span></span><br />
-          <span>{'export default componente;'}</span><br />
+          <span>{'export default componente;'}</span><br /> */}
           
           
-        </code>
-      </pre>
+        {/* </code>
+      </pre> */}
 
-      <h2>Exportar e importar compententes</h2>
+      {/* <h2>Exportar e importar compententes</h2>
       <p>En primer lugar se crea el componente hijo y luego se exporta para que esté disponible
         para todos!
       </p>
@@ -176,9 +177,9 @@ function App() {
       </p>
       <pre><code>{"import nombreDelComponente from '"}{'./rutaDondeSeEncuentraElComponente'}{"'"}</code></pre>
       <p>Y en tercer lugar y por último debo llamar al componente desde el componente padre:</p>
-      <pre><code>{'<nombreDelComponente />'}</code></pre>
+      <pre><code>{'<nombreDelComponente />'}</code></pre> */}
 
-      <h3>Ejemplo de componente mostrando una lista!(import Lista from './components/lista';) y llamo a {'<ul><Lista></Lista></ul>'}</h3>
+      {/* <h3>Ejemplo de componente mostrando una lista!(import Lista from './components/lista';) y llamo a {'<ul><Lista></Lista></ul>'}</h3>
       <ul><Lista /></ul>
       <Codigo />
       
@@ -204,10 +205,24 @@ function App() {
         luego la tarjeta -padre-)</p>
       <Tarjeta />
       
-      <h4>Otro ejemplo</h4>
-      <ContenedorLista />
+      <h4>Otro ejemplo</h4> */}
+      {/* <ContenedorLista />  */}
+    
+      <h2>Ejercicio</h2>
+      <p>Tengo una lista de productos y deseo mostrar en una tarjeta el nombre, el precio y un boton de compra con su cantidad. 
+        Si el producto no tiene stock no se muestra.
+      </p>
+      <p>Los productos a mostrar son:</p>
+      <ol>
+        <li>Leche a $ 4,00 con un stock inicial de 25</li>
+        <li>Pan a $ 2,00 con un stock inicial de 25</li>
+        <li>Manteca a $ 3,00 con un stock inicial de 0</li>
+      </ol>
+      <h4>Respuesta</h4>
+      <AA1EjercicioProductosContenedor />
+
     </>
-    // 1:09
+    
   );
 }
 
