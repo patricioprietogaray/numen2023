@@ -25,6 +25,9 @@ const ItemListaRespuesta = (props) => {
         //     Código: {props.producto.id} || Nombre: {props.producto.nombre} || Precio: {props.producto.precio}
         // </li>
         <>
+            {/* RENDERIZADO CONDICIONAL */}
+            {/* si el stock es mayor que cero lo que voy a mostrar 
+            es lo que sigue al && */}
             {(props.producto.stock > 0) && 
             <li>
                 Código: {props.producto.id} || Nombre: {props.producto.nombre} || Precio: {props.producto.precio}
