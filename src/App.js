@@ -5,48 +5,69 @@ import Codigo from './components/codigo';
 import Tarjeta from './components/tarjeta';
 import ContenedorLista from './components/contenedorLista';
 import AA1EjercicioProductosContenedor from './components/A-A-1-ejercicioProductosContenedor';
+import ItemListaRespuesta from './components/itemListaRespuesta';
 
 function App() {
   // crear un arreglo con numeros del 0 al 9
-  const lista = [0, 1, 2];
+  // const lista = [0, 1, 2];
    // mapear la lista y lo guardo en la constante
-  const listaMapeada = lista.map(item => <li key={item}>{item}</li>);
+  // const listaMapeada = lista.map(item => <li key={item}>{item}</li>);
 
-  const colores = [{
-    id: 'rojo',
-    color: "red"
-  }, {
-    id: 'azul',
-    color: "blue"
-  }, {
-    id: 'verde',
-    color: "green"
-  }];
+  // const colores = [{
+  //   id: 'rojo',
+  //   color: "red"
+  // }, {
+  //   id: 'azul',
+  //   color: "blue"
+  // }, {
+  //   id: 'verde',
+  //   color: "green"
+  // }];
 
-  const nombres = [
+  // const nombres = [
+  //   {
+  //     llama: 'Pedro'
+  //   },
+  //   {
+  //     llama: 'Juan'
+  //   },
+  //   {
+  //     llama: 'Perez'
+  //   },
+  //   {
+  //     llama: 'Hernandez'
+  //   },
+  // ];
+
+  // agrego el index denominado indice
+  // const nombresPersonas = nombres.map((persona, indice) =>
+  //   <li key={indice}>name: {persona.llama} - indice: {indice}</li>);
+  
+  // funcion manejadora (handler) de eventos
+  // const reaccionHandler = () => {
+  //   alert('Reaccionando a un evento desde una función!!!!');
+  // }
+  
+
+  let listaProductos = [
     {
-      llama: 'Pedro'
-    },
-    {
-      llama: 'Juan'
-    },
-    {
-      llama: 'Perez'
-    },
-    {
-      llama: 'Hernandez'
+      id: 1,
+      nombre: 'Leche',
+      precio: 500,
+      stock: 20
+    }, {
+      id: 2,
+      nombre: 'Harina',
+      precio: 400,
+      stock: 0
+    }, {
+      id: 3,
+      nombre: 'Yerba',
+      precio: 1500,
+      stock: 10
     },
   ];
 
-  // agrego el index denominado indice
-  const nombresPersonas = nombres.map((persona, indice) =>
-    <li key={indice}>name: {persona.llama} - indice: {indice}</li>);
-  
-  // funcion manejadora (handler) de eventos
-  const reaccionHandler = () => {
-    alert('Reaccionando a un evento desde una función!!!!');
-  }
-  
   return (
     <>
       {/* <h1>Renderizar listas en JSX</h1>
@@ -208,7 +229,7 @@ function App() {
       <h4>Otro ejemplo</h4> */}
       {/* <ContenedorLista />  */}
     
-      <h2>Ejercicio</h2>
+      {/* <h2>Ejercicio</h2>
       <p>Tengo una lista de productos y deseo mostrar en una tarjeta el nombre, el precio y un boton de compra con su cantidad. 
         Si el producto no tiene stock no se muestra.
       </p>
@@ -219,8 +240,18 @@ function App() {
         <li>Manteca a $ 3,00 con un stock inicial de 0</li>
       </ol>
       <h4>Respuesta</h4>
-      <AA1EjercicioProductosContenedor />
+      <AA1EjercicioProductosContenedor /> */}
 
+      <h2>Ejercicio propuesto y resuelto en la clase</h2>
+      <p>Crear un arreglo de una lista de productos</p>
+      <h3>Lista de Productos</h3>
+      <ul>
+        {/* por cada iteracion en el objeto listaProductos creo una 
+        llamada al componente ItemLista pasando como props a itemLista
+        es decir a cada elemento del objeto listaProductos */}
+        {listaProductos.map((itemLista) => <ItemListaRespuesta id={itemLista.id} producto={itemLista} />)}
+      </ul>
+    
     </>
     
   );
