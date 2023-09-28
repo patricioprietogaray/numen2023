@@ -59,7 +59,7 @@ function App() {
       id: 2,
       nombre: 'Harina',
       precio: 400,
-      stock: 0
+      stock: 10
     }, {
       id: 3,
       nombre: 'Yerba',
