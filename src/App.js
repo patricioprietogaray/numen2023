@@ -1,11 +1,14 @@
 import { Component } from 'react';
 import './App.css';
-import Lista from './components/lista';
-import Codigo from './components/codigo';
-import Tarjeta from './components/tarjeta';
-import ContenedorLista from './components/contenedorLista';
-import AA1EjercicioProductosContenedor from './components/A-A-1-ejercicioProductosContenedor';
+// import Lista from './components/lista';
+// import Codigo from './components/codigo';
+// import Tarjeta from './components/tarjeta';
+// import ContenedorLista from './components/contenedorLista';
+// import AA1EjercicioProductosContenedor from './components/A-A-1-ejercicioProductosContenedor';
 import ItemListaRespuesta from './components/itemListaRespuesta';
+import Titulo from './components/titulo';
+import ListaSimple from './components/listaSimple';
+import Futbol from './futbol';
 
 function App() {
   // crear un arreglo con numeros del 0 al 9
@@ -67,6 +70,29 @@ function App() {
       stock: 10
     },
   ];
+
+  const textoTitulo = "Texto de un título";
+
+  const listaSimplex = [
+    { id: 1, titulo: "titulo uno" },
+    { id: 2, titulo: "titulo dos" },
+    { id: 3, titulo: "titulo tres"},
+  ]
+
+  let RiverPlate = [
+    { id: 1, nombre: "Franco Armani", puesto: "Arquero" },
+    { id: 2, nombre: "Milton Casco", puesto: "Defensa" },
+    { id: 3, nombre: "Paulo Díaz", puesto: "Defensa" },
+    { id: 4, nombre: "Ramiro Funes Mori", puesto: "Defensa" },
+    { id: 5, nombre: "Enzo Díaz", puesto: "Mediocampista" },
+    { id: 6, nombre: "Ignacio Fernández", puesto: "Mediocampista" },
+    { id: 7, nombre: "Enzo Pérez", puesto: "Mediocampista" },
+    { id: 8, nombre: "Nicolás de la Cruz", puesto: "Zaguero" },
+    { id: 9, nombre: "Manuel Lanzini", puesto: "Zaguero" },
+    { id: 10, nombre: "Esequiel Barco", puesto: "Delantero" },
+    { id: 11, nombre: "Miguel Borja", puesto: "Delantero" },
+    
+  ]
 
   return (
     <>
@@ -251,7 +277,13 @@ function App() {
         es decir a cada elemento del objeto listaProductos */}
         {listaProductos.map((itemLista) => <ItemListaRespuesta id={itemLista.id} producto={itemLista} />)}
       </ul>
-    
+      
+      <Titulo textoTitulo={textoTitulo} />
+
+      {/* estoy pasando un objeto entero como props */}
+      <ListaSimple listadosSimple={listaSimplex} />
+      
+      <Futbol equipo={RiverPlate} /> 
     </>
     
   );
