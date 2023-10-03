@@ -72,6 +72,8 @@ function App() {
   console.log(array2);
   console.log(array3);
   console.log(array4);
+  console.log([100, ...array1, 102]);
+
 
   return (
     <>
@@ -178,9 +180,49 @@ function App() {
         en lugar de que estos reemplacen al primero.
       </p>
       <h3>Sin operador spread</h3>
-      <p>Dado dos arreglos con los siguientes items [0,1,2,3,4] y [5,6,7,8,9] se muestra la suma de los dos: [0,1,2,3,4][5,6,7,8,9]</p>
+      <p>Dado dos arreglos con los siguientes items [0,1,2,3,4] y [5,6,7,8,9] se muestra la suma de los dos: [0,1,2,3,4][5,6,7,8,9]. Se agrega al nuevo arreglo el arreglo completo (corchetes incluidos) separado por una coma.</p>
       <h3>Con operador spread</h3>
-      <p>Dado dos arreglos con los siguientes items [0,1,2,3,4] y [5,6,7,8,9] se muestra la suma de los dos: [0,1,2,3,4,5,6,7,8,9]</p>
+      <p>Dado dos arreglos con los siguientes items [0,1,2,3,4] y [5,6,7,8,9] se muestra la suma de los dos: [0,1,2,3,4,5,6,7,8,9]. Se agrega al nuevo arreglo los elementos que contienen ambos arreglos originales.</p>
+      <p>Se puede agregar al principio o al final  [100,...array1,102] y cuyo resultado será: [100, 0, 1, 2, 3, 4, 102], es como un push o shift más rapido de construir...</p>
+
+      <h2>ESTADOS</h2>
+      <h3>Programación reactiva funcional</h3>
+      <h4>Reacción</h4>
+      <p>Los datos bajan (desde la App hacia los componentes mas pequeños). Ejemplo: Las props.</p>
+      <h4>Acción</h4>
+      <p>Suben los eventos (desde los componentes hacla la App). Ejemplo: Al accionar un botón.</p>
+      <h4>Reacción y acción</h4>
+      <p>Un ejemplo sería muestro una tarjeta de un producto llamado a un componente (reacción), 
+        cliqueo en el boton agregar para comprar un producto (evento click el cual será una acción) que sumará un dato a un 
+        objeto (ej: que se encuentra en un componente padre) y luego otra reaccion mostrando el carrito...
+      </p>
+      <h3>¿Cómo manejar los cambios?</h3>
+      <p>Los estados permiten hacer cambios en la aplicación. Los estados son todas las partes 
+        de la aplicación que pueden cambiar. Es decir la información que se muestra en el sitio.</p>
+      <p>
+        Hasta ahora conomemos lo que es una variable (let y var) y lo que es una constante (const),
+        donde se puede mostrar y cambiar un valor. Las variables se declararán como estados. 
+      </p>
+      <p>
+        En React los estados son un tipo de variables, a su vez React vigila cada cambio hasta
+        en su mínimo detalle. Los estados ayudarán a que nuestra Application sea dinámica. 
+      </p>
+      <h3>Propiedades del Estado</h3>
+      <ul>
+        <li>Dinámico: Va a ser cambiante, va a estar vigilado por el mismo React, para que cuando cambie "reaccione" y se modifique</li>
+        <li>Privado: (Ver la clase de closures) <a target='_blank' href='https://www.freecodecamp.org/espanol/news/que-es-un-closure-en-javascript/'>¿Que es un closure?</a>. Cada componente lo va a manejar a su gusto.</li>
+        <li>"Inmutable": El estado no cambia a menos que se programe para ello.</li>
+        <li>Encapsulado: Otro componente no lo pueda cambiar de manera directa o en forma automática.</li>
+      </ul>
+
+      <h3>Flujo de datos unidireccional y estados</h3>
+      <p>El flujo de datos unidireccional se da con los props desde el principal hacia los componentes (App to components)</p>
+      <p>Ademas del flujo de datos se le suman los estados que trabajaran de manera cíclica
+        (React los consultará de manera permanente) y solo estarán actuando solo dentro de cada componente. Los componentes
+        estáticos no utilizan los estados, los estados se utilizan con componentes dinámicos.
+
+      </p>
+      {/* 50 minutos */}
     </>
   );
 }
