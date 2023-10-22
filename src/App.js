@@ -2,6 +2,7 @@
 import './App.css';
 import Pregunta from './componentes/Pregunta';
 import Contador from './componentes/Contador';
+import Planetas from './componentes/planetas';
 
 function App() {
 
@@ -251,6 +252,7 @@ function App() {
       </p>
       <Pregunta />
       <Contador />
+      {/* <Planetas /> */}
 
 
 
