@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
-import Contador from './componentes/contador';
+import Pregunta from './componentes/Pregunta';
+import Contador from './componentes/Contador';
 
 function App() {
 
@@ -248,7 +249,9 @@ function App() {
         texto pasa a inicializar esta variable que se declara dentro del arreglo. Ej: 
         {'const [valorEstado, funcionEstado()] = useState("valor inicial");'}
       </p>
+      <Pregunta />
       <Contador />
+
 
 
       {/* 56 minutos */}

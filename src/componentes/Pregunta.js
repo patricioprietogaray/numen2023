@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Contador = () => {
+const Pregunta = () => {
     // useState -> se declara el estado
     // devuelve un array con el estado y una funcion para cambiarlo
     // el estado esta protegido, privado y encapsulado
@@ -99,4 +99,4 @@ const Contador = () => {
     );
 }
 
-export default Contador;
+export default Pregunta;
