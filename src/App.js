@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+import Contador from './componentes/contador';
 
 function App() {
 
@@ -220,9 +221,37 @@ function App() {
       <p>Ademas del flujo de datos se le suman los estados que trabajaran de manera cíclica
         (React los consultará de manera permanente) y solo estarán actuando solo dentro de cada componente. Los componentes
         estáticos no utilizan los estados, los estados se utilizan con componentes dinámicos.
-
       </p>
-      {/* 50 minutos */}
+      <h3>
+        Declarar y actualizar los estados
+      </h3>
+      <p>
+        De la manera antigüa se utilizaba los class components. En 2019 React lanzó los Hooks.
+        Los hooks son funciones especiales que permite trabajar con componentes. Como definirlas, 
+        ciclo de vida de un hook, referencias, context etc.
+      </p>
+      <p>
+        Los hooks son funciones nativas de React que permite añadirle a los componentes
+        funcionaliades, estas características estaban limitadas a los componentes de clases,
+        antes del 2019.
+      </p>
+      <h2>useState(): El hook que maneja el estado</h2>
+      <p>Para declarar y actualizar el estado, se usa el useState()... useState() es una
+        función que crea internamente una variable donde se puede almacenar el estado de
+        nuestro componente.</p>
+      <p>
+        El useState acepta un valor inicial para esa variable y devuelve un arreglo con 
+        dos elementos, el valor de la variable y la función para modificarla.
+      </p>
+      <p>
+        Cuando se inicializa con un valor (dentro de los parentesis del hook useState) este 
+        texto pasa a inicializar esta variable que se declara dentro del arreglo. Ej: 
+        {'const [valorEstado, funcionEstado()] = useState("valor inicial");'}
+      </p>
+      <Contador />
+
+
+      {/* 56 minutos */}
     </>
   );
 }
