@@ -6,6 +6,17 @@ const Contador = () => {
     // rápido useState(()=>valor)
     const [contador, setContador] = useState(()=>0);
 
+    // 7. crear una lista de titulos (en un objeto) la cual se declara en un estado
+    // ojo el arreglo entre () que pertenece al useState!!!
+    const [lista, setLista] = useState([
+        { id: 1, title: "Lista en estado 1" },
+        { id: 2, title: "Lista en estado 2" },
+        { id: 3, title: "Lista en estado 3" },        
+    ]);
+
+
+
+
     // 3. definir las funciones
     const sumarUno = () => setContador(contador + 1);
     
@@ -31,6 +42,12 @@ const Contador = () => {
             <h4>{contador}</h4>
             {/* 2. definir los eventos */}
             <button onClick={sumarUno}>+1</button><button onClick={restarUno}>-1</button>
+            <h3>Lista Estado</h3>
+            <ul>
+                {lista.map(item => <li>{item.id}{' - '}{item.title}</li>)}
+                {/* 1:43 */}
+            </ul>
+
         </div>
     );
 }
