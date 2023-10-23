@@ -3,6 +3,7 @@ import './App.css';
 import Pregunta from './componentes/Pregunta';
 import Contador from './componentes/Contador';
 import Planetas from './componentes/planetas';
+import Buscador from './componentes/buscador';
 
 function App() {
 
@@ -253,6 +254,7 @@ function App() {
       <Pregunta />
       <Contador />
       {/* <Planetas /> */}
+      <Buscador />
 
 
 

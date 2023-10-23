@@ -8,12 +8,28 @@ const Contador = () => {
 
     // 7. crear una lista de titulos (en un objeto) la cual se declara en un estado
     // ojo el arreglo entre () que pertenece al useState!!!
-    const [lista, setLista] = useState([
+    const [lista, setLista] = useState(() => [
+    // const [lista, setLista] = useState([    ES IGUAL
         { id: 1, title: "Lista en estado 1" },
         { id: 2, title: "Lista en estado 2" },
         { id: 3, title: "Lista en estado 3" },        
     ]);
 
+    const cambiarListaHandler = () => {
+        setLista(estadoPrevioArreglo => 
+            // creo otro objeto y se lo agrego al arreglo que tengo de tres elementos
+            // return
+            [
+                // debo retornar un objeto más
+            ...estadoPrevioArreglo, //tomo el arreglo anterior
+                { id: 4, title: "Lista en estado 4 (agregada)" }, //agrego objeto
+            ]
+        
+
+
+        )
+        
+    }
 
 
 
@@ -45,8 +61,8 @@ const Contador = () => {
             <h3>Lista Estado</h3>
             <ul>
                 {lista.map(item => <li>{item.id}{' - '}{item.title}</li>)}
-                {/* 1:43 */}
             </ul>
+            <button onClick={cambiarListaHandler}>Cambiar la lista</button>
 
         </div>
     );
