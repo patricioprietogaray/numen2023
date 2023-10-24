@@ -4,6 +4,7 @@ import Pregunta from './componentes/Pregunta';
 import Contador from './componentes/Contador';
 import Planetas from './componentes/planetas';
 import Buscador from './componentes/buscador';
+import CicloVida from './componentes/cicloVida';
 
 function App() {
 
@@ -255,6 +256,7 @@ function App() {
       <Contador />
       {/* <Planetas /> */}
       <Buscador />
+      <CicloVida />
 
 
 
