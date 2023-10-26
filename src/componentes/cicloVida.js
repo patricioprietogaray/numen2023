@@ -1,5 +1,7 @@
 import React from 'react';
 import CicloVidaMontaje from './cicloVidaMontaje';
+import CicloVidaActualizacion from './cicloVidaActualizacion';
+import CicloVidaDesmontaje from './cicloVidaDesmontaje';
 
 const CicloVida = () => {
     return (
@@ -8,11 +10,19 @@ const CicloVida = () => {
             <p>Todo componente tiene un ciclo de vida.</p>
             <ul>
                 <li>Inicialización (initialization)</li>
-                <li>Montaje (mounting)
+                <br />
+                <li>Fase de Montaje (mounting)
                     <CicloVidaMontaje />
                 </li> 
-                <li>Actualización (updation): Si cambia el estado hay una actualización del componente.</li>
-                <li>Desmontaje (unmounting)</li>
+                <br />
+                <li>Fase de Actualización (updation): Si cambia el estado hay una actualización
+                    del componente.
+                    <CicloVidaActualizacion />
+                </li>
+                <br />
+                <li>Fase de Desmontaje (unmounting)
+                    <CicloVidaDesmontaje />
+                </li>
             </ul>
 
         </div>

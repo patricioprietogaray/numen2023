@@ -5,6 +5,8 @@ import Contador from './componentes/Contador';
 import Planetas from './componentes/planetas';
 import Buscador from './componentes/buscador';
 import CicloVida from './componentes/cicloVida';
+import UseEffect from './componentes/useEffect';
+import Blog from './componentes/blog';
 
 function App() {
 
@@ -257,6 +259,9 @@ function App() {
       {/* <Planetas /> */}
       <Buscador />
       <CicloVida />
+      <UseEffect />
+      <Blog />
+
 
 
 

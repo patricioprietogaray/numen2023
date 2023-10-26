@@ -17,7 +17,6 @@ const CicloVidaMontaje = () => {
                     que un componente se ha insertado en el árbol del DOM.
                     Sirve para ejecutar peticiones a las APIs, Base de Datos, etc.</li>
             </ul>
-            {'1:59'}
         </>
     );
 }
