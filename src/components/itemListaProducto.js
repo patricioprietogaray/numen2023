@@ -9,7 +9,8 @@ const ItemListaProducto = (props) => {
             con props (el registro que estoy pasando
             y el atributo tal cual lo asigné y pase en 
             listaCompas) */}
-            <li>{props.itemID} - {props.itemNombre} - - ${props.itemPrecio}.- tiene {props.itemStock} unidades en stock.</li>
+            {/* tener en cuenta la key */}
+            <li key={props.itemID}>{props.itemID} - {props.itemNombre} - - ${props.itemPrecio}.- tiene {props.itemStock} unidades en stock.</li>
         </>
     );
 }
