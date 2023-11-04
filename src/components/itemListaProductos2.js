@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // paso producto entre llaves porque paso todo el 
 // objeto; props es el objeto productos.
@@ -10,12 +10,22 @@ const ItemListaProductos2 = ({ producto }) => {
     // y no por partes como en el método 1.
     const { id, nombre, precio, stock } = producto;
 
+    // cada vez que carga el componente y muestra los productos
+    // puedo controlarlo con useEffect
+    // 1. hacer una funcion que es la callback ()=>{}
+    // 2. pasar un array de dependencias [] (si array vacio -> se ejecuta al inicio)
+    // 3. cada vez que se ejecute el componente se ejecutara el comando console.log
+    useEffect(() => { console.log("carga del componente, muestro producto: "+nombre) },[]);
+
+
     return (
         <div>
             {/* declarar const{...} permite que llame
             a los atributos sin poner props.id ....
             se ca,noa por id */}
             {/* renderizaco condicional */}
+            {/* se cargan todos los li (3) y muestra los que 
+            cumplan con la condicion (2) */}
             {(stock > 15) && <li key={id}>Producto: {nombre} - Precio: {precio} - Stock: {stock}</li>}
         </div>
     );
