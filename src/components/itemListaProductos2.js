@@ -17,13 +17,13 @@ const ItemListaProductos2 = ({ producto }) => {
     // 3. cada vez que se ejecute el componente se ejecutara el comando console.log
     useEffect(() => {
         // montaje o mounting del componente
-        console.log("carga del componente, muestro producto: " + nombre)
+        console.log("carga (montaje) del componente, muestro producto: " + nombre)
     
         // desmontaje o unmounting del componente (con return)
         return () => {
             console.log("componente: " + nombre + " desmontado!");
         }
-    }, []);
+    }, []); // array vacio --> montaje
 
 
     return (

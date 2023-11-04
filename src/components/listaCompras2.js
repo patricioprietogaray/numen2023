@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ItemListaProductos2 from './itemListaProductos2';
 
 const ListaCompras2 = () => {
@@ -26,6 +26,27 @@ const ListaCompras2 = () => {
 
     // al principio no se monstrará la lista
     const [verLista, setVerLista] = useState(false);
+
+
+    // para que no salga el mensaje de lista oculta y visible
+    // al inicio de la página se soluciona con una bandera
+    // donde se controle si la pagina esta iniciada o no
+    // con estados y no con una variable
+    // let paginaIniciada = false;
+    const [paginaIniciada, setPaginaIniciada] = useState(false);
+
+    useEffect(() => {
+        if (paginaIniciada === true) {
+            if (verLista === false) {
+                alert("lista oculta (actualizacion del componente)");
+            } else {
+                alert("lista visible (actualizacion del componente)");
+            }
+        }
+        setPaginaIniciada(true);
+        }, [verLista])    /// actualizacion del componente
+    
+  
 
     // cambia el estado de ver lista si esta en F pasa a V
     // si esta en V pasa a F
