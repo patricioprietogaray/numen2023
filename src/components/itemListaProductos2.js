@@ -13,9 +13,17 @@ const ItemListaProductos2 = ({ producto }) => {
     // cada vez que carga el componente y muestra los productos
     // puedo controlarlo con useEffect
     // 1. hacer una funcion que es la callback ()=>{}
-    // 2. pasar un array de dependencias [] (si array vacio -> se ejecuta al inicio)
+    // 2. pasar un array de dependencias [] (si array vacio -> se ejecuta al inicio o montaje (mounting) del componente)
     // 3. cada vez que se ejecute el componente se ejecutara el comando console.log
-    useEffect(() => { console.log("carga del componente, muestro producto: "+nombre) },[]);
+    useEffect(() => {
+        // montaje o mounting del componente
+        console.log("carga del componente, muestro producto: " + nombre)
+    
+        // desmontaje o unmounting del componente (con return)
+        return () => {
+            console.log("componente: " + nombre + " desmontado!");
+        }
+    }, []);
 
 
     return (
