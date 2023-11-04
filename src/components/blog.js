@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 const Blog = () => {
 
     
+    // const [variable, funcionModificaVariable]=useState(valorInicial)
+    // devuelve un array con una variable y una funcion para cambiar la variable o el estado
     const [recurso, setRecurso] = useState('posteos');
 
     
@@ -11,6 +13,9 @@ const Blog = () => {
         console.log('Efecto secundario');
     }, [recurso]) //cada vez que haya un cambio en el recurso se ejecutará el console.log
 
+    // dos argumentos del useEffect
+    // useEffect(callback, arrayDependencias)
+    // useEffect(()=>{callback con instrucciones}, [arrayDependencias])
     return (
         <>
             <div>
