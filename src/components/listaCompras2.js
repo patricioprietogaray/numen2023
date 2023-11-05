@@ -1,28 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ItemListaProductos2 from './itemListaProductos2';
 
-const ListaCompras2 = () => {
-
-    const listaDeProductos = [
-        {
-            id: 1,
-            nombre: 'Leche',
-            precio: 1500,
-            stock: 20,
-        },
-        {
-            id: 2,
-            nombre: 'Manteca',
-            precio: 2500,
-            stock: 21,
-        },
-        {
-            id: 3,
-            nombre: 'Pan',
-            precio: 8000,
-            stock: 10,
-        }
-    ];
+const ListaCompras2 = (productosComoProps) => {
+    // productos lo paso como props desde App.js
+    // console.log({ productosComoProps });
 
     // al principio no se monstrará la lista
     const [verLista, setVerLista] = useState(false);
@@ -33,18 +14,18 @@ const ListaCompras2 = () => {
     // donde se controle si la pagina esta iniciada o no
     // con estados y no con una variable
     // let paginaIniciada = false;
-    const [paginaIniciada, setPaginaIniciada] = useState(false);
+    // const [paginaIniciada, setPaginaIniciada] = useState(false);
 
-    useEffect(() => {
-        if (paginaIniciada === true) {
-            if (verLista === false) {
-                alert("lista oculta (actualizacion del componente)");
-            } else {
-                alert("lista visible (actualizacion del componente)");
-            }
-        }
-        setPaginaIniciada(true);
-        }, [verLista])    /// actualizacion del componente
+    // useEffect(() => {
+    //     if (paginaIniciada === true) {
+    //         if (verLista === false) {
+    //             alert("lista oculta (actualizacion del componente)");
+    //         } else {
+    //             alert("lista visible (actualizacion del componente)");
+    //         }
+    //     }
+    //     setPaginaIniciada(true);
+    //     }, [verLista])    /// actualizacion del componente
     
   
 
@@ -66,11 +47,15 @@ const ListaCompras2 = () => {
             {/* si ver lista es V se muestra, si es F no */}
             {verLista && <div>
                 <h2>Lista de compras 2</h2>
-                {/* mapeo lista de productos y genero un alias para los registros como itemLista
+                {/* mapeo lista de productos (que esta en el mismo componente!) y genero un alias para los registros como itemLista
                 luego seteo la key con itemLista.id y por ultimo envio el objeto
                 completo como parámetro con el nombre  de producto que lo paso al 
                 props de itemListaProducto */}
-                {listaDeProductos.map((itemLista) => <ItemListaProductos2 key={itemLista.id} producto={itemLista} />)}
+                {/* {productos.map((itemLista) => <ItemListaProductos2 key={itemLista.id} producto={itemLista} />)} */}
+
+                {/* mapeo igual que el anterior pero ojo! props.objeto.atributo!!!!!! */}
+                {productosComoProps.productos.map((item) => <p>items: {item.id}-{item.nombre}</p>)}
+                
             </div>}
             {/* cuando se muestra la info el useEffect se acciona
             montaje, actualizacion y desmontaje, antes no se acciona */}
