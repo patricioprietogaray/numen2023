@@ -4,7 +4,8 @@ import ListaCompras2 from './listaCompras2';
 const Main = ({productos}) => {
     return (
         <>
-            <ListaCompras2 productos={productos} />
+            <ListaCompras2 />
+            {/* productos={productos} /> */}
         </>
     );
 }

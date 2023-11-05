@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ItemListaProductos2 from './itemListaProductos2';
 
-const ListaCompras2 = (productosComoProps) => {
+const ListaCompras2 = () => {
     // productos lo paso como props desde App.js
     // console.log({ productosComoProps });
 
@@ -54,7 +54,7 @@ const ListaCompras2 = (productosComoProps) => {
                 {/* {productos.map((itemLista) => <ItemListaProductos2 key={itemLista.id} producto={itemLista} />)} */}
 
                 {/* mapeo igual que el anterior pero ojo! props.objeto.atributo!!!!!! */}
-                {productosComoProps.productos.map((item) => <p>items: {item.id}-{item.nombre}</p>)}
+                {/* {productosComoProps.productos.map((item) => <p>items: {item.id}-{item.nombre}</p>)} */}
                 
             </div>}
             {/* cuando se muestra la info el useEffect se acciona
