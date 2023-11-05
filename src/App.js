@@ -1,4 +1,5 @@
 import './App.css';
+import Main from './components/Main';
 import RelojEffect from './components/RelojEffect';
 import Blog from './components/blog';
 import CicloVidaComponente from './components/cicloVidaComponente';
@@ -36,7 +37,10 @@ function App() {
       <CicloVidaComponente />
       <ListaCompras />
       {/* paso por props la lista de productos */}
-      <ListaCompras2 productos={listaDeProductos} /> 
+
+      
+      <Main productos={listaDeProductos} />
+      {/* <ListaCompras2 productos={listaDeProductos} />  */}
       <Blog />
       <RelojEffect />
     </>
