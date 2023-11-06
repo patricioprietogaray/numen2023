@@ -41,7 +41,8 @@ export const productosProvider = ({ children }) => {
 return (
     // el mismo nombre que exporto como si fuera un componente al estilo llamado de 
     // un componente
-    // paso valores con value al estado completo
+    // paso valores con value con el estado (variable, funcion)
+    // para los consumidores.
     //<nombreExportar.Provider value={{estado, setEstado}}>
     <productosProvider.Provider value={{productos, setProductos}}>
 
