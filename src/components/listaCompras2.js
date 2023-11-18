@@ -136,6 +136,7 @@ const ListaCompras2 = ({productitos}) => {
                     // {/* })} */}
             // {/* </div>} */}
         // {/* </> */}
+        
     );
 }
 

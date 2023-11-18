@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import ProductosProviders from '../providers/productosProviders';
 // import ItemListaProductos2 from './itemListaProductos2';
 import ListaCompras2 from './listaCompras2';
@@ -9,14 +9,22 @@ import ListaCompras2 from './listaCompras2';
 // <Main productos={listaDeProductos} /> PRODUCTOS
 
 const Main = ({ productos }) => {
+    const [verLista, setVerLista] = useState(false);
+    const handlerVerLista = () => {
+        setVerLista(!verLista);
+    }
+
     return (
         <>
-            <h3>En el Main: Lista de productos</h3>
-            <ul>
-                
-                {/* mapear productos para pasar cada li y en lista compras solo mostrarlo */}
-                {productos.map((reg)=><ListaCompras2 productitos={reg} />)}
+            <button onClick={handlerVerLista}>Ver Lista</button>
+            {verLista && <div>
+                <h3>En el Main: Lista de productos</h3>
+                <ul>
+                    {/* mapear productos para pasar cada li y en lista compras solo mostrarlo */}
+                    {productos.map((reg)=><ListaCompras2 productitos={reg} />)}
                 </ul>
+            </div>}
+            
         </>
     );
 }
