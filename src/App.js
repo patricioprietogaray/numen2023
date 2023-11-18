@@ -1,10 +1,10 @@
 import './App.css';
-// import Main from './components/Main';
+import Main from './components/Main';
 // import RelojEffect from './components/RelojEffect';
 // import Blog from './components/blog';
 // import CicloVidaComponente from './components/cicloVidaComponente';
 // import ListaCompras from './components/listaCompras';
-import ListaCompras2 from './components/listaCompras2';
+// import ListaCompras2 from './components/listaCompras2';
 
 
 function App() {
@@ -52,11 +52,11 @@ function App() {
       {/* <productosProvider> */}
 
         {/* el contexto se usará en main */}
-        {/* <Main /> */}
+      <Main productos={listaDeProductos} />
       {/* </productosProvider> */}
       
       {/* productos={listaDeProductos} /> */}
-      <ListaCompras2 productos={listaDeProductos} /> 
+      {/* <ListaCompras2 productos={listaDeProductos} />  */}
       {/* <Blog /> */}
       {/* <RelojEffect /> */}
     </>

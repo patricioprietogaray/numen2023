@@ -86,24 +86,24 @@ import React from 'react';
 
 // useState y los demas hooks van entre llaves!!!!!
 import { useState } from 'react';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 
 // lo que viene de App.js <ListaCompras2 productos={listaDeProductos} /> 
 // lo paso como {productos}
 
-const ListaCompras2 = ({productos}) => {
+const ListaCompras2 = ({productitos}) => {
     // useState para ver la lista que luego manejo con un boton (al iniciar en false)
-    const [verLista, setVerLista] = useState(false);
+    // const [verLista, setVerLista] = useState(false);
 
 
     // cargo en handlerVerLista lo contrario al estado (si F entronces V - si V entronces F)
-    const handlerVerLista = () => setVerLista(!verLista);
+    // const handlerVerLista = () => setVerLista(!verLista);
     
 
     // planto una bandera para que no muestre los efectos (useEffect) del componente
     //cuando inicio la página
-    let [paginaIniciada, setPaginaIniciada] = useState(false);
+    // let [paginaIniciada, setPaginaIniciada] = useState(false);
 
     // aplico useEffect para el inicio de la página NO VA EN EL RETURN!!!
     // useEffect(()=>alert('alerta en useEffect'));
@@ -112,7 +112,7 @@ const ListaCompras2 = ({productos}) => {
     //         if (verLista === true) {
     //             alert('Lista Visible')
     //         } else {
-    //             alert('Lista Oculta')
+                // alert('Lista Oculta')
     //         }
     //     }
 
@@ -122,28 +122,20 @@ const ListaCompras2 = ({productos}) => {
     // },[verLista]) //actualiza el ciclo de vida
 
     return (
-        <>
-            <button onClick={handlerVerLista}>Ver Lista</button>
-            {/* cuando verLista es true muestra lo siguiente dentro del div*/}
-            {verLista && <div>
-                <h3>Lista de Compras</h3>
-                <ul>
-                    {productos.map((prod) => {
+        // <>
+            // {/* <button onClick={handlerVerLista}>Ver Lista</button> */}
+            // {/* cuando verLista es true muestra lo siguiente dentro del div*/}
+            // {/* {verLista && <div> */}
+                // {/* <h3>Lista de Compras</h3> */}
+                    // {/* {productitos.map((prod) => { */}
                         // retorno la lista (li) si no se retorna nada productos no se 
                         // muestra se debe porner return para que muestre la iteracion con map 
-                        return (
-                            <li>{prod.nombre}||${prod.precio}</li>
-                        )
-                    })}
-                </ul>
-            </div>}
-            {productos[0].id}
-            {productos[0].nombre}
-            
-
-            
-
-        </>
+                        // return (
+                            <li>{productitos.nombre}||${productitos.precio}</li>
+                        // )
+                    // {/* })} */}
+            // {/* </div>} */}
+        // {/* </> */}
     );
 }
 
