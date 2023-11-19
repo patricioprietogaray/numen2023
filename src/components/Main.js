@@ -8,7 +8,8 @@ import ListaCompras2 from './listaCompras2';
 //ojo respetar el nombre como viene en el componente argumentado
 // <Main productos={listaDeProductos} /> PRODUCTOS
 
-const Main = ({ productos }) => {
+// borro productos como props
+const Main = () => {
     const [verLista, setVerLista] = useState(false);
     const handlerVerLista = () => {
         setVerLista(!verLista);
@@ -21,7 +22,7 @@ const Main = ({ productos }) => {
                 <h3>En el Main: Lista de productos</h3>
                 <ul>
                     {/* mapear productos para pasar cada li y en lista compras solo mostrarlo */}
-                    {productos.map((reg)=><ListaCompras2 productitos={reg} />)}
+                    {/* {productos.map((reg)=><ListaCompras2 productitos={reg} />)} */}
                 </ul>
             </div>}
             

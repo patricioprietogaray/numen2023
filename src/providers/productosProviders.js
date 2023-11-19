@@ -1,3 +1,61 @@
+// importar varias funciones:
+// createContext para crear un contexto (luego se usan donde se necesite)
+// crear un estado donde se compartirá en todo el arbol de componentes
+
+import React, { createContext, useContext, useState } from 'react';
+
+// crear el contexto
+export const ProductosContext = createContext();
+
+// exporto la funcion 
+// es igual a export default?????
+export const ProductosProviders = ({children}) => {
+
+    //creo un state para la lista de productos
+
+    // lista de productos desde el principal
+    const [productos, setProductos] = useState([
+        {id: 1, nombre: 'Leche',   precio: 1500, stock: 20},
+        {id: 2, nombre: 'Manteca', precio: 2500, stock: 21},
+        {id: 3, nombre: 'Pan',     precio: 8000, stock: 10}
+    ])
+
+    return (
+        // retorno el contexto como si se tratase de un componente
+        // En este componente queda disponible todo lo que encierra entre /provider
+        // Provee los datos productos y setProductos (para cambiar el estado)!!!
+        <ProductosContext.Provider value={{productos, setProductos}}>
+            {/* todo lo que va acá va a estar publico, paso el estado productos y su funcion setProductos */}
+            {/* se debe usar children que tambien debe estar como props */}
+            {/* los children o los hijos seran los componentes que recibiran el contexto 
+            SERAN LOS CONSUMIDORES DEL CONTEXTO */}
+            {children}
+        </ProductosContext.Provider>
+    );
+}
+
+// exportar una funcion que devuelve el contexto
+// usarla en listacompras2 en vez de 
+// producto context
+// const [productos, setProductos] = useContext(ProductosContext);
+// poner
+//      const [productos, setProductos] = useProductos();
+export const useProductos = () => {
+    return useContext(ProductosContext);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import { React, createContext, useState } from 'react';
 
 // export const ProductoContext = createContext();

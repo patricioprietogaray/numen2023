@@ -82,17 +82,18 @@
 
 
 // paso datos por props
-import React from 'react';
+import React, { useContext } from 'react';
 
 // useState y los demas hooks van entre llaves!!!!!
 import { useState } from 'react';
+import { ProductosContext, useProductos } from '../providers/productosProviders';
 // import { useEffect } from 'react';
 
 
 // lo que viene de App.js <ListaCompras2 productos={listaDeProductos} /> 
 // lo paso como {productos}
 
-const ListaCompras2 = ({productitos}) => {
+const ListaCompras2 = ({ productitos }) => {
     // useState para ver la lista que luego manejo con un boton (al iniciar en false)
     // const [verLista, setVerLista] = useState(false);
 
@@ -112,32 +113,76 @@ const ListaCompras2 = ({productitos}) => {
     //         if (verLista === true) {
     //             alert('Lista Visible')
     //         } else {
-                // alert('Lista Oculta')
+    // alert('Lista Oculta')
     //         }
     //     }
 
-        // al principio es falso y salta el control al final lo pongo en true para 
-        // que la siguiente vuelta lo tome.... para que no sea molesto lo deshabilito....
+    // al principio es falso y salta el control al final lo pongo en true para
+    // que la siguiente vuelta lo tome.... para que no sea molesto lo deshabilito....
     //     setPaginaIniciada(true);
     // },[verLista]) //actualiza el ciclo de vida
 
-    return (
-        // <>
-            // {/* <button onClick={handlerVerLista}>Ver Lista</button> */}
-            // {/* cuando verLista es true muestra lo siguiente dentro del div*/}
-            // {/* {verLista && <div> */}
-                // {/* <h3>Lista de Compras</h3> */}
-                    // {/* {productitos.map((prod) => { */}
-                        // retorno la lista (li) si no se retorna nada productos no se 
-                        // muestra se debe porner return para que muestre la iteracion con map 
-                        // return (
-                            <li>{productitos.nombre}||${productitos.precio}</li>
-                        // )
-                    // {/* })} */}
-            // {/* </div>} */}
-        // {/* </> */}
+    // CONSUMIDOR DE PRODUCTOS QUE VIENE DE PROVIDERS
+    // que esta a disposicion el proveedor (productos y setProductos)
+    // <ProductosContext.Provider value={{productos, setProductos}}>
+
+    // atenti que no tengo que crearlo con useState si no que lo tengo que usar con
+    // useContext el estado que ya esta declarado que es productoContext
+    // export const ProductosContext = createContext(); (se tiene que exportar si no no lo veo)
+    // const [productos, setProductos] = useContext(ProductosContext);
+    // OJOOOO ES UN OBJETO!!!!! NO UN ARRAY. VA {} EN VEZ DE []
+    // const { productos, setProductos } = useProductos();
+
+    const { productos, setProductos } = useContext(ProductosContext);
+    
+
+    
+    // return (
+    // <>
+    // {/* // <button onClick={handlerVerLista}>Ver Lista</button> */}
+    // {/* // cuando verLista es true muestra lo siguiente dentro del div */}
+    // {/* // {verLista && <div> */}
+    // {/* // <h3>Lista de Compras</h3> */}
+    // {/* // {productitos.map((prod) => { */}
+    // {/* // retorno la lista (li) si no se retorna nada productos no se */}
+    // {/* // muestra se debe porner return para que muestre la iteracion con map */}
+    // {/* // return ( */}
+                        
+    // {/* // <> */}
+    // {/* //     {productos.nombre} */}
+    // {/* // </> */}
+    // {/* <li>{productos.nombre} || ${productos.precio}</li> */}
+    // {/* // ) */}
+    // {/* // })} */}
+    // {/* // </div>} */}
+
+    // {/* </> */ }
+    
+
+    // {verLista && <div>
+    // <h2>Lista de compras 2</h2>
+    // {/* mapeo lista de productos (que esta en el mismo componente!) y genero un alias para los registros como itemLista
+    // luego seteo la key con itemLista.id y por ultimo envio el objeto
+    // completo como parámetro con el nombre  de producto que lo paso al
+    // props de itemListaProducto */}
+    // {/* {productos.map((itemLista) => <ItemListaProductos2 key={itemLista.id} producto={itemLista} />)} */}
+
+    // {/* mapeo igual que el anterior pero ojo! props.objeto.atributo!!!!!! */}
+    // {/* {productosComoProps.productos.map((item) => <p>items: {item.id}-{item.nombre}</p>)} */}
+                
+    // </div>}
         
-    );
+    // {verLista && <div></div>}
+        
+    // );
+
+    // pruebo de nuevo....
+    return (
+        // <button onClick={handlerVerLista}>Ver Lista</button>
+        {{productos.map((item)=><li key={item.id}>{item.nombre}</li>)}} 
+        
+        // { productos.map((itemLista) => <li key={itemLista.id}>{itemLista.nombre}</li>) }
+    )
 }
 
 export default ListaCompras2;

@@ -1,5 +1,6 @@
 import './App.css';
 import Main from './components/Main';
+import { ProductosProviders } from './providers/productosProviders';
 // import RelojEffect from './components/RelojEffect';
 // import Blog from './components/blog';
 // import CicloVidaComponente from './components/cicloVidaComponente';
@@ -9,27 +10,7 @@ import Main from './components/Main';
 
 function App() {
 
-  // lista de productos desde el principal
-  const listaDeProductos = [
-        {
-            id: 1,
-            nombre: 'Leche',
-            precio: 1500,
-            stock: 20,
-        },
-        {
-            id: 2,
-            nombre: 'Manteca',
-            precio: 2500,
-            stock: 21,
-        },
-        {
-            id: 3,
-            nombre: 'Pan',
-            precio: 8000,
-            stock: 10,
-        }
-    ];
+  
 
 
   return (
@@ -52,7 +33,19 @@ function App() {
       {/* <productosProvider> */}
 
         {/* el contexto se usará en main */}
-      <Main productos={listaDeProductos} />
+      
+      {/* borro el props de productos */}
+      {/* <Main />  */}
+      
+
+      {/* ahora llamo al proveedor y todos los componentes que se desprendan de Main
+      tendrán las mismas características. Se pueden poner muchos componentes */}
+      <ProductosProviders>
+        <Main /> 
+      </ProductosProviders>
+
+
+
       {/* </productosProvider> */}
       
       {/* productos={listaDeProductos} /> */}
