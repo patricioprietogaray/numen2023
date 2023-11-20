@@ -82,7 +82,7 @@
 
 
 // paso datos por props
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
 // useState y los demas hooks van entre llaves!!!!!
 import { useState } from 'react';
@@ -93,7 +93,8 @@ import { ProductosContext, useProductos } from '../providers/productosProviders'
 // lo que viene de App.js <ListaCompras2 productos={listaDeProductos} /> 
 // lo paso como {productos}
 
-const ListaCompras2 = ({ productitos }) => {
+const ListaCompras2 = () => {
+// const ListaCompras2 = ({ productitos }) => {
     // useState para ver la lista que luego manejo con un boton (al iniciar en false)
     // const [verLista, setVerLista] = useState(false);
 
@@ -176,13 +177,23 @@ const ListaCompras2 = ({ productitos }) => {
         
     // );
 
+    
     // pruebo de nuevo....
     return (
-        // <button onClick={handlerVerLista}>Ver Lista</button>
-        {{productos.map((item)=><li key={item.id}>{item.nombre}</li>)}} 
+        // retorno el map completo y dentro del cada item generado por map
+        // retorno (muestro en panatalla) cada uno de los items
         
-        // { productos.map((itemLista) => <li key={itemLista.id}>{itemLista.nombre}</li>) }
+        <>
+            {productos.map(item => {
+                return (
+                    <li key={item.id}>{item.nombre} || ${item.precio}</li>
+                )
+            })}
+        </>
+        
     )
 }
 
 export default ListaCompras2;
+
+

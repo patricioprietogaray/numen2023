@@ -2,7 +2,7 @@
 // createContext para crear un contexto (luego se usan donde se necesite)
 // crear un estado donde se compartirá en todo el arbol de componentes
 
-import React, { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 // crear el contexto
 export const ProductosContext = createContext();

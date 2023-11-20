@@ -21,6 +21,7 @@ const Main = () => {
             {verLista && <div>
                 <h3>En el Main: Lista de productos</h3>
                 <ul>
+                    <ListaCompras2 />
                     {/* mapear productos para pasar cada li y en lista compras solo mostrarlo */}
                     {/* {productos.map((reg)=><ListaCompras2 productitos={reg} />)} */}
                 </ul>
