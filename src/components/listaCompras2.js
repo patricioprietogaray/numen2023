@@ -197,4 +197,3 @@ const ListaCompras2 = () => {
 export default ListaCompras2;
 
 
-//clase21

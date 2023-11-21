@@ -1,5 +1,6 @@
 import './App.css';
 import Main from './components/Main';
+import Rutas from './components/react-router/Rutas';
 import { ProductosProviders } from './providers/productosProviders';
 // import RelojEffect from './components/RelojEffect';
 // import Blog from './components/blog';
@@ -40,9 +41,9 @@ function App() {
 
       {/* ahora llamo al proveedor y todos los componentes que se desprendan de Main
       tendrán las mismas características. Se pueden poner muchos componentes */}
-      <ProductosProviders>
+      {/* <ProductosProviders>
         <Main /> 
-      </ProductosProviders>
+      </ProductosProviders> */}
 
 
 
@@ -52,6 +53,27 @@ function App() {
       {/* <ListaCompras2 productos={listaDeProductos} />  */}
       {/* <Blog /> */}
       {/* <RelojEffect /> */}
+
+      {/* ROUTER */}
+      {/* Es una biblioteca de enrutamiento del lado del 
+servidor y del cliente con todas las funciones
+para React que se utiliza para crear aplicaciones
+de una sola página (SPA), es decir, aplicaciones
+que tienen muchas páginas o componentes,
+pero la página nunca se actualiza, sino que el
+contenido se obtiene dinámicamente en
+función de la URL. */}
+      
+      {/* es una sola página SPA Single Page Application
+se navega entre componentes y no entre páginas */}
+      {/* la unica pagina que se usa es index.html que llama a los componentes
+      y estos haran la funcion de sisteintas páginas. */}
+      
+      {/* para que funcione el route desde la consola:
+      $ npm install react-router-dom */}
+
+      {/* llamar al componente Rutas */}
+      <Rutas />
     </>
   );
 }
