@@ -1,7 +1,8 @@
 // crear un componente nav
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import '../../App.css';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavBar = () => {
     return (
@@ -15,11 +16,22 @@ const NavBar = () => {
                 <li><a href='/contacto'>Contacto</a></li> */}
                 
                 {/* to={'ruta'} */}
-                {/* el Link to hace que la página NO SE RECARGUE Y NO PEGUE SALTOS!!! */}
-                <li><Link to={'/'}>Inicio</Link></li>
+                {/* el Link to hace que la página NO SE RECARGUE Y NO PEGUE SALTOS!!! 
+                SOLO SE RECARGA LO NECESARIO!!!!*/}
+                {/* <li><Link to={'/'}>Inicio</Link></li>
                 <li><Link to={'/productos'}>Productos</Link></li>
                 <li><Link to={'/sobre-nosotros'}>Sobre Nosotros</Link></li>
-                <li><Link to={'/contacto'}>Contacto</Link></li>
+                <li><Link to={'/contacto'}>Contacto</Link></li> */}
+
+                
+                {/* navLink puede senalar en que pagina nos encontramos */}
+                {/* activeClassName puede mostrar que el item seleccionado quede remarcado
+                con ayuda de la clase active, SOLO SE RECARGA LO NECESARIO!!!! */}
+                <li><NavLink to='/' activeClassName='active'>Inicio</NavLink></li>
+                <li><NavLink to={'/productos'}>Productos</NavLink></li>
+                <li><NavLink to={'/sobre-nosotros'}>Sobre Nosotros</NavLink></li>
+                <li><NavLink to={'/contacto'}>Contacto</NavLink></li>
+
             </ul>
         </nav>
     );

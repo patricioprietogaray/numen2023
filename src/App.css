@@ -1,0 +1,9 @@
+
+/* cada vez que cliquee en el NavBar quedará con el estilo lo último que
+se cliqueó, que quede marcado el item de navegacion */
+/* <li><NavLink to='/' activeClassName='active'>Inicio</NavLink></li> */
+
+.active {
+    color: black;
+    background-color: bisque;
+}
