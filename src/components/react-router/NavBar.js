@@ -27,7 +27,10 @@ const NavBar = () => {
                 {/* navLink puede senalar en que pagina nos encontramos */}
                 {/* activeClassName puede mostrar que el item seleccionado quede remarcado
                 con ayuda de la clase active, SOLO SE RECARGA LO NECESARIO!!!! */}
-                <li><NavLink to='/' activeClassName='active'>Inicio</NavLink></li>
+
+                {/* sin llaves */}
+                <li><NavLink to='/' activeClassName='active'>Inicio</NavLink></li> 
+                {/* con llaves */}
                 <li><NavLink to={'/productos'}>Productos</NavLink></li>
                 <li><NavLink to={'/sobre-nosotros'}>Sobre Nosotros</NavLink></li>
                 <li><NavLink to={'/contacto'}>Contacto</NavLink></li>

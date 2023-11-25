@@ -11,6 +11,7 @@ import Inicio from './inicio';
 import Constacto from './constacto';
 import SobreNosostros from './sobreNosostros';
 import Error404 from './error404';
+import Footer from './footer';
 
 
 const Rutas = () => {
@@ -18,8 +19,10 @@ const Rutas = () => {
         <div>
             {/* Router viene importado de la libreria */}
             <Router>
-                {/* llamo a navBar */}
+                {/* llamo a navBar. NavBar no se recarga */}
                 <NavBar />
+
+                {/* las Route se recargan */}
                 <Routes>
                     {/* con Routes se definen las rutas que habran dentro de la página */}
                     {/* path es donde se mostrará el compoente en el link */}
@@ -34,6 +37,8 @@ const Rutas = () => {
                     especificadas tiren error  */}
                     <Route path='/*' element={<Error404 />}></Route>
                 </Routes>
+                {/* El Footer no se recarga */}
+                <Footer />
             </Router>
         </div>
     );
