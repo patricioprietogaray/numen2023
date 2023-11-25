@@ -1,5 +1,9 @@
 import React, { useReducer } from 'react';
 
+// IMPORTAR LOS TIPOS
+import { TYPES } from './types';
+
+
 // FUERA DEL COMPONENTE DE INICIO:
 // declarar useReducer
 // SE DECLARA UNA VARIABLE/CONSTANTE de tipo objeto
@@ -27,12 +31,12 @@ const contadorReducer = (state, action) => {
 
     // lo que ingresa como parámetro (action) y type el objeto que ingresa por ese parámetro
     switch (action.type) {
-        case 'INCREMENTAR':
+        case TYPES.AUMENTO:
             // console.log(state.contador);
             // retornar contador como state.contador+1 como objeto
             // y este objeto se imprime por pantalla ( <h3>{state.contador}</h3> )
             return { contador: state.contador + 1 };
-        case 'DECREMENTAR':
+        case TYPES.DECREMENTO:
             return { contador: state.contador - 1 };
         default:
             return state;
@@ -52,12 +56,18 @@ const Inicio = () => {
 
     // dispach es un objeto (initalState) se asigna como una propiedad:accion
     // propiedad type y la accion la define el programador como 'unTipo'
-    const aumentarHandler = () => dispach({ type: 'INCREMENTAR' })
+    // const aumentarHandler = () => dispach({ type: 'INCREMENTAR' })
+
+    // como me puedo equivocar con los tipos llamo a TYPES
+    const aumentarHandler = () => dispach({ type: TYPES.AUMENTO });
+
     // El dispach llama a la funcion reductora (contadorReducer), y el objeto type ingresa
     // por action ( const contadorReducer = (state, action) => .... )
 
-    const disminuirHandler = () => dispach({ type: 'DECREMENTAR' })
+    // const disminuirHandler = () => dispach({ type: 'DECREMENTAR' })
 
+    // como me puedo equivocar con los tipos llamo a TYPES
+    const disminuirHandler = () => dispach({ type: TYPES.DECREMENTO });
 
         
     return (
