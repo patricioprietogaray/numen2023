@@ -1,33 +1,74 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
+
+// FUERA DEL COMPONENTE DE INICIO:
+// declarar useReducer
+// SE DECLARA UNA VARIABLE/CONSTANTE de tipo objeto
+
+// contiene el estado inicial
+const initialState = {
+    contador: 0,
+    // ......
+    // .......
+     // otros atributos que se inicializan
+}
+
+// funcion reductora TENDRÁ LA FUNCION DE CAMBIAR EL ESTADO (como set en useState)
+    // tendra dos parámetros el estado anterior
+// (si es la primera vez toma el estado inicial, ej: contador: 0)
+// action es una funcion
+    
+const contadorReducer = (state, action) => {
+    // aqui van las acciones o intrucciones para ejecutar la accion
+    // action viene de ( const aumentarHandler = () => dispach({ type: 'INCREMENTAR' }) )
+    // debo evaluar los tipos que entran
+    // state es initialState.contador si es la primera vez y luego state.contador 
+    // para los incrementos o decrementos
+    
+
+    // lo que ingresa como parámetro (action) y type el objeto que ingresa por ese parámetro
+    switch (action.type) {
+        case 'INCREMENTAR':
+            // console.log(state.contador);
+            // retornar contador como state.contador+1 como objeto
+            // y este objeto se imprime por pantalla ( <h3>{state.contador}</h3> )
+            return { contador: state.contador + 1 };
+        case 'DECREMENTAR':
+            return { contador: state.contador - 1 };
+        default:
+            return state;
+    }
+}
+
+
 
 const Inicio = () => {
 
-    // utilizar el hook useState 52min
-    const [contador, setContador] = useState(0);
+    // dentro de la funcion
+    // a una constante o variable le asigno useReducer
+    // estado y dispach que se igualará con el useReducer(funcionReductora, estadoInicial)
+    // funcionReductora sera una funcion que configuraremos
+    // [estado, despachar]
+    const [state, dispach] = useReducer(contadorReducer, initialState);
 
-    // no funciona con ++ ni --, tira error
-    // const aumentarHandler = () => setContador(contador ++);
+    // dispach es un objeto (initalState) se asigna como una propiedad:accion
+    // propiedad type y la accion la define el programador como 'unTipo'
+    const aumentarHandler = () => dispach({ type: 'INCREMENTAR' })
+    // El dispach llama a la funcion reductora (contadorReducer), y el objeto type ingresa
+    // por action ( const contadorReducer = (state, action) => .... )
 
-    // no funciona con prevState++ pero no tira error
-    // porque devuelve el estado previo sin sumarlo en uno,
-    // es por ello que primero hay que sumarlo y luego devolverlo
-    // funciona con ++prevState
+    const disminuirHandler = () => dispach({ type: 'DECREMENTAR' })
 
-    
-    const aumentarHandler = () => setContador(prevState => ++prevState);
-    // const aumentarHandler = () => setContador(contador +1);
-    const disminuirHandler = () => setContador(prevState => --prevState);
-    // const disminuirHandler = () => setContador(contador - 1);
 
+        
     return (
         <div>
             {/* componente de inicio - reemplaza a inicio.html */}
             <h2>Inicio</h2>
             <p>Bienvenido a nuestra página</p>
             <p>Componente de inicio</p>
-            <h2>Un contador con useState</h2>
+            <h2>Un contador con useReducer</h2>
             <div style={{textAlign:'center'}}>
-                <h3>{contador}</h3>
+                <h3>{state.contador}</h3>
                 {/* onClick es un evento */}
                 <button onClick={disminuirHandler}>Disminuir</button>
                 <button onClick={aumentarHandler}>Aumentar</button>
