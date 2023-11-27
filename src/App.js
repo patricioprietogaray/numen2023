@@ -1,5 +1,6 @@
 import './App.css';
 import Main from './components/Main';
+import Cart from './components/carrito/Cart';
 import Rutas from './components/react-router/Rutas';
 import { ProductosProviders } from './providers/productosProviders';
 // import RelojEffect from './components/RelojEffect';
@@ -16,7 +17,7 @@ function App() {
 
   return (
     <>
-      <h1>Bienvenidos a React!</h1>
+      {/* <h1>Bienvenidos a React!</h1> */}
       {/* <Blog /> */}
       {/* <CicloVidaComponente /> */}
       {/* <ListaCompras /> */}
@@ -73,7 +74,11 @@ se navega entre componentes y no entre páginas */}
       $ npm install react-router-dom */}
 
       {/* llamar al componente Rutas */}
-      <Rutas />
+      {/* <Rutas /> */}
+
+      {/* carrito */}
+      <h1>Carrito en React</h1>
+      <Cart />
     </>
   );
 }
