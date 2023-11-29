@@ -2,7 +2,6 @@
 // la función reductora y el estado inicial
 
 // se importan los tipos de accion
-import { type } from "os";
 import { TYPES } from "./Types";
 
 // se exporta el estado inicial
@@ -10,7 +9,7 @@ import { TYPES } from "./Types";
 
 // src es una imagen que se asociara al producto
 export const carritoInitialState = {
-    products: [
+    productosArray: [
     { id: 1, nombre: 'Producto A', src: '', precio: 100, stock: 20 },
     { id: 2, nombre: 'Producto B', src: '', precio: 200, stock: 20 },
     { id: 3, nombre: 'Producto C', src: '', precio: 300, stock: 20 },
@@ -27,16 +26,17 @@ export const carritoInitialState = {
 export const carritoReducer = (state, action) => { 
     switch (action.type) {
         case TYPES.ADD_TO_CART: {
-            
+            break;
         }
+            
         case TYPES.REMOVE_ITEM: {
-
+            break;
         }
         case TYPES.REMOVE_ALL_ITEMS: {
-
+            break;
         }
         case TYPES.CLEAR_CART: {
-
+            break;
         }
         default:
             return state;
