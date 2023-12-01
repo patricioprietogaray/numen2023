@@ -33,14 +33,32 @@ export const carritoReducer = (state, action) => {
             // console.log(action.payload);
             
             // buscar el id que sea igual al payload que recibo y luego guardarlo en nuevoItem
-            const nuevoItem = state.productosArray.find(item => item.id === action.payload);
+            const nuevoItem = state.productosArray.find(product => product.id === action.payload);
 
-            // retorará el nuevo producto al cart (objeto)
-            return {
+            // ahora si es la segunda vez que presiono el moismo
+            // boton agregar voy a buscar en el carrito si existe
+            // el producto
+            const itemEnCarrito = state.cart.find(item => item.id === action.payload);
+
+
+            // if ternario si esta el producto en el carrito ? agrego otro : agrego el primero
+            return itemEnCarrito ? {
+                // si esta el item en el carrito
+                ...state,
+                // recorrer con un map para cambiar la cantidad
+                // de productos comptados. Busco las coincidencias...
+                // si coincide sumo en 1 cantidad.
+                // si no devuelvo el item sin cambios
+                cart: state.cart.map(item => item.id === nuevoItem.id ?
+                    { ...item, cantidad: item.cantidad + 1 } : item) 
+                // en cartItemm muestro la cantidad
+            } : {
+                // retorará el nuevo producto al cart (objeto)
                 // dejo el estado como viene
                 ...state,
-                // agrego en cart lo que tengo cargado + nuevoItem
-                cart: [...state.cart, nuevoItem]
+                // agrego en cart lo que tengo cargado + {...nuevoItem, cantidad}
+                // como es la primera vez que se cliquea agregar lo seteo en 1
+                cart: [...state.cart, { ...nuevoItem, cantidad: 1 }]
             }
             
         }
