@@ -10,6 +10,7 @@ const CartItem = ({ item }) => {
             <h6>{nombre}</h6>
             <h6>$ {precio}</h6>
             <h6>{cantidad} u.</h6>
+            <h6>$ {cantidad*precio}</h6>
             {/* 1:05 */}
             <button className='btn btn-warning btn-sm'>Eliminar uno</button>
             <button className='btn btn-warning btn-sm'>Eliminar todos</button>

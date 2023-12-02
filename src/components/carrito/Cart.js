@@ -53,6 +53,7 @@ const Cart = () => {
             
             
             <h2>Carrito de compras</h2>
+            <p>Productos....................Precio Unitario...Unidades Compradas....Precio Parcial</p>
             {/* usar otro compornente, mostrará una lista
             y no tarjetas */}
             <div className='mb-2 row'>
