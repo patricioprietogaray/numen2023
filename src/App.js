@@ -1,8 +1,8 @@
 import './App.css';
-import Main from './components/Main';
 import Cart from './components/carrito/Cart';
-import Rutas from './components/react-router/Rutas';
-import { ProductosProviders } from './providers/productosProviders';
+// import Main from './components/Main';
+// import Rutas from './components/react-router/Rutas';
+// import { ProductosProviders } from './providers/productosProviders';
 // import RelojEffect from './components/RelojEffect';
 // import Blog from './components/blog';
 // import CicloVidaComponente from './components/cicloVidaComponente';
@@ -77,7 +77,7 @@ se navega entre componentes y no entre páginas */}
       {/* <Rutas /> */}
 
       {/* carrito */}
-      <h1>Carrito en React</h1>
+      <h1>Carrito en React!</h1>
       <Cart />
     </>
   );
