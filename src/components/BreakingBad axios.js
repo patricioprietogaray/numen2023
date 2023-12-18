@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Quote from './quote';
-// import { AsyncLocalStorage } from 'async_hooks';
+import { Axios } from 'axios';
+
+
+
+// Usando Axios en reemplazo de Fetch
+
+// instalar axios
+// npm install axios
 
 
 // cita inicial para mostrar la cita
@@ -49,35 +56,71 @@ const BreakingBad = () => {
             // seteo isLoadin en true
             setIsLoading(true);
         
-            // INICIO DE LA CONEXION CON LA API
-        const url = "https://api.breakingbadquotes.xyz/v1/quotes";
+            // INICIO DE LA CONEXION CON LA API CON FETCH
+        // const url = "https://api.breakingbadquotes.xyz/v1/quotes";
         
         // defino la respuesta la funcion quoteUpdate debe ser asincrona (async)
         // y el comando fetch precedido de un await
-        const respuestaServerRemoto = await fetch(url);
+        // const respuestaServerRemoto = await fetch(url);
         // para ver los datos crudos como se reciben desde el server
         // console.log(respuestaServerRemoto);
         // para ver mejor los datos en formato json
         // console.log(respuestaServerRemoto.json());
-        /// FIN DE LA CONEXION CON LA API
+        /// FIN DE LA CONEXION CON LA API CON FETCH
 
-        // INICIO DE LA MANIPULACION DE LOS DATOS
+            // INICIO DE LA CONEXION CON AXIOS
+
+            const url = "https://api.breakingbadquotes.xyz/v1/quotes";
+
+            // axios tiene un atributo de respuesta que se denomina data que devuelve un arreglo y 
+            // se utilizará como un objeto, se debe respetar el nombre
+
+            const { data } = await Axios.get(url);  //0:50:39
+            
+            
+
+                // http tiene metodos:
+                //    get(obtener),
+                //    post(agregar un dato),
+                //    put(actualizar)
+                //    y delete (borrar)
+
+            // la API traduce los datos que brinda el servidor en http
+            // a JSON que son entendidos por el cliente.
+
+
+            // FIN DE LA CONEXION CON AXIOS
+
+            
+            
+            
+        // INICIO DE LA MANIPULACION DE LOS DATOS CON FETCH
         // devuelve un arreglo (nueva cita) y es por ello que voy a crear
         // una constante de tipo arreglo para poder mostrar los datos
         // obtenidos de manera correcta
         // desestructuro como arreglo
         // muestro como objeto, porque initialQuote es un objeto
-        const [ newQuote ] = await respuestaServerRemoto.json(); //destructurar arreglo respuesta
-        setQuote({ text: newQuote.quote, author: newQuote.author});
+        // const [ newQuote ] = await respuestaServerRemoto.json(); //destructurar arreglo respuesta
+        // setQuote({ text: newQuote.quote, author: newQuote.author});
   
 
+            
 
         // alert(newQuote);
         
-        // prueba de datos 
+        // prueba de datos
         // setQuote({ text: 'lalala', author: 'pepe' })
         
-        //FIN DE LA MANIPULACION DE LOS DATOS
+            //FIN DE LA MANIPULACION DE LOS DATOS CON FETCH
+            
+
+            // INICIO DE LA MANIPULACION DE DATOS CON AXIOS
+            const [newQuote] = data;
+            setQuote({ text: newQuote.quote, author: newQuote.author});
+
+            //FIN DE LA MANIPULACION DE LOS DATOS CON AXIOS
+
+
         // se deben pasar los datos como props a Quote.js
         } catch (e) {
             // en caso de error
