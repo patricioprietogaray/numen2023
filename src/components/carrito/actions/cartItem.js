@@ -51,6 +51,7 @@ const CartItem = ({item, deleteFromCart}) => {
             <h5>{cantidad}u</h5>
             <h5>{nombre}</h5>
             <h5>$ {precio}</h5>
+            
             <h5>$ {precio * cantidad}</h5>
             {/* se llama a la funcion borrado que se encuentra en Cart.js */}
             {/* paso el id y paso un bool ¿eliminar todos los items de un producto dado? */}

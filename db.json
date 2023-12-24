@@ -1,0 +1,48 @@
+{
+  "productos": [
+     {
+       "id": 1,
+       "nombre": "PRODUCTO A",
+       "precio": 20,
+       "src": "https://w7.pngwing.com/pngs/76/532/png-transparent-t-shirt-computer-icons-dress-shirt-t-shirt.png",
+       "stock": 20
+     },
+     {
+       "id": 2,
+       "nombre": "PRODUCTO B",
+       "precio": 35,
+       "src": "https://i.pinimg.com/originals/bb/c3/5e/bbc35e5e40de2799464a1fd65047021b.png",
+       "stock": 20
+     },
+     {
+       "id": 3,
+       "nombre": "PRODUCTO C",
+       "precio": 95,
+       "src": "https://cdn-icons-png.flaticon.com/512/2589/2589973.png",
+       "stock": 20
+     },
+     {
+       "id": 4,
+       "nombre": "PRODUCTO D",
+       "precio": 80,
+       "src": "https://cdn-icons-png.flaticon.com/512/2093/2093798.png",
+       "stock": 20
+     },
+     {
+       "id": 5,
+       "nombre": "PRODUCTO E",
+       "precio": 60,
+       "src": "https://d338t8kmirgyke.cloudfront.net/icons/icon_pngs/000/014/791/original/shorts_5798614.png",
+       "stock": 20
+     },
+     {
+       "id": 6,
+       "nombre": "PRODUCTO F",
+       "precio": 15,
+       "src": "https://cdn-icons-png.flaticon.com/512/976/976228.png",
+       "stock": 20
+     }
+  ],
+  "cart": [],
+  "usuarios": []
+}

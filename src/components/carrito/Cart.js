@@ -71,17 +71,54 @@
 
 // export default Cart;
 
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { cartInitialState, cartReducer } from './actions/cartReducer';
 import Products from './actions/Products';
 import CartItem from './actions/cartItem';
 import { TYPES } from './actions/types';
-// import { type } from 'os';
+import axios from 'axios';
 
 const Cart = () => {
 
     const [state, dispatch] = useReducer(cartReducer, cartInitialState); //cartReducer, cartInitialState
     
+    // actualizar los productos desde la base de datos
+    // cartReducer estaba la base de manera estática, ahora
+    // se utiliza el servidor de server-json
+    // desde el archivo db.json en la raiz --> localhost:8080/productos; ../cart; .../usuarios
+
+
+    const updateProducts = async () => {
+        
+        // ATENCION CON AXIOS, import axios from 'axios'; EN MINÚSCULAS
+        // SE LLAMA AXIOS EN MINUSCULAS const productsResponse = await axios.get(productsUrl);
+        // EL GET NO SALE AUTOMATICAMENTE, SE DEBE PONER A MANO 'Axios' SALE ASI OJO PORQUE 
+        // HAY PROBLEMAS...
+        
+        //url a una variable
+        const productsUrl = 'http://localhost:8080/productos'; 
+        const cartUrl = 'http://localhost:8080/cart';
+
+        // conexion al url con su espera (await) y funcion asicrona (async)
+        const productsResponse = await axios.get(productsUrl);
+        const cartResponse = await axios.get(cartUrl);
+
+        //cargar los datos a un objeto (puedo acceder a ellos mediante un indice)
+        // productsData[0].id
+        const productsData = productsResponse.data;
+        const cartData = cartResponse.data;
+
+        // llamar a la funcion reductora a traves del dispatch
+        // envio el tipo read_state y en el payload envio los arreglos
+        dispatch({ type: TYPES.READ_STATE, payload: [productsData, cartData] });
+
+        // console.log("prod: " + productsData);
+        // console.log ("cart: " + cartData);
+    }
+
+    useEffect(() => {
+         updateProducts();
+    }, [])
     //manejo de carrito (funciones)
     //añadir
     const addToCart = (id) => {

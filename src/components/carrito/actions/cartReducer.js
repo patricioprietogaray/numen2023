@@ -116,14 +116,9 @@
 import { TYPES } from "./types";
 
 export const cartInitialState = {
-    products: [
-    { id: 1, nombre: "Producto A", precio: 5, stock: 2, src: "" },
-    { id: 2, nombre: "Producto B", precio: 50, stock: 20, src: "" },
-    { id: 3, nombre: "Producto C", precio: 500, stock: 200, src: "" },
-    { id: 4, nombre: "Producto D", precio: 5000, stock: 2000, src: "" },
-    { id: 5, nombre: "Producto E", precio: 50000, stock: 20000, src: "" },
-    { id: 6, nombre: "Producto F", precio: 500000, stock: 200000, src: "" },
-    ],
+    // la app va a hacer dinamica con los datos
+    // y no estatica si se declaran dentro del arreglo.
+    products: [],
     cart: []
 }
 
@@ -327,7 +322,25 @@ export const cartReducer = (state, action) => {
         case TYPES.CLEAR_CART: {
             // reinicio el estado inicial de products y cart (vacio)
             // ojo sin state.cart..... tira error eso
-            return cartInitialState;
+            // tener en cuenta que si uso return cartInitialState, vacío el carrito y los productos
+            // es por ello que primero levanto el estado con spread y luego vacío el carrito!
+            return {
+                ...state,
+                cart:[]
+            };
+        }
+        case TYPES.READ_STATE: {
+            //recibo los arreglos de los productos y del carrito (funcion asincrona updateProducts)
+            // console.log(action.payload);
+
+            //retorno un objeto
+            return {
+                ...state,
+                // payload tiene un arreglo con dos posiciones la primera con todos los productos
+                // la segunda posicion con el carrito
+                products: action.payload[0],
+                cart: action.payload[1]
+            }
         }
         default:
             return state;
