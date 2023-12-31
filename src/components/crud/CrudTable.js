@@ -43,12 +43,12 @@ const CrudTable = ({ data, setDataToEdit, deleteData }) => {
                 </tbody>
             </table> */}
             <h3>Tabla de Datos</h3>
-            <table>
+            <table className='table table-hover'>
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Constelación</th>
-                        <th>Acciones</th>
+                        <th scope='col'>Nombre</th>
+                        <th scope='col'>Constelación</th>
+                        <th scope='col'>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>

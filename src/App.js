@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import Cart from './components/carrito/Cart';
+// import Cart from './components/carrito/Cart';
 import Crud from './components/crud/Crud';
 // import BreakingBad from './components/BreakingBad';
 
