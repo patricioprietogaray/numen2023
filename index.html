@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <title>Backend-Clase01</title>
+  </head>
+  <body>
+    <h1>Backend - Clase 01</h1>
+    <div class="diferencias">
+      <h2 class="text-warning">Diferencias entre Frontend y Backend</h2>
+      <div class="frontend">
+        <h3>Frontend</h3>
+        <p>Es la parte de una aplicación que interactua con los usuarios.</p>
+        <p>Es el lado del Cliente.</p>
+        <p>Es todo lo que ve (efectos, mouse, teclado, etc) el cliente.</p>
+        <p>
+          Si el Front no esta conectado a ningun lado la info es estática (como
+          esta info).
+        </p>
+        <p>Los componentes de React tambien es el frontend</p>
+      </div>
+      <div class="backend">
+        <h3>Backend</h3>
+        <p>Son las aplicaciones que "viven" en el servidor</p>
+        <p>A menudo se le denomina "el lado del servidor".</p>
+        <p>Consiste en un servidor, una aplicacion y una base de datos.</p>
+        <p>
+          Se toman los datos, se procesa la información y se envia al usuario.
+        </p>
+      </div>
+      <div class="api">
+        <h3>API</h3>
+        <p>
+          La API (Interfaz )es lo que interconecta al frontend y al backend.
+        </p>
+        <p>
+          Concepto de API: Se trata de un conjunto de protocolos y estándares
+          que participan en la interfaz de alguna aplicación y que permiten la
+          comunicación entre diferentes sistemas.
+        </p>
+        <p>
+          Por ejemplo, cuando pensamos en WhatsApp, la interfaz es aquello a lo
+          que el usuario tiene acceso, es decir, con lo que interactúa y ve
+          mientras usa la aplicación.
+        </p>
+        <p>
+          Así, las APIs son los estándares que permiten a los desarrolladores
+          crear soluciones, desarrollar nuevas funcionalidades o explorar las
+          alternativas que los creadores de las aplicaciones han proporcionado.
+        </p>
+        <p>
+          Por ejemplo, es precisamente el uso de APIs lo que permite que los
+          desarrolladores creen aplicaciones para los sistemas operativos iOS
+          (Apple) y Android (Google). Sin eso, tendrían que romperse la cabeza
+          mucho más para crear una aplicación que fuera compatible con cada uno
+          de estos sistemas operativos.
+        </p>
+      </div>
+    </div>
+    <div class="ecma">
+      <h2>Ecmascript 6</h2>
+      <p>
+        ECMAScript es una especificación de lenguaje de scripting en la que se
+        basa JavaScript.
+      </p>
+      <p>ECMA International está a cargo de estandarizar ECMAScript.</p>
+      <p>
+        Es la especificación donde se mencionan todos los detalles de cómo debe
+        funcionar y comportarse JavaScript en un navegador.
+      </p>
+      <p>
+        De esta forma, los diferentes navegadores (Chrome, Firefox, Opera, Edge,
+        Safari...) saben como deben desarrollar los motores de Javascript para
+        que cualquier código o programa funcione exactamente igual,
+        independientemente del navegador que se utilice.
+      </p>
+      <p>
+        ES6 o EcmaScript 2015, fue una enorme revisión que surgió en el año 2015
+        y trajo dentro de varias polémicas enormes avances en el mundo de la
+        programación JavaScript.
+      </p>
+      <p>
+        ES6 o EcmaScript 2015, fue una enorme revisión que surgió en el año 2015
+        y trajo dentro de varias polémicas enormes avances en el mundo de la
+        programación JavaScript.
+      </p>
+      <p>
+        Entre sus mayores innovaciones se encuentra la declaración de variables
+        con let y const, la introducción de clases al lenguaje, y los template
+        strings
+      </p>
+    </div>
+    <div class="ejecutar">
+      <h3>¿Cómo ejecutar JS directamente en la terminal con VSCode?</h3>
+      <p>
+        Crear un archivo <code>miPrograma.js</code> y luego se ejecuta desde la
+        consola con <code>node miPrograma.js</code>
+      </p>
+    </div>
+    <div class="variablesConstantes">
+      <div class="variables">
+        <h3>Variables: antes <span>var</span> y ahora <span>let</span></h3>
+        <p>
+          Una variable es un contenedor dinámico que nos permite almacenar
+          valores.
+        </p>
+        <p>
+          Los valores pueden ser diversos tipos de datos, según la variable.
+        </p>
+        <p>
+          Tal como lo indica su nombre, el valor de la variable puede cambiar,
+          permitiéndonos crear programas que funcionen independientemente del
+          valor de la variable.
+        </p>
+        <p>
+          Las variables declaradas con var: Restringidas solo dentro del scope
+          de funciones. Es posible que se encuentren con ejemplos y código en
+          internet utilizando la palabra reservada “var” para crear variables.
+          Esta es la manera en que se hacía antes de ES6, y no se recomienda su
+          uso!
+        </p>
+        <hr />
+        <p>
+          Las variables declaradas con let: Restringidas dentro de cualquier
+          scope o ámbito. Introducidas en ES6 que limitan el ámbito de la
+          variable al bloque en que fue declarada (antes de ES6 esto no era
+          así).
+        </p>
+        <p>
+          Un bloque en JavaScript se puede entender como “lo que queda entre dos
+          llaves”, ya sean definiciones de funciones o bloques if, while, for y
+          loops similares. Si una variable es declarada con let en el ámbito
+          global o en el de una función, la variable pertenece al ámbito global
+          o al ámbito de la función respectivamente.
+        </p>
+        <p style="background-color: rgba(5, 141, 141, 0.575)">
+          Constantes: Al igual que con let, el ámbito (scope) para una variable
+          declarada con const es el bloque. Sin embargo, const además prohíbe la
+          reasignación de valores (const viene de constant). Una vez declarada y
+          asignada un valor, este último no se puede cambiar.
+        </p>
+        <p style="background-color: rgba(0, 255, 255, 0.329)">
+          Izamiento: No puedo mostrar una variable declarada con LET sin antes
+          declararla, sin embargo con VAR se puede izar.
+        </p>
+        <p>
+          Variable declarada con LET dentro del scope es distinta a la misma
+          variable declarada con LET declarada globalmente. En cambio con VAR la
+          variable se sombrea, es decir que se sobreescribe, no importa el
+          ámbito donde se declare. OJO CON ESTO.
+        </p>
+      </div>
+    </div>
+    <div class="funciones">
+      <h2>Funciones</h2>
+      <p>
+        Izamiento: Con las funciones está permitido el izamiento o hoisting.
+        Puedo llamar a una funcion antes o luego de declararla. Y como resultado
+        será siempre el mismo: llamo y ejecuto la función.
+      </p>
+      <p>Declaro una funcion de manera tradicional con parámetros:</p>
+      <code>
+        <pre>
+    function nombreDeLaFuncion(parametro1, parametroN) {
+        return `${parametro1} ${parametroN}`;
+    }
+
+    console.log(nombreDeLaFuncion('Buen', 'día'))
+
+    Salida: "Buen día"
+            </pre
+        >
+      </code>
+
+      <p>Declaro una funcion de manera tradicional sin parámetros:</p>
+      <code>
+        <pre>
+    function nombreDeLaFuncion() {
+        return 'texto estático';
+    }
+
+    console.log(nombreDeLaFuncion())
+
+    Salida: "texto estático"
+            </pre
+        >
+      </code>
+
+      <p>
+        A partir de ECMAScript 2015 - ES6 puedo crear funciones anónimas (sin
+        nombre). Para acceder a las mismas se guardan en una variable.
+        <span>No se pueden izar</span> (si se declaran con let o var).
+      </p>
+      <code>
+        <pre>
+    let suma = function (a, b) {
+        return a + b;
+    }
+    console.log("El resultado de la suma es: " + suma(2, 3));
+            </pre
+        >
+      </code>
+
+      <p>
+        Otro tipo de función es la
+        <span>función flecha o arrow function</span> (en otros lenguajes se las
+        denomina funcion delta). Como la anterior para acceder a las mismas se
+        guardan en una variable. <span>No se pueden izar</span> (si se declaran
+        con let o var). Es una función anónima. Si las intrucciones de la
+        funcion son dos o más lineas se deben usar las llaves, junto a la
+        palabra reservada <span>return</span>.
+      </p>
+      <code>
+        <pre>
+    let sumaArrow = (a, b) => {
+        let resultadoSuma = a + b;
+        return resultadoSuma;
+    }
+    console.log("El resultado de la suma es (arrow function): " + sumaArrow(2, 3));
+
+    resultado: El resultado de la suma es (arrow function): 5
+            </pre
+        >
+      </code>
+
+      <p>
+        Puedo utilizar métodos predefinidos de una de las bibliotecas
+        disponibles en JS. En este ejemplo se utiliza la biblioteca Math
+        (matemáticas) y sus métodos PI (3.14...) y pow (para elevar un numero a
+        una potencia). En el código al tratarse de una instrucción de una sola
+        línea no se escribe la palabra reservada return.
+      </p>
+      <code>
+        <pre>
+    const superficieCirculo = (radio) => Math.PI * Math.pow(radio, 2);
+    console.log(superficieCirculo(5));
+
+    respuesta: 78.53981633974483
+            </pre
+        >
+      </code>
+    </div>
+    <div class="clases">
+      <h2>Clases</h2>
+      <p>
+        Definición: Una Clase es un métodos de derivación de objetos. Una vez
+        construida una clase puedo declarar un objeto basado en esa clase de una
+        forma mucho más fácil.
+      </p>
+      <p>
+        Cada clase tiene un constructor que construirá los objetos derivados en
+        esa clase. El constructor es el método
+      </p>
+
+      <p>En backend se utilizan las clases cuando se tengan los modelos.</p>
+
+      <p>
+        Cuando se utilicen las bases de datos se declarará un modelo que se base
+        en ciertos atributos que se utilizarán para el almacenamiento de
+        información.
+      </p>
+
+      <p>
+        El contenido de una clase es la parte que se encuentra entre las llaves
+        { }. En ella se declaran los atributos y los métodos, tanto de instancia
+        como de clase (new).
+      </p>
+
+      <p>
+        Poseen un método constructor donde se declaran los atributos usando la
+        palabra reservada this.
+      </p>
+      <p>
+        Un constructor puede usar la palabra reservada super para llamar al
+        constructor de una superclase.
+      </p>
+      <p>
+        Las clases son sólo azucar sintáctica, es decir, no son una nueva
+        funcionalidad, solo una nueva manera de escribir lo que antes ya se
+        podía pero de otra manera menos convencional.
+      </p>
+      <pre>
+            <code>
+                class Medicamentos {
+                    // cada clase tiene un constructor que construirá los objetos derivados en esa clase.
+                    // metodo constructor: es la accion que construye el objeto
+                    constructor(nombre, laboratorio, requiereReceta, precio, stock) { //metodo constructor
+                        this.nombre = nombre; //propiedades o atributos
+                        this.laboratorio = laboratorio;
+                        this.requiereReceta = requiereReceta;
+                        this.precio = precio;
+                        this.stock = stock;
+                    }
+
+                    // metodos propio
+                    presentacion() {
+                        return `Este medicamento ${this.nombre} tiene un valor de $${this.precio}.`;
+                    }
+
+                    receta() {
+                        if (this.requiereReceta) {
+                            return `Este medicamento requiere receta.`;
+                        } else {
+                            return `Este medicamento no requiere receta.`;
+                        }
+                    }
+                }
+
+                // instancio un nuevo objeto a partir de la clase, con new llamo al constructor
+                const medicamento1 = new Medicamentos("Paracetamol", "Bago", false, 500.00, 20);
+                console.log(medicamento1.presentacion()); //llamo a una funcion
+                console.log(medicamento1.requiereReceta);  //llamo a un atributo, responde false
+                console.log(medicamento1.receta());  //llamo a una funcion responde Este medicamento ....
+
+                const medicamento2 = new Medicamentos("herticol", "xxx", true, 23300, 20);
+                console.log(medicamento2.presentacion());
+                console.log(medicamento2.receta()); //llamo al metodo receta
+            </code>
+        </pre>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
