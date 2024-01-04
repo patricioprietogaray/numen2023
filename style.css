@@ -1,0 +1,49 @@
+/* colores
+fondo: #3FF888
+fondo2: #F72F23
+letra titulo: #2B16F7
+letra de texto:  #F7850A */
+
+:root {
+    --color-fondo2: #d6b2db;
+    --color-fondo1: #0f6e91;
+    --color-letra-titulo1: #F7850A;
+    --color-letra-titulo2: #2b0f0f;
+    --color-letra-texto: #352d25;
+    --color-fondo-consola: rgba(2, 2, 2, 0.87);
+    --color-letra-consola: rgb(7, 201, 7);
+    --color-span: rgb(243, 51, 51);
+}
+
+body {
+    background-color: var(--color-fondo1);
+    color: var(--color-letra-texto);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+}
+
+h1 {
+    color: var(--color-letra-titulo1);
+}
+
+h2 {
+    color: var(--color-letra-titulo2);
+}
+
+article {
+    background-color: var(--color-fondo2);
+}
+
+p {
+    color: var(--color-letra-texto);
+}
+
+pre {
+    background-color: var(--color-fondo-consola);
+    color: var(--color-letra-consola);
+}
+
+span {
+    color: var(--color-span);
+    background-color: var(--color-letra-titulo2);
+}

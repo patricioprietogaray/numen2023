@@ -1,32 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>clase26-backend2</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <h1>Backend - Clase 2</h1>
     <section>
-        <h2>Sincronismo y asincronismo</h2>
-        <p>Tengo una lista de tareas a completar y tienen un orden específico y cada tarea tiene un tiempo para su conclusión:</p>
-        <article>
-            <h3>sincrónico</h3>
-                <p>Una lista de tareas es sincrónica cuando realiza las tareas en orden
-                esperando y espera que se concluya la anterior para realizar la siguiente.
-                </p>
-        </article>
-        <article>
-            <h3>asíncrono</h3>
-            <p>Una lista de tareas as asíncrona cuando tiene realiza las tareas en un orden determinado, 
-                pero tiene permitido concluirlas luego de comenzar otras tareas, es
-            decir que podra esperar la conclusion de una primer tarea que ha encargado
-        y mientras tanto las tareas posteriores puede haber o no concluido.</p>
-        </article>
-        
-
-    </section>
+      <h2>Sincronismo y asincronismo</h2>
+      <p>
+        Tengo una lista de tareas a completar y tienen un orden específico y
+        cada tarea tiene un tiempo para su conclusión, todo ello se maneja con
+        un solo hilo de ejecución o thread, es decir que no hay operaciones
+        paralelas en JS en el dispositivo del cliente:
+      </p>
+      <article>
+        <h3>sincrónico</h3>
+        <p>
+          Una lista de tareas es sincrónica cuando realiza las tareas en orden
+          esperando y espera que se concluya la anterior para realizar la
+          siguiente.
+        </p>
+      </article>
+      <article>
+        <h3>asíncrono</h3>
+        <p>
+          Cuando se tiene que realizar tareas en un orden determinado, pero
+          tiene permitido sacar del hilo una tarea para que se ocupe otro
+          proceso externo (por ejemplo buscar un registro en una base de datos
+          de un servidor en el otro lado del mundo) continuará con la tarea que
+          sigue y cuando la primera tenga su resultado se incorporará al hilo
+          principal.
+        </p>
+      </article>
+      <article>
+        <p>
+          La parte principal de una computadora es el procesador. Los programas
+          que vemos al principio en JS, van a mantener el procesador ocupado
+          hasta que hayan finalizado sus tareas.
+        </p>
+        <p>
+          La velocidad a la cual corren las operaciones (ej: un bucle) depende
+          de la velocidad del procesador en el cual se ejecutan.
+        </p>
+        <p>
+          Muchos programas interactúan con cosas fuera del procesador (una red,
+          un disco). Cuando eso pasa, la respuesta puede tardar, y el procesador
+          puede tener tiempo ocioso.
+        </p>
+        <p>
+          En una computadora, los tiempos ociosos son manejados por el Sistema
+          Operativo, que permite tener muchos programas abiertos. Pero no ayuda
+          cuando queremos que un solo programa avance cuando está esperando, por
+          ejemplo, la respuesta de una solicitud de red.
+        </p>
+        <p>
+          En un modelo síncrono, las cosas pasan una por vez. Cuando se llama a
+          una función que realiza una acción con demora, retorna el resultado
+          solo cuando la acción finalizó. Si se intenta mostrar una la respuesta
+          a una petición que no ha llegado su resultado será undefined o "sin
+          definir".
+        </p>
+        <p>
+          Un modelo asíncrono permite que muchas cosas pasen al mismo tiempo.
+          Cuando se comienza una acción, el programa continua funcionando.
+        </p>
+      </article>
+      <article>
+        <h2>Operaciones Bloqueantes</h2>
+        <p>
+          En la mayoría de los casos, precisamos que el programa ejecute todas
+          sus operaciones en forma secuencial, y sólo comenzar una instrucción
+          luego de haber terminado la anterior.
+        </p>
+        <p>
+          A las operaciones que obligan al programa a esperar a que se finalicen
+          antes de pasar a ejecutar la siguiente instrucción se las conoce como
+          bloqueantes.
+        </p>
+        <p>
+          Este tipo de operaciones permiten que el programa se comporte de la
+          manera más intuitiva.
+        </p>
+        <p>Permiten la ejecución de una sola operación en simultáneo.</p>
+        <p>A este tipo de ejecución se la conoce como sincrónica.</p>
+      </article>
+      <article>
+        <h2>Operaciones no-bloqueantes</h2>
+        <p>
+          En algunos casos esperar a que una operación termine para iniciar la
+          siguiente podría causar grandes demoras en la ejecución del programa.
+        </p>
+        <p>
+          Por eso que Javascript ofrece una segunda opción: las operaciones no
+          bloqueantes.
+        </p>
+        <p>
+          Este tipo de operaciones permiten que, una vez iniciadas, el programa
+          pueda continuar con la siguiente instrucción, sin esperar a que
+          finalice la anterior.
+        </p>
+        <p>
+          Permite la ejecución de varias operaciones en paralelo, sucediendo al
+          mismo tiempo.
+        </p>
+        <p>A este tipo de ejecución se la conoce como asincrónica.</p>
+      </article>
+      <article>
+        <h2>Por qué asincronía?</h2>
+        <p>
+          JavaScript es un lenguaje single-thread (un hilo). Por defecto, se
+          procesa síncronamente, y con código bloqueante.
+        </p>
+        <p>
+          Esto quiere decir que sólo puede realizar una operación por vez, y se
+          maneja con una “fila” de operaciones. Una comienza solo luego de que
+          otra termina.
+        </p>
+        <p>
+          Por esa causa, una operación que lleve tiempo (conexión a un servidor
+          para pedir datos, operaciones lógicas externas -capacidad de
+          computacion para procesos muy pesados que el procesador local no puede
+          realizar ya sea por capacidad o por tiempo-, acceso a disco duro)
+          puede bloquear el bloque de código siguiente a la operación.
+        </p>
+        <p>
+          La asincronía nos va a permitir lanzar solicitudes que lleven tiempo
+          (según los recursos de la PC/servidor), sin bloquear el hilo principal
+          mientras esperamos su resultado.
+        </p>
+        <p>¿Cómo es posible la asincronía en JS? Mediante el Event Loop.</p>
+      </article>
+      <article>
+        <h2>Event Loop: Bucle de Eventos</h2>
+        <!-- 0:25:00 -->
+        <p>Memory Heap: alocación de objetos en memoria.</p>
+        <p>Call Stack (Pila de Llamadas -o de Ejecución-):</p>
+        <ul>
+          <li>
+            Estructura simple de subrutinas activas (similar a un arreglo), con
+            dinámica de datos LIFO (Last In-First Out).
+          </li>
+          <li>
+            De esta estructura solo pueden agregarse (push) o removerse(pop)
+            items al final, por eso es LIFO.
+          </li>
+          <li>Cuando hay una función a ejecutarse, se agrega a la pila.</li>
+          <li>
+            Como vimos, JS es single-thread, por lo que cuenta con una sola Call
+            Stack.
+          </li>
+        </ul>
+        <p style="font-weight: 600">
+          Las instrucciones salen del ámbito del dispositivo para una petición
+          externa las cuales utilizan la vía de las Web APIs. A traves de ello
+          peticionan (antes no tiene la info) y es respondido dicho pedido, y
+          reingresa al sistema por medio de la Callback Qeue (Fila de
+          Callbacks).
+        </p>
+        <p>
+          <span>
+            Recordemos: Las Callbacks son funciones que estan como parámetro de
+            otra función. La intención es que la función que hace de receptora
+            ejecute la función que se le está pasando por parámetro.
+          </span>
+        </p>
+        <p>Callback Qeue (Fila de Callbacks):</p>
+        <ul>
+          <li>
+            Cuando llamamos a una función asíncrona (callback), no se agrega a
+            la Call Stack sino a la Callback Qeue.
+          </li>
+          <li>Aquí funciona la dinámica FIFO (First In-First Out).</li>
+          <li>
+            El programa chequea primero la Call Stack. Si está vacía, empieza a
+            buscar funciones en la Callback Qeue.
+          </li>
+        </ul>
+      </article>
+      <article>
+        <h2>Callbacks: Algunas convenciones</h2>
+        <p>
+          El callback es el último parámetro (hay excepciones puntuales), pero
+          la idea es que al final de los parámetros se encuentre la funcion
+          callback para que esta se ejecute y que previamente haya cargado todos
+          los parametros de la funcion principal.
+        </p>
+        <p>El callback suele ser una función que recibe dos parámetros.</p>
+        <p>
+          La función llama al callback al terminar de ejecutar todas sus
+          operaciones.
+        </p>
+        <p>
+          Si la operación fue exitosa, la función llamará al callback pasando
+          null como primer parámetro y si generó algún resultado este se pasará
+          como segundo parámetro.
+        </p>
+        <p>
+          Si la operación resultó en un error, la función llamará al callback
+          pasando el error obtenido como primer parámetro.
+        </p>
+      </article>
+      <article>
+        <h2>Ejemplo de callback local</h2>
+        <pre>
+          <code>
+      // callback debe estar definida al momento de ser llamada
+      // callback es una funcion
+      function Mensaje(callback) {
+        console.log("Mensaje antes de la llamada a la callback");
     
-</body>
+        // acá le digo que callback es una funcion...
+        callback();
+      }
+
+      // funcion callback
+      function Saludo() {
+        console.log("Funcion saludo que la llama el callback");
+      }
+
+      //llamo a la funcion principal que esta llama a la callback
+      Mensaje(Saludo);
+
+      La respuesta es:        Mensaje antes de la llamada a la callback
+                              Funcion saludo que la llama el callback
+          </code>
+        </pre>
+        <p>
+          A continuación se explica la secuencia del código que se muestra más
+          arriba...
+        </p>
+        <ul>
+          <li>
+            Llamado a la función Mensaje pasando como parámetro otra función,
+            que será el callback (la función Saludo)
+            <span>Mensaje(Saludo);</span>.
+          </li>
+          <li>
+            Se ejecuta la función principal (la función Mensaje)
+            <span>function Mensaje(callback)</span> donde se le pasa como
+            parámetro a la función Saludo como callback
+            <span>function Saludo()</span>. Dentro de la función Mensaje por
+            pantalla se imprime un mensaje
+            <span>Mensaje asntes de la llamada a la callback</span> y por último
+            se llama a la funcion <span>callback()</span>.
+          </li>
+          <li>
+            En la funcion callback <span>function Saludo()</span> se imprime por
+            pantalla <span>Funcion saludo que la llama el callback</span>.
+          </li>
+          <li>
+            Concluido las instrucciones en la funcion callback
+            <span>Saludo()</span> vuelve a la funcion principal
+            <span>Mensaje(callback)</span> y tambien el llamado a la callback es
+            lo ultimo que tiene que hacer se concluye el programa.
+          </li>
+        </ul>
+        <h2>Otro ejemplo de callback local</h2>
+        <pre>
+          <code>
+      // funcion principal
+      function Sumar(num1, num2, callback) {
+          let resultadoSumar = num1 + num2;
+
+          // la logica de la callback es que se llame despues de la operacion porque envia el
+          // resultado. Se llama callback internamente
+          callback(resultadoSumar);
+      }
+
+      // funcion secundaria (callback)
+      function Resultado(resultado) {
+          console.log("El resultado de la suma es: " + resultado);
+      }
+
+      // llammo a la funcion prinicipal y esta a su vez llama a la callback (Resultado)
+      Sumar(3, 3, Resultado);
+
+      La respuesta es:         El resultado de la suma es: 6
+          </code>
+        </pre>
+        <p>
+          En este caso en la funcion <span>Sumar</span> cuyo callback es
+          <span>Resultado</span>, se ejecuta luego de la operacion aritmética.
+          Es una condicion fundamental ya que de lo contrario no mostrará el
+          resultado. <span>Undefined</span>.
+        </p>
+      </article>
+      <article>
+        <h2>Callback remoto (Simulado) con error en la comunicación</h2>
+        <pre>
+          <code>
+    function solicitudAPI(url, callback) {
+        // espera x tiempo para ejecutar una instruccion
+    
+        // setTimeOut: sale a la banquina(web api) y vuelve por el 
+        // callback qeue una vez pasado el tiempo y luego al stack
+        setTimeout(() => {
+            const respuesta = "Contenido de la respuesta de la API (simulación)";
+            console.log("Conexion a " + url);
+            
+            // llamo al callback: parametro error y respuesta
+              // sin error (null) y respuesta
+              // con error (1) y respuesta
+            callback("Error 404", respuesta);
+        
+            // seteo el tiempo en milisegundos
+            // si quiero 30 segundos => 1000 * 30
+            // asi se entiend mejor que 30000
+        }, 1000);
+    }
+
+
+    // parametros error de comunicacion y respuesta
+    function manejarRespuesta(error, respuesta) {
+        if (error) {
+            console.log("hubo un error en la comunicación: " + error);
+        } else {
+            console.log("Respuesta: " + respuesta);
+        }
+    }
+
+    solicitudAPI(".comn.ar", manejarRespuesta);
+
+    La respuesta es:        Conexion a .comn.ar
+                            hubo un error en la comunicación: Error 404
+          </code>
+        </pre>
+      </article>
+      <article>
+        <h2>Callback remoto (Simulado) sin error en la comunicación</h2>
+        <pre>
+          <code>
+    function solicitudAPI(url, callback) {
+        // espera x tiempo para ejecutar una instruccion
+    
+        // setTimeOut: sale a la banquina(web api) y vuelve por el 
+        // callback qeue una vez pasado el tiempo y luego al stack
+        setTimeout(() => {
+            const respuesta = "Contenido de la respuesta de la API (simulación)";
+            console.log("Conexion a " + url);
+            
+            // llamo al callback: parametro error y respuesta
+              // sin error (null) y respuesta
+              // con error (1) y respuesta
+            callback(null, respuesta);
+        
+            // seteo el tiempo en milisegundos
+            // si quiero 30 segundos => 1000 * 30
+            // asi se entiend mejor que 30000
+        }, 1000);
+    }
+
+
+    // parametros error de comunicacion y respuesta
+    function manejarRespuesta(error, respuesta) {
+        if (error) {
+            console.log("hubo un error en la comunicación: " + error);
+        } else {
+            console.log("Respuesta: " + respuesta);
+        }
+    }
+
+    solicitudAPI("https://misitio.com.ar", manejarRespuesta);
+
+    La respuesta es:        Conexion a https://misitio.com.ar
+                            Respuesta: Contenido de la respuesta de la API (simulación)
+          </code>
+        </pre>
+        <p>Modifico el codigo con Error()</p>
+        <pre>
+          <code>
+    if (error) {
+        console.log(new Error("Error al hacer la peticion a la API - " + error));
+    } else {
+        console.log("Respuesta: " + respuesta);
+    }
+
+    Respuesta:      Error: Error al hacer la peticion a la API - 1
+          </code>
+        </pre>
+      </article>
+      <article>
+        <h2>Callbacks Anidados</h2>
+        <p>Son útiles para controlar los errores que se dan desde 
+          una secuencia en particular, ejemplo hacer una comida: Abro 
+          la hornalla (hay error?), prendo el fuego (hay error?), ....
+        </p>
+        </article>
+        <article>
+          <h2>Callbacks Hell</h2>
+          <p>Es un fragmento de código en el que una
+          función llama a un callback, y este a otro
+          callback, y este a otro, y así sucesivamente.</p>
+          <p>Son operaciones encadenadas, en serie.</p>
+          <p>
+            Si el nivel de anidamiento es grande, se puede
+            producir el llamado <span>callback hell</span> ó <span> callbacks</span>. También se conoce como 
+            <span>pyramid of doom</span> ó <span>pirámide de la perdición</span>.
+          </p>
+          
+          <p>Esto generaba que se dependiera del callback anterior para el 
+          control de los errores. Llegando a codificar lo que se llama el 
+          <span>callback hell o el infierno del callback</span>. No era 
+          que el código no respondiera si no que se le hacía tedioso al 
+          programador al intentar hacerlo o leerlo. Las <span>promesas</span> simplifican 
+          los callbacks hell.
+        </p>
+      </article>
+      <article>
+        <h2>Promesas</h2>
+        <p>Una Promesa es un objeto que <span>encapsula una operación</span>,
+        y que permite definir acciones a tomar luego de finalizada
+        dicha operación, según el resultado de la misma. Para ello,
+        permite asociar manejadores que actuarán sobre un
+        eventual valor (resultado) en caso de éxito, o la razón de
+        falla (error) en caso de una falla.</p>
+      </article>
+    </section>
+    <!-- 48:00 -->
+  </body>
 </html>
+<!-- 0:20:00 -->
