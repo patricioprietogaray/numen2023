@@ -384,42 +384,225 @@
       </article>
       <article>
         <h2>Callbacks Anidados</h2>
-        <p>Son útiles para controlar los errores que se dan desde 
-          una secuencia en particular, ejemplo hacer una comida: Abro 
-          la hornalla (hay error?), prendo el fuego (hay error?), ....
+        <p>
+          Son útiles para controlar los errores que se dan desde una secuencia
+          en particular, ejemplo hacer una comida: Abro la hornalla (hay
+          error?), prendo el fuego (hay error?), ....
         </p>
-        </article>
-        <article>
-          <h2>Callbacks Hell</h2>
-          <p>Es un fragmento de código en el que una
-          función llama a un callback, y este a otro
-          callback, y este a otro, y así sucesivamente.</p>
-          <p>Son operaciones encadenadas, en serie.</p>
-          <p>
-            Si el nivel de anidamiento es grande, se puede
-            producir el llamado <span>callback hell</span> ó <span> callbacks</span>. También se conoce como 
-            <span>pyramid of doom</span> ó <span>pirámide de la perdición</span>.
-          </p>
-          
-          <p>Esto generaba que se dependiera del callback anterior para el 
-          control de los errores. Llegando a codificar lo que se llama el 
-          <span>callback hell o el infierno del callback</span>. No era 
-          que el código no respondiera si no que se le hacía tedioso al 
-          programador al intentar hacerlo o leerlo. Las <span>promesas</span> simplifican 
-          los callbacks hell.
+      </article>
+      <article>
+        <h2>Callbacks Hell</h2>
+        <p>
+          Es un fragmento de código en el que una función llama a un callback, y
+          este a otro callback, y este a otro, y así sucesivamente.
+        </p>
+        <p>Son operaciones encadenadas, en serie.</p>
+        <p>
+          Si el nivel de anidamiento es grande, se puede producir el llamado
+          <span>callback hell</span> ó <span> callbacks</span>. También se
+          conoce como <span>pyramid of doom</span> ó
+          <span>pirámide de la perdición</span>.
+        </p>
+
+        <p>
+          Esto generaba que se dependiera del callback anterior para el control
+          de los errores. Llegando a codificar lo que se llama el
+          <span>callback hell o el infierno del callback</span>. No era que el
+          código no respondiera si no que se le hacía tedioso al programador al
+          intentar hacerlo o leerlo. Las <span>promesas</span> simplifican los
+          callbacks hell.
+        </p>
+        <p><span>
+          El callback hell fuerza que se sincronicen las tareas, debes completar 
+          la anterior para continuar con la próxima.
+        </span>
         </p>
       </article>
       <article>
         <h2>Promesas</h2>
-        <p>Una Promesa es un objeto que <span>encapsula una operación</span>,
-        y que permite definir acciones a tomar luego de finalizada
-        dicha operación, según el resultado de la misma. Para ello,
-        permite asociar manejadores que actuarán sobre un
-        eventual valor (resultado) en caso de éxito, o la razón de
-        falla (error) en caso de una falla.</p>
+        <p>
+          Una Promesa es un objeto que <span>encapsula una operación</span>, y
+          que permite definir acciones a tomar luego de finalizada dicha
+          operación, según el resultado de la misma. Para ello, permite asociar
+          manejadores que actuarán sobre un eventual valor (resultado) en caso
+          de éxito, o la razón de falla (error) en caso de una falla.
+        </p>
+      </article>
+      <article>
+        <h2>Estados de una promesa</h2>
+        <p>El estado inicial de una promesa es:</p>
+        <ul>
+          <li>
+            Pendiente (pending): la operación está pendiente de una respuesta el
+            estado en ese momento de la promesa es <span>unresolved</span>
+          </li>
+          <p>
+            Una vez que la operación contenida se resuelve, el estado de la
+            promesa pasa a:
+          </p>
+          <li>
+            Cumplida (fulfilled/resolved): la operación salió bien, y su
+            resultado será manejado por el callback asignado mediante el método
+            .then().
+          </li>
+          <p></p>
+          <li>
+            Rechazada (rejected): la operación falló, y su error será manejado
+            por el callback asignado mediante el método .catch().
+          </li>
+        </ul>
+        <h2>Callbacks vs Promesa: mismo problema, soluciones diferentes</h2>
+        <pre>
+          <code>
+  // ejemplo con CALLBACK
+
+  function recuperarDinero(dinero, callback) {
+      // si dinero es de tipo numero
+      if (typeof dinero !== 'number') {
+          // llamo a la funcion y le paso 
+          // como primer parámetro nulo a dinero
+          // y paso el error en formato texto (al segundo parámetro).
+          // Error() es una clase que se instancia con new para crear
+          // un nuevo objeto.
+          
+          callback(
+            null, new Error(
+              "Error de tipo: Dinero debe ser un número!"
+            )
+          )
+      } else {
+        // en caso de que dinero sea un numero paso
+        // a la callback el dinero.
+        // la callback tiene dos parámetros pero al
+        // no pasar el segundo parametro se toma como null
+        // callback(dinero); es igual a callback(dinero, null); 
+        
+        callback(dinero);
+      }
+  }
+
+  //funcion calback
+  function cb(dinero, error) {
+    // if (
+        // dinero !== null &&   // si dinero es diferente a null
+        // dinero !== undefined && // si dinero no esta difinido
+        // dinero !== '' //si dinero es distinto a una cadena vacía
+        // dinero !== false   //si dinero no es false
+    // )    es igual a (dinero)
+
+    if (dinero) {
+        console.log(`Se recuperaron ${dinero} pesos`);
+    } else {
+        // en dinero se envió un contenido nulo (null)
+        // hubo un error
+        
+        console.log("Hubo un error: " + error);
+    }
+  }
+
+  recuperarDinero(1200, cb);  respuesta: Se recuperaron 1200 pesos.
+  recuperarDinero(null, cb);  respuesta: Hubo un error: Error de tipo: Dinero debe ser un número!
+  recuperarDinero(false, cb); respuesta: misma respuesta que la anterior.
+
+  // mismo ejemplo con promesas
+
+  console.log("Promesa....");
+
+  function recuperarDineroPromise(dinero) {
+    //clase promesa
+    // instanciar la promesa
+    //                      2 callback
+    
+    return new Promise((resuelve, rechaza) => {
+        // si dinero es de tipo numero
+        if (typeof dinero !== 'number') {
+            //llamo al metodo rechaza y se le pasa la instancia del objeto de error
+            rechaza(new Error('Error de tipo: Dinero debe ser un número!'));
+        } else {
+            // a resuelve se le pasa el parámetro dinero
+            resuelve(dinero);
+        }
+    })
+  }
+
+  //llamar a la funcion recuperarDineroPromise paso argumento del dinero
+  // en caso de exito .then   traigo el parametro dinero del resuelve
+  
+  recuperarDineroPromise(null)
+    .then(dinero => console.log(`Se recuperaron ${dinero} pesos`)) <span>[fulfilled]</span>
+  
+    // de error .catch
+    .catch(error => console.log(error))   <span>[rejected]</span>
+  
+    //finaly en caso de ejecución obligada no importa si then o catch
+    // se muestra primero el finally, luego then/catch
+    //.finally(console.log("Fin de la promesa."))
+
+    respuesta:    Promesa....
+                  Fin de la promesa.
+                  Se recuperaron 20000 pesos
+
+    // para mostrar el finally luego del then / catch
+    // con ()=> espera a que finalice el then/catch y ejecuta el finally
+    .finally(()=>console.log("Fin de la promesa."))
+
+    respuesta:    Promesa....
+                  Se recuperaron 20000 pesos
+                  Fin de la promesa.
+          </code>
+        </pre>
+      </article>
+      <article>
+        <h2>Solución al anidamiento con Async</h2>
+        <p>Se podria decir que ante una solucion por anidamiento las 
+          promesas tienen una solución más limpia, en vez de un codigo anidado.</p>
+        <p>Una función async es una función que 
+          implícitamente devuelve una promesa y que puede, en su cuerpo, 
+        esperar <span>await</span> otas promesas de una forma que 
+        "parace" asíncrona.</p>
+        <p>Las palabras claves <span>async</span> y <span>await</span>
+        permiten escribir comportamientos asíncronos basados en promesas con un 
+        estilo más limpio, evitando la necesidad de configurar explícitamente 
+        cadenas de promesas.</p>
+        <p>Las promesas pueden ser marcadas y esperadas mediante la 
+          palabra clave <span>await</span>, la cual bloqueará la siguiente
+          linea hasta que se resuelva la promesa.</p>
+        <p>Es un complento útil de las promesas.</p>
+        <pre>
+          <code>
+      // callback
+      getUser(function(err, user){
+        getProfile(User, function(err, profile){
+          getAcount(profile, function(err, acc){
+            ....
+          })
+        })
+      })
+
+      // Promise
+      getUser()
+        .then(getProfile)
+        .then(getAccount){
+          ....
+        }
+        .catch(function (e) {
+          console.error(e)
+        })
+
+        // Async/await
+        async function SendAsync() {
+          let user = await getUser(1);
+          let profile = await getProfile(user);
+          let account = await getAccount(profile);
+
+          console.log(send);
+        }
+
+          </code>
+        </pre>
+
       </article>
     </section>
-    <!-- 48:00 -->
+    <!-- 1:25:40 -->
   </body>
 </html>
-<!-- 0:20:00 -->
