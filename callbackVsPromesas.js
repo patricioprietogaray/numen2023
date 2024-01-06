@@ -94,15 +94,5 @@ recuperarDineroPromise(2000)
 // }
 // console.log("afuera del bucle");
 
-const dividir = (dividendo, divisor) => {
-    return new Promise((resolve, reject) => {
-        if (divisor === 0) {
-            reject(new Error("No se puede dividir por cero..."))
-        } else {
-            resolve(dividendo/divisor)
-        }
-    })
-}
-
 
 
