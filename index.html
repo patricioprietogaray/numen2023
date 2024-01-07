@@ -525,30 +525,103 @@
     })
   }
 
-  //llamar a la funcion recuperarDineroPromise paso argumento del dinero
-  // en caso de exito .then   traigo el parametro dinero del resuelve
+  <span>//llamar a la funcion recuperarDineroPromise paso argumento del dinero
+  // en caso de exito .then   traigo el parametro dinero del resuelve</span>
   
   recuperarDineroPromise(null)
     .then(dinero => console.log(`Se recuperaron ${dinero} pesos`)) <span>[fulfilled]</span>
   
-    // de error .catch
+    <span>// de error .catch</span>
     .catch(error => console.log(error))   <span>[rejected]</span>
   
-    //finaly en caso de ejecución obligada no importa si then o catch
+    <span>//finaly en caso de ejecución obligada no importa si then o catch
     // se muestra primero el finally, luego then/catch
-    //.finally(console.log("Fin de la promesa."))
+    //.finally(console.log("Fin de la promesa."))</span>
 
     respuesta:    Promesa....
                   Fin de la promesa.
                   Se recuperaron 20000 pesos
 
-    // para mostrar el finally luego del then / catch
-    // con ()=> espera a que finalice el then/catch y ejecuta el finally
+    <span>// para mostrar el finally luego del then / catch
+    // con ()=> espera a que finalice el then/catch y ejecuta el finally</span>
     .finally(()=>console.log("Fin de la promesa."))
 
     respuesta:    Promesa....
                   Se recuperaron 20000 pesos
                   Fin de la promesa.
+          </code>
+        </pre>
+      </article>
+      <article>
+        <h2>Otro ejemplo de promesa</h2>
+        <pre>
+          <code>
+      <span>// se crea una funcion con dos parámetros</span>
+      function dividir(dividendo, divisor) {
+          <span>// se retorna una nueva promesa con sus dos parametros por defecto</span>
+          return new Promise((resolve, reject) => {
+              <span>// se codifica la especificidad de la funcion</span>
+              if (divisor === 0) {
+                  <span>// por el rechazo de la promesa</span>
+                  reject(new Error("Error: Division por cero no esta permitida"));
+              } else {
+                  const resultado = dividendo / divisor;
+                  <span>// por la resolucion de la promesa</span>
+                  resolve(resultado);
+              }
+          })
+      }
+
+      const dividendo_ = 10;
+      const divisor_ = 0;
+
+      <span>// llamo a la funcion y le paso los parametros</span>
+      dividir(dividendo_, divisor_)
+      <span>// por la resoulcion de la promesa en este caso el resultado de 
+          // "resolve(resultado)" es enviado al resultado de ".then(resultado)"
+          // y aqui es donde muestran dichos resultados por pantalla</span>
+          .then((resultado) => {
+          console.log("El resultado de la división es:", resultado);
+          })
+          <span>// por la resoulcion de la promesa en este caso el resultado de 
+      // "reject(new Error("Error: Division por cero no esta permitida"));"
+      // es enviado al resultado de ".catch(error)"
+          // y aqui es donde muestran dichos resultados por pantalla</span>
+        .catch((error) => {
+          console.error(error.message);
+        });
+          </code>
+        </pre>
+      </article>
+      <article>
+        <h2>Promesas anidadas</h2>
+        <pre>
+          <code>
+            const promesa1 = (numero) => {
+                return new Promise((res) => {
+                    setTimeout(() => {
+                        res(numero);
+                    }, 0);
+                })
+            }
+
+            const promesa2 = (numero) => {
+                return new Promise((res) => {
+                    setTimeout(() => {
+                        res(numero * 2);
+                    }, 0)
+                })
+            }
+            <span>// forzar la sucesion con promesas en el orden que yo deseo
+            // doy por echo que todo se resuelve bien y sin errores
+            // llamo y paso 1 a la promesa1</span>
+            promesa1(1)
+                // obtengo la resolucion de la promesa1 y  
+                // le paso dicho resultado como parámetro a la promesa2 (que duplica)
+                .then(resultado => promesa2(resultado))
+                // una vez obtenido el resultado de la promesa2 lo muesatro por pantalla.
+                .then(resultado => console.log("El resultado final es de " + resultado));
+
           </code>
         </pre>
       </article>
@@ -602,7 +675,154 @@
         </pre>
 
       </article>
+
+      <article>
+        <h2>Una Base de Datos simulando un servidor - Búsqueda por ID</h2>
+        <p>Como primera medida se construye una base de datos, basado en un 
+          arreglo que contiene seis objetos y cada objeto es un registro que 
+          posee dos atributos: id y nombre.
+        </p>
+        <p>Se codifica la funcion de búsqueda por id (buscarPorID) el cual 
+          recibirá un parámetro y por medio del método find (busca el primer registro 
+          [id]que coincida con la condicion[parámetroID]) cargará a la constante 
+          resultado de todo el objeto que coincida con la búsqueda.
+        </p>
+        <p>
+          La función buscarPorID retornará una promesa con un delay de 1000 ms, 
+          esta retornara el resultado (registro) si resuelve y si no un mensaje de 
+          error.
+        </p>
+        <h3>Simulación del backend mediante una app</h3>
+        <p>Se crea una funcion asíncrona con la estructura TRY - CATCH la cual 
+          cargará la consulta en una constante y será mostrada por pantalla con 
+          manejo de errores. Si hay un error se ejecuta el catch y deja de ejecutar 
+          el resto del codigo de try por prevención a errores que puedan surgir que 
+          esten concatenados con el dato que generó el error inicial.
+        </p>
+        <p>
+          Se puede buscar muchos id como si se tratara de un for. En vez de for 
+          se utiliza Promise.all. En cada linea hago una espera con await. 
+          Para mostrar el resultado final creo una constante con otro await.
+        </p>
+        <p>
+          Como db es un arreglo utilizo en Promise.all []
+        </p>
+        <h3>Consulta de datos</h3>
+        <p>
+          Por último se llama a la funcion buscarPorID y se muestra por pantalla 
+          mediante la configuracion de la promesa .then / .catch.
+        </p>
+
+        <pre>
+          <code>
+        <span>// construir una base de datos fija de prueba</span>
+        const db = [
+            {id:100, nombre:'marcos'},
+            {id:110, nombre:'erich'},
+            {id:120, nombre:'lucas'},
+            {id:130, nombre:'sofia'},
+            {id:140, nombre:'patricio'},
+            {id:150, nombre:'mariana'}
+        ]
+
+        const buscarPorID = (parametroID) => {
+            const resultado = db.find(identificador => identificador.id === parametroID);
+            return new Promise((res, rech) => {
+                <span>// para simular una sincronia uso setTimeOut</span>
+                setTimeout(() => {
+                    if (!resultado) {
+                        rech('El registro no existe');
+                    }
+                    res(resultado);
+                }, 1000)
+            })
+        } 
+
+        const idAbuscar = 140;
+
+        <span>// simular una app de backend</span>
+        const app = async () => {
+            console.log("--INICIO DE LA APLICACION--");
+
+            <span>//UTILIZO LA ESTRUCTURA TRY CATCH para realizar la búsqueda</span>
+            try {
+                console.log("Devuelve el dato de la BD 'crudo'");
+                const persona = await buscarPorID(idAbuscar);
+                console.log(persona);
+
+                <span>//const persona2 = await buscarPorID(140);
+                //console.log(persona2);</span>
+
+
+                <span>// busco varios id al mismo tiempo</span>
+                const personas = Promise.all([
+                    await buscarPorID(100),
+                    await buscarPorID(140),
+                    await buscarPorID(110)
+                ])
+
+                const resultadoPersonas = await personas;
+                console.log(resultadoPersonas);
+
+            } catch (error) {
+                console.log(`Error al buscar el usuario cuya id es ${idAbuscar} - ${error.message}`);
+            }
+
+            console.log('--FIN DE LA APLICACION --')
+        }
+
+        app();
+        
+        buscarPorID(idAbuscar)
+            .then(dato => {
+                <span>// NO PERMITE DESESTRUCTURAR A DATO
+                  // const [id, nombre] = dato;</span>
+                console.log(`Se encontró el registro buscado -> id: ${dato.id} - nombre: ${dato.nombre}`);
+            })
+            .catch(error =>
+                console.log(`La búsqueda no ha sido posible: ${error}`)
+            )
+            
+            --------------------------------------------------------------
+            Salida si el dato existe:
+
+            --INICIO DE LA APLICACION--
+            Devuelve el dato de la BD 'crudo'
+            { id: 140, nombre: 'patricio' }
+            --FIN DE LA APLICACION --
+            Se encontró el registro buscado -> id: 140 - nombre: patricio
+
+            --------------------------------------------------------------
+            Salida si el dato no existe:
+
+            --INICIO DE LA APLICACION--
+            Devuelve el dato de la BD 'crudo'
+            Error al buscar el usuario cuya id es 180 - undefined
+            --FIN DE LA APLICACION --
+            La búsqueda no ha sido posible El registro no existe
+
+            --------------------------------------------------------------
+            Salida de datos con Promise.all: 
+
+            --INICIO DE LA APLICACION--
+            La búsqueda no ha sido posible: El registro no existe
+            [
+              { id: 100, nombre: 'marcos' },
+              { id: 140, nombre: 'patricio' },
+              { id: 110, nombre: 'erich' }
+            ]
+            --FIN DE LA APLICACION --
+
+
+
+          </code>
+        </pre>
+
+        
+
+      </article>
+
     </section>
-    <!-- 1:25:40 -->
+    <!-- 1:42:40 -->
   </body>
 </html>

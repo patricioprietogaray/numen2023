@@ -1,5 +1,6 @@
 const dividir = (dividendo, divisor) => {
     return new Promise((resolve, reject) => {
+        console.log("estado de la promesa: "Promise);
         if (divisor === 0) {
             reject(new Error("No se puede dividir por cero..."))
         } else {
@@ -8,11 +9,19 @@ const dividir = (dividendo, divisor) => {
     })
 }
 
-console.log("Caso feliz o sea hay una división normal (10/2)");
 dividir(10, 2)
     .then(resultado => {
-        console.log(`resultado: ${resultado}`)
+        console.log(`10/2 - resultado: ${resultado}`)
     })
     .catch(error => {
-        console.log(`error: ${error}`)
+        console.log(`10/2 - error: ${error}`)
     });
+
+dividir(10, 0)
+    .then(resultado => {
+        console.log(`10/0 - resultado: ${resultado}`)
+    })
+    .catch(error => {
+        console.log(`10/0 - error: ${error}`)
+    });
+
