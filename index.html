@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase28-Backend04</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Clase28 Backend 4</h1>
+    <section class="rest">
+        <h2>Definición de REST</h2>
+        <p>REST es un tipo de arquitectura de servicios 
+            que proporciona estándares entre sistemas informáticos para establecer 
+            como se van a comunicar entre sí</p>
+        <p>Rest es una forma de construir servicios web de manera simple, 
+            coherente y escalable</p>
+        <p>La transferencia de estado representacional (en inglés representational 
+            state transfer) o REST es un estilo de arquitectura software para sistemas 
+            hipermedia distribuidos como la World Wide Web. El término se originó en el 
+            año 2000, en una tesis doctoral sobre la web escrita por Roy Fielding, uno de 
+            los principales autores de la especificación del protocolo HTTP y ha pasado 
+            a ser ampliamente utilizado por la comunidad de desarrollo.</p>
+            <article class="restServerApi">
+                 <h3>REST SERVER API</h3>
+                    <p>Cuando se envia una solicitud del cliente a través de una API de RESTful,
+                        esta transfiere una representación del estado del recurso requerido a 
+                        quien lo haya solicitado o al extremo.
+                    </p>
+                    <p>La información, o representación, se entrega por medio de HTTP en 
+                        uno de estos formatos <span>JSON (JavaScript Object Notation), 
+                            HTML, XLT, Python, PHP o texto sin formato</span>.
+                    </p>
+                    <p>Los recursos que se utilizan en un sistema de RESTful se identifican 
+                        con URLs. Cada recurso contiene su propia URL
+                        <span>Ej: localhost:3000/productos</span>.
+                    </p>
+                    <p>Asimismo, es necesario tener en cuenta otros aspectos. Los encabezados
+                        y los parámetros tambien son importantes en los métodos HTTP de una 
+                        solicitud HTTP de la API de RESTful, ya que obtienen información de 
+                        identificación importante con respecto a los metadatos, la autorización, 
+                        el identificador uniforme de recursos (URI), el almacenamiento en caché, 
+                        las cookies y otros elementos de la solicitud. Hay encabezados de solicitud
+                        y de respuesta, pero cada uno tiene sus propios códigos de estado e información 
+                        de conexión HTTP.
+                    </p>
+            </article>
+            <article class="recursosUniformes">
+                <h3>Recursos uniformes</h3>
+                    <p>Desde el lado del servidor, una <span>arquitectura REST</span> expone 
+                    a los clientes a una interfaz uniforme.</p>
+                    <p>Todosl los recursos del servidor tienen un nombre en forma de URL o 
+                        hipervínculo.
+                    </p>
+                    <p>Toda la info se intercambia a través del protocolo HTTP 
+                        (los vervos http son get, post, put, delete)</p>
+                    <p>A esas URL les llamamos <span>endpoints</span>(http://..../productos), es decir, el servidor 
+                    expone a los clientes un conjunto de endpoints para que sete pueda acceder(CRUD).</p>
+                    <p>A esa interfaz uniforme, o sea, al conjunto de endpoints, 
+                        la llamamos <span>API</span>. Es toda la comunicación con el frontend, con 
+                        backend; es todo el flujo de información. Ejemplo: Ofrezco un servicio a un frontend o 
+                        backend del precio del dolar según la ciudad que este. Puedo ofrecer ese mismo servicio 
+                        a otro backend (una empresa que importa para tener el valor del dolar 
+                        actualizado).</p>
+                    <p>Un <span>endpiont</span> está ligado al recurso que solicitamos, 
+                    dicho recurso debe tener solamente un identificador lógico, y este preveer 
+                acceso a toda la info relacionada.</p>
+            </article>
+    </section>
+    <section class="API">
+        <h2>Definicion de API</h2>
+        <h3>¿Qué es una API?</h3>
+        <p>Una <span>API</span> es un conjunto de definiciones y protocolos que se 
+        utiliza para desarrollar e integrar el software de las aplicaciones. 
+        Suele considerarse como el contrato entre el proveedor de información y el 
+        usuario, donde se establece el contenido que se necesita del consumidor 
+        <span>la llamada</span> y el que requiere el producto 
+        <span>la respuesta</span>.</p>
+        <p>En otras palabras, se desea interactuar con una computadora o un sistema 
+            para obtener datos o ejecutar una función, las APIs le permiten comunicar 
+            lo que desea al sistema, para que este comprenda la solicitud y la cumpla.
+        </p>
+        <p>La API es el intermediario entre el servidor y el cliente. También está mal 
+            dicho que la API sería el servicio completo junto al servidor. Pero algunos 
+            cuando mencionan API hacen referencia a ese conjunto.
+        </p>
+        <h3>Para que una API se considere de RESTful</h3>
+        <p>El cliente envía una petición (request). Los métodos HTTP 
+            son los verbos (GET, PUT, POST, DELETE). Estos se comunican bidireccionalmente 
+            con el Cliente en formato JSON. Los métodos se comunican con el Servidor y 
+            este manda una respuesta (response) de manera bidireccional en formato HTTP.</p>
+        <p>En definitiva el Cliente envía una peticion JSON por medio de los métodos HTTP, estos 
+            a su vez le hacen llegar dicha peticion en formato HTTP. El servidor contesta dicha 
+            petición en formato HTTP por medio de los metodos HTTP y el cliente recibe la 
+            respuesta en formato JSON.
+        </p>
+        <p>Debe cumplir los siguientes criterios:</p>
+        <ul>
+            <li>Arquitectura cliente-servidor compuesta de clientes, servidores y recursos, 
+                con la gestión de solicitudes a través de <span>HTTP</span> (Métodos o 
+                Verbos HTTP, Get <span>Obtener</span> (otros dispositivos que se 
+                encuentran en la ruta como servers intermedios, routers, etc; pueden 
+                ver la información enviada por GET!), POST <span>Crear</span> (se envia 
+                un cuerpo con JSON y <span>el cuerpo no se ve</span> ideal para login), PUT <span>Actualizar</span> (se envia 
+                un cuerpo con JSON), DELETE <span>Borrar</span>
+            ).
+            </li>
+            <li><span>Comunicación entre el cliente y el servidor</span> sin estado, 
+            lo cual implica que la información del cliente no se almacena entre las 
+            solicitudes de <span>GET</span> y que cada una de ellas es independiente 
+            y está desconectada del resto. El servidor solo persistirán datos en la BD. 
+            El server no guarda info que no quede en la BD. </li>
+            <li>Datos que pueden almacenarse en caché y <span>optimizan las itteracciones</span>
+            entre el cliente y el servidor.</li>
+            <li>Una <span>interfaz uniforme</span> entre los elementos, para que la información 
+            se transfiera de forma estandarizada.</li>
+            <li>Un <span>sistemas de capas</span> que organiza en jerarquías invisibles 
+                para el cliente cada uno de los servidores que participan en la 
+                recuperación de la información solicitada.</li>
+            <li><span>Código disponible</span> según se solicite (opcional), es decir, 
+                la capacidad de enviar códigos ejecutables del servidor al cliente 
+                cuando se requiera, lo cual amplía las funciones del cliente.</li>
+        </ul>
+        <p><a href="https://developer.mozilla.org/es/docs/Web/HTTP/Status">Códigos de estado de respuesta HTTP</a></p>
+    </section>
+    <section>
+        <article>
+            <h2>Operaciones de las rutas</h2>
+            <ul>
+                <li>GET: Permite acceder a todos los datos del recurso.</li>
+                <li>POST: Permite crear un nuevo recurso.</li>
+                <li>PUT: Reemplaza un recurso ya existente</li>
+                <li>PATCH: Actualiza o modifica parcialmente a un recurso ya existente.</li>
+                <li>DELETE: Permite indicar al servidor que borre un recurso.</li>
+            </ul>
+        </article>
+        <!-- 40:21 -->
+    </section>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+.rest {
+    background-color: aquamarine;
+    color: black;
+    padding: .5rem;
+    margin: .5rem;
+    border-radius: .5rem;
+}
+
+.API {
+    background-color: rgb(79, 19, 218);
+    color: rgb(255, 255, 255);
+    padding: .5rem;
+    margin: .5rem;
+    border-radius: .5rem;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+span {
+    background-color: rgb(255, 255, 255);
+    padding: 0 .2rem ;
+    border-radius: .5rem;
+    color: rgb(231, 21, 21);
+}
+
+.API a {
+    color: rgb(255, 255, 0);
+    background-color: black;
+    padding: .5rem;
+}
