@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Clase27-Backend03</title>
+  </head>
+  <body>
+    <h1>Clase 27 - Backend 03</h1>
+    <section class="arq-cli-ser">
+      <article>
+        <h2>Arquitectura cliente-servidor</h2>
+        <p>
+          Dentro del contexto de un desarrollo web, esta arquitectura hace
+          referencia a un modelo de comunicación que vincula a varios
+          dispositivos con un servideor a través de internet. Esto dispositivos
+          son todo aquello medio electrónico para que el cliente pueda acceder a
+          los sitios de internet.
+        </p>
+      </article>
+    </section>
+    <section class="clie-serv">
+      <article class="clie">
+        <h3>Cliente</h3>
+        <p>
+          El cliente es el dispositivo que realizan una petición de servicios y
+          de recursos a un servidor. Puede recibir una lista de productos,
+          imágenes, datos, etc.
+        </p>
+        <p>
+          Puede ser una computadora, un celular, una tablet o cualquier otra
+          tecnología que tenga la capacidad de conectarse a una red y peticionar
+          para que le llegue cierta información para un fin específico.
+        </p>
+      </article>
+      <article class="serv">
+        <h3>Servidor</h3>
+        <p>
+          En el equipo que brinda los servicios y recursos a los que acceden los
+          clientes.
+        </p>
+        <p>
+          Es importante tener en cuenta que la misma computadora puede ser el
+          cliente y el servidor al mismo tiempo. De hecho es lo más normal en el
+          entorno de desarrollo de un sitio o aplicación web.
+        </p>
+        <p>
+          Sirve los datos para que se los muestre al cliente, el servidor hace
+          dinamica la pagina web. Por contraparte si no hubiera servidor el
+          sitio web se transforma en estático. Esto es que el contenido será
+          fijo y no se adaptará a las necesidades del cliente.
+        </p>
+      </article>
+    </section>
+    <section class="flujo-clie-serv">
+      <h2>Flujo Cliente Servidor</h2>
+      <p>
+        ¿Como se da este flujo de comunicación? Alguien hace las peticiones
+        desde el cliente al servidor y este responde. Siempre en el mismo
+        sentido: solicita al servidor, responden al cliente. Nunca responde sin
+        haber solicitado.
+        <span>Request - Response</span>
+      </p>
+      <article class="request">
+        <h3>Request</h3>
+        <p>
+          Es la solicitud que hacemos a través del navegador (el cliente)
+          especificando la url de destino (www.Facebook.com) y cuando se
+          presiona enter se realiza una petición al servidor, en este ejemplo,
+          la página de Facebook que está almacenada en sus servidores.
+        </p>
+        <p>
+          Una solicitud puede desencadenarse por poner una url y presionar
+          enter, por cliquear un boton, etc.
+        </p>
+      </article>
+      <article class="response">
+        <h3>Response</h3>
+        <p>
+          El servidor recibe nuestra solicitud, la procesa, y envía como
+          resultado una respuesta al cliente (navegador), en este ejemplo
+          devolverá la página principal del sitio. Siguiendo con el ejemplo el
+          servidor de Facebook recibe la request del cliente y como response le
+          devuelve al cliente la página principal.
+        </p>
+      </article>
+      <article>
+        <p>
+          Existe la posibilidad de correr JS del lado del Servidor permitiendo
+          programar en un mismo lenguaje tanto de front como de back, logrando
+          que el proceso de desarrollo sea más fluido.
+        </p>
+        <p>
+          Se podría hacer el backend con otros lenguajes, pero se utilizará JS
+        </p>
+      </article>
+    </section>
+    <section class="introNodeJS">
+        <article >
+          <h2>Introduccion a Node JS</h2>
+          <ul>
+            <li>Es un <span>entorno de ejecución</span> de Código JavaScript.</li>
+            <li>
+              Basado en el motor de <span>JavaScript V8</span> desarrollado por
+              Google.
+            </li>
+            <li>
+              El uso más común es la <span>creación</span> de servicios para el
+              backend como:
+              <ul>
+                <li>
+                  API (Application Programming Interface o interfaz de
+                  programación de aplicaciones).
+                </li>
+                <li>
+                  Crear aplicaciones del lado del servidor, altamente escalables,
+                  con uso intensivo de datos en tiempo real.
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>
+            V8 es un motor de código abierto para JavaScript y WebAssembly, creado
+            por Google.
+          </p>
+          <p>
+            JavaScript V8 traspila (convierte en vivo pero no compila) el lenguaje
+            de JS a codigo máquina.
+          </p>
+          <p>
+            ¿Cómo funciona el motor v8? Respuesta:
+            <a
+              href="https://dev.to/johncardenasp/como-funciona-el-motor-de-javascript-jfb"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Ver Respuesta acá</a
+            >
+          </p>
+        </article>
+      </section>
+      <section>
+        <h2>NPM - LIBRERÍAS</h2>
+        <article class="npm">
+          <h3>NPM</h3>
+          <p>
+            NPM es el gestor de paquetes de Node y nos permite descargar e
+            instalar librerías para incorporar a nuestro proyecto.
+          </p>
+        </article>
+        <article class="librerias">
+          <h3>LIBRERÍAS</h3>
+          <p>
+            Las librerías son bloque de código que nos permiten abrdar soluciones
+            específicas dentro de la aplicación que estemos desarrollando.
+          </p>
+          <p>
+            En un entrono de desarrolo web, hay situaciones que se repiten una y
+            otra vez. Las librerías llegan para facilitar esas problemáticas que
+            sabemos que nos vamos a cruzar mientras desarrollamos nuestra
+            aplicación. Manejar la subida de archivos, validar un formulario, o
+            restringir el acceso a un usuario que no esté registrado son algunas
+            de ellas. Algunas son de pago y otras son gratuitas.
+          </p>
+        </article>
+      </section>
+      <section class="instalacion">
+        <article>
+          <h2>Instalación de NodeJS</h2>
+          <p>
+            Cuando se instala Node, se genera un comando para usar en la terminal.
+          </p>
+          <p>
+            Lo primero que hay que hacer para usar npm es inicializar nuestro
+            proyecto "Node" usando el comando.
+          </p>
+          <ul>
+            <li class="npm">
+              NPM
+              <ul>
+                <li>
+                  npm (node package manager) es el gestor de dependencias/paquetes
+                  que obtienes por defecto cuando instalas Node.js. Proporciona
+                  una manera para que los desarrolladores instalen paquetes tanto
+                  a nivel global como local.
+                </li>
+                <li>
+                  A veces puede que quieras echar un vistazo a un paquete
+                  específico y probar algunos comandos. Pero no puedes hacerlo sin
+                  instalar las dependencias en tu carpeta local de node_modules.
+                </li>
+              </ul>
+            </li>
+            <li class="npx">
+              NPX
+              <ul>
+                <li>
+                  npx es también una herramienta CLI cuyo propósito es facilitar
+                  la instalación y la gestión de las dependencias alojadas en el
+                  registro npm.
+                </li>
+                <li>
+                  Ahora es muy fácil ejecutar cualquier tipo de ejecutable basado
+                  en Node.js que normalmente se instalaría a través de npm.
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>
+            Por ejemplo: una vez descargado un proyecto en React del github y con
+            el siguiente comando:
+          </p>
+          <pre>
+            <code>
+    > npm -i 
+            </code>
+          </pre>
+          <p>
+            Este comnando instalará todos los paquetes que son necesarios para que
+            el proyecto funcione correctamente, creará un archivo
+            <span>package.json</span>, que contendrá todas las configuraciones del
+            proyecto.
+          </p>
+          <p>
+            Por el momento, la característica que más nos interesa de este archivo
+            es la propiedad "main". La misma hace referencia al entry point, es
+            decir, el punto de entrada a nuestra aplicación, en donde pondremos el
+            nombre de nuestro archivo principal, que, por convención solemos
+            llamar <span>app.js</span>.
+          </p>
+        </article>
+      </section>
+      <section>
+        <article>
+          <h2>Instalar las librerías que necesita el proyecto:</h2>
+          <pre>
+            <code>
+  > npm install (nombre del paquete) --save (--save ya está en desuso).
+            </code>
+          </pre>
+          <p>
+            El comando descripto anteriormente se utiliza para instalar una
+            librería que el proyecto necesita. Dentro del archivo
+            <span>package.json</span> hay una propiedad denominada
+            <span>dependencies</span> que es el listado de librerías utilizadas en
+            el proyecto.
+          </p>
+        </article>
+      </section>
+      <section class="nodeModules">
+          <article class="carpetaNodeModules">
+            <h2>Carpeta Node Modules</h2>
+          <p>Dentro de la carpeta Node Modules se irán creando las 
+            carpetas de las librerías que se instalen.</p>
+          <p>Contendrá los archivos necesarios para poder trabajar 
+            con esa libreía dentro del pyoyecto.
+          </p>
+          <p>
+            A diferencia de React que la carpeta pesa más de 400 megabytes, 
+            en el backend es mucho menor.
+          </p>
+        </article>
+        <article class="carpetaNodeModulesInstalacionModulos">
+          <h2>Modulos que se instalan en la carpeta Node Modules</h2>
+          <h3>¿Qué es un módulo?</h3>
+          <p>Un módulo no es nada más que una unidad de código 
+            organizado en archivos o directorios, la cual puede 
+            ser exportada con facilidad para poder reutilizarse 
+            en otras partes de la aplicación.
+          </p>
+        </article>
+        <article class="carpetaNodeModulesTiposModulos">
+          <h3>Tipos de módulos</h3>
+          <details>
+            <summary>
+              Módulos nativos
+            </summary>
+              <p>Son los módulos nativos de la API de Node.js.</p>
+              <p>No hace falque que se instalen, ya que vienen incluidos por defecto con Node.js.</p>
+              <p>Algunos ejemplos son los módulos fs (trabajar con archivos File Server) o stream</p>
+              <p>Estos paquetes solo son actualizados si cambias la versión de Node.js</p>
+          </details>
+          <details>
+            <summary>
+              Módulos creados
+            </summary>
+              <p>Son los módulos escritos por los desarrolladores y forman en su 
+                conjunto gran parte de la aplicación.
+              </p>
+              <p>Como ya has leido, se esturcturan así con la finalidad de poder 
+                ser un código reutilizable.
+              </p>
+              <p>Son los módulos creados por mí.</p>
+              </p>
+          </details>
+          <details>
+            <summary>
+              Módulos de terceros
+            </summary>
+            <p>Son en esencia, los paquetes de terceros distribuidos 
+              a través de npm (aunque pueden  provenir de otros respositrios).
+            </p>
+            <p>
+              Estos paquetes se instalan como dependencias y, aunque aportan funcionalidad
+              a la aplicación, no deben incluirse en el repositrio ya que no son parte 
+              de la misma.
+            </p>
+            <p>Estos módulos son los que descargamos de internet y para agregarlos se ejecuta:
+                <pre><code>npm install (nombreModulo)</code></pre>
+            </p>
+          </details>
+        </article>
+      </section>
+      <section class="requerirModulo">
+        <article>
+          <h2>¿Cómo requerir un módulo?</h2>
+          <section class="requiere">
+            <article class="requerirModuloReact">
+              <p class="titulito">Para requerir un módulo en React:</p>
+              <pre><code>import {modulo} from './carpeta/modulo/';</code></pre>
+              <p>El import es más nuevo que el required</p>
+            </article>
+            <article class="requerirModuloBackend">
+              <p class="titulito">Para requerir un módulo en el backend:</p>
+              <pre><code>let modulo = require('nombreDelModulo');</code></pre>
+              <p>Al igual que en react se puede acceder mediante la notacion de punto 
+                a sus propiedades y sus métodos.
+              </p>
+            </article>
+          </section>
+        </article>
+      </section>
+      <section class="algunosModulos">
+        <h2>Algunos módulos</h2>
+        <div class="contenidosAlgunosModulos">
+          <article class="http">
+            <h3>HTTP</h3>
+            <p>Este es el módulo que nos sirve para trabajar con el protocolo HTTP.</p>
+            <p>Permitirá levantar servidores,, este módulo viene integrado a Node (es um módulo nativo).</p>
+          </article>
+          <article class="express">
+            <h3>Express</h3>
+            <p>Este es un modulo de terceros que se deberá instalar:</p>
+            <pre><code>npm install espress</code></pre>
+            <p>Es una librería para crear un servidor</p>
+          </article>
+          <article class="bcrypt">
+            <h3>Bcrypt</h3>
+            <p>Es una biblioteca para ayudarte a codificar contraseñas</p>
+            <pre><code>npm install bcrypt</code></pre>
+            <p>le brindo un algoritmo de encriptacion y se encripta las contraseñas y una vez
+                encriptadas se guardarán.
+            </p>
+          </article>
+          <article class="mongoose">
+            <h3>Mongoose</h3>
+            <p>Mongoose es una herramienta de modelado de objetos MongoDB diseñada 
+                para funcionar en un entorno asíncrono. MongoDB es una base de datos NO RELACIONAL.
+            </p>
+            <pre><code>npm install mongoose</code></pre>
+          </article>
+          <article class="dotenv">
+            <h3>dotEnv o .env</h3>
+            <p>Es un módulo de dependencia cero que carga variables de entorno desde 
+              un archivo .env a process.env (env es por environment). 
+            </p>
+            <p>Guarda la info que queremos compartir y no queremos que se la roben.</p>
+          </article>
+        </div>
+      </section>
+      <section class="protocoloHTTP">
+        <h2>¿Qué es el protocolo HTTP?</h2>
+        <p>Un protocolo es un <span>acuerdo en la comunicación</span>. El protocolo HTTP está basado en la <span>norma OSI</span> y ubicada en la pila de protocolos denominada <span>Aplicación</span> para la comunicación de dos o más dispositivos</p>
+        <h3>¿Que es una URI?</h3>
+        <p>El protocolo HTTP permite la transferencia de información en la web 
+          a traveś de direcciones web, técnicamente llamadas URI.
+        </p>
+        <p>Una URI (identificador de recursos uniformes) es un bloque de 
+          texto que se escribe en la barra de direcciones de un navegador 
+          web y está compuesto por dos partes: <span>URI</span> y <span>URN</span>. 
+        </p>
+        <p>Un identificador de recursos uniforme o URI —del inglés uniform resource 
+          identifier— es una cadena de caracteres que identifica los recursos –físicos 
+          o abstractos– de una red de forma unívoca. La diferencia respecto a un 
+          localizador de recursos uniforme (URL) es que estos últimos hacen referencia 
+          a recursos que, de forma general, pueden variar en el tiempo.</p>
+        <h3>¿Qué es una URN?</h3>
+        <p>Es el nombre exacto del recurso uniforme, el nombre de dominio 
+          y en ocasiones el nombre del recurso.
+        </p>
+        <pre>
+          <code>URI: esquema://anfitrion:puerto/ruta?consulta#fragmento</code>
+        </pre>
+        <pre>
+          <code>URI: esquema://infoUsuario@máquina:puerto/ruta?consulta#fragmento</code>
+        </pre>
+        <pre>
+          <code>URL: esquema://anfitrion:puerto/ruta?consulta</code>
+        </pre>
+        <pre>
+          <code>URN: anfitrion:puerto/ruta?consulta</code>
+        </pre>
+      </section>
+      <section class="creacionServidorHTTP">
+        <h2>Creación de un Servidor HTTP - Esto ya está obsoleto.</h2>
+        <h3>Paso 1: Requerir el módulo HTTP</h3>
+        <p>El módulo de Node HTTP permitira la creación de un servidor.</p>
+        <h3>Paso 2: Crear el servidor y una ruta</h3>
+        <p>Es la conexion entre el servidor y el cliente.</p>
+        <h3>Paso 3: Elegir el puerto donde se escuchará el servidor</h3>
+        <h2>Codificación</h2>
+        <pre style="text-align: left;">
+          <code>
+            <span class="comentario">// importar el modulo</span>
+            const http = require('http');
+
+            <span class="comentario">
+            // metodo createServer -> crea el servidor
+            // req son las peticiones (lo que llega al servidor)
+            // res son las respuestas del servidor (lo que manda el servidor)
+            </span>const server = http.createServer((req, res) => {
+                <span class="comentario">// si lo que viene en la peticion, si la url es '/' (raiz)</span>
+                if (req.url === '/') {
+                    <span class="comentario">//responder escribiendo en la cabecera de la respuesta
+                    // primero el codigo de la respuesta exitosa (200) - contenido: texto plano
+                    // en la cabecera va la info de la respuesta (texto plano)</span>
+                    res.writeHead(200, { 'Content-Type': 'text/plain' });
+                    res.end('Hola, mundo!\n'); <span class="comentario">// mensaje que envia el servidor \n es salto de linea.</span>
+                } else if (req.url === '/acerca-de') {
+                    res.writeHead(200, { 'Content-Type': 'text/plain' });
+                    res.end('Acerca de: Este es un servidor HTTP corriendo en Node.JS. \n');
+                } else {
+                    <span class="comentario">// dar un mensaje que el recurso no se ha encontrado</span>
+                    res.writeHead(404, { 'Content-Type': 'text/plain' });
+                    res.end('404 - Página no encontrada!.\n');
+                }
+            })
+
+            <span class="comentario">//declarar un puerto 8080, 8000...</span>
+            const port = 8080;
+
+            <span class="comentario">//método para levantar el servidor</span>
+            server.listen(port, () => {
+                console.log(`Servidor funcionando en http://localhost:${port}`);
+            })</code>
+        </pre>
+        <p>PARA PROYECTOS PROVEYENDO SERVICIOS EN LA RAMA ESTABLE: Poner en funcionamiento al servidor</p>
+        <pre>
+          <code>node server.js</code>
+        </pre>
+        <p>La respuesta que muestra node para conectarse es:</p>
+        <pre>
+          <code>Servidor funcionando en http://localhost:8080</code>
+        </pre>
+        <h3>Las URIs habilitadas son:</h3>
+        <ul>
+          <li>http://localhost:8080/acerca-de --> Acerca de: Este es un servidor HTTP corriendo en Node.JS.</li>
+          <li>http://localhost:8080/ --> /: Hola, mundo!</li>
+          <li>http://localhost:8080/sarasa --> 404 - Pagina no encontrada!.</li>
+        </ul>
+        <div class="mensaje">Para hacer un cambio en el servidor y verlo en el navegador se debe cancelar
+          el servidor desde la terminal (ctrl+c) y volver a ejecutarlo $node server.js.
+        </div>
+        <br>
+        <div class="mensaje">
+          SOLO EN DESARROLLO: Se puede actualizar el server con nodemon: se instala "npm install nodemon -g", 
+          se ejecuta $nodemon server.js
+        </div>
+        <a href="https://www.digitalocean.com/community/tutorials/workflow-nodemon-es">Ver Tutorial</a>
+      </section>
+      <section class="ServidorHttpExpress">
+        <h2>Creación de un servidor Http con Express - De la manera más actualizada</h2>
+        <h3>Características</h3>
+        <ul>
+          <li>Enrutamiento robusto</li>
+          <li>Centrase en el alto rendimiento</li>
+          <li>Cobertura de prueba super alta</li>
+          <li>Ayudantes HTTP (redirección, almacenamiento en caché, etc.)</li>
+          <li>Ver el sistema que admite más de catorce motores de plantilla</li>
+          <li>Negociación de contenido</li>
+          <li>Ejecutable para generar aplicaciones rápidamente</li>
+        </ul>
+        <h3>Pasos para crear un servidor con Express</h3>
+        <p>Crear una carpeta y dentro de ella en la terminal $<span>npm init</span>
+        para crear de manera automatica el package.json</p>
+        <p>Cargo los datos que tendrá el archivo package.json, por ejemplo quedaría de la siguiente manera:</p>
+        <pre>
+          <code>
+            {
+            "name": "serverexpress",
+            "version": "1.0.0",
+            "description": "prueba de server con express",
+            "main": "server.js",
+            "scripts": {
+              "test": "echo \"Error: no test specified\" && exit 1",
+              "start": "node server.js"
+            },
+            "keywords": [
+              "server",
+              "prueba"
+            ],
+            "author": "yo",
+            "license": "ISC"
+          }
+          </code>
+        </pre>
+        <p>Instalar express en la carpeta del proyecto</p>
+        <pre style="text-align: center;"><code>$npm i express</code></pre>
+        <p>Se creará una carpeta denominada <span>node_modules</span></p>
+        <p>A continuación escribo el siguiente código igual al código del 
+          servidor con el módulo http; ahora, con <span>Express</span>!
+        </p>
+        <pre><code>
+          <span class="comentario">// importo el módulo express y lo guardo en una constante</span>
+          const express = require('express')
+          <span class="comentario">// App de mi servidor --> retorno de express ejecutado como funcion</span>
+          const app = express()
+          <span class="comentario">// Puerto declarado para iniciar la aplicacion</span>
+          const port = 3000
+
+          <span class="comentario">// get obtengo datos del servidor (ruta /)</span>
+          app.get('/', (req, res) => {
+            <span class="comentario">// envio la respuesta</span>
+              res.send('Hello World!!!')
+          })
+
+          <span class="comentario">// método de escucha del servidor (inicia el funcionamiento del server)</span>
+          app.listen(port, () => {
+              console.log(`Ejemplo app listening on port ${port}`)
+          })
+        </code></pre>
+        <p>Para iniciar el servidor: <span>npm start</span></p>
+        <p>En el archivo package.json está configurado <span>"start": "node server.js"</span> para el servidor estable. 
+        Ahora si quiero configurar el servidor de produccion (testing) en package.json agrego debajo de "start" 
+      <span>"dev": "nodemon server.js"</span>. Para ejecutar la version testing <span>npm run dev</span> </p>
+      <pre><code>"scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js",
+        "dev": "nodemon server.js"
+  },</code></pre>
+        <p>Ingresar la URN (http://localhost:8080/) al navegador...</p>
+        <pre><code>Devuelve: Hello World!!!</code></pre>
+        <p>Si se ingresa otra URL <span>(http://localhost:8080/pepe)</span> que no esté definida en el servidor mostrará la siguiente advertencia:</p>
+        <pre><code>Cannot GET /pepe</code></pre>
+      </section>
+      <section class="accesoDatosJSON">
+        <h2>Acceso a datos por medio de JSON</h2>
+        <p>Antes que nada en server.js se agrega la base de datos (objeto)</p>
+        <pre style="text-align: left;"><code><span class="comentario">// lista de productos --> como dar una resspuesta con json!</span>
+app.get('/listaProductos', (req, res) => {
+    res.json({
+        productos: [
+            { id: 1, nombre: 'remera' },
+            { id: 2, nombre: 'pantalon' },
+            { id: 3, nombre: 'bermuda' },
+        ]
+    })
+})
+</code></pre>
+
+<p>Otra forma de crear una base de datos de objetos es:
+</p>
+<pre style="text-align: left;"><code><span class="comentario">// base de datos</span>
+const productosDB = [
+    { id: 1, nombre: 'remera' },
+    { id: 2, nombre: 'pantalon' },
+    { id: 3, nombre: 'bermuda' },
+    { id: 4, nombre: 'chomba' }
+]
+
+...... <span class="comentario">// luego llamo a la BD (en comparación al código anterior se elimina el arreglo productos)</span>
+
+app.get('/listaProductos', (req, res) => {
+  <span class="comentario">// en vez de configurar la base de datos aqui lo llamo como 
+    // un objeto de json.</span>
+    res.json({ productos: productosDB })
+})
+
+</code></pre>
+        <h3>Cliente Thunder</h3>
+        <p>Desde Thunder Client se puede crear una coleccion y dentro de ella 
+          configurar una querry con el método get <span>para leer la base de datos</span> 
+          se pide al servidor por medio de una url <span>localhost:8080/listaProductos</span> 
+          y el servidor responde con <pre style="text-align: left;"><code>{
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "remera"
+    },
+    {
+      "id": 2,
+      "nombre": "pantalon"
+    },
+    {
+      "id": 3,
+      "nombre": "bermuda"
+    }
+  ]
+}</code></pre>
+        </p>
+      </section>
+
+      <section class="params">
+        <h2>PARAMS</h2>
+        <p>Son los parametros que se reciben mediante la url.</p>
+        <pre style="text-align: left;"><code>app.get('/suma/:num1/:num2', (req, res) => {
+    res.send(req.params.num1 + req.params.num2)
+})
+La salida es 12</code></pre>
+        <p>Una vez ingresado a la url <span>http://localhost:8080/suma/1/2</span> 
+        cuyo primer parametro es 1 y segundo parámetro es 2 da como resultado <span>12</span>.</p>
+        <p>¿Pero que ha ocurrido? los parámetros pasados en la url son string y no numeros 
+          para resolver esto el codigo debe quedar de la siguiente manera 
+          (se deben convertir a numero los datos ingresados)
+        </p>
+        <pre style="text-align: left;"><code>app.get('/suma/:num1/:num2', (req, res) => {
+    res.send(req.params.num1 + req.params.num2)
+})
+La salida es: El resultado de sumar 1 + 2 es 3</code></pre>
+<h3>Buscando un dato en la BD</h3>
+<pre style="text-align: left;"><code>app.get('/productos/:id', (req, res) => {
+    <span class="comentario">// objeto de peticion req; objeto de respuesta res
+    // se recibe el req y se programa el res (como le voy a enviar la respuesta un solo res)
+
+    // cargo en id el params id que viene del req (que viene de la BD)
+    // id recibe un string y no se encuentra el producto (ver en suma)
+    // se debe transformar a numero</span>
+    const id = Number(req.params.id);
+    
+    <span class="comentario">//programa la respuesta ... productos/req
+    //res.send(`El id es ${id}`);
+    // url http://localhost:8080/productos/8 --> El id es 8
+    // url http://localhost:8080/productos/pepe --> El id es pepe
+
+    // producto encontrado -->
+    //      busco en la BD el id (req,params,id) que coincida con el id de la BD</span>
+    const productoEncontrado = productosDB.find(producto => producto.id === id)
+
+    <span class="comentario">// no funciona debo utilizar json
+    //res.send(`El producto encontrado es ${productoEncontrado.nombre});
+    //res.json({producto: productoEncontrado})</span>
+
+    if (productoEncontrado) {
+        res.json({producto: productoEncontrado})
+    } else {
+        <span class="comentario">// no se encuentra porque es un string</span>
+        res.status(404).send('Error 404 - Recurso no Encontrado')
+    }
+
+})
+
+<span class="comentario">// método de escucha del servidor (inicia el funcionamiento del server)</span>
+app.listen(port, () => {
+    console.log(`Ejemplo app listening on port ${port}`)
+})</code></pre>
+<p>En definitiva cuando ingreso a la url <span>http://localhost:8080/productos/1</span>, donde 1 es el id 
+que deseo buscar en la BD. El id 1 que es especificado en la url ingresa como parámetro y se almacena 
+en una constante denominada id, <span>req.params.id</span> de esta manera 1 es tratado como 
+un string.</p>
+<p>Para convertirlo a número o parsearlo a numero utilizo el método Number de la siguiente 
+  manera <span>Number(req.params.id)</span>.
+</p>
+<p>Para buscar el id especificado utilizo el método find de la base de datos y busco 
+  el producto tal que el id de ese producto sea exactamente igual al id ingresado por url. 
+  <span>const productoEncontrado = productosDB.find(producto => producto.id === id)</span>; 
+  devolviendo el res en formato json del objeto (tabla producto) con el resultado 
+  de productoEncontrado
+</p>
+<pre style="text-align: left;"><code>http://localhost:8080/productos/4
+
+  Su resultado es: 
+  {
+    "producto": {
+        "id": 4,
+        "nombre": "chomba"
+    }
+  }
+</code></pre>
+<p>En cambio si el id no existe ....</p>
+<pre style="text-align: left;"><code>http://localhost:8080/productos/40
+
+  Su resultado es:  Error 404 - Recurso no Encontrado
+</code></pre>
+      <p>Y por último el servidor una vez que esta en funcionamiento por medio de la consola 
+        se podrá advertir el mensaje <span>Ejemplo app listening on port 8080</span> que notifica del funcionamiento del servidor, 
+        en la misma consola que se ejecuta el comando <span>$ npm start</span> o 
+        <span>$ npm run dev</span> .
+      </p>
+      </section>
+      <section class="consultas">
+        <h2>QUERY - Consultas</h2>
+        <p>Para realizar una consulta en el navegador tiene una forma de buscarlo 
+          <span>sitio/busqueda?clave=valor&clave2=valor2</span> y en este ejemplo en 
+          particular <span>http://localhost:8080/buscarproducto?nombre=chomba</span>.
+        </p>
+        <p>En este caso nombre es el atributo de la BD (clave) y chomba su valor. La clave nombre coincide con 
+          el atributo de la BD que se adquiere mediante el método 
+          <span>req.query.nombre</span> y este a su vez se carga la informacion a la 
+          constante nombres.</p>
+          <p>Se busca en la BD nombre que sea identico a nombres, si encontro coincidencia lo muestra 
+            en el DOM con res.json con los datos de la BD y si no con res.send envia un mensaje.
+          </p>
+        <pre style="text-align: left;"><code><span class="comentario">// busqueda por nombre - QUERY</span>
+app.get('/buscarproducto', (req, res) => {
+    <span class="comentario">//const { id, nombre } = req.query;
+    //console.log(req.query);</span>
+    const nombres = (req.query.nombre);
+    <span class="comentario">//console.log(nombres);
+
+
+    //res.json({id, nombre})</span>
+    const productoEncontrado = productosDB.find(producto => producto.nombre === nombres)
+
+    if (productoEncontrado) {
+        res.json({producto: productoEncontrado})
+    } else {
+      <span class="comentario">// no se encuentra porque es un string</span>
+        res.status(404).send('Error 404 - Producto no Encontrado')
+    }
+
+})</code></pre>
+      </section>
+
+
+        <!-- 1:48:00 -->
+        <!--actualizar el servidor -->
+
+
+
+
+  </body>
+</html>
