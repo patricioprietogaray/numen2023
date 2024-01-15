@@ -39,3 +39,31 @@ span {
     background-color: black;
     padding: .5rem;
 }
+
+.rutas {
+    color: rgb(0, 0, 0);
+    background-color: rgb(199, 190, 19);
+    padding: .5rem;
+}
+
+.mvc {
+    color: rgb(0, 0, 0);
+    background-color: rgb(79, 199, 19);
+    padding: .5rem;
+}
+
+
+
+
+
+.instalarServidor {
+    background-color: deepskyblue;
+    color: black;
+}
+
+pre {
+    color: green;
+    background-color: black;
+    border-radius: .5rem;
+    margin: .5rem;
+}
