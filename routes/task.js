@@ -1,12 +1,13 @@
 // importo express
-const express = require('express');
+// const express = require('express');
 
 // importo rutas
 // este sera el administrador de las rutas
-const router = express.Router();
+// const router = express.Router();
 
 // importar desde taskController
-const taskController = require('../controllers/taskController');
+// const taskController = require('../controllers/taskController');
+
 
 
 // la ruta slash o ruta raiz seguido con una callback con una respuesta 
@@ -26,12 +27,52 @@ const taskController = require('../controllers/taskController');
 //  sin embargo no es necesario porque no se necesita especificar más la ruta.
 // cuando asigno '/' no asigno un endpoint especifico y me quedo con el endpoint de app.js
 // '/' se podría especificar algun parámetro ..... 
-router.get('/', taskController.getTasks)  // como segundo parametro viene  
+// router.get('/', taskController)
+// router.get('/', taskController.getTasks)  // como segundo parametro viene  
                                             // la importacion de controller.funcion
 
 // especifico el id (params) para su busqueda en controller (getTaskById)
-router.get('/:id', taskController.getTaskById);
+// router.get('/:id', taskController.getTaskById);
 
+// crear una tarea post no pisa a get aun poniendo la misma ruta /
+// router.post('/', taskController.createTask);
 
+//actualizar
+// router.put('/:id', taskController.updateTask);
 //se exporta para que otro archivo.js (app.js) lo pueda ver sin ()
+// module.exports = router;
+
+
+
+
+////// pruebas
+// importo express
+const express = require('express');
+// importo rutas, este sera el administrador de las rutas
+const router = express.Router();
+// importo las funciondes declaradas desde taskController
+const taskController = require('../controllers/taskController');
+const { route } = require('../app');
+
+// en app.js uso el endpoint /tasks  -> todos las tareas
+router.get('/', taskController.getTasks)
+
+// tareas por id
+router.get('/:id', taskController.getTaskByID)
+
+// buscar tarea por nombre de tarea
+    // localhost:3000/tasks/tarea/hac  
+    // -> { "id": "3", "tarea": "hacer las compras", "hecha": false }
+router.get('/tarea/:tarea', taskController.getTaskByTarea)
+
+//agregar una tarea
+router.post('/', taskController.createTask);
+
+//actualizar una tarea por id
+router.put('/:id', taskController.updateTask);
+
+//eliminar un registro
+router.delete('/:id', taskController.deleteTask);
+
 module.exports = router;
+

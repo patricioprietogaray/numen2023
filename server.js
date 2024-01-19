@@ -12,8 +12,10 @@ const app = require('./app');
 // configuro el puerto de salida del servidor en 3000
 const port = 3000;
 
-//listen: método de escuchar (inicio del funcionamiento del servidor)
+//listen: método de escuchar (inicio del funcionamiento del servidor) 
+// listen viene de la libreria de express
 // cuando llamo a app viene el código desde ./app.js
 app.listen(port, () => {
     console.log(`App funcionando en el puerto ${port}`);
 })
+

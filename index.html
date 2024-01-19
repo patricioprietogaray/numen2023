@@ -406,6 +406,376 @@
         })
       </code></pre>
     </section>
+    <section class="aplicacionFlujo">
+      <h2>Aplicación del Flujo del Servidor</h2>
+      <h3>Archivo "package.json"</h3>
+      <p>
+        Una vez configurado este archivo quedará de una manera similar a esta:
+      </p>
+      <pre>
+        <code>
+        {
+            "name": "express",
+            "version": "1.0.0",
+            "description": "",
+            "main": "index.js",
+            "scripts": {
+                "test": "echo \"Error: no test specified\" && exit 1",
+                "start": "node server.js",
+                "dev": "nodemon server.js"
+            },
+            "author": "",
+            "license": "ISC",
+            "dependencies": {
+              "express": "^4.18.2"
+            }
+        }
+        </code>
+      </pre>
+      <h3>Archivo "server.js"</h3>
+      <p>
+        Importo el modulo express, importo las funciones declaradas en app.js.
+      </p>
+      <pre><code>
+        // este es el archivo principal que levanta al servidor
+
+        // importar el modulo express
+        const express = require('express');
+
+        //importo app desde app.js
+        const app = require('./app');
+
+        // app de mi servidor -> retorno de express ejecutado como una función
+        //const app = express();
+
+        // configuro el puerto de salida del servidor en 3000
+        const port = 3000;
+
+        //listen: método de escuchar (inicio del funcionamiento del servidor) 
+        // listen viene de la libreria de express
+        // cuando llamo a app viene el código desde ./app.js
+        app.listen(port, () => {
+            console.log(`App funcionando en el puerto ${port}`);
+        })
+      </code></pre>
+      <h3>Archivo app.js</h3>
+      <pre><code>
+        // importar el modulo express
+        const express = require('express');
+        // app de mi servidor -> retorno de express ejecutado como una función
+        const app = express();
+        // parseo a json para que pueda procesar get, put, delete y post
+        app.use(express.json());
+        // importo las funciones que se declaran en task
+        const taskRouter = require('./routes/task');
+        // asigno la ruta http://localhost:3000/tasks
+        app.use('/tasks', taskRouter);
+        // exporto app par que todos puedan acceder a este archivo (app.js)
+        module.exports = app;
+      </code></pre>
+    </section>
+    <h3>Archivo "/routes/task.js"</h3>
+    <pre><code>
+      // importo express
+      const express = require('express');
+      // importo rutas, este sera el administrador de las rutas
+      const router = express.Router();
+      // importo las funciondes declaradas desde taskController
+      const taskController = require('../controllers/taskController');
+      const { route } = require('../app');
+
+      // en app.js uso el endpoint /tasks  -> todos las tareas
+      router.get('/', taskController.getTasks)
+
+      // tareas por id
+      router.get('/:id', taskController.getTaskByID)
+
+      // buscar tarea por nombre de tarea
+          // localhost:3000/tasks/tarea/hac  
+          // -> { "id": "3", "tarea": "hacer las compras", "hecha": false }
+      router.get('/tarea/:tarea', taskController.getTaskByTarea)
+
+      //agregar una tarea
+      router.post('/', taskController.createTask);
+
+      //actualizar una tarea por id
+      router.put('/:id', taskController.updateTask);
+
+      //eliminar un registro
+      router.delete('/:id', taskController.deleteTask);
+
+      //exporto el modulo para que sea visible al resto del proyecto
+      module.exports = router;
+
+      // este proyecto puede ser virtualizado con la herramienta 
+      //THUNDER CLIENT DISPONIBLE EN CODE.
+    </code></pre>
+    <section>
+      <h3>Archivo "/controllers/taskController.js</h3>
+      <pre>
+        <code>
+          // el controlador se encarga del procesamiento de los datos para que se muestren
+          // creo la BD, cada vez que inicio el server los datos que se carguen, 
+          // se actualicen o borren
+          // se perderán solo quedarán los datos que se declaran en este arreglo.
+          // let para poder modificar el arreglo
+          let taskDB = [
+              { id: 1, tarea: 'tarea1', hecha: false },
+              { id: 2, tarea: 'tarea2', hecha: false },
+              { id: 3, tarea: 'hacer las compras', hecha: false },
+              { id: 4, tarea: 'estudiar para el examen', hecha: true },
+              { id: 5, tarea: 'trabajar', hecha: false }
+          ];
+
+
+          // funcion para obtener los datos (en este caso se trata de tareas)
+          // dentro de la funcion el response le asigno un status 200 (server funcionando ok)
+          // y devuelvo la BD en formato Json al cliente.
+          const getTasks = (req, res) => {
+              res.status(200).json({ taskDB })
+          }
+
+          // obtener las tareas por id, virtualiza con Thunder Client
+          // colllections pepe -> new request (body para json)
+          const getTaskByID = (req, res) => {
+              const idRecibido = req.params.id;
+              // PRUEBA: muestro el tipo de dato "numero" 
+              //         que se recibe no es un numero
+
+              // if (isNumberObject(idRecibido)) {
+                  // res.send(`${idRecibido} es un numero`)
+              // } else {
+                  // res.send(`${idRecibido} no es un numero`)
+              // }
+              //buscar en el array
+              const taskSearch = taskDB.find(tarea => tarea.id == idRecibido);
+              //res.send(taskSearch);
+
+              // si la busqueda fue exitosa o no
+              if (taskSearch) {
+                  res.status(200).json({ task: taskSearch, msg: 'Ok' })
+              } else {
+                  // ojo con los tipos
+                  res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
+              }
+          }
+
+          // busqueda no texto 
+          const getTaskByTarea = (req, res) => {
+              // recibo el texto por params  .../tarea/:tarea
+              const tareaAbuscar = req.params.tarea;
+
+              // paso a minusculas todo el texto que se encuentra en tarea
+              // que tenga incluido en su texto el parametro pasado
+              const taskTarea = taskDB.filter(item => item.tarea.toLowerCase().includes(tareaAbuscar.toLowerCase()))
+
+              // si la busqueda fue exitosa o no
+              if (taskTarea) {   // task es el objeto que se muestra por pantalla 
+                                // y taskTarea es el objeto creado con filter
+                  res.status(200).json({ task: taskTarea, msg: 'Ok' })
+              } else {
+                  // ojo con los tipos
+                  res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
+              }
+          }
+
+          // crear una tarea
+          const createTask = (req, res) => {
+              // tarea corresponde al atributo de taskDB, 
+              // si se cambia el nombre "tarea" no se agregará al objeto
+              // el body lo voy a agregar a la lista de tareas (objeto)
+              const { tarea } = req.body;
+              
+              // creo una constante tarea nueva de como
+              // quedaría el dato en el objeto (todavia no se sube)
+              const tareaNueva = {
+                  id: taskDB.length + 1,
+                  tarea: tarea,
+                  hecha: false
+              }
+
+              // agrego la tarea al objeto
+              taskDB.push(tareaNueva);
+
+              // esta parte actualizará la BD taskDB y el dato pusheado quedará guardado en la BD
+              // en caso de ignorar este comando, el sistema quedará en un bucle infinito,
+              // posteriormente lanzara un mensaje de error:
+              // "Connection was forcibly closed by a peer."
+
+              //status 201 porque agrego algo 201 recurso creado
+              res.status(201).json({taskDB, msg : 'Tarea agregada exitosamente'})
+
+          }
+
+          // actualizar una tarea SOLO EL NOMBRE DE LA TAREA
+          const updateTask = (req, res) => {
+              // recibo el id a modificar -> localhost:3000/task/1 -> id=1
+              const id = Number(req.params.id);
+              // buscar el registro que coincida con el id ingresado
+              let task = taskDB.find(tarea => tarea.id === id);
+              
+              
+              if (task) {
+                  // si encuentro la tarea actualizo contenido de la tarea
+                  // cargo la tarea (a modificar) que se encuentra en el body
+                  const { tarea } = req.body;
+                  // modifico la variable (declarada con let)
+                  task = { ...task, tarea: tarea }
+                  // nuevo arreglo de tareas que no coincidan con el id del parametro
+                  const newTaskArray = taskDB.filter(task => task.id !== id);
+                  //defino de nuevo la BD con la newTaskArray + task
+                  taskDB = [...newTaskArray, task];
+                  res.status(200).json({ task: task, msg: 'Tarea actualizada exitosamente!' })
+              } else {
+                  res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
+              }
+          }
+
+          const deleteTask = (req, res) => {
+              // recibo el id a modificar -> localhost:3000/task/1 -> id=1
+              // Number()  es igual que parseInt()
+              const id = parseInt(req.params.id);
+              // buscar el registro que coincida con el id ingresado
+              let task = taskDB.find(tarea => tarea.id == id);
+              // si encuentro la tarea la borro
+              if (task) {
+                  // reemplazo todos los registros 
+                  // sin el id (que quiero borrar)
+                  // al mismo bd
+                  taskDB = taskDB.filter(task => task.id !== id);
+                  res.status(200).json({taskDB, msg: 'Tarea eliminada exitosamente!'})
+              } else {
+                  res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
+              }
+          }
+
+
+        // exporto getTasks para que otros modulos tengan acceso (en este caso task.js)
+        // module.exports = funcion;  -> exporto solo una función
+        // module.exports = { funciones };  -> exporto mas de una función
+        module.exports = { getTasks, getTaskByID, getTaskByTarea, createTask, updateTask, deleteTask };
+        </code>
+      </pre>
+      <h3>Ejemplo de Thunder Client</h3>
+      <img
+        src="./assets/THUNDER-CLIENT.png"
+        width="600px"
+        alt="thunder client"
+      />
+      <p>y el codigo completo:</p>
+      <pre>
+        <code>
+          {
+          "client": "Thunder Client",
+          "collectionName": "la-costa",
+          "dateExported": "2024-01-18T23:55:40.960Z",
+          "version": "1.1",
+          "folders": [],
+          "requests": [
+              {
+                  "_id": "824c4765-498a-42a0-90b4-d94a79d40e99",
+                  "colId": "3e412e57-7b9d-4458-a98f-eb348d0d1902",
+                  "containerId": "",
+                  "name": "listar todas las tareas",
+                  "url": "localhost:3000/tasks",
+                  "method": "GET",
+                  "sortNum": 50000,
+                  "created": "2024-01-17T11:38:45.326Z",
+                  "modified": "2024-01-17T22:23:46.375Z",
+                  "headers": [],
+                  "params": [],
+                  "body": {
+                      "type": "json",
+                      "raw": "{\n  \"tarea\":\"nueva tarea\"\n}",
+                      "form": []
+                  },
+                  "tests": []
+              },
+              {
+                  "_id": "2e4d7ca7-6ba2-480a-af77-3894f77487e5",
+                  "colId": "3e412e57-7b9d-4458-a98f-eb348d0d1902",
+                  "containerId": "",
+                  "name": "tarea por id",
+                  "url": "localhost:3000/tasks/6",
+                  "method": "GET",
+                  "sortNum": 60000,
+                  "created": "2024-01-17T13:30:59.590Z",
+                  "modified": "2024-01-17T16:30:03.521Z",
+                  "headers": [],
+                  "params": [],
+                  "tests": []
+              },
+              {
+                  "_id": "76bdda59-5df3-437a-852e-775c5fd80f1f",
+                  "colId": "3e412e57-7b9d-4458-a98f-eb348d0d1902",
+                  "containerId": "",
+                  "name": "consulta tarea por nombre",
+                  "url": "localhost:3000/tasks/tarea/A",
+                  "method": "GET",
+                  "sortNum": 70000,
+                  "created": "2024-01-17T16:32:49.603Z",
+                  "modified": "2024-01-18T23:54:51.391Z",
+                  "headers": [],
+                  "params": [],
+                  "tests": []
+              },
+              {
+                  "_id": "7d1763b9-0fd7-4a35-a902-a6ca4ea272b1",
+                  "colId": "3e412e57-7b9d-4458-a98f-eb348d0d1902",
+                  "containerId": "",
+                  "name": "nueva tarea",
+                  "url": "localhost:3000/tasks/",
+                  "method": "POST",
+                  "sortNum": 80000,
+                  "created": "2024-01-17T17:18:17.934Z",
+                  "modified": "2024-01-17T17:24:18.267Z",
+                  "headers": [],
+                  "params": [],
+                  "body": {
+                      "type": "json",
+                      "raw": "{\n  \"tarea\": \"Una nueva tarea\"\n}",
+                      "form": []
+                  },
+                  "tests": []
+              },
+              {
+                  "_id": "fdfd8c49-3016-4482-8a4b-d62f53cadec1",
+                  "colId": "3e412e57-7b9d-4458-a98f-eb348d0d1902",
+                  "containerId": "",
+                  "name": "actualizar tarea",
+                  "url": "localhost:3000/tasks/6",
+                  "method": "PUT",
+                  "sortNum": 90000,
+                  "created": "2024-01-18T02:23:01.011Z",
+                  "modified": "2024-01-18T19:40:53.961Z",
+                  "headers": [],
+                  "params": [],
+                  "body": {
+                      "type": "json",
+                      "raw": "{\n  \"tarea\": \"La sexta tarea!!!!\"\n}",
+                      "form": []
+                  },
+                  "tests": []
+              },
+              {
+                  "_id": "e6cd9e65-bd48-431e-a8e1-f9a175a1e5ca",
+                  "colId": "3e412e57-7b9d-4458-a98f-eb348d0d1902",
+                  "containerId": "",
+                  "name": "eliminar una tarea",
+                  "url": "localhost:3000/tasks/6",
+                  "method": "DELETE",
+                  "sortNum": 100000,
+                  "created": "2024-01-18T22:12:37.820Z",
+                  "modified": "2024-01-18T22:16:29.512Z",
+                  "headers": [],
+                  "params": [],
+                  "tests": []
+              }
+          ]
+      }
+        </code>
+      </pre>
+    </section>
   </body>
 </html>
 <!-- 1:00:00  -->

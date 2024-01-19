@@ -67,3 +67,8 @@ pre {
     border-radius: .5rem;
     margin: .5rem;
 }
+
+.aplicacionFlujo {
+    background-color: rgb(255, 186, 102);
+    color: black;
+}
