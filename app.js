@@ -61,6 +61,14 @@ app.use(express.json());
 // importo las funciones que se declaran en task
 const taskRouter = require('./routes/task');
 // asigno la ruta http://localhost:3000/tasks
+
+const timeStamp = require('./middleware/logTimeStamp');
+
+//antes de la ruta timeStamp para imprimir en el servidor una estampa de lo que se esta usando (ver en thunder client)
+app.use(timeStamp);
+
 app.use('/tasks', taskRouter);
 // exporto app par que todos puedan acceder a este archivo (app.js)
+
+
 module.exports = app;
