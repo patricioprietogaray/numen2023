@@ -813,54 +813,70 @@
           API Rest sea externa o interna
         </p>
         <p>
-          Hay veces que se realizan consultas desde el front que pueden no tener cuerpo (con body como post
-          sin body con get); con post en el body va un JSON y en la base de datos se termina guardando o 
-          modificando cierta información o con get se pide cierta información, por ultimo se da una respuesta
-          del exito o el fracaso de la accion y la app del cliente muestra el mensaje.
+          Hay veces que se realizan consultas desde el front que pueden no tener
+          cuerpo (con body como post sin body con get); con post en el body va
+          un JSON y en la base de datos se termina guardando o modificando
+          cierta información o con get se pide cierta información, por ultimo se
+          da una respuesta del exito o el fracaso de la accion y la app del
+          cliente muestra el mensaje.
         </p>
         <p>
-          Si nuestra app es dinámica, cuando un usuario entre desde su navegador,
-          realizará una solicitud de HTTP, por ejemplo, para que se muestre el
-          listado de los productos.
+          Si nuestra app es dinámica, cuando un usuario entre desde su
+          navegador, realizará una solicitud de HTTP, por ejemplo, para que se
+          muestre el listado de los productos.
         </p>
         <p>
-          El usuario ingresa a nuestra aplicación desde su navegador. Lo que se muestra en el 
-          frontend es lo que esta desarrollado en React. Éste envia la solicitud del usuario al 
-          backend. El backend es la API REST, es lo que ha sido desarrollada en NodeJS. Node le 
-          pide a la Base de Datos la informacion requerida por el usuario y la envia en formato JSON 
-          al frontend como respuesta.
+          El usuario ingresa a nuestra aplicación desde su navegador. Lo que se
+          muestra en el frontend es lo que esta desarrollado en React. Éste
+          envia la solicitud del usuario al backend. El backend es la API REST,
+          es lo que ha sido desarrollada en NodeJS. Node le pide a la Base de
+          Datos la informacion requerida por el usuario y la envia en formato
+          JSON al frontend como respuesta.
         </p>
       </article>
       <article>
         <h3>Cliente HTTP</h3>
         <p>
-          El cliente HTTP es el encargado de abrir una sesión HTTP y de enviar la solicitud de 
-          conexion al servidor.
+          El cliente HTTP es el encargado de abrir una sesión HTTP y de enviar
+          la solicitud de conexion al servidor.
         </p>
         <p>
-          Hay varias formas de realizar solicitudes HTTP en Node a través de clientes HTTP. 
-          Existen dos tipos prinicipales de clientes:
+          Hay varias formas de realizar solicitudes HTTP en Node a través de
+          clientes HTTP. Existen dos tipos prinicipales de clientes:
         </p>
         <ul>
-          <li>Internos: módulos HTTP o HTTPS estándar que vienen en la librería de  NodeJS (fetch)</li>
-          <li>Externos: paquetes de NPM (axios o Got) instalables como cualquier módulo</li>
+          <li>
+            Internos: módulos HTTP o HTTPS estándar que vienen en la librería de
+            NodeJS (fetch)
+          </li>
+          <li>
+            Externos: paquetes de NPM (axios o Got) instalables como cualquier
+            módulo
+          </li>
         </ul>
       </article>
       <article>
         <h3>axios</h3>
-        <p>axios es una biblioteca de solicitudes muy popular basada en promesas.</p>
-        <p>Es un cliente HTTP disponible tanto para el navegador como para NodeJS</p>
-        <p>Incluye también funciones útiles como interceptar datos de solicitud y respuesta, 
-          y la capacidad de transformar automáticamente los datos de solicitud y respuesta a JSON
+        <p>
+          axios es una biblioteca de solicitudes muy popular basada en promesas.
         </p>
         <p>
-          Lo empezamos a usar instalando el módulo de axios
+          Es un cliente HTTP disponible tanto para el navegador como para NodeJS
         </p>
+        <p>
+          Incluye también funciones útiles como interceptar datos de solicitud y
+          respuesta, y la capacidad de transformar automáticamente los datos de
+          solicitud y respuesta a JSON
+        </p>
+        <p>Lo empezamos a usar instalando el módulo de axios</p>
         <pre><code>npm i axios</code></pre>
       </article>
       <article>
         <h3>axios - Petición GET</h3>
-        <p>Para realizar una petición por GET al servidor usando axios, vamos a ver dos ejemplos posibles (promesas)</p>
+        <p>
+          Para realizar una petición por GET al servidor usando axios, vamos a
+          ver dos ejemplos posibles (promesas)
+        </p>
         <h4>Definir el ID como query en la url</h4>
         <pre><code>
           const axios = require('axios')
@@ -887,7 +903,10 @@
               console.log(error)
             })
         </code></pre>
-        <p>Además, al funcionar con promesas, podemos usar la sintaxis de Async/Await: (Se recomienda)</p>
+        <p>
+          Además, al funcionar con promesas, podemos usar la sintaxis de
+          Async/Await: (Se recomienda)
+        </p>
         <pre><code>
           const axios = require('axios')
 
@@ -913,7 +932,7 @@
         <h3>Postman</h3>
         <p></p>
       </article>
-       <article>
+      <article>
         <h3>Middlewares</h3>
         <h4>Definición</h4>
         <p>
@@ -926,24 +945,48 @@
           <span>entre</span> la respuesta que hace el servidor (response) hasta
           que la respuesta llegue al cliente.
         </p>
-        <img src="./assets/ExpressJS_Middleware_1.webp" width="600px" alt="grafico middleware">
-        <img src="./assets/middleware-infographic.webp" width="600px" alt="infografía middleware">
-        <h4>Las funciones de middleware pueden realizar las siguientes tareas:</h4>
+        <img
+          src="./assets/ExpressJS_Middleware_1.webp"
+          width="600px"
+          alt="grafico middleware"
+        />
+        <img
+          src="./assets/middleware-infographic.webp"
+          width="600px"
+          alt="infografía middleware"
+        />
+        <h4>
+          Las funciones de middleware pueden realizar las siguientes tareas:
+        </h4>
         <ul>
           <li>Ejecutar cualquier código</li>
           <li>Realizar cambios en la solicitud y los objetos de respuesta</li>
           <li>Finalizar el ciclo de solicitud/respuestas</li>
-          <li>Invocar la siguiente función de middleware que se encuentra en la pila</li>
+          <li>
+            Invocar la siguiente función de middleware que se encuentra en la
+            pila
+          </li>
         </ul>
-        <h4>Nota: Se debe invocar a next() para pasar el control a la siguiente funcion de middleware. De lo 
-          contrario la solicitud quedará colgada.
+        <h4>
+          Nota: Se debe invocar a next() para pasar el control a la siguiente
+          funcion de middleware. De lo contrario la solicitud quedará colgada.
         </h4>
-        <img src="./assets/express-middleware-next.webp" width="600px" alt="función next del middleware">
-        <img src="./assets/comunicacionMiddleware.png" width="600px" alt="Secuencia comunicacion cliente servidor middleware">
+        <img
+          src="./assets/express-middleware-next.webp"
+          width="600px"
+          alt="función next del middleware"
+        />
+        <img
+          src="./assets/comunicacionMiddleware.png"
+          width="600px"
+          alt="Secuencia comunicacion cliente servidor middleware"
+        />
 
-        <p>Middleware generalmente funcionan como filtro y si no corresponde devuelve al cliente una respuesta. 
-          En caso que esté bien la peticion (ejemplo el usuario existe pasa al siguiente middleware 
-          y si no retorna al cliente un mensaje de error)
+        <p>
+          Middleware generalmente funcionan como filtro y si no corresponde
+          devuelve al cliente una respuesta. En caso que esté bien la peticion
+          (ejemplo el usuario existe pasa al siguiente middleware y si no
+          retorna al cliente un mensaje de error)
         </p>
         <h3>Tipos de Middleware</h3>
         <ul>
@@ -953,31 +996,81 @@
           <li>Middleware incorporado</li>
           <li>Middleware de terceros</li>
         </ul>
+        <h3>Middleware a nivel aplicación</h3>
+        <pre><code>
+          // CORS
+          app.use(cors());
+
+          // lectura y parseo del body
+          app.use(espress.json());
+        </code></pre>
+          <h3>Middleware a nivel del Router</h3>
+          <pre><code>
+            router.get('/', MIDDLEWARE, usuariosGet);
+          </code></pre>
+          <h3>Middleware de manejo de errores</h3>
+          <p>Estas funciones se definen de la misma forma que otras funciones de middleware, 
+            excepto que llevan cuatro argumentos en lugar de tres, específicamente con la firma 
+            (err, req, res, next):
+          </p>
+          <pre><code>
+            app.use(function(err, req, res, next) {
+              console.log(err.stack);
+              res.status(500).send('Something broke!');
+            });
+          </code></pre>
+          <h3>Middleware incorporado</h3>
+          <pre><code>
+            // Directorio público
+
+            app.use(express.static('public'))
+          </code></pre>
+          <h3>Middleware de terceros</h3>
+          <p>Podemos <span>instalar y utilizar Middleware de terceros</span> para añadir funcionalidad
+            a nuestra aplicación. El uso puede ser a <span>nivel aplicación o nivel Router</span>. 
+            Por ejemplo, instalamos y usamos la función de middleware de análisis de cookies 
+            <span>cookie-parser</span>. 
+          </p>
+          <pre><code>
+            $ npm install cookie-parser 
+
+            var express = require('express');
+            var app = express();
+            var cookieParser = require('cookie-parser');
+
+            // leer el middleware cookie-parser
+            app.use(cookie-parser());
+          </code></pre>
       </article>
       <article>
         <h3>CORS</h3>
-        <p>Intercambio de recursos de origen cruzado (CORS), es un mecanismo
-          para permitir o restringir los recursos solicitados en un servidor web 
-          dependiente de donde se inició la solicitud HTTP. (El cors me sirve que si tengo 
-          un backend ese cors solo funcione en mi pagina web o en una lista de paginas web no en todas
-          las paginas web que quieran acceder al servicio, por ejemplo 500 solicitudes 
-          diarias que tiene para mostrar la cotizacion de una moneda. Si otro lo usa, me 
-          quedo sin servicio a la mitad del dia.)
+        <p>
+          Intercambio de recursos de origen cruzado (CORS), es un mecanismo para
+          permitir o restringir los recursos solicitados en un servidor web
+          dependiente de donde se inició la solicitud HTTP. (El cors me sirve
+          que si tengo un backend ese cors solo funcione en mi pagina web o en
+          una lista de paginas web no en todas las paginas web que quieran
+          acceder al servicio, por ejemplo 500 solicitudes diarias que tiene
+          para mostrar la cotizacion de una moneda. Si otro lo usa, me quedo sin
+          servicio a la mitad del dia.)
         </p>
         <p>
-          Esto se utiliza para proteger un determinado servidor web del acceso de otro sitio 
-          web o dominio. Por ejemplo, solo los dominios permitidos podrán acceder a los archivos 
-          alojados en el servidor, como una hoja de estilo, una imagen, un script.
+          Esto se utiliza para proteger un determinado servidor web del acceso
+          de otro sitio web o dominio. Por ejemplo, solo los dominios permitidos
+          podrán acceder a los archivos alojados en el servidor, como una hoja
+          de estilo, una imagen, un script.
         </p>
         <p>
-          Por razones de seguridad, los navegadores restingen las solicitudes HTTP de origen 
-          cruzado  iniciadas dentro de un script.
+          Por razones de seguridad, los navegadores restingen las solicitudes
+          HTTP de origen cruzado iniciadas dentro de un script.
         </p>
         <p>
-          Por ejemplo, si nos encontramos en <span>http://example.com/page1</span> y estamos 
-          haciendo referencia a una imagen de <span>https://image.com/image1.jpg</span>, no se 
-          podrá recuperar esa imagen a menos que <span>https://image.com</span> permita compartir 
-          origenes cruzados con <span>http://example.com</span>.
+          Por ejemplo, si nos encontramos en
+          <span>http://example.com/page1</span> y estamos haciendo referencia a
+          una imagen de <span>https://image.com/image1.jpg</span>, no se podrá
+          recuperar esa imagen a menos que
+          <span>https://image.com</span> permita compartir origenes cruzados con
+          <span>http://example.com</span>.
         </p>
       </article>
       <article>
@@ -987,4 +1080,4 @@
     </section>
   </body>
 </html>
-<!-- 1:57:00  -->
+<!-- 0:45:00  -->
