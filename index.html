@@ -913,9 +913,72 @@
         <h3>Postman</h3>
         <p></p>
       </article>
-      <article>
+       <article>
         <h3>Middlewares</h3>
-        <p></p>
+        <h4>Definición</h4>
+        <p>
+          Un middleware es un bloque de código que se ejecuta
+          <span>entre</span> la petición que hace el usuario (request) hasta que
+          la petición llega al servidor.
+        </p>
+        <p>
+          También un middleware es un bloque de código que se ejecuta
+          <span>entre</span> la respuesta que hace el servidor (response) hasta
+          que la respuesta llegue al cliente.
+        </p>
+        <img src="./assets/ExpressJS_Middleware_1.webp" width="600px" alt="grafico middleware">
+        <img src="./assets/middleware-infographic.webp" width="600px" alt="infografía middleware">
+        <h4>Las funciones de middleware pueden realizar las siguientes tareas:</h4>
+        <ul>
+          <li>Ejecutar cualquier código</li>
+          <li>Realizar cambios en la solicitud y los objetos de respuesta</li>
+          <li>Finalizar el ciclo de solicitud/respuestas</li>
+          <li>Invocar la siguiente función de middleware que se encuentra en la pila</li>
+        </ul>
+        <h4>Nota: Se debe invocar a next() para pasar el control a la siguiente funcion de middleware. De lo 
+          contrario la solicitud quedará colgada.
+        </h4>
+        <img src="./assets/express-middleware-next.webp" width="600px" alt="función next del middleware">
+        <img src="./assets/comunicacionMiddleware.png" width="600px" alt="Secuencia comunicacion cliente servidor middleware">
+
+        <p>Middleware generalmente funcionan como filtro y si no corresponde devuelve al cliente una respuesta. 
+          En caso que esté bien la peticion (ejemplo el usuario existe pasa al siguiente middleware 
+          y si no retorna al cliente un mensaje de error)
+        </p>
+        <h3>Tipos de Middleware</h3>
+        <ul>
+          <li>Middleware a nivel aplicación</li>
+          <li>Middleware a nivel del Router</li>
+          <li>Middleware de manejo de errores</li>
+          <li>Middleware incorporado</li>
+          <li>Middleware de terceros</li>
+        </ul>
+      </article>
+      <article>
+        <h3>CORS</h3>
+        <p>Intercambio de recursos de origen cruzado (CORS), es un mecanismo
+          para permitir o restringir los recursos solicitados en un servidor web 
+          dependiente de donde se inició la solicitud HTTP. (El cors me sirve que si tengo 
+          un backend ese cors solo funcione en mi pagina web o en una lista de paginas web no en todas
+          las paginas web que quieran acceder al servicio, por ejemplo 500 solicitudes 
+          diarias que tiene para mostrar la cotizacion de una moneda. Si otro lo usa, me 
+          quedo sin servicio a la mitad del dia.)
+        </p>
+        <p>
+          Esto se utiliza para proteger un determinado servidor web del acceso de otro sitio 
+          web o dominio. Por ejemplo, solo los dominios permitidos podrán acceder a los archivos 
+          alojados en el servidor, como una hoja de estilo, una imagen, un script.
+        </p>
+        <p>
+          Por razones de seguridad, los navegadores restingen las solicitudes HTTP de origen 
+          cruzado  iniciadas dentro de un script.
+        </p>
+        <p>
+          Por ejemplo, si nos encontramos en <span>http://example.com/page1</span> y estamos 
+          haciendo referencia a una imagen de <span>https://image.com/image1.jpg</span>, no se 
+          podrá recuperar esa imagen a menos que <span>https://image.com</span> permita compartir 
+          origenes cruzados con <span>http://example.com</span>.
+        </p>
       </article>
       <article>
         <h3>Resumen</h3>
