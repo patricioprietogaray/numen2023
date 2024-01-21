@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase28-Backend04</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1>Clase28 Backend 4</h1>
+    <section class="rest">
+      <h2>Definición de REST</h2>
+      <p>
+        REST es un tipo de arquitectura de servicios que proporciona estándares
+        entre sistemas informáticos para establecer como se van a comunicar
+        entre sí
+      </p>
+      <p>
+        Rest es una forma de construir servicios web de manera simple, coherente
+        y escalable
+      </p>
+      <p>
+        La transferencia de estado representacional (en inglés representational
+        state transfer) o REST es un estilo de arquitectura software para
+        sistemas hipermedia distribuidos como la World Wide Web. El término se
+        originó en el año 2000, en una tesis doctoral sobre la web escrita por
+        Roy Fielding, uno de los principales autores de la especificación del
+        protocolo HTTP y ha pasado a ser ampliamente utilizado por la comunidad
+        de desarrollo.
+      </p>
+      <article class="restServerApi">
+        <h3>REST SERVER API</h3>
+        <p>
+          Cuando se envia una solicitud del cliente a través de una API de
+          RESTful, esta transfiere una representación del estado del recurso
+          requerido a quien lo haya solicitado o al extremo.
+        </p>
+        <p>
+          La información, o representación, se entrega por medio de HTTP en uno
+          de estos formatos
+          <span
+            >JSON (JavaScript Object Notation), HTML, XLT, Python, PHP o texto
+            sin formato</span
+          >.
+        </p>
+        <p>
+          Los recursos que se utilizan en un sistema de RESTful se identifican
+          con URLs. Cada recurso contiene su propia URL
+          <span>Ej: localhost:3000/productos</span>.
+        </p>
+        <p>
+          Asimismo, es necesario tener en cuenta otros aspectos. Los encabezados
+          y los parámetros tambien son importantes en los métodos HTTP de una
+          solicitud HTTP de la API de RESTful, ya que obtienen información de
+          identificación importante con respecto a los metadatos, la
+          autorización, el identificador uniforme de recursos (URI), el
+          almacenamiento en caché, las cookies y otros elementos de la
+          solicitud. Hay encabezados de solicitud y de respuesta, pero cada uno
+          tiene sus propios códigos de estado e información de conexión HTTP.
+        </p>
+      </article>
+      <article class="recursosUniformes">
+        <h3>Recursos uniformes</h3>
+        <p>
+          Desde el lado del servidor, una <span>arquitectura REST</span> expone
+          a los clientes a una interfaz uniforme.
+        </p>
+        <p>
+          Todosl los recursos del servidor tienen un nombre en forma de URL o
+          hipervínculo.
+        </p>
+        <p>
+          Toda la info se intercambia a través del protocolo HTTP (los vervos
+          http son get, post, put, delete)
+        </p>
+        <p>
+          A esas URL les llamamos <span>endpoints</span>(http://..../productos),
+          es decir, el servidor expone a los clientes un conjunto de endpoints
+          para que sete pueda acceder(CRUD).
+        </p>
+        <p>
+          A esa interfaz uniforme, o sea, al conjunto de endpoints, la llamamos
+          <span>API</span>. Es toda la comunicación con el frontend, con
+          backend; es todo el flujo de información. Ejemplo: Ofrezco un servicio
+          a un frontend o backend del precio del dolar según la ciudad que este.
+          Puedo ofrecer ese mismo servicio a otro backend (una empresa que
+          importa para tener el valor del dolar actualizado).
+        </p>
+        <p>
+          Un <span>endpiont</span> está ligado al recurso que solicitamos, dicho
+          recurso debe tener solamente un identificador lógico, y este preveer
+          acceso a toda la info relacionada.
+        </p>
+      </article>
+    </section>
+    <section class="API">
+      <h2>Definicion de API</h2>
+      <h3>¿Qué es una API?</h3>
+      <p>
+        Una <span>API</span> es un conjunto de definiciones y protocolos que se
+        utiliza para desarrollar e integrar el software de las aplicaciones.
+        Suele considerarse como el contrato entre el proveedor de información y
+        el usuario, donde se establece el contenido que se necesita del
+        consumidor <span>la llamada</span> y el que requiere el producto
+        <span>la respuesta</span>.
+      </p>
+      <p>
+        En otras palabras, se desea interactuar con una computadora o un sistema
+        para obtener datos o ejecutar una función, las APIs le permiten
+        comunicar lo que desea al sistema, para que este comprenda la solicitud
+        y la cumpla.
+      </p>
+      <p>
+        La API es el intermediario entre el servidor y el cliente. También está
+        mal dicho que la API sería el servicio completo junto al servidor. Pero
+        algunos cuando mencionan API hacen referencia a ese conjunto.
+      </p>
+      <h3>Para que una API se considere de RESTful</h3>
+      <p>
+        El cliente envía una petición (request). Los métodos HTTP son los verbos
+        (GET, PUT, POST, DELETE). Estos se comunican bidireccionalmente con el
+        Cliente en formato JSON. Los métodos se comunican con el Servidor y este
+        manda una respuesta (response) de manera bidireccional en formato HTTP.
+      </p>
+      <p>
+        En definitiva el Cliente envía una peticion JSON por medio de los
+        métodos HTTP, estos a su vez le hacen llegar dicha peticion en formato
+        HTTP. El servidor contesta dicha petición en formato HTTP por medio de
+        los metodos HTTP y el cliente recibe la respuesta en formato JSON.
+      </p>
+      <p>Debe cumplir los siguientes criterios:</p>
+      <ul>
+        <li>
+          Arquitectura cliente-servidor compuesta de clientes, servidores y
+          recursos, con la gestión de solicitudes a través de
+          <span>HTTP</span> (Métodos o Verbos HTTP, Get
+          <span>Obtener</span> (otros dispositivos que se encuentran en la ruta
+          como servers intermedios, routers, etc; pueden ver la información
+          enviada por GET!), POST <span>Crear</span> (se envia un cuerpo con
+          JSON y <span>el cuerpo no se ve</span> ideal para login), PUT
+          <span>Actualizar</span> (se envia un cuerpo con JSON), DELETE
+          <span>Borrar</span>
+          ).
+        </li>
+        <li>
+          <span>Comunicación entre el cliente y el servidor</span> sin estado,
+          lo cual implica que la información del cliente no se almacena entre
+          las solicitudes de <span>GET</span> y que cada una de ellas es
+          independiente y está desconectada del resto. El servidor solo
+          persistirán datos en la BD. El server no guarda info que no quede en
+          la BD.
+        </li>
+        <li>
+          Datos que pueden almacenarse en caché y
+          <span>optimizan las itteracciones</span> entre el cliente y el
+          servidor.
+        </li>
+        <li>
+          Una <span>interfaz uniforme</span> entre los elementos, para que la
+          información se transfiera de forma estandarizada.
+        </li>
+        <li>
+          Un <span>sistemas de capas</span> que organiza en jerarquías
+          invisibles para el cliente cada uno de los servidores que participan
+          en la recuperación de la información solicitada.
+        </li>
+        <li>
+          <span>Código disponible</span> según se solicite (opcional), es decir,
+          la capacidad de enviar códigos ejecutables del servidor al cliente
+          cuando se requiera, lo cual amplía las funciones del cliente.
+        </li>
+      </ul>
+      <p>
+        <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Status"
+          >Códigos de estado de respuesta HTTP</a
+        >
+      </p>
+    </section>
+    <section class="rutas">
+      <article>
+        <h2>Operaciones de las rutas</h2>
+        <ul>
+          <li>GET: Permite acceder a todos los datos del recurso.</li>
+          <li>POST: Permite crear un nuevo recurso.</li>
+          <li>
+            PUT: Reemplaza un recurso ya existente (reemplaza todo el recurso)
+          </li>
+          <li>
+            PATCH: Actualiza o modifica parcialmente a un recurso ya existente.
+          </li>
+          <li>DELETE: Permite indicar al servidor que borre un recurso.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>¿Qué nos devuelven los URLs?</h3>
+        <p>
+          Cuando accedemos a una URL de nuestra API, esta nos suele devolver
+          datos en formato JSON.
+        </p>
+        <p>Algunos de esos datos son:</p>
+        <ul>
+          <li>
+            Una <span>clave link</span> que apunta al mismo endpoint al que
+            acabamos de acceder.
+          </li>
+          <li>Información genérica (Ej: cantidad de datos)</li>
+          <li>
+            Datos básicos de la petición y otros endpoints para acceder a más
+            detalles.
+          </li>
+        </ul>
+      </article>
+    </section>
+    <!-- 40:40 -->
+    <section class="mvc">
+      <article>
+        <h2>MVC</h2>
+        <h3>Definición</h3>
+        <p>
+          Es un patrón de diseño. Sus siglas corresponden a
+          <span>Modelo Vista Controlador</span>.
+        </p>
+        <h3>¿Qué es un patrón de diseño?</h3>
+        <p>
+          Dentro del mundo de la programación existen lo que se conocen como
+          patrones de diseño. Los mismos proponen un esquema de trabajo, una
+          serie de reglas que permiten simplificar el código y encarar mejor la
+          solución de diferentes situaciones a lo largo del desarrollo.
+        </p>
+        <p>
+          Su objetivo es crear aplicaciones modulares, dividiendo la columan
+          vertebral del proyecto en tres componentes principales, en donde cada
+          uno de ellos cumple con un rol determinado.
+        </p>
+        <p>
+          Estos componentes son:
+          <span>los modelos, las vistas y los controladores</span>.
+        </p>
+        <p>
+          La vista (UI: Interfaz de usuario) representa el estado actual del
+          modelo. Conforman la interfaz gráfica de la aplicación y contienen
+          todos los elementos que son visibles al usuario. A través de ellas el
+          usuario interactúa enviando y solicitando información al servidor. Su
+          responsabilidad es definir la apariencia de los datos y mostrarlos en
+          pantalla. Las vistas no se comunican de forma directa con los modelos.
+        </p>
+        <p>
+          El modelo representa a la lógica de los datos: Conforman y contienen
+          la lógica de la aplicación. Sus responsabilidades son conectarse con
+          la base de datos. Los modeles no se comunican de forma directa a las
+          vistas.
+        </p>
+        <p>
+          El controlador controla y decide como se mostrarán los datos:
+          Conforman la capa intermedia entre las vistas y los modelos. Su
+          responsabilidad es procesar los datos que recibe de los modelos y
+          elegir la vista correspondiente en funcion de aquellos datos. Tienen
+          relación directa con las vistas y con los modelos y es un componente
+          fundamental dentro del flujo del patrón. Administra lo que se conoce
+          como la lógica de negocio.
+        </p>
+        <p>
+          La vista y el modelo
+          <span
+            >no se conectan de manera directa, solo a través del
+            controlador</span
+          >
+        </p>
+      </article>
+      <article>
+        <h2>Explicacion MVC</h2>
+        <h5>
+          <a
+            href="https://www.freecodecamp.org/espanol/news/el-modelo-de-arquitectura-view-controller-pattern/"
+            >Fuente</a
+          >
+        </h5>
+        <p>
+          El patrón de arquitectura MVC convierte el desarrollo de aplicaciones
+          complejas en un proceso mucho más manejable. Permite a varios
+          desarrolladores trabajar simultáneamente en la aplicación.
+        </p>
+        <img src="./assets/MVC3.png" width="600px" alt="MCV" />
+        <h3>¿Por qué deberías usar MVC?</h3>
+        <p>
+          Tres palabras: separación de preocupaciones (separation of concerns),
+          o SoC para abreviar.
+        </p>
+        <p>
+          El patrón MVC te ayuda a dividir el código frontend y backend en
+          componentes separados. De esta manera, es mucho más fácil administrar
+          y hacer cambios a cualquiera de los lados sin que interfieran entre
+          sí.
+        </p>
+        <p>
+          Pero esto es más fácil decirlo que hacerlo, especialmente cuando
+          varios desarrolladores necesitan actualizar, modificar o depurar una
+          aplicación completada simultáneamente.
+        </p>
+      </article>
+      <article>
+        <h2>Ejemplo de una concesionaria</h2>
+        <p>Tengo personal: administrativos, venderores y gerentes</p>
+        <p>Tengo autos y motos de distintos modelos</p>
+        <p>Tengo sucursales de la concesionaria en distintas ciudades</p>
+        <p>
+          Tengo un modelo de datos
+          <span
+            >modelo porque es una representación simplificada de la
+            realidad</span
+          >
+          en la que se guardará todo tipo de datos que necesita la concesionaria
+          para su correcto funcionamiento, y este modelo de datos estará
+          plasmado en una aplicación que use la empresa.
+        </p>
+        <p>
+          El controlador recibirá las peticiones y el que de las respuestas a la
+          vista, el controlador controlará las peticiones como sus respuestas.
+          Cuando reciba una petición pedirá al modelo de datos la información
+          que necesita, el controlador ordenará los datos y se los presentará a
+          la vista para que los muestre (la vista se encargue de mostrarlo).
+        </p>
+      </article>
+    </section>
+    <section class="flujo">
+      <h2>Flujo del Server</h2>
+      <article>
+        <h3>1. app.js</h3>
+        <h4>Empezamos por el archivo principal</h4>
+        <p>
+          Es el archivo principal donde levanta el servidor. Nota:
+          <span>
+            en este archivo no hay mucho código, solo la instancia del server y
+            el método listen.
+          </span>
+        </p>
+      </article>
+      <article>
+        <h3>2. server.js</h3>
+        <h4>Nuestra clase server</h4>
+        <p>
+          En una carpeta <span>models</span> creamos el archivo server.js que
+          contendrá nuestro "molde" del server. Tiene la siguiente estructura:
+        </p>
+        <ul>
+          <li>constructor</li>
+          <li>middlewares</li>
+          <li>routes</li>
+          <li>listen</li>
+        </ul>
+      </article>
+      <article>
+        <h3>3. Routes</h3>
+        <h4>Carpeta con nuestras rutas</h4>
+        <p>En esta carpeta pondremos todas las rutas de nuestro server:</p>
+        <ul>
+          <li>get</li>
+          <li>post</li>
+          <li>put</li>
+          <li>delete</li>
+        </ul>
+      </article>
+    </section>
+    <section class="instalarServidor">
+      <h2>instalar el servidor</h2>
+      <pre><code>
+
+                  npm init
+
+                  configurar package.json
+
+                  En el script del archivo package.json: 
+                    "scripts": {
+                    "test": "echo \"Error: no test specified\" && exit 1",
+                    "start": "node server.js",
+                    "dev":"nodemon server.js"
+                  
+                  instalar nodemon
+                  npm install -g nodemon # or using yarn: yarn global add nodemon
+                  
+                  
+                  npm install express
+
+                  para ejecutar el servidor estable es con node 
+                        npm start
+
+                  para ejecutar el servidor de pruebas con nodemon
+                        npm run dev
+      </code></pre>
+      <p>Código en el archivo server.js</p>
+      <pre><code>
+        // este es el archivo principal que levanta al servidor
+
+        // importar el modulo express
+        const express = require('express');
+
+        // app de mi servidor -> retorno de express ejecutado como una función
+        const app = express();
+
+        // configuro el puerto de salida del servidor en 3000
+        const port = 3000;
+
+        //listen: método de escuchar (inicio del funcionamiento del servidor)
+        app.listen(port, () => {
+            console.log(`App funcionando en el puerto ${port}`);
+        })
+      </code></pre>
+    </section>
+    <section class="aplicacionFlujo">
+      <h2>Aplicación del Flujo del Servidor</h2>
+      <h3>Archivo "package.json"</h3>
+      <p>
+        Una vez configurado este archivo quedará de una manera similar a esta:
+      </p>
+      <pre>
+        <code>
+        {
+            "name": "express",
+            "version": "1.0.0",
+            "description": "",
+            "main": "index.js",
+            "scripts": {
+                "test": "echo \"Error: no test specified\" && exit 1",
+                "start": "node server.js",
+                "dev": "nodemon server.js"
+            },
+            "author": "",
+            "license": "ISC",
+            "dependencies": {
+              "express": "^4.18.2"
+            }
+        }
+        </code>
+      </pre>
+      <h3>Archivo "server.js"</h3>
+      <p>
+        Importo el modulo express, importo las funciones declaradas en app.js.
+      </p>
+      <pre><code>
+        // este es el archivo principal que levanta al servidor
+
+        // importar el modulo express
+        const express = require('express');
+
+        //importo app desde app.js
+        const app = require('./app');
+
+        // app de mi servidor -> retorno de express ejecutado como una función
+        //const app = express();
+
+        // configuro el puerto de salida del servidor en 3000
+        const port = 3000;
+
+        //listen: método de escuchar (inicio del funcionamiento del servidor) 
+        // listen viene de la libreria de express
+        // cuando llamo a app viene el código desde ./app.js
+        app.listen(port, () => {
+            console.log(`App funcionando en el puerto ${port}`);
+        })
+      </code></pre>
+      <h3>Archivo app.js</h3>
+      <pre><code>
+        // importar el modulo express
+        const express = require('express');
+        // app de mi servidor -> retorno de express ejecutado como una función
+        const app = express();
+        // parseo a json para que pueda procesar get, put, delete y post
+        app.use(express.json());
+        // importo las funciones que se declaran en task
+        const taskRouter = require('./routes/task');
+        // asigno la ruta http://localhost:3000/tasks
+        app.use('/tasks', taskRouter);
+        // exporto app par que todos puedan acceder a este archivo (app.js)
+        module.exports = app;
+      </code></pre>
+    </section>
+    <section>
+      <h3>Archivo "/routes/task.js"</h3>
+      <pre><code>
+          // importo express
+          const express = require('express');
+          // importo rutas, este sera el administrador de las rutas
+          const router = express.Router();
+          // importo las funciondes declaradas desde taskController
+          const taskController = require('../controllers/taskController');
+          const { route } = require('../app');
+
+          // en app.js uso el endpoint /tasks  -> todos las tareas
+          router.get('/', taskController.getTasks)
+
+          // tareas por id
+          router.get('/:id', taskController.getTaskByID)
+
+          // buscar tarea por nombre de tarea
+              // localhost:3000/tasks/tarea/hac  
+              // -> { "id": "3", "tarea": "hacer las compras", "hecha": false }
+          router.get('/tarea/:tarea', taskController.getTaskByTarea)
+
+          //agregar una tarea
+          router.post('/', taskController.createTask);
+
+          //actualizar una tarea por id
+          router.put('/:id', taskController.updateTask);
+
+          //eliminar un registro
+          router.delete('/:id', taskController.deleteTask);
+
+          //exporto el modulo para que sea visible al resto del proyecto
+          module.exports = router;
+
+          // este proyecto puede ser virtualizado con la herramienta 
+          //THUNDER CLIENT DISPONIBLE EN CODE.
+      </code></pre>
+    </section>
+
+    <section>
+      <h3>Archivo "/controllers/taskController.js</h3>
+      <pre>
+        <code>
+          // el controlador se encarga del procesamiento de los datos para que se muestren
+          // creo la BD, cada vez que inicio el server los datos que se carguen, 
+          // se actualicen o borren
+          // se perderán solo quedarán los datos que se declaran en este arreglo.
+          // let para poder modificar el arreglo
+          let taskDB = [
+              { id: 1, tarea: 'tarea1', hecha: false },
+              { id: 2, tarea: 'tarea2', hecha: false },
+              { id: 3, tarea: 'hacer las compras', hecha: false },
+              { id: 4, tarea: 'estudiar para el examen', hecha: true },
+              { id: 5, tarea: 'trabajar', hecha: false }
+          ];
+
+
+          // funcion para obtener los datos (en este caso se trata de tareas)
+          // dentro de la funcion el response le asigno un status 200 (server funcionando ok)
+          // y devuelvo la BD en formato Json al cliente.
+          const getTasks = (req, res) => {
+              res.status(200).json({ taskDB })
+          }
+
+          // obtener las tareas por id, virtualiza con Thunder Client
+          // colllections pepe -> new request (body para json)
+          const getTaskByID = (req, res) => {
+              const idRecibido = req.params.id;
+              // PRUEBA: muestro el tipo de dato "numero" 
+              //         que se recibe no es un numero
+
+              // if (isNumberObject(idRecibido)) {
+                  // res.send(`${idRecibido} es un numero`)
+              // } else {
+                  // res.send(`${idRecibido} no es un numero`)
+              // }
+              //buscar en el array
+              const taskSearch = taskDB.find(tarea => tarea.id == idRecibido);
+              //res.send(taskSearch);
+
+              // si la busqueda fue exitosa o no
+              if (taskSearch) {
+                  res.status(200).json({ task: taskSearch, msg: 'Ok' })
+              } else {
+                  // ojo con los tipos
+                  res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
+              }
+          }
+
+          // busqueda no texto 
+          const getTaskByTarea = (req, res) => {
+              // recibo el texto por params  .../tarea/:tarea
+              const tareaAbuscar = req.params.tarea;
+
+              // paso a minusculas todo el texto que se encuentra en tarea
+              // que tenga incluido en su texto el parametro pasado
+              const taskTarea = taskDB.filter(item => item.tarea.toLowerCase().includes(tareaAbuscar.toLowerCase()))
+
+              // si la busqueda fue exitosa o no
+              if (taskTarea) {   // task es el objeto que se muestra por pantalla 
+                                // y taskTarea es el objeto creado con filter
+                  res.status(200).json({ task: taskTarea, msg: 'Ok' })
+              } else {
+                  // ojo con los tipos
+                  res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
+              }
+          }
+
+          // crear una tarea
+          const createTask = (req, res) => {
+              // tarea corresponde al atributo de taskDB, 
+              // si se cambia el nombre "tarea" no se agregará al objeto
+              // el body lo voy a agregar a la lista de tareas (objeto)
+              const { tarea } = req.body;
+              
+              // creo una constante tarea nueva de como
+              // quedaría el dato en el objeto (todavia no se sube)
+              const tareaNueva = {
+                  id: taskDB.length + 1,
+                  tarea: tarea,
+                  hecha: false
+              }
+
+              // agrego la tarea al objeto
+              taskDB.push(tareaNueva);
+
+              // esta parte actualizará la BD taskDB y el dato pusheado quedará guardado en la BD
+              // en caso de ignorar este comando, el sistema quedará en un bucle infinito,
+              // posteriormente lanzara un mensaje de error:
+              // "Connection was forcibly closed by a peer."
+
+              //status 201 porque agrego algo 201 recurso creado
+              res.status(201).json({taskDB, msg : 'Tarea agregada exitosamente'})
+
+          }
+
+          // actualizar una tarea SOLO EL NOMBRE DE LA TAREA
+          const updateTask = (req, res) => {
+              // recibo el id a modificar -> localhost:3000/task/1 -> id=1
+              const id = Number(req.params.id);
+              // buscar el registro que coincida con el id ingresado
+              let task = taskDB.find(tarea => tarea.id === id);
+              
+              
+              if (task) {
+                  // si encuentro la tarea actualizo contenido de la tarea
+                  // cargo la tarea (a modificar) que se encuentra en el body
+                  const { tarea } = req.body;
+                  // modifico la variable (declarada con let)
+                  task = { ...task, tarea: tarea }
+                  // nuevo arreglo de tareas que no coincidan con el id del parametro
+                  const newTaskArray = taskDB.filter(task => task.id !== id);
+                  //defino de nuevo la BD con la newTaskArray + task
+                  taskDB = [...newTaskArray, task];
+                  res.status(200).json({ task: task, msg: 'Tarea actualizada exitosamente!' })
+              } else {
+                  res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
+              }
+          }
+
+          const deleteTask = (req, res) => {
+              // recibo el id a modificar -> localhost:3000/task/1 -> id=1
+              // Number()  es igual que parseInt()
+              const id = parseInt(req.params.id);
+              // buscar el registro que coincida con el id ingresado
+              let task = taskDB.find(tarea => tarea.id == id);
+              // si encuentro la tarea la borro
+              if (task) {
+                  // reemplazo todos los registros 
+                  // sin el id (que quiero borrar)
+                  // al mismo bd
+                  taskDB = taskDB.filter(task => task.id !== id);
+                  res.status(200).json({taskDB, msg: 'Tarea eliminada exitosamente!'})
+              } else {
+                  res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
+              }
+          }
+
+
+        // exporto getTasks para que otros modulos tengan acceso (en este caso task.js)
+        // module.exports = funcion;  -> exporto solo una función
+        // module.exports = { funciones };  -> exporto mas de una función
+        module.exports = { getTasks, getTaskByID, getTaskByTarea, createTask, updateTask, deleteTask };
+        </code>
+      </pre>
+      <h3>Ejemplo de Thunder Client</h3>
+      <img
+        src="./assets/THUNDER-CLIENT.png"
+        width="600px"
+        alt="thunder client"
+      />
+      <p>y el codigo completo:</p>
+      <pre>
+        <code>
+          {
+          "client": "Thunder Client",
+          "collectionName": "la-costa",
+          "dateExported": "2024-01-18T23:55:40.960Z",
+          "version": "1.1",
+          "folders": [],
+          "requests": [
+              {
+                  "_id": "824c4765-498a-42a0-90b4-d94a79d40e99",
+                  "colId": "3e412e57-7b9d-4458-a98f-eb348d0d1902",
+                  "containerId": "",
+                  "name": "listar todas las tareas",
+                  "url": "localhost:3000/tasks",
+                  "method": "GET",
+                  "sortNum": 50000,
+                  "created": "2024-01-17T11:38:45.326Z",
+                  "modified": "2024-01-17T22:23:46.375Z",
+                  "headers": [],
+                  "params": [],
+                  "body": {
+                      "type": "json",
+                      "raw": "{\n  \"tarea\":\"nueva tarea\"\n}",
+                      "form": []
+                  },
+                  "tests": []
+              },
+              {
+                  "_id": "2e4d7ca7-6ba2-480a-af77-3894f77487e5",
+                  "colId": "3e412e57-7b9d-4458-a98f-eb348d0d1902",
+                  "containerId": "",
+                  "name": "tarea por id",
+                  "url": "localhost:3000/tasks/6",
+                  "method": "GET",
+                  "sortNum": 60000,
+                  "created": "2024-01-17T13:30:59.590Z",
+                  "modified": "2024-01-17T16:30:03.521Z",
+                  "headers": [],
+                  "params": [],
+                  "tests": []
+              },
+              {
+                  "_id": "76bdda59-5df3-437a-852e-775c5fd80f1f",
+                  "colId": "3e412e57-7b9d-4458-a98f-eb348d0d1902",
+                  "containerId": "",
+                  "name": "consulta tarea por nombre",
+                  "url": "localhost:3000/tasks/tarea/A",
+                  "method": "GET",
+                  "sortNum": 70000,
+                  "created": "2024-01-17T16:32:49.603Z",
+                  "modified": "2024-01-18T23:54:51.391Z",
+                  "headers": [],
+                  "params": [],
+                  "tests": []
+              },
+              {
+                  "_id": "7d1763b9-0fd7-4a35-a902-a6ca4ea272b1",
+                  "colId": "3e412e57-7b9d-4458-a98f-eb348d0d1902",
+                  "containerId": "",
+                  "name": "nueva tarea",
+                  "url": "localhost:3000/tasks/",
+                  "method": "POST",
+                  "sortNum": 80000,
+                  "created": "2024-01-17T17:18:17.934Z",
+                  "modified": "2024-01-17T17:24:18.267Z",
+                  "headers": [],
+                  "params": [],
+                  "body": {
+                      "type": "json",
+                      "raw": "{\n  \"tarea\": \"Una nueva tarea\"\n}",
+                      "form": []
+                  },
+                  "tests": []
+              },
+              {
+                  "_id": "fdfd8c49-3016-4482-8a4b-d62f53cadec1",
+                  "colId": "3e412e57-7b9d-4458-a98f-eb348d0d1902",
+                  "containerId": "",
+                  "name": "actualizar tarea",
+                  "url": "localhost:3000/tasks/6",
+                  "method": "PUT",
+                  "sortNum": 90000,
+                  "created": "2024-01-18T02:23:01.011Z",
+                  "modified": "2024-01-18T19:40:53.961Z",
+                  "headers": [],
+                  "params": [],
+                  "body": {
+                      "type": "json",
+                      "raw": "{\n  \"tarea\": \"La sexta tarea!!!!\"\n}",
+                      "form": []
+                  },
+                  "tests": []
+              },
+              {
+                  "_id": "e6cd9e65-bd48-431e-a8e1-f9a175a1e5ca",
+                  "colId": "3e412e57-7b9d-4458-a98f-eb348d0d1902",
+                  "containerId": "",
+                  "name": "eliminar una tarea",
+                  "url": "localhost:3000/tasks/6",
+                  "method": "DELETE",
+                  "sortNum": 100000,
+                  "created": "2024-01-18T22:12:37.820Z",
+                  "modified": "2024-01-18T22:16:29.512Z",
+                  "headers": [],
+                  "params": [],
+                  "tests": []
+              }
+          ]
+      }
+        </code>
+      </pre>
+    </section>
+    <section>
+      <h2>Continuacion del proyecto en la Clase 29</h2>
+      <article>
+        <h3>MVC y Cliente HTTP</h3>
+        <p>Implementamos en nuestro código este patrón</p>
+        <ul>
+          <li>carpeta models</li>
+          <li>carpeta routes</li>
+          <li>carpeta controllers</li>
+        </ul>
+        <p>
+          Donde en la carpeta models tendremos nuestra clase server (no se hara
+          un servidor con clases), en la carpeta routes alojaremos todas las
+          rutas de nuestra API, y en la carpeta Controllers tiene todos los
+          controladores para las rutas correspondientes.
+        </p>
+        <p>
+          Entre el modelo y la vista está el controlador. Desde la vista llegan
+          las peticiones al controlador, el controlador le envia las peticiones
+          al modelo para que trabaje, por último el modelo responde al
+          controlador y este le envia la respuesta a la vista.
+        </p>
+      </article>
+      <article>
+        <h3>Comnunicaciones entre Front y Back</h3>
+        <p>
+          En el backend vamos a estar esperando las solicitudes del frontend
+          (desde fetch o axios)
+        </p>
+        <p>
+          Tambien Axios se puede utilizar en el backend para comunicarse a otra
+          API Rest sea externa o interna
+        </p>
+        <p>
+          Hay veces que se realizan consultas desde el front que pueden no tener cuerpo (con body como post
+          sin body con get); con post en el body va un JSON y en la base de datos se termina guardando o 
+          modificando cierta información o con get se pide cierta información, por ultimo se da una respuesta
+          del exito o el fracaso de la accion y la app del cliente muestra el mensaje.
+        </p>
+        <p>
+          Si nuestra app es dinámica, cuando un usuario entre desde su navegador,
+          realizará una solicitud de HTTP, por ejemplo, para que se muestre el
+          listado de los productos.
+        </p>
+        <p>
+          El usuario ingresa a nuestra aplicación desde su navegador. Lo que se muestra en el 
+          frontend es lo que esta desarrollado en React. Éste envia la solicitud del usuario al 
+          backend. El backend es la API REST, es lo que ha sido desarrollada en NodeJS. Node le 
+          pide a la Base de Datos la informacion requerida por el usuario y la envia en formato JSON 
+          al frontend como respuesta.
+        </p>
+      </article>
+      <article>
+        <h3>Cliente HTTP</h3>
+        <p>
+          El cliente HTTP es el encargado de abrir una sesión HTTP y de enviar la solicitud de 
+          conexion al servidor.
+        </p>
+        <p>
+          Hay varias formas de realizar solicitudes HTTP en Node a través de clientes HTTP. 
+          Existen dos tipos prinicipales de clientes:
+        </p>
+        <ul>
+          <li>Internos: módulos HTTP o HTTPS estándar que vienen en la librería de  NodeJS (fetch)</li>
+          <li>Externos: paquetes de NPM (axios o Got) instalables como cualquier módulo</li>
+        </ul>
+      </article>
+      <article>
+        <h3>axios</h3>
+        <p>axios es una biblioteca de solicitudes muy popular basada en promesas.</p>
+        <p>Es un cliente HTTP disponible tanto para el navegador como para NodeJS</p>
+        <p>Incluye también funciones útiles como interceptar datos de solicitud y respuesta, 
+          y la capacidad de transformar automáticamente los datos de solicitud y respuesta a JSON
+        </p>
+        <p>
+          Lo empezamos a usar instalando el módulo de axios
+        </p>
+        <pre><code>npm i axios</code></pre>
+      </article>
+      <article>
+        <h3>axios - Petición GET</h3>
+        <p>Para realizar una petición por GET al servidor usando axios, vamos a ver dos ejemplos posibles (promesas)</p>
+        <h4>Definir el ID como query en la url</h4>
+        <pre><code>
+          const axios = require('axios')
+          axios.get('/user?ID=32')
+            .then(function(response:any){
+              console.log(response)
+            })
+            .catch(function(error:any){
+              console.log(error)
+            })
+        </code></pre>
+        <h4>Definir en la propiedad params</h4>
+        <pre><code>
+          const axios = require('axios')
+          axios.get('/user',{
+            params: {
+              ID:32
+            }
+          })
+            .then(function(response:any){
+              console.log(response)
+            })
+            .catch(function(error:any){
+              console.log(error)
+            })
+        </code></pre>
+        <p>Además, al funcionar con promesas, podemos usar la sintaxis de Async/Await: (Se recomienda)</p>
+        <pre><code>
+          const axios = require('axios')
+
+          const getUserId = async () => {
+            try {
+
+              const response = await axios.get('/user?ID=32')
+              console.log(response)
+            
+            } catch (error) {
+
+              console.log(error)
+
+            }
+          }
+        </code></pre>
+      </article>
+      <article>
+        <h3>Rutas</h3>
+        <p></p>
+      </article>
+      <article>
+        <h3>Postman</h3>
+        <p></p>
+      </article>
+      <article>
+        <h3>Middlewares</h3>
+        <p></p>
+      </article>
+      <article>
+        <h3>Resumen</h3>
+        <p></p>
+      </article>
+    </section>
+  </body>
+</html>
+<!-- 1:57:00  -->
