@@ -64,11 +64,18 @@ const taskRouter = require('./routes/task');
 
 const timeStamp = require('./middleware/logTimeStamp');
 
+// importo la conexion de Mongoose
+const dbConnect = require('./database/dbConections');
+
+
 //antes de la ruta timeStamp para imprimir en el servidor una estampa de lo que se esta usando (ver en thunder client)
 app.use(timeStamp);
 
 app.use('/tasks', taskRouter);
 // exporto app par que todos puedan acceder a este archivo (app.js)
 
+
+//luego de las rutas conecto a mongoDB
+dbConnect();    // conectar a la base de datos
 
 module.exports = app;

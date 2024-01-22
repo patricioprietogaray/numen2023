@@ -3,13 +3,13 @@
 // se actualicen o borren
 // se perderán solo quedarán los datos que se declaran en este arreglo.
 // let para poder modificar el arreglo
-let taskDB = [
-    { id: 1, tarea: 'tarea1', hecha: false },
-    { id: 2, tarea: 'tarea2', hecha: false },
-    { id: 3, tarea: 'hacer las compras', hecha: false },
-    { id: 4, tarea: 'estudiar para el examen', hecha: true },
-    { id: 5, tarea: 'trabajar', hecha: false }
-];
+// let taskDB = [
+//     { id: 1, tarea: 'tarea1', hecha: false },
+//     { id: 2, tarea: 'tarea2', hecha: false },
+//     { id: 3, tarea: 'hacer las compras', hecha: false },
+//     { id: 4, tarea: 'estudiar para el examen', hecha: true },
+//     { id: 5, tarea: 'trabajar', hecha: false }
+// ];
 
 
 // funcion para obtener los datos (en este caso se trata de tareas)

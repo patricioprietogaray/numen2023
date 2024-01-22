@@ -930,7 +930,7 @@
       </article>
       <article>
         <h3>Postman</h3>
-        <p></p>
+        <p>Es una forma más profesional que cliente HTTP.</p>
       </article>
       <article>
         <h3>Middlewares</h3>
@@ -986,7 +986,9 @@
           Middleware generalmente funcionan como filtro y si no corresponde
           devuelve al cliente una respuesta. En caso que esté bien la peticion
           (ejemplo el usuario existe pasa al siguiente middleware y si no
-          retorna al cliente un mensaje de error)
+          retorna al cliente un mensaje de error. Otro ejemplo de middleware sería 
+          que el server una vez logueado el usuario le entregue a este un token y con ese 
+          token habrá un middleware que verifique si el token es válido.)
         </p>
         <h3>Tipos de Middleware</h3>
         <ul>
@@ -1078,6 +1080,224 @@
         <p></p>
       </article>
     </section>
+    <section>
+      <article>
+        <h3>01. ¿Qué es MONGODB?</h3>
+        <p>MongoDB es una base de datos orientada a documentos. Esto quiere decir que en lugar 
+          de guardar los datos en registros, guarda los datos en documentos. Estos documentos 
+          son almacenados en JSON.
+        </p>
+        <p>
+          Una de las diferencias más importantes con respecto a las bases de datos relacionales, es que 
+          no es necesario seguir un esquema. Los documentos de una misma colección (concepto similar 
+          a una tabla de una base de datos relacional), pueden tener esquemas diferentes.
+        </p>
+        <h3>02. Características</h3>
+        <h4>Generales</h4>
+        <ul>
+          <li>Almacena datos en documentos flexibles similares a JSON, la estructura de datos 
+            puede cambiarse con el tiempo. Ejemplo cada usuario en vez de 
+            registrarse debiera documentarse. Carecen de estructura definida, en un documento 
+            podria tener nombre domicilio y el el siguiente nombre, domicilio y telefono.
+          </li>
+          <li>El modelo de documento se asigna a los objetos en el código de su aplicación 
+            para facilitar el trabajo con los datos.
+          </li>
+          <li>MongoDB es una base de datos distribuida en su núcleo, por lo que la 
+            alda disponibilidad, la escalabilidad horizontal y la distribución geográfica 
+            estan integradas y son fáciles de usar. Las bases de datos relacionales consumen
+            muchos mas recursos en el servidor (almacenamiento y poder de calculo) que una 
+            base de datos no relacional. MongoDB tienen servidores en todo el mundo.
+
+          </li>
+          <li>Es de uso gratuito</li>
+        </ul>
+        <h3>03. Concepto</h3>
+        <p>El concepto de bases de datos NoSQL va creciendo y se utiliza con más frecuencia.</p>
+        <p>El concepto NoSQL define sistemas que difieren del modelo clásico SQL. Lo más destacado 
+          de NoSQL es que no usan SQL como lenguaje principal de consultas.
+        </p>
+        <p>
+          MongoDB es una base de datos orientada a documentos. No se basa en el concepto de tabla, 
+          fila y registro sino que se apoya en el concepto de <span>Colección, Documento y Propiedad</span>.
+        </p>
+        <h3>05. Arquitectura (en la diapo falta la 04)</h3>
+        <img src="./assets/mongo01.png"  width="400px"  alt="Imagen del Servidor MongoDB">
+        <h3>06. Diferencias</h3>
+        <ul>
+          <li>Aquí comienzan las diferencias importantes entre una base de datos SQL y una 
+            NoSQL. El concepto de fila y de documentos son bastante diferentes.
+          </li>
+          <li>
+            Una fila está compuesta de columnas y siempre son las mismas para todas ellas.
+          </li>
+          <li>
+            En cambio un documento está compuesto por claves y valores y cada documento puede 
+            tener variaciones importantes con respecto al anterior dentro de una colección.
+          </li>
+        </ul>
+        <h3>07. Ejemplo (en la diapo falta la 06)</h3>
+        <img src="./assets/SQL-NoSQL.png"  width="600px" alt="diferencias sql y no sql">
+        <p>Las bases de datos relacionales tienen relaciones e indices y por lo tanto gastan más 
+          recursos en su manuntención.
+        </p>
+        <p>Las bases de datos no relacionales o en este caso NoSQL la relacion la tengo que definir 
+          en otra colección especial para ello.
+        </p>
+        <h3>08. Ventajas y desventajas</h3>
+        <div>
+          <div>
+            <h4>Ventajas</h4>
+            <ul>
+              <li>La escalabilidad y su carácter descentralizado hacen que 
+                soporte estructuras distribuidas. Ej: puedo acceder a una base de datos en 
+              la nube (chile o brasil)</li>
+              <li>Permiten realizar sistemas más abiertos y flexibles debido a su fácil 
+                adaptación de nuevas evoluciones de nuestras aplicaciones web</li>
+              <li>No se requieren potentes recursos para poder trabajar con bases de datos NoSQL</li>
+              <li>Optimización de las consultas en base de datos para grandes cantidades 
+                de datos almacenados</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Discusión</h4>
+            <ul>
+              <li>Problemas con sentencias SQL ya que no admiten el 100% de las 
+                consultas existentes.</li>
+              <li>Carece de algo tan fundamental como los Joins. Las relaciones se hacen a mano.</li>
+              <li>Falta de estandarización entre diferentes bases de datos NoSQL</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article>
+        <h2>Utilización de mongoose - Objeto de modelado elegante de mongodb para node.js</h2>
+        <p>Mongoose es una librería (ODM - Object Document Mapping) para MongoDB. Mongoose abstrae 
+          tode de la base de datos, y el código de la aplicacion interactúa solo con los objetos y 
+          sus métodos. Los ODM también permiten especificar las relaciones entre diferentes tipos 
+          de objetos y poner sobre estos lógica dentro de clases.
+        </p>
+        <p>ODM es un asistente para trabajar con MongoDB de manera sencilla. Para instalarlo en el 
+          proyecto que vamos a utilizar:
+        </p>
+        <pre><code>
+          $ npm install mongoose  
+          $ npm install dotnenv -> crear en la '/' (raiz) del proyecto un archivo ".env"
+        </code></pre>
+        <p>El archivo .env (dotenv) se usará para guardar la info sensibles como api keys que son llaves 
+          que le dan las apis para poder tener acceso a esa api.
+        </p>
+        <p>
+          En la pagina <a href="https://cloud.mongodb.com/">MongoDB</a> voy a Database (se encuentra 
+          en el menú de la izquierda) y clickeo en la siguiente ruta <span>Database -> MongoDB for VS Code</span>
+          copio la ruta que se genera en el punto 3 <span>mongodb+srv://patricio:MI-PASSWORD@cluster0.ncvbcji.mongodb.net/</span>
+          MI-PASSWORD será reemplazada por la contraseña que tengo acceso a la pagina de MongoDB.
+        </p>
+        <h3>Archivo .env</h3>
+        <p>En el archivo .env asigno una variable con el formato clave=valor (MONGO_URL = mongodb+srv:.... 
+          sin comillas).</P>
+          <span>NOTA: El archivo .env no se sube al repositorio!!!</span>
+
+        <h3>Configurar la conexion en dbConnection.js</h3>
+        <pre><code>
+          // incluyo el módulo
+          const mongoose = require('mongoose');
+
+          // asi como esta incluyo el modulo dotenv NO SE GUARDA EN UNA VARIABLE  
+          require('dotenv').config();
+
+          // funcion para la conexion de la BD de mongoose asincrona
+          // asincrona es porque tardará cierto tiempo en conectar la BD a un servidor remoto
+          const dbConnect = async () => {
+              try {
+                  // que se conecte mongoose con los datos que se encuentran en .env
+                  await mongoose.connect(process.env.MONGO_URL)
+              } catch (error) {
+                  Console.log('Error al conectarse a la base de datos: ' + error.message);
+              }
+          }
+
+          module.exports = dbConnect;
+        </code></pre>
+        <h3>En el archivo app.js configuro: </h3>
+        <pre><code>
+          // importo la conexion
+          const dbConnect = require('./database/dbConections');
+          .....
+          .....
+          //luego de las rutas conecto a mongoDB (después del app.use)
+          dbConnect();    // conectar a la base de datos
+        </code></pre>
+        <h3>Archivo taskController.js</h3>
+        <p>Deshabilito el objeto que funcionaba como BD</p>
+        <pre><code>
+          // let taskDB = [
+          //     { id: 1, tarea: 'tarea1', hecha: false },
+          //     { id: 2, tarea: 'tarea2', hecha: false },
+          //     { id: 3, tarea: 'hacer las compras', hecha: false },
+          //     { id: 4, tarea: 'estudiar para el examen', hecha: true },
+          //     { id: 5, tarea: 'trabajar', hecha: false }
+          // ];
+        </code></pre>
+        <p>Mientras tanto en la página de mongodb cree una BD llamada taskDB y una colección 
+          llamada tareas
+        </p>
+        <img src="./assets/mongo02.png" width="600px" alt="base de datos y coleccion en mongodb.com">
+      </article>
+    </section>
+    <section>
+      <h2>Creando un modelo</h2>
+      <p>En Mongoose, <span>un Schema (Esquema)</span> es la estrucuta que indica cual es la forma en la 
+      que están estructurados los <span>documentos</span> que se almacenan en una colección de MongoDB. 
+      Cada schema esta <span>compuesto por campos y tipos de datos permitidos</span>, además de 
+      opciones para llevar a cabo la validación de dichos documentos.</p>
+      <img src="./assets/mongo03.png" width="600px" alt="Vista del esquema">
+      <p>Nota: En cada documento se cargan los datos en el formato clave:valor.</p>
+      <p>En la carpeta models crearé un archivo Task.js, el cual definiré el esquema que tendra cada documento</p>
+      <pre><code>
+        // impoto el modelo mongoose
+        const mongoose = require('mongoose');
+        const { type } = require('os');
+
+        // clase "esquema" de mongoose (le da forma al modelo)
+        const Schema = mongoose.Schema;
+
+        // taskSchema será una instancia de Schema
+        // que contendrá las tareas, en otras palabras estoy 
+        // definiendo la estructura
+        const taskSchema = new Schema({
+            id: {
+                type: String,     // tipo de datos que contendrá será caracter
+                required: true,   // si se requiere que sea cargado se aclara que sea true (como por defecto es false no hace falta definir required en caso de que su valor sea falso.)
+                unique: true
+            },
+            title: {
+                type: String,
+                required: true
+            },
+            description: {
+                type: String,
+                required: true
+            },
+            completed: {
+                type: Boolean,
+                default: false   // tarea completada tipo booleano y por defecto cargará el valor falso
+            },
+            createAt: {
+                default: new Date().toLocaleDateString()      // default -> se generará automaticamente cuando se 
+            },                                                   // cargue una nueva tarea a la coleccion
+
+        })
+
+        // con este clase voy a poder instanciar el modelo de tipo tarea e instanciarla en la base de datos.
+        // clase que sirve para trabajar con el modelo Task (tarea)
+        const Task = mongoose.model('Task', taskSchema); // nombre del modelo 'Task' y se cita el esquema (taskSchema)
+
+        //exporto el modelo
+        module.exports = Task;
+      </code></pre>
+
+    </section>
   </body>
 </html>
-<!-- 0:45:00  -->
+<!-- 1:50:00  -->
