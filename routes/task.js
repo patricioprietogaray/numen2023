@@ -55,7 +55,7 @@ const taskController = require('../controllers/taskController');
 const { route } = require('../app');
 
 // en app.js uso el endpoint /tasks  -> todos las tareas
-router.get('/', taskController.getTasks)
+router.get('/', taskController.getAllTasks)
 
 // tareas por id
 router.get('/:id', taskController.getTaskByID)

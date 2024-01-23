@@ -12,12 +12,31 @@
 // ];
 
 
+// em reemplazo de taskDB, traigo el esquema
+const Task = require('../models/Task');
+
+
 // funcion para obtener los datos (en este caso se trata de tareas)
 // dentro de la funcion el response le asigno un status 200 (server funcionando ok)
 // y devuelvo la BD en formato Json al cliente.
-const getTasks = (req, res) => {
-    res.status(200).json({ taskDB })
+// const getTasks = (req, res) => {
+//     res.status(200).json({ taskDB })
+// }
+// En reemplazo con lo anterior (taskDB) ahora obtengo las tareas por otra fuente (internet)
+// peticion de los datos arranca en app.js -->  dbConnect();
+const getAllTasks = async (req, res) => {
+
+    try {
+
+        const allTasks = await Task.find();  // trae todas las tareas de la coleccion
+        res.status(200).json({ tasks: allTasks, msg: 'OK' });
+    } catch (error) { 
+        res.status(500).json({tasks: [], msg: `Error en el servidor - ${error.message}`})  //500 error del servidor
+    }
+
 }
+
+
 
 // obtener las tareas por id, virtualiza con Thunder Client
 // colllections pepe -> new request (body para json)
@@ -63,20 +82,51 @@ const getTaskByTarea = (req, res) => {
     }
 }
 
-// crear una tarea
-const createTask = (req, res) => {
-    // tarea corresponde al atributo de taskDB, 
-    // si se cambia el nombre "tarea" no se agregará al objeto
-    // el body lo voy a agregar a la lista de tareas (objeto)
-    const { tarea } = req.body;
+// // crear una tarea desde un objeto local
+// const createTask = (req, res) => {
+//     // tarea corresponde al atributo de taskDB, 
+//     // si se cambia el nombre "tarea" no se agregará al objeto
+//     // el body lo voy a agregar a la lista de tareas (objeto)
+//     const { tarea } = req.body;
     
-    // creo una constante tarea nueva de como
-    // quedaría el dato en el objeto (todavia no se sube)
-    const tareaNueva = {
-        id: taskDB.length + 1,
-        tarea: tarea,
-        hecha: false
+//     // creo una constante tarea nueva de como
+//     // quedaría el dato en el objeto (todavia no se sube)
+//     const tareaNueva = {
+//         id: taskDB.length + 1,
+//         tarea: tarea,
+//         hecha: false
+//     }
+
+//     // agrego la tarea al objeto
+//     taskDB.push(tareaNueva);
+
+//     // esta parte actualizará la BD taskDB y el dato pusheado quedará guardado en la BD
+//     // en caso de ignorar este comando, el sistema quedará en un bucle infinito,
+//     // posteriormente lanzara un mensaje de error:
+//     // "Connection was forcibly closed by a peer."
+
+//     //status 201 porque agrego algo 201 recurso creado
+//     res.status(201).json({taskDB, msg : 'Tarea agregada exitosamente'})
+
+// }
+
+// crear una tarea desde mongodb.com
+const createTask = async (req, res) => {
+   
+    try {
+        // crear una nueva tarea a la base de datos
+        //const { tarea } = req.body;
+        //const task = await task.create(tarea);
+        
+        //unifico lo anterior
+        const task = await task.create(req.body);
+
+        res.status(201).json({task, msg: 'Tarea agregada exitosamente'});
+    } catch (error) {
+        res.status(500).json({ msg: `Error al cargar la nueva tarea - ${error.message}` });
     }
+    
+    
 
     // agrego la tarea al objeto
     taskDB.push(tareaNueva);
@@ -137,6 +187,6 @@ const deleteTask = (req, res) => {
 // exporto getTasks para que otros modulos tengan acceso (en este caso task.js)
 // module.exports = funcion;  -> exporto solo una función
 // module.exports = { funciones };  -> exporto mas de una función
-module.exports = { getTasks, getTaskByID, getTaskByTarea, createTask, updateTask, deleteTask };
+module.exports = { getAllTasks, getTaskByID, getTaskByTarea, createTask, updateTask, deleteTask };
 
 //1:54
