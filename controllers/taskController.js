@@ -12,7 +12,8 @@
 // ];
 
 
-// em reemplazo de taskDB, traigo el esquema
+// en reemplazo de taskDB, traigo el esquema
+// y lo importo del modelo, Task.js
 const Task = require('../models/Task');
 
 
@@ -22,6 +23,8 @@ const Task = require('../models/Task');
 // const getTasks = (req, res) => {
 //     res.status(200).json({ taskDB })
 // }
+
+
 // En reemplazo con lo anterior (taskDB) ahora obtengo las tareas por otra fuente (internet)
 // peticion de los datos arranca en app.js -->  dbConnect();
 const getAllTasks = async (req, res) => {
@@ -31,6 +34,7 @@ const getAllTasks = async (req, res) => {
         const allTasks = await Task.find();  // trae todas las tareas de la coleccion
         res.status(200).json({ tasks: allTasks, msg: 'OK' });
     } catch (error) { 
+        //error generico del servidor (500)
         res.status(500).json({tasks: [], msg: `Error en el servidor - ${error.message}`})  //500 error del servidor
     }
 
@@ -110,35 +114,19 @@ const getTaskByTarea = (req, res) => {
 
 // }
 
-// crear una tarea desde mongodb.com
+// crear una tarea desde mongodb.com 
 const createTask = async (req, res) => {
-   
+    const { tarea } = req.body;
+    const crearLaTarea = await Task.create(tarea);  //Task es lo que traigo desde el esquema
+                                // creamos una nueva tarea (documento) en la base de datos en mongodb.com
+    
+    // como lo hizo en el video
+    // const crearLaTarea = await Task.create({ req.body });
     try {
-        // crear una nueva tarea a la base de datos
-        //const { tarea } = req.body;
-        //const task = await task.create(tarea);
-        
-        //unifico lo anterior
-        const task = await task.create(req.body);
-
-        res.status(201).json({task, msg: 'Tarea agregada exitosamente'});
-    } catch (error) {
-        res.status(500).json({ msg: `Error al cargar la nueva tarea - ${error.message}` });
+        res.status(201).json({ crearLaTarea, msg: 'Tarea agregada exitosamente!' });
+    } catch(e) {
+        res.status(500).json({msg: "Error al cargar la nueva tarea - "+e.message})
     }
-    
-    
-
-    // agrego la tarea al objeto
-    taskDB.push(tareaNueva);
-
-    // esta parte actualizará la BD taskDB y el dato pusheado quedará guardado en la BD
-    // en caso de ignorar este comando, el sistema quedará en un bucle infinito,
-    // posteriormente lanzara un mensaje de error:
-    // "Connection was forcibly closed by a peer."
-
-    //status 201 porque agrego algo 201 recurso creado
-    res.status(201).json({taskDB, msg : 'Tarea agregada exitosamente'})
-
 }
 
 // actualizar una tarea SOLO EL NOMBRE DE LA TAREA

@@ -71,8 +71,10 @@ const dbConnect = require('./database/dbConections');
 //antes de la ruta timeStamp para imprimir en el servidor una estampa de lo que se esta usando (ver en thunder client)
 app.use(timeStamp);
 
+// el endpoint es tasks que corresponde a la BD de mongodb
 app.use('/tasks', taskRouter);
-// exporto app par que todos puedan acceder a este archivo (app.js)
+// exporto app par que todos puedan acceder a este archivo 
+//(app.js)
 
 
 //luego de las rutas conecto a mongoDB
