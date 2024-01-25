@@ -16,35 +16,53 @@ const taskSchema = new Schema({
     //},
 
     //  este esquema tiene que coincidir con el esqueda de cloud.mongodb.com
-    userID: {    // id del usuario que crea la tarea
-        type: mongoose.Types.ObjectId,   // id creado por mongoDB.com
-        //type: Number,
-    //     // required: true,
-        //unique: true  -> snular si usa objectId
+    // userID: {    // id del usuario que crea la tarea
+    //     // type: mongoose.Types.ObjectId,
+    //     //type: mongoose.Types.ObjectId,   // id creado por mongoDB.com
+    //     type: Number,
+    //     required: true,
+    //     unique: true  // -> anular si usa objectId
+    // },
+    userID: {
+        type: Number,
+        required: true
+
+       // {
+       //   "crearLaTarea": {
+       //     "title": "Comprar en el super20",
+       //     "description": "El libro primero",
+       //     "completed": false,
+       //     "_id": "65b1068197eaa16c565084fd",
+       //     "createdAt": "2024-01-24T12:45:53.457Z",
+       //     "updatedAt": "2024-01-24T12:45:53.457Z",
+       //     "__v": 0
+       //   },
+       //   "msg": "Tarea agregada exitosamente!"
+       // }
     },
     title: {
-        type: String
-        // required: true
+        type: String,
+        required: true
     },
     description: {
-        type: String
-        // required: true
+        type: String,
+        required: true
     },
     completed: {
         type: Boolean,
         default: false   // tarea completada tipo booleano y por defecto cargará el valor falso
     },
     // primera forma
-    createAt: {
-        default: new Date().toLocaleDateString(),
-        type: String      // default -> se generará automaticamente cuando se
-        // },                    // cargue una nueva tarea a la coleccion, el createAt es un string,
-        // de esta manera no hay error desde mongodb.com
+    // createAt: {
+    //     default: new Date().toLocaleDateString(),
+    //     type: String      // default -> se generará automaticamente cuando se
+    //     // },                    // cargue una nueva tarea a la coleccion, el createAt es un string,
+    //     // de esta manera no hay error desde mongodb.com
 
     },
     // segunda forma para que el sistema agregue automaticamente createAt y updateAt
-    //{timestamps: true}
-})
+    {timestamps: true}
+)
 
 // con este clase voy a poder instanciar el modelo de tipo tarea e instanciarla en la base de datos.
 // clase que sirve para trabajar con el modelo Task (tarea)

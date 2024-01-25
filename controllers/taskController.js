@@ -41,50 +41,118 @@ const getAllTasks = async (req, res) => {
 }
 
 
-
+// en un objeto
 // obtener las tareas por id, virtualiza con Thunder Client
 // colllections pepe -> new request (body para json)
-const getTaskByID = (req, res) => {
-    const idRecibido = req.params.id;
-    // PRUEBA: muestro el tipo de dato "numero" 
-    //         que se recibe no es un numero
+// const getTaskByID = (req, res) => {
+//     const idRecibido = req.params.id;
+//     // PRUEBA: muestro el tipo de dato "numero" 
+//     //         que se recibe no es un numero
 
-    // if (isNumberObject(idRecibido)) {
-        // res.send(`${idRecibido} es un numero`)
-    // } else {
-        // res.send(`${idRecibido} no es un numero`)
-    // }
-    //buscar en el array
-    const taskSearch = taskDB.find(tarea => tarea.id == idRecibido);
-    //res.send(taskSearch);
+//     // if (isNumberObject(idRecibido)) {
+//         // res.send(`${idRecibido} es un numero`)
+//     // } else {
+//         // res.send(`${idRecibido} no es un numero`)
+//     // }
+//     //buscar en el array
+//     const taskSearch = taskDB.find(tarea => tarea.id == idRecibido);
+//     //res.send(taskSearch);
 
+//     // si la busqueda fue exitosa o no
+//     if (taskSearch) {
+//         res.status(200).json({ task: taskSearch, msg: 'Ok' })
+//     } else {
+//         // ojo con los tipos
+//         res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
+//     }
+// }
+
+//en mongoDB
+const getTaskByID = async (req, res) => {
+    const id = req.params.id;
+    const taskSearch = await Task.findById(id); // id de mongoDB
     // si la busqueda fue exitosa o no
     if (taskSearch) {
         res.status(200).json({ task: taskSearch, msg: 'Ok' })
     } else {
-        // ojo con los tipos
-        res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
+       // ojo con los tipos
+       res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
     }
 }
 
-// busqueda no texto 
-const getTaskByTarea = (req, res) => {
+
+// busqueda no texto desde el objeto
+// const getTaskByTarea = (req, res) => {
     // recibo el texto por params  .../tarea/:tarea
-    const tareaAbuscar = req.params.tarea;
+    // const tareaAbuscar = req.params.tarea;
 
     // paso a minusculas todo el texto que se encuentra en tarea
     // que tenga incluido en su texto el parametro pasado
-    const taskTarea = taskDB.filter(item => item.tarea.toLowerCase().includes(tareaAbuscar.toLowerCase()))
+    // const taskTarea = taskDB.filter(item => item.tarea.toLowerCase().includes(tareaAbuscar.toLowerCase()))
 
     // si la busqueda fue exitosa o no
-    if (taskTarea) {   // task es el objeto que se muestra por pantalla 
+    // if (taskTarea) {   // task es el objeto que se muestra por pantalla 
                        // y taskTarea es el objeto creado con filter
-        res.status(200).json({ task: taskTarea, msg: 'Ok' })
-    } else {
+        // res.status(200).json({ task: taskTarea, msg: 'Ok' })
+    // } else {
         // ojo con los tipos
-        res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
+        // res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
+    // }
+// }
+
+// busqueda no texto desde el mongoDB
+const getTaskByTarea = async (req, res) => {
+    // prueba el codigo (dentro del try) si hay error va por el catch
+    try {
+        const tareaAbuscar = req.params.tarea;
+
+        //metodo find para buscar la tarea en la coleccion
+        // find para obtener un array de tareas que coincidan con la tarea a buscar
+        // se usa $regex para hacer una busqueda de una expresion regular sea en mayúsculas o minúsculas
+        const tareasEncontradas = await Task.find({ title: { $regex: new RegExp(tareaAbuscar, 'i') } });
+
+        // si la longitud del arreglo obtenido es mayor a cero 
+        if (tareasEncontradas.length > 0) {
+            res.status(200).json({ msg: `Se encontró: ${tareasEncontradas}` });
+        } else {
+            res.send('No se encontraron tareas para: ' + json(tareaAbuscar));
+        }
+    } catch (e) {
+        res.send("Error al buscar la tarea: " + e.message);
+        res.status(500).send("Error interno del servidor!");
     }
-}
+    
+} 
+    // const { tareasEncontradas } = await Task.findOne({ title: tareaAbuscar });
+    //Task.filter(item => item.tarea.toLowerCase().includes(tarea.toLowerCase()));
+
+    // if (tareasEncontradas) {
+        // res.send('Se encontro la tarea');
+    // } else {
+        // res.send('No se encontró la tarea.... (' + tareaAbuscar + ')')
+    // }
+
+
+    //const taskTarea = await Task.findOne(req.params.tarea);
+    //taskDB.filter(item => item.tarea.toLowerCase().includes(tareaAbuscar.toLowerCase()))
+
+    // const taskTarea = await Task.findOne(tareaAbuscar);
+        
+    
+        
+        //{ title }, req.body, (err, cli) => {
+        // item.tarea.toLowerCase().includes(tareaAbuscar.toLowerCase())
+    // })
+
+    // si la busqueda fue exitosa o no
+    // if (taskTarea) {   // task es el objeto que se muestra por pantalla 
+                       // y taskTarea es el objeto creado con filter
+        // res.status(200).json({ task: taskTarea, msg: 'Ok' })
+    // } else {
+        // ojo con los tipos
+        // res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
+    // }
+// }
 
 // // crear una tarea desde un objeto local
 // const createTask = (req, res) => {
@@ -116,65 +184,100 @@ const getTaskByTarea = (req, res) => {
 
 // crear una tarea desde mongodb.com 
 const createTask = async (req, res) => {
-    const { tarea } = req.body;
-    const crearLaTarea = await Task.create(tarea);  //Task es lo que traigo desde el esquema
-                                // creamos una nueva tarea (documento) en la base de datos en mongodb.com
+    try {
+        const crearLaTarea = await Task.create(req.body);
+        //Task es lo que traigo desde el esquema
+        // creamos una nueva tarea (documento) en la base de datos en mongodb.com
+        // es condicion pasar req.body como argumento de manera directa
     
     // como lo hizo en el video
     // const crearLaTarea = await Task.create({ req.body });
-    try {
+    //try {
         res.status(201).json({ crearLaTarea, msg: 'Tarea agregada exitosamente!' });
     } catch(e) {
         res.status(500).json({msg: "Error al cargar la nueva tarea - "+e.message})
     }
+    //TENER CUIDADO CON LOS INDICES EN MONGODB.COM 
+    //(TIENE QUE HABER UNO SOLO POR BD -O ESO CREO- PERO FUNCIONA!)
 }
 
-// actualizar una tarea SOLO EL NOMBRE DE LA TAREA
-const updateTask = (req, res) => {
+// actualizar una tarea SOLO EL NOMBRE DE LA TAREA para un objeto
+// const updateTask = (req, res) => {
     // recibo el id a modificar -> localhost:3000/task/1 -> id=1
-    const id = Number(req.params.id);
+    // const id = Number(req.params.id);
     // buscar el registro que coincida con el id ingresado
-    let task = taskDB.find(tarea => tarea.id === id);
+    // let task = taskDB.find(tarea => tarea.id === id);
     
     
-    if (task) {
+    // if (task) {
         // si encuentro la tarea actualizo contenido de la tarea
         // cargo la tarea (a modificar) que se encuentra en el body
-        const { tarea } = req.body;
+        // const { tarea } = req.body;
         // modifico la variable (declarada con let)
-        task = { ...task, tarea: tarea }
+        // task = { ...task, tarea: tarea }
         // nuevo arreglo de tareas que no coincidan con el id del parametro
-        const newTaskArray = taskDB.filter(task => task.id !== id);
+        // const newTaskArray = taskDB.filter(task => task.id !== id);
         //defino de nuevo la BD con la newTaskArray + task
-        taskDB = [...newTaskArray, task];
-        res.status(200).json({ task: task, msg: 'Tarea actualizada exitosamente!' })
-    } else {
-        res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
+        // taskDB = [...newTaskArray, task];
+        // res.status(200).json({ task: task, msg: 'Tarea actualizada exitosamente!' })
+    // } else {
+        // res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
+    // }
+// }
+
+// actualizar una tarea SOLO EL NOMBRE DE LA TAREA para mongodb
+const updateTask = async (req, res) => {
+    try {
+        // findByIdAndUpdate -> Permite buscar y actualizar
+        // el primer parametro es el id de que quiero actualizar
+        // el segundo parámetro es por que lo voy a cambiar (vienen los cambios por el body)
+        const taskUpd = await Task.findByIdAndUpdate(req.params.id, req.body);
+        res
+            .status(200)
+            .json({ task: taskUpd, msg: 'Documento actualizado correctamente!' });
+
+    } catch (e) {
+        res
+            .status(500)
+            .json({ msg: `Error en la actualizacion de la tarea: ${e.message}` })
     }
 }
 
-const deleteTask = (req, res) => {
-    // recibo el id a modificar -> localhost:3000/task/1 -> id=1
-    // Number()  es igual que parseInt()
-    const id = parseInt(req.params.id);
-    // buscar el registro que coincida con el id ingresado
-    let task = taskDB.find(tarea => tarea.id == id);
-    // si encuentro la tarea la borro
-    if (task) {
-        // reemplazo todos los registros 
-        // sin el id (que quiero borrar)
-        // al mismo bd
-        taskDB = taskDB.filter(task => task.id !== id);
-        res.status(200).json({taskDB, msg: 'Tarea eliminada exitosamente!'})
-    } else {
-        res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
-    }
-}
+// const deleteTask = (req, res) => {
+//     // recibo el id a modificar -> localhost:3000/task/1 -> id=1
+//     // Number()  es igual que parseInt()
+//     const id = parseInt(req.params.id);
+//     // buscar el registro que coincida con el id ingresado
+//     let task = taskDB.find(tarea => tarea.id == id);
+//     // si encuentro la tarea la borro
+//     if (task) {
+//         // reemplazo todos los registros 
+//         // sin el id (que quiero borrar)
+//         // al mismo bd
+//         taskDB = taskDB.filter(task => task.id !== id);
+//         res.status(200).json({taskDB, msg: 'Tarea eliminada exitosamente!'})
+//     } else {
+//         res.status(404).json({ task: null, msg: 'Recurso no encontrado' })
+//     }
+// }
 //1:43 se ve en el thunder en la previa, pero no se ve reflejado en la bd
+
+// borrar documentos desde mongodb
+const deleteTask = async (req, res) => {
+
+    try {
+        const deletedTask = await Task.findByIdAndDelete(req.params.id);
+        res.status(200).json({task: deletedTask, msg: `Tarea eliminada exitosamente! `})
+    } catch (e) {
+        res.status(500).json({ msg: `Error al eliminar la tarea - ` + e.message });
+    }
+
+}
+
 
 // exporto getTasks para que otros modulos tengan acceso (en este caso task.js)
 // module.exports = funcion;  -> exporto solo una función
 // module.exports = { funciones };  -> exporto mas de una función
 module.exports = { getAllTasks, getTaskByID, getTaskByTarea, createTask, updateTask, deleteTask };
 
-//1:54
+//17:00
