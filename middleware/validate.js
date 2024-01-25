@@ -17,7 +17,7 @@ const validate = (req, res, next) => {
             // transforma errors en un arreglo y mapeo la lista de errores. por cada error agrego a extractErrors el error
         errors
             .array()
-            .map(error => extractedErrors.push({ [error.params]: error.msg })); 
+            .map(error => extractedErrors.push({ ['Ingresó: '+error.value]: error.msg })); 
 
         //respuesta al cliente  -- 400 bad request
         // puede pasar que envie un error

@@ -61,6 +61,9 @@ app.use(express.json());
 // importo las funciones que se declaran en task
 const taskRouter = require('./routes/task');
 // asigno la ruta http://localhost:3000/tasks
+const userRouter = require('./routes/user');
+// asigno la ruta http://localhost:3000/users
+
 
 const timeStamp = require('./middleware/logTimeStamp');
 
@@ -73,6 +76,10 @@ app.use(timeStamp);
 
 // el endpoint es tasks que corresponde a la BD de mongodb
 app.use('/tasks', taskRouter);
+
+// el endpoint es tasks que corresponde a la BD de mongodb
+app.use('/users', userRouter);
+
 // exporto app par que todos puedan acceder a este archivo 
 //(app.js)
 
