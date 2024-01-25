@@ -49,12 +49,16 @@
 // importo express
 const express = require('express');
 //importo validate desde la carpeta middleware - express validator -> para chequear algun atributo (campo)
+// tambien se puede importar el validate por un lado y el check (express-validator) por otro)
 const { validate, body } = require('../middleware/validate');
 // importo rutas, este sera el administrador de las rutas
 const router = express.Router();
 // importo las funciondes declaradas desde taskController
 const taskController = require('../controllers/taskController');
 const { route } = require('../app');
+
+//importo las validaciones
+const { title, userID } = require('../utils/validations');
 
 // en app.js uso el endpoint /tasks  -> todos las tareas
 //Validaciones: se hacen antres de llegar al modulo
@@ -74,14 +78,16 @@ router.get('/tarea/:tarea', taskController.getTaskByTarea)
 router.post(
     '/',
     //check('userID').notEmpty().withMessage('El userID es obligatorio').isNumeric().withMessage('El user Id debe ser un numero'),
-    // ahora uso body que viene de middleware/validate.js para que primero cumpla con las condiciones de la validacion y luego 
+    // ahora uso body que viene de middleware/validate.js para que primero cumpla con las condiciones de la validacion y luego
     // llame a validate
-    body('userID')
-        .notEmpty()
-        .withMessage('El user Id debe ser ogligatorio!')
-        .isNumeric()
-        .withMessage('El userID debe ser numerico'),
-    validate,  //funcion de validacion    const validate = (req, res, next) => { .....
+    // body('userID')
+    //     .notEmpty()
+    //     .withMessage('El user Id debe ser ogligatorio!')
+    //     .isNumeric()
+    //     .withMessage('El userID debe ser numerico'),
+    // validate,  //funcion de validacion    const validate = (req, res, next) => { .....
+    // ........ ahora lo exporte de utils/validatios.js
+    userID, title, validate,  //campo de validacion userID y title. funcion que valida (validate) - el return next pasa al controlador
     taskController.createTask
 );
 
