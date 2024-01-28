@@ -413,3 +413,28 @@ en las clases se pueden definir los tipos de la propiedad de las mismas clases.
 
 
 saludar();
+
+en cambio
+const saludar2 = (): void => "Hola, buenas tardes!";    -> el tipo void no se le puede asignar un tipo String
+
+en las clases se pueden definir los tipos de la propiedad de las mismas clases.
+
+class Usuario {
+    private nombreUsuario: string;
+    private password: string;
+    private email: string;
+
+    constructor(nombreUsuario: string, password: string, email: string) {
+        this.nombreUsuario = nombreUsuario;
+        this.password = password;
+        this.email = email;
+    }
+
+    getNombreUsuario() {
+        return this.nombreUsuario;
+    }
+}
+
+En la clase la propiedad es privada, tiene un constructor (que permite su herhencia para transformarse en un objeto),
+los metodos en este caso son publicos por defecto.
+
